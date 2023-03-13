@@ -13,3 +13,42 @@ about:
 
 * [Email para dúvidas](mailto:brunodoyt@gmail.com)
 * [Instalação do R e RStudio](instalacao.html)
+* [Como habilitar compilação de pacotes](compilacao.html)
+
+## Materiais recomendados
+
+### Gerais
+
+* [R for Data Science (segunda edição)](https://r4ds.hadley.nz/): trata-se de um
+livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund
+que foca em uma coleção de pacotes (`tidyverse`) voltados para ciência de dados
+com R.
+* [Advanced R](http://adv-r.had.co.nz/): escrito por Hadley Wickham, aborda aspectos
+mais avançados referentes à programação em R de forma mais aprofundada.
+* [Reproducible Medical Research with R](https://www.bookdown.org/pdr_higgins/rmrwr/):
+Livro escrito por um médico sobre fluxos de trabalho em R para criação de *pipelines*
+reprodutíveis.
+* [The Epidemiologist R Handbook](https://epirhandbook.com/en/): Livro de referência para
+códigos em R que facilitam rotinas de análise de dados para epidemiologia.
+
+### Visualização de dados
+
+* [Data Visualization: A Practical Introduction](https://socviz.co/): um livro muito
+completo escrito por Kieran Healy sobre visualização de dados com `ggplot2`. Caso opte
+por apenas uma referência em visualização, recomendo este livro.
+* [R Graphics Cookbook (segunda edição)](https://r-graphics.org/): escrito por Winston Chang,
+é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.
+
+### Estatística básica
+
+* [OpenIntro Statistics](https://www.openintro.org/book/os/): escrito por Diez et al.,
+um livro livre e de código aberto para introdução à estatística.
+
+* [OpenIntro Introduction to Modern Statistics](https://openintro-ims.netlify.app/):
+escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta
+conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui
+tutoriais interativos em R ao final dos capítulos.
+
+## Slides
+
+* [Slides da Aula 1: R e RStudio](slides/semana_1/semana_1_r_e_rstudio.html)

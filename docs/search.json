@@ -4,20 +4,167 @@
     "href": "index.html",
     "title": "Introdução em R",
     "section": "",
-    "text": "Email para dúvidas\nInstalação do R e RStudio"
+    "text": "Email para dúvidas\nInstalação do R e RStudio\nComo habilitar compilação de pacotes"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
+    "objectID": "index.html#materiais-recomendados",
+    "href": "index.html#materiais-recomendados",
+    "title": "Introdução em R",
+    "section": "Materiais recomendados",
+    "text": "Materiais recomendados\n\nGerais\n\nR for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\n\n\n\nVisualização de dados\n\nData Visualization: A Practical Introduction: um livro muito completo escrito por Kieran Healy sobre visualização de dados com ggplot2. Caso opte por apenas uma referência em visualização, recomendo este livro.\nR Graphics Cookbook (segunda edição): escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.\n\n\n\nEstatística básica\n\nOpenIntro Statistics: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.\nOpenIntro Introduction to Modern Statistics: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos."
+  },
+  {
+    "objectID": "index.html#slides",
+    "href": "index.html#slides",
+    "title": "Introdução em R",
+    "section": "Slides",
+    "text": "Slides\n\nSlides da Aula 1: R e RStudio"
+  },
+  {
+    "objectID": "sobre.html",
+    "href": "sobre.html",
     "title": "Sobre o curso",
     "section": "",
     "text": "As aulas se darão a partir de um modelo híbrido. Algumas aulas serão presenciais e outras serão realizadas através de videoconferências em plataformas online."
   },
   {
-    "objectID": "about.html#quantas-aulas-serão-realizadas",
-    "href": "about.html#quantas-aulas-serão-realizadas",
+    "objectID": "sobre.html#quantas-aulas-serão-realizadas",
+    "href": "sobre.html#quantas-aulas-serão-realizadas",
     "title": "Sobre o curso",
     "section": "Quantas aulas serão realizadas?",
     "text": "Quantas aulas serão realizadas?"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
+    "title": "R e RStudio",
+    "section": "Objetivos do curso",
+    "text": "Objetivos do curso\n\nDesenvolver habilidades básicas no manejo e visualização de dados em R\nAprender conceitos básicos de programação\nIntroduzir práticas de reprodutibilidade em pesquisa acadêmica\nIntroduzir conceitos e rotinas de análise de dados em saúde"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#quem-sou-eu",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#quem-sou-eu",
+    "title": "R e RStudio",
+    "section": "Quem sou eu?",
+    "text": "Quem sou eu?\nBruno Montezano\n\nMestrando em Psiquiatria e Ciências do Comportamento\nIntegrante do grupo de pesquisa Alliance\nPesquisa\n\nPsiquiatria de precisão\nAprendizado de máquina\nTranstorno bipolar\nSuicídio"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#logística-do-curso",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#logística-do-curso",
+    "title": "R e RStudio",
+    "section": "Logística do curso",
+    "text": "Logística do curso\nOnde?\n\n\nReuniões online\nEncontros presenciais\n\n\nMateriais: https://brunomontezano.github.io/r-workshop/"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#materiais",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#materiais",
+    "title": "R e RStudio",
+    "section": "Materiais",
+    "text": "Materiais\nTodos os materiais do curso estarão no site do curso.\n\n\nSlides e códigos usados para gerar os slides\nUm script em R com os códigos dos slides para seguir durante a aula\nArquivos em PDF dos slides\nLinks com outros materiais sugeridos\n\n\nSe algo não estiver funcionado no site, me enviem um email!"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#plano-de-ensino",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#plano-de-ensino",
+    "title": "R e RStudio",
+    "section": "Plano de ensino",
+    "text": "Plano de ensino\n\nR e RStudio"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
+    "title": "R e RStudio",
+    "section": "Por que aprender análise quantitativa de dados?",
+    "text": "Por que aprender análise quantitativa de dados?\nVocês vão ler pesquisa quantitativa\n\nInterpretação\nAvaliação\n\nVocês podem fazer pesquisa quantitativa\n\nAnálise\nComunicação"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#mas-precisamos-mesmo-de-programação",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#mas-precisamos-mesmo-de-programação",
+    "title": "R e RStudio",
+    "section": "Mas precisamos mesmo de programação?",
+    "text": "Mas precisamos mesmo de programação?\nSim. Programação é importante.\n\nLimpar dados na mão é:\n\nPropenso a erros\nDemorado\nNão é reprodutível\n\nProgramação pode nos abrir portas\n\nTestar novos métodos\nMelhor compreensão de resultados\nAutomatização de rotinas\n\nMas a frustração nos acompanha nessa jornada…\n\nA boa notícia é que nos acostumamos"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#formatação-dos-slides",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#formatação-dos-slides",
+    "title": "R e RStudio",
+    "section": "Formatação dos slides",
+    "text": "Formatação dos slides\nNegrito indica um termo importante.\nItálico indica ênfase ou instruções para clicar com o mouse.\n\n\nExemplo: “Clique em Arquivo > Salvar como…”.\n\n\nCódigo representa o código em R para ser digitado ou teclas para realizar ações.\n\n\nExemplo: “Pressione Ctrl-P para abrir a janela de impressão”.\n\n\nOs blocos de código são código de fato executado no R.\n\n# Quanto dá 25 vezes 11?\n25 * 11\n\n[1] 275"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-usar-r",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-usar-r",
+    "title": "R e RStudio",
+    "section": "Por que usar R?",
+    "text": "Por que usar R?\nR é uma linguagem de programação construída para computação estatística.\nVamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?\n\nR é gratuito, então não precisamos de licença\nR tem uma grande comunidade para pacotes e suporte\nR consegue trabalhar com praticamente qualquer formato de dado\nR facilita o processo de replicação e reprodutibilidade\nR é uma linguagem então é capaz de fazer quase tudo1\nR é parecido com outras linguagens de programação (Python, Julia, etc)\n\nVide os slides e o site do curso."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#rstudio",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#rstudio",
+    "title": "R e RStudio",
+    "section": "RStudio",
+    "text": "RStudio\nO RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.\n\nOrganização do código, saídas e plots\nAutocompletar e destacar o código\nAjuda a visualizar os dados e objetos\nHabilita integração de código em R em documentos com Quarto e RMarkdown\n\nAlém disso:\n\nManejar repositórios git\nRodar tutoriais interativos\nLidar com outras linguagens de programação como Python, SQL e HTML"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#interface-do-rstudio",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#interface-do-rstudio",
+    "title": "R e RStudio",
+    "section": "Interface do RStudio",
+    "text": "Interface do RStudio\nVamos abrir o RStudio e ir em Arquivo > Novo Arquivo > R Script.\nVamos entender a interface:\n\nCanto superior esquerdo: Editor de código e visualizador de dados\nCanto inferior esquerdo: Console para rodar código (>)\nCanto superior direito: Lista de objetos no Ambiente, aba de Histórico\nCanto inferior direito: Abas para navegar pelos arquivos, ver plots, manejar pacotes, e visualizar arquivos de ajuda\n\nO layout pode ser modificado em Preferências > Layout do Painel"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#editando-e-executando-código-em-r",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#editando-e-executando-código-em-r",
+    "title": "R e RStudio",
+    "section": "Editando e executando código em R",
+    "text": "Editando e executando código em R\nPodemos executar (rodar) nosso código de diversas formas:\n\nSelecionar linhas no Editor e clicar em Executar no topo ou pressione Ctrl+Enter ou ⌘+Enter para rodar a seleção\nCom o seu cursor (|) na linha que você quer executar, pressione Ctrl+Enter ou ⌘+Enter. Notem que o cursor se move para a próxima linha, para que possamos rodar vários códigos em sequência\nEscreva linhas individuais no Console e pressione Enter\n\nO Console vai mostrar as linhas que você rodou seguido pela saída."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#código-incompleto",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#código-incompleto",
+    "title": "R e RStudio",
+    "section": "Código incompleto",
+    "text": "Código incompleto\nSe você errar (por exemplo, esquecer de fechar um parênteses), o R pode mostrar um + pedindo para que você complete o comando:\n\n> (11 - 2\n+\n\nOu finalize o comando, ou aperte Esc para sair dessa operação."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#r-como-calculadora",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#r-como-calculadora",
+    "title": "R e RStudio",
+    "section": "R como calculadora",
+    "text": "R como calculadora\nNo Console, vamos digitar 111 + 222 + 333 e pressionar Enter.\n\n111 + 222 + 333\n\n[1] 666\n\n\nO [1] na saída indica o índice numérico do primeiro elemento da linha.\nAgora, no nosso documento em R em branco no Editor, vamos digitar sqrt(81) e clicar Executar ou pressionar Ctrl+Enter ou ⌘+Enter.\n\nsqrt(81)\n\n[1] 9"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#funções-e-ajuda",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#funções-e-ajuda",
+    "title": "R e RStudio",
+    "section": "Funções e Ajuda",
+    "text": "Funções e Ajuda\nsqrt() é um exemplo de função do R.\nSe nós não soubermos o que sqrt() é, podemos digitar ?sqrt no Console e ver a aba de Ajuda na direita.\n\n?sqrt\n\n\nArgumentos são as entradas de uma função. Nesse caso, o único argumento para sqrt() é x, que pode ser um número ou um vetor de números.\nArquivos de ajuda provém documentação em como usar as funções e o que a função retorna."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#criando-objetos",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#criando-objetos",
+    "title": "R e RStudio",
+    "section": "Criando objetos",
+    "text": "Criando objetos\nR armazena tudo como um objeto, incluindo dados, funções, modelos, e saída.\nA criação de um objeto pode ser feita usando o operador de atribuição: <-\n\nnovo_objeto <- 144\n\n\nOperadores como o <- são funções que se parecem com símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre () como na função sqrt(x).1\n\n\nNós fazemos contas matemáticas com operadores, por exemplo, x + y.\n+ é o operador de adição.\n\nPodemos chamar operadores como funções com crase: `+`(x, y)"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#chamando-objetos",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#chamando-objetos",
+    "title": "R e RStudio",
+    "section": "Chamando objetos",
+    "text": "Chamando objetos\nNós podemos mostrar ou “chamar” um objeto através do seu nome.\n\nnovo_objeto\n\n[1] 144\n\n\n\nNomes de objetos podem conter _ e ., mas não podem começar com números. Tente sempre ser consistente ao nomear objetos.\n\n\nPoder autocompletar seu código significa que nomes longos são melhores que nomes vagos!\nBons nomes previnem confusão."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#usando-objetos",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#usando-objetos",
+    "title": "R e RStudio",
+    "section": "Usando objetos",
+    "text": "Usando objetos\nVocê pode tratar o nome do objeto como se ele fosse os valores armazenados no próprio objeto.\n\n\nnovo_objeto + 10\n\n[1] 154\n\n\n\nnovo_objeto + novo_objeto\n\n[1] 288\n\n\n\nsqrt(novo_objeto)\n\n[1] 12"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#criando-vetores",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#criando-vetores",
+    "title": "R e RStudio",
+    "section": "Criando vetores",
+    "text": "Criando vetores\nUm vetor é uma série de elementos, como números, por exemplo.\nNós podemos criar um vetor usando a função c() que significa “combinar”.\n\nnovo_objeto <- c(4, 9, 16, 25, 36)\nnovo_objeto\n\n[1]  4  9 16 25 36\n\n\n\nAtribuir em um nome já existente sobrescreve esse objeto.\n\n\nVocê pode usar um vetor como argumento para várias funções.\n\n\n\nsqrt(novo_objeto)\n\n[1] 2 3 4 5 6"
   }
 ]

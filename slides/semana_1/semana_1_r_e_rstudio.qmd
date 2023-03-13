@@ -1,0 +1,304 @@
+---
+title: "R e RStudio"
+author: "Bruno Montezano"
+lang: pt-br
+execute:
+  echo: true
+format:
+  revealjs:
+    css: "../assets/styles.css"
+    incremental: true
+---
+
+## Objetivos do curso
+
+- Desenvolver habilidades básicas no manejo e visualização de dados em R
+- Aprender conceitos básicos de programação
+- Introduzir práticas de reprodutibilidade em pesquisa acadêmica
+- Introduzir conceitos e rotinas de análise de dados em saúde
+
+## Quem sou eu?
+
+#### Bruno Montezano
+
+- Mestrando em Psiquiatria e Ciências do Comportamento
+- Integrante do grupo de pesquisa Alliance
+- Pesquisa
+  - Psiquiatria de precisão
+  - Aprendizado de máquina
+  - Transtorno bipolar
+  - Suicídio
+  
+## Logística do curso
+
+Onde?
+
+::: {.nonincremental}
+- Reuniões online
+- Encontros presenciais
+:::
+
+Materiais: [https://brunomontezano.github.io/r-workshop/](https://brunomontezano.github.io/r-workshop/)
+
+## Materiais
+
+Todos os materiais do curso estarão no
+[site do curso](https://brunomontezano.github.io/r-workshop/).
+
+::: {.nonincremental}
+- Slides e códigos usados para gerar os slides
+- Um script em R com os códigos dos slides para seguir durante a aula
+- Arquivos em PDF dos slides
+- Links com outros materiais sugeridos
+:::
+
+Se algo não estiver funcionado no site, me enviem um email!
+
+## Plano de ensino
+
+1. R e RStudio
+
+## Por que aprender análise quantitativa de dados?
+
+#### Vocês vão ler pesquisa quantitativa
+
+- Interpretação
+- Avaliação 
+
+#### Vocês podem fazer pesquisa quantitativa
+
+- Análise
+- Comunicação
+
+## Mas precisamos mesmo de programação? {.smaller}
+
+Sim. Programação é *importante*.
+
+- Limpar dados na mão é:
+  - Propenso a erros
+  - Demorado
+  - Não é **reprodutível**
+
+- Programação pode nos abrir portas
+  - Testar novos métodos
+  - Melhor compreensão de resultados
+  - Automatização de rotinas
+  
+- Mas a frustração nos acompanha nessa jornada...
+  - A boa notícia é que nos acostumamos
+  
+## Formatação dos slides {.smaller}
+
+**Negrito** indica um termo importante.
+
+*Itálico* indica ênfase ou instruções para clicar com o mouse.
+
+::: {.nonincremental}
+- Exemplo: "Clique em *Arquivo > Salvar como...*".
+:::
+
+`Código` representa o código em R para ser digitado ou
+teclas para realizar ações.
+
+::: {.nonincremental}
+- Exemplo: "Pressione `Ctrl-P` para abrir a janela de impressão".
+:::
+Os blocos de código são *código de fato executado no R*.
+
+```{r exemplo-formatacao}
+# Quanto dá 25 vezes 11?
+25 * 11
+```
+
+## Por que usar R? {.smaller}
+
+R é uma linguagem de programação construída para computação estatística.
+
+Vamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?
+
+- R é gratuito, então não precisamos de licença
+- R tem uma grande comunidade para pacotes e suporte
+- R consegue trabalhar com *praticamente* qualquer formato de dado
+- R *facilita* o processo de replicação e reprodutibilidade
+- R é uma linguagem então é capaz de fazer *quase tudo*^[Vide os slides e o site do curso.]
+- R é parecido com outras linguagens de programação (Python, Julia, etc)
+
+## RStudio {.smaller}
+
+O RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.
+
+- Organização do código, saídas e plots
+- Autocompletar e destacar o código
+- Ajuda a visualizar os dados e objetos
+- Habilita integração de código em R em documentos com **Quarto** e **RMarkdown**
+
+Além disso:
+
+- Manejar repositórios `git`
+- Rodar tutoriais interativos
+- Lidar com outras linguagens de programação como Python, SQL e HTML
+
+## Interface do RStudio {.smaller}
+
+Vamos abrir o RStudio e ir em *Arquivo > Novo Arquivo > R Script*.
+
+Vamos entender a interface:
+
+- Canto superior esquerdo: **Editor** de código e visualizador de dados
+- Canto inferior esquerdo: **Console** para rodar código (`>`)
+- Canto superior direito: Lista de objetos no **Ambiente**, aba de **Histórico**
+- Canto inferior direito: Abas para navegar pelos arquivos, ver plots, manejar
+pacotes, e visualizar arquivos de ajuda
+
+O layout pode ser modificado em *Preferências > Layout do Painel*
+
+## Editando e executando código em R
+
+Podemos executar (rodar) nosso código de diversas formas:
+
+- Selecionar linhas no **Editor** e clicar em *Executar* no topo ou pressione
+`Ctrl+Enter` ou `⌘+Enter` para rodar a seleção
+
+- Com o seu **cursor** (`|`) na linha que você quer executar,
+pressione `Ctrl+Enter` ou `⌘+Enter`. Notem que o cursor se move para a próxima linha,
+para que possamos rodar vários códigos em sequência
+
+- Escreva linhas individuais no **Console** e pressione `Enter`
+
+O **Console** vai mostrar as linhas que você rodou seguido pela saída.
+
+## Código incompleto
+
+Se você errar (por exemplo, esquecer de fechar um parênteses), o R pode mostrar um
+`+` pedindo para que você complete o comando:
+
+```{r codigo-incompleto}
+#| eval: false
+> (11 - 2
++
+```
+
+Ou finalize o comando, ou aperte `Esc` para sair dessa operação.
+
+## R como calculadora
+
+No **Console**, vamos digitar `111 + 222 + 333` e pressionar `Enter`.
+
+```{r soma}
+111 + 222 + 333
+```
+
+O `[1]` na saída indica o **índice** numérico do primeiro elemento da linha.
+
+Agora, no nosso documento em R em branco no **Editor**, vamos digitar `sqrt(81)` e
+clicar `Executar` ou pressionar `Ctrl+Enter` ou `⌘+Enter`.
+
+```{r rodar-sqrt}
+sqrt(81)
+```
+
+## Funções e Ajuda
+
+`sqrt()` é um exemplo de **função** do R.
+
+Se nós não soubermos o que `sqrt()` é, podemos digitar `?sqrt` no **Console** e ver
+a aba de **Ajuda** na direita.
+
+```{r ajuda-sqrt}
+#| eval: false
+?sqrt
+```
+
+. . .
+
+**Argumentos** são as *entradas* de uma função. Nesse caso, o único argumento para
+`sqrt()` é `x`, que pode ser um número ou um vetor de números.
+
+Arquivos de ajuda provém documentação em como usar as funções e o que a função
+retorna.
+
+## Criando objetos {.smaller}
+
+R armazena *tudo* como um **objeto**, incluindo dados, funções, modelos, e saída.
+
+A criação de um objeto pode ser feita usando o **operador de atribuição**: `<-`
+
+```{r criar-objeto}
+novo_objeto <- 144
+```
+
+. . .
+
+**Operadores** como o `<-` são funções que se parecem com símbolos mas geralmente ficam
+entre argumentos (números ou objetos) ao invés de ter eles entre `()` como na função
+`sqrt(x)`.^[Podemos chamar operadores como funções com crase: \`+\`(x, y)]
+
+. . .
+
+Nós fazemos contas matemáticas com operadores, por exemplo, `x + y`.
+
+`+` é o operador de adição.
+
+## Chamando objetos
+
+Nós podemos mostrar ou "chamar" um objeto através do seu nome.
+
+```{r chamar-objeto}
+novo_objeto
+```
+
+. . .
+
+Nomes de objetos podem conter `_` e `.`, mas não podem *começar* com números. Tente sempre
+ser consistente ao nomear objetos.
+
+. . .
+
+Poder autocompletar seu código significa que *nomes longos são melhores que nomes vagos*!
+
+Bons nomes previnem confusão.
+
+## Usando objetos
+
+Você pode tratar o **nome** do objeto como se ele fosse os valores armazenados no
+próprio objeto.
+
+. . .
+
+```{r somar-dez}
+novo_objeto + 10
+```
+
+```{r objeto-mais-objeto}
+novo_objeto + novo_objeto
+```
+
+```{r sqrt-objeto}
+sqrt(novo_objeto)
+```
+
+## Criando vetores
+
+Um **vetor** é uma série de **elementos**, como números, por exemplo.
+
+Nós podemos criar um vetor usando a função `c()` que significa "combinar".
+
+```{r criar-vetor}
+novo_objeto <- c(4, 9, 16, 25, 36)
+novo_objeto
+```
+
+. . .
+
+Atribuir em um nome já existente *sobrescreve esse objeto*.
+
+. . .
+
+Você pode usar um vetor como argumento para várias funções.
+
+. . .
+
+```{r sqrt-vetor}
+sqrt(novo_objeto)
+```
+
