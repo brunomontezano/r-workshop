@@ -3,18 +3,19 @@ project:
   output-dir: docs
 
 website:
-  title: "r-workshop"
+  title: "Introdução ao R"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: Página inicial
+      - href: about.qmd
+        text: Sobre o curso
 
 format:
   html:
-    theme: cosmo
+    theme: simplex
     css: styles.css
-    toc: true
+    toc: false
 
 
 

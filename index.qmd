@@ -1,11 +1,15 @@
 ---
-title: "r-workshop"
+title: "Introdução em R"
+subtitle: "Professor: Bruno Montezano\nGrupo Alliance"
+image: r_logo.png
+lang: pt-br
+about: 
+  template: trestles
+  image-shape: rounded
+  image-width: 15em
 ---
 
-This is a Quarto website.
+## Links importantes
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
+* [Email para dúvidas](mailto:brunodoyt@gmail.com)
+* [Instalação do R e RStudio](instalacao.html)
