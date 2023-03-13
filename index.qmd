@@ -1,5 +1,5 @@
 ---
-title: "Introdução em R"
+title: "Página inicial"
 subtitle: "Professor: Bruno Montezano\nGrupo Alliance"
 image: r_logo.png
 lang: pt-br
@@ -48,6 +48,20 @@ um livro livre e de código aberto para introdução à estatística.
 escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta
 conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui
 tutoriais interativos em R ao final dos capítulos.
+
+### Reprodutibilidade e Comunicação
+
+* [Reproducible Analytical Pipelines](https://rap4mads.eu/): escrito por Bruno Rodrigues,
+é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um
+livro mais aprofundado do que o *Reproducible Medical Research with R*, e requer maior
+conhecimento em computação.
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/): escrito
+por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para
+criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma
+sintaxe unificada do RMarkdown.
+* [Mastering Shiny](https://mastering-shiny.org/): escrito por Hadley Wickham,
+trata-se de um livro para criação de aplicativos web em R a partir do framework
+`shiny`.
 
 ## Slides
 

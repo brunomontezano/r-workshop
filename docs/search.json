@@ -2,21 +2,21 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Introdução em R",
+    "title": "Página inicial",
     "section": "",
     "text": "Email para dúvidas\nInstalação do R e RStudio\nComo habilitar compilação de pacotes"
   },
   {
     "objectID": "index.html#materiais-recomendados",
     "href": "index.html#materiais-recomendados",
-    "title": "Introdução em R",
+    "title": "Página inicial",
     "section": "Materiais recomendados",
-    "text": "Materiais recomendados\n\nGerais\n\nR for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\n\n\n\nVisualização de dados\n\nData Visualization: A Practical Introduction: um livro muito completo escrito por Kieran Healy sobre visualização de dados com ggplot2. Caso opte por apenas uma referência em visualização, recomendo este livro.\nR Graphics Cookbook (segunda edição): escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.\n\n\n\nEstatística básica\n\nOpenIntro Statistics: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.\nOpenIntro Introduction to Modern Statistics: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos."
+    "text": "Materiais recomendados\n\nGerais\n\nR for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\n\n\n\nVisualização de dados\n\nData Visualization: A Practical Introduction: um livro muito completo escrito por Kieran Healy sobre visualização de dados com ggplot2. Caso opte por apenas uma referência em visualização, recomendo este livro.\nR Graphics Cookbook (segunda edição): escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.\n\n\n\nEstatística básica\n\nOpenIntro Statistics: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.\nOpenIntro Introduction to Modern Statistics: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos.\n\n\n\nReprodutibilidade e Comunicação\n\nReproducible Analytical Pipelines: escrito por Bruno Rodrigues, é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um livro mais aprofundado do que o Reproducible Medical Research with R, e requer maior conhecimento em computação.\nR Markdown: The Definitive Guide: escrito por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma sintaxe unificada do RMarkdown.\nMastering Shiny: escrito por Hadley Wickham, trata-se de um livro para criação de aplicativos web em R a partir do framework shiny."
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
-    "title": "Introdução em R",
+    "title": "Página inicial",
     "section": "Slides",
     "text": "Slides\n\nSlides da Aula 1: R e RStudio"
   },
