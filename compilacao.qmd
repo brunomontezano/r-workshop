@@ -3,3 +3,53 @@ title: "Compilando pacotes em R"
 lang: pt-br
 ---
 
+As versões mais recentes dos pacotes do R estão frequentemente disponíveis apenas
+como código fonte.
+Quando instalamos ou atualizamos um pacote, ele pode indicar
+que precisa ser compilado. Para habilitar seu computador a compilar o código
+dos pacotes, você precisa configurar algumas opções adicionais.
+Antes de começar, certifique-se de que o R esteja fechado no seu computador.
+Recomendo reiniciar a máquina após estas etapas, mas não é obrigatório.
+
+## Mac
+
+Em um Mac, você só precisa instalar o *Xcode Command Line Tools*. É bem simpes:
+
+1. Abra um terminal.
+    - Vá na sua busca do Spotlight no canto superior direito e busque por "Terminal".
+    
+2. Copie e cole o seguinte comando no terminal, e pressione `Enter`:
+
+  `xcode-select --install`
+  
+3. Você provavelmente vai precisar inserir sua senha para habilitar a instalação
+do software.
+
+4. Siga as instruções da tela e espera finalizar a instalação.
+
+5. Após finalizado, você pode compilar pacotes no R.
+
+## Windows
+
+Em computadores com Windows, precisamos instalar um *toolchain*. A forma mais
+simples é através da instalação do *RTools*:
+
+1. Vá até [esta página](https://cran.r-project.org/bin/windows/Rtools/).
+
+2. Baixe a versão mais recente do instalador do RTools 64-bit.
+
+3. Execute o arquivo para instalar, seguindo as instruções da tela.
+    - Se você ficar com alguma dúvida, mantenha as configurações padrão.
+    
+4. Retorne para a página onde você clicou no link de download. Verifique se
+outras orientações são sugeridas. Abra o R após a instalação, e rode
+`Sys.which("make")` no Console e veja se o comando encontra um arquivo
+`make.exe`. Se sim, deu tudo certo!
+
+5. Após finalizado, você pode compilar pacotes no R.
+
+## Solução de problemas
+
+Compilar código é complicado e, às vezes, erros específicos de cada
+máquina podem surgir mesmo que você tenha seguido tudo acima corretamente.
+Se você tiver algum problema, entre em contato!

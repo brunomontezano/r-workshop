@@ -1,7 +1,7 @@
 ---
 title: "Página inicial"
 subtitle: "Professor: Bruno Montezano\nGrupo Alliance"
-image: r_logo.png
+image: assets/r_logo.png
 lang: pt-br
 about: 
   template: trestles
@@ -30,6 +30,10 @@ Livro escrito por um médico sobre fluxos de trabalho em R para criação de *pi
 reprodutíveis.
 * [The Epidemiologist R Handbook](https://epirhandbook.com/en/): Livro de referência para
 códigos em R que facilitam rotinas de análise de dados para epidemiologia.
+* [Introdução ao R](https://www.lampada.uerj.br/arquivosdb/_book2/): em português,
+escrito por
+Sergio Miranda Freire, trata aspectos introdutórios da programação em R com
+aplicações.
 
 ### Visualização de dados
 
@@ -38,16 +42,22 @@ completo escrito por Kieran Healy sobre visualização de dados com `ggplot2`. C
 por apenas uma referência em visualização, recomendo este livro.
 * [R Graphics Cookbook (segunda edição)](https://r-graphics.org/): escrito por Winston Chang,
 é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.
+* [PDF com cores do R](https://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf):
+este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem
+ser utilizadas para personalizar seus gráficos.
 
 ### Estatística básica
 
 * [OpenIntro Statistics](https://www.openintro.org/book/os/): escrito por Diez et al.,
 um livro livre e de código aberto para introdução à estatística.
-
 * [OpenIntro Introduction to Modern Statistics](https://openintro-ims.netlify.app/):
 escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta
 conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui
 tutoriais interativos em R ao final dos capítulos.
+* [Fundamentos de Estatística para Ciência de Dados](https://filipezabala.com/fdepcdd/):
+livro em português, escrito por Filipe Zabala, apresenta diversos capítulos desde
+análise descritiva até modelos de aprendizado de máquina não-supervisionado com
+exemplos em R no decorrer do texto.
 
 ### Reprodutibilidade e Comunicação
 
@@ -62,6 +72,15 @@ sintaxe unificada do RMarkdown.
 * [Mastering Shiny](https://mastering-shiny.org/): escrito por Hadley Wickham,
 trata-se de um livro para criação de aplicativos web em R a partir do framework
 `shiny`.
+
+### Machine Learning
+
+* [An Introduction to Statistical Learning](https://www.statlearning.com/): livro
+escrito por Gareth James, Daniela Witten, Trevor Hastie e Rob Tibshirani sobre
+introdução ao aprendizado estatístico com exemplos em R em todos os capítulos.
+* [Aprendizado de máquina: uma abordagem estatística](http://www.rizbicki.ufscar.br/ame/):
+livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com
+o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatísticos.
 
 ## Slides
 

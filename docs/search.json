@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "instalacao.html",
+    "href": "instalacao.html",
+    "title": "Instalação do R e RStudio",
+    "section": "",
+    "text": "Este guia vai te acompanhar na instalação do R e RStudio no seu computador.\nNas instruções abaixo, em qualquer lugar que esteja escrito (versão), haverá uma série de números, como por exemplo 4.2.2. A versão específica não importa, mas queremos usar sempre a mais recente."
+  },
+  {
+    "objectID": "instalacao.html#windows",
+    "href": "instalacao.html#windows",
+    "title": "Instalação do R e RStudio",
+    "section": "Windows",
+    "text": "Windows\n\nVá até a página dos Instaladores para Windows.\n\nClique em Download R-(versão) for Windows. A versão listada será a mais recente.\n\nRode o instalador.\n\nSe o instalador solicitar, dê privilégios administrativos para instalar.\nSiga as instruções na tela.\nNão há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.\n\nAo finalizar, o R estará instalado!\n\nTalvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente."
+  },
+  {
+    "objectID": "instalacao.html#macos",
+    "href": "instalacao.html#macos",
+    "title": "Instalação do R e RStudio",
+    "section": "MacOS",
+    "text": "MacOS\n\nVá até a página dos Instaladores para MacOS.\n\nRole até “Latest release”.\nClique em R-(versão).pkg para baixar: A versão listada será a mais recente.\n\nRode o instalador.\n\nSiga as instruções na tela.\nNão há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.\n\nAo finalizar, o R estará instalado!\n\nTalvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente.\n\nVá até a página de download do XQuartz\n\nClique em XQuartz-(versão).dmg para baixar.\n\nRode o instalador do XQuartz.\n\nXQuartz é necessário para criar janelas para exibir vários tipos de gráficos do R: ele era incluído no MacOS até a versão 10.8 mas agora precisa ser baixado separadamente."
+  },
+  {
+    "objectID": "instalacao.html#windows-1",
+    "href": "instalacao.html#windows-1",
+    "title": "Instalação do R e RStudio",
+    "section": "Windows",
+    "text": "Windows\n\nVá até a página de download do RStudio.\n\nDesça até All Installers and Tarballs e clique no link de download ao lado de Windows 10/11 para baixar: A versão listada é a mais recente.\n\nRode o instalador.\n\nSe o instalador solicitar, dê privilégios administrativos para instalar.\nSiga as instruções na tela.\nNão há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.\n\nAo finalizar, o RStudio estará instalado!\n\nNós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.\n\nAbra o RStudio e verifique se ele carrega.\n\nNo painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.\nSe você estiver com algum problema, enviem um email para bmontezano@hcpa.edu.br."
+  },
+  {
+    "objectID": "instalacao.html#macos-1",
+    "href": "instalacao.html#macos-1",
+    "title": "Instalação do R e RStudio",
+    "section": "MacOS",
+    "text": "MacOS\n\nVá até a página de download do RStudio.\n\nDesça até All Installers and Tarballs e clique no link de download ao lado de macOS 11+ para baixar: A versão listada é a mais recente.\n\nRode o instalador.\n\nSiga as instruções na tela.\nNão há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.\n\nAo finalizar, o RStudio estará instalado!\n\nNós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.\n\nAbra o RStudio e verifique se ele carrega.\n\nNo painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.\nSe você estiver com algum problema, enviem um email para bmontezano@hcpa.edu.br.\n\n\nQuando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta na parte inferior esquerda da tela de vocês:\n\n\n\nConsole ao abrir RStudio pela primeira vez.\n\n\nSe sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Página inicial",
@@ -11,7 +46,7 @@
     "href": "index.html#materiais-recomendados",
     "title": "Página inicial",
     "section": "Materiais recomendados",
-    "text": "Materiais recomendados\n\nGerais\n\nR for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\n\n\n\nVisualização de dados\n\nData Visualization: A Practical Introduction: um livro muito completo escrito por Kieran Healy sobre visualização de dados com ggplot2. Caso opte por apenas uma referência em visualização, recomendo este livro.\nR Graphics Cookbook (segunda edição): escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.\n\n\n\nEstatística básica\n\nOpenIntro Statistics: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.\nOpenIntro Introduction to Modern Statistics: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos.\n\n\n\nReprodutibilidade e Comunicação\n\nReproducible Analytical Pipelines: escrito por Bruno Rodrigues, é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um livro mais aprofundado do que o Reproducible Medical Research with R, e requer maior conhecimento em computação.\nR Markdown: The Definitive Guide: escrito por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma sintaxe unificada do RMarkdown.\nMastering Shiny: escrito por Hadley Wickham, trata-se de um livro para criação de aplicativos web em R a partir do framework shiny."
+    "text": "Materiais recomendados\n\nGerais\n\nR for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\nIntrodução ao R: em português, escrito por Sergio Miranda Freire, trata aspectos introdutórios da programação em R com aplicações.\n\n\n\nVisualização de dados\n\nData Visualization: A Practical Introduction: um livro muito completo escrito por Kieran Healy sobre visualização de dados com ggplot2. Caso opte por apenas uma referência em visualização, recomendo este livro.\nR Graphics Cookbook (segunda edição): escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.\nPDF com cores do R: este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem ser utilizadas para personalizar seus gráficos.\n\n\n\nEstatística básica\n\nOpenIntro Statistics: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.\nOpenIntro Introduction to Modern Statistics: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos.\nFundamentos de Estatística para Ciência de Dados: livro em português, escrito por Filipe Zabala, apresenta diversos capítulos desde análise descritiva até modelos de aprendizado de máquina não-supervisionado com exemplos em R no decorrer do texto.\n\n\n\nReprodutibilidade e Comunicação\n\nReproducible Analytical Pipelines: escrito por Bruno Rodrigues, é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um livro mais aprofundado do que o Reproducible Medical Research with R, e requer maior conhecimento em computação.\nR Markdown: The Definitive Guide: escrito por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma sintaxe unificada do RMarkdown.\nMastering Shiny: escrito por Hadley Wickham, trata-se de um livro para criação de aplicativos web em R a partir do framework shiny.\n\n\n\nMachine Learning\n\nAn Introduction to Statistical Learning: livro escrito por Gareth James, Daniela Witten, Trevor Hastie e Rob Tibshirani sobre introdução ao aprendizado estatístico com exemplos em R em todos os capítulos.\nAprendizado de máquina: uma abordagem estatística: livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com o An Introduction to Statistical Learning, mas trabalha mais conceitos estatísticos."
   },
   {
     "objectID": "index.html#slides",
@@ -19,6 +54,34 @@
     "title": "Página inicial",
     "section": "Slides",
     "text": "Slides\n\nSlides da Aula 1: R e RStudio"
+  },
+  {
+    "objectID": "compilacao.html",
+    "href": "compilacao.html",
+    "title": "Compilando pacotes em R",
+    "section": "",
+    "text": "As versões mais recentes dos pacotes do R estão frequentemente disponíveis apenas como código fonte. Quando instalamos ou atualizamos um pacote, ele pode indicar que precisa ser compilado. Para habilitar seu computador a compilar o código dos pacotes, você precisa configurar algumas opções adicionais. Antes de começar, certifique-se de que o R esteja fechado no seu computador. Recomendo reiniciar a máquina após estas etapas, mas não é obrigatório."
+  },
+  {
+    "objectID": "compilacao.html#mac",
+    "href": "compilacao.html#mac",
+    "title": "Compilando pacotes em R",
+    "section": "Mac",
+    "text": "Mac\nEm um Mac, você só precisa instalar o Xcode Command Line Tools. É bem simpes:\n\nAbra um terminal.\n\nVá na sua busca do Spotlight no canto superior direito e busque por “Terminal”.\n\nCopie e cole o seguinte comando no terminal, e pressione Enter:\n\nxcode-select --install\n\nVocê provavelmente vai precisar inserir sua senha para habilitar a instalação do software.\nSiga as instruções da tela e espera finalizar a instalação.\nApós finalizado, você pode compilar pacotes no R."
+  },
+  {
+    "objectID": "compilacao.html#windows",
+    "href": "compilacao.html#windows",
+    "title": "Compilando pacotes em R",
+    "section": "Windows",
+    "text": "Windows\nEm computadores com Windows, precisamos instalar um toolchain. A forma mais simples é através da instalação do RTools:\n\nVá até esta página.\nBaixe a versão mais recente do instalador do RTools 64-bit.\nExecute o arquivo para instalar, seguindo as instruções da tela.\n\nSe você ficar com alguma dúvida, mantenha as configurações padrão.\n\nRetorne para a página onde você clicou no link de download. Verifique se outras orientações são sugeridas. Abra o R após a instalação, e rode Sys.which(\"make\") no Console e veja se o comando encontra um arquivo make.exe. Se sim, deu tudo certo!\nApós finalizado, você pode compilar pacotes no R."
+  },
+  {
+    "objectID": "compilacao.html#solução-de-problemas",
+    "href": "compilacao.html#solução-de-problemas",
+    "title": "Compilando pacotes em R",
+    "section": "Solução de problemas",
+    "text": "Solução de problemas\nCompilar código é complicado e, às vezes, erros específicos de cada máquina podem surgir mesmo que você tenha seguido tudo acima corretamente. Se você tiver algum problema, entre em contato!"
   },
   {
     "objectID": "sobre.html",
@@ -166,5 +229,54 @@
     "title": "R e RStudio",
     "section": "Criando vetores",
     "text": "Criando vetores\nUm vetor é uma série de elementos, como números, por exemplo.\nNós podemos criar um vetor usando a função c() que significa “combinar”.\n\nnovo_objeto <- c(4, 9, 16, 25, 36)\nnovo_objeto\n\n[1]  4  9 16 25 36\n\n\n\nAtribuir em um nome já existente sobrescreve esse objeto.\n\n\nVocê pode usar um vetor como argumento para várias funções.\n\n\n\nsqrt(novo_objeto)\n\n[1] 2 3 4 5 6"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vetores-de-caractere",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vetores-de-caractere",
+    "title": "R e RStudio",
+    "section": "Vetores de caractere",
+    "text": "Vetores de caractere\nÉ comum trabalharmos com dados que são categóricos. Para criar um vetor com elementos de texto — chamamos de string em programação — devemos inserir o texto entre aspas:\n\nvetor_com_texto <- c(\"Eutimia\", \"Mania\", \"Depressão\")\nvetor_com_texto\n\n[1] \"Eutimia\"   \"Mania\"     \"Depressão\"\n\n\n\nDados categóricos podem ser armazenados como um fator, usando uma representação numérica subjacente. Cada possível valor de um fator transforma-se em um nível.\n\nvetor_em_fator <- factor(vetor_com_texto)\nvetor_em_fator\n\n[1] Eutimia   Mania     Depressão\nLevels: Depressão Eutimia Mania"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#salvando-e-carregando-objetos",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#salvando-e-carregando-objetos",
+    "title": "R e RStudio",
+    "section": "Salvando e carregando objetos",
+    "text": "Salvando e carregando objetos\nNós podemos salvar um objeto do R como um arquivo para abrí-lo depois:\n\nsave(novo_objeto, file = \"novo_objeto.RData\")\n\n\nNós também podemos carregar arquivos salvos do R:\n\nload(\"novo_objeto.RData\")\n\n\n\nOnde esses arquivos estão sendo salvos? E de onde eles estão sendo carregados?"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#diretório-de-trabalho",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#diretório-de-trabalho",
+    "title": "R e RStudio",
+    "section": "Diretório de trabalho",
+    "text": "Diretório de trabalho\nO R salva e busca por arquivos para abrir no nosso diretório de trabalho atual. Nós podemos solicitar para o R que pasta é essa:\n\ngetwd()\n\n[1] \"/home/bruno/dox/projects/r-workshop/slides/semana_1\"\n\n\n\nDa mesma forma, podemos especificar um novo diretório de trabalho:\n\nsetwd(\"/home/bruno/Documentos/Pesquisa_Pos_Graduacao/\")"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetos-mais-complexos",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#objetos-mais-complexos",
+    "title": "R e RStudio",
+    "section": "Objetos mais complexos",
+    "text": "Objetos mais complexos\nOs mesmos princípios podem ser usados para criar objetos mais complexos:\n\n\nMatrizes\nArrays\nListas\nDataframes\n\n\n\nA maioria dos conjuntos de dados que nós trabalhamos em saúde são lidos no R e armazenados como dataframes.\nPortanto, nós vamos focar na manipulação e análise de dataframes."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-falar-sobre-íris-iris",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-falar-sobre-íris-iris",
+    "title": "R e RStudio",
+    "section": "Vamos falar sobre Íris (iris)?",
+    "text": "Vamos falar sobre Íris (iris)?\nNo nosso script em R, vamos carregar os dados iris.\n\n\ndata(iris)\n\ndata(iris) carrega o dataframe no nosso Ambiente Global.\n\n\nView(iris) mostra um painel de visualização da base (usar apenas no Console, é uma má prática incluir no seu script). Também podemos usar outras funções:\n\n\n\nhead(iris, n = 5) # Exibir as 5 primeiras linhas, tail() exibe as últimas\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-seguir-explorando-as-iris",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-seguir-explorando-as-iris",
+    "title": "R e RStudio",
+    "section": "Vamos seguir explorando as iris",
+    "text": "Vamos seguir explorando as iris\nstr() mostra a estrutura de um objeto:\n\nstr(iris) # e[str]utura\n\n'data.frame':   150 obs. of  5 variables:\n $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...\n $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...\n $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...\n $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...\n $ Species     : Factor w/ 3 levels \"setosa\",\"versicolor\",..: 1 1 1 1 1 1 1 1 1 1 ...\n\n\n\nsummary() mostra um resumo do objeto:\n\nsummary(iris)\n\n  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   \n Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  \n 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  \n Median :5.800   Median :3.000   Median :4.350   Median :1.300  \n Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  \n 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  \n Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  \n       Species  \n setosa    :50  \n versicolor:50  \n virginica :50  \n                \n                \n                \n\n\nA função summary() mostra informações diferentes para tipos diferentes de objeto."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#índices-e-dimensões",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#índices-e-dimensões",
+    "title": "R e RStudio",
+    "section": "Índices e dimensões",
+    "text": "Índices e dimensões\nNo R base, existem duas maneiras de acessar elementos de um objeto: colchetes ([] ou [[]]) e $. A forma como acessamos o objeto depende de suas dimensões.\n\nDataframes têm 2 dimensões: linhas e colunas. Colchetes nos permitem numericamente extrair subconjuntos no formato objeto[linha, coluna]. Deixar o local da linha ou coluna em branco seleciona todos elementos daquela dimensão.\n\niris[1, ] # Primeira linha da base iris\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n\n\n\n\n\niris[1:3, 4:5] # Três primeiras linhas, quarta e quinta coluna\n\n  Petal.Width Species\n1         0.2  setosa\n2         0.2  setosa\n3         0.2  setosa\n\n\nO operador dois pontos (:) gera um vetor usando a sequência de números inteiros do primeiro até o segundo argumento. 1:3 equivale a c(1, 2, 3)."
   }
 ]

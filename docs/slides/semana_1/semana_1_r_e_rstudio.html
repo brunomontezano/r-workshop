@@ -683,12 +683,182 @@ Bruno Montezano
 <pre><code>[1] 2 3 4 5 6</code></pre>
 </div>
 </div>
+</div>
+</section>
+<section id="vetores-de-caractere" class="slide level2">
+<h2>Vetores de caractere</h2>
+<p>É comum trabalharmos com dados que são categóricos. Para criar um vetor com elementos de texto — chamamos de <strong>string</strong> em programação — devemos inserir o texto entre aspas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>vetor_com_texto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Eutimia"</span>, <span class="st">"Mania"</span>, <span class="st">"Depressão"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a>vetor_com_texto</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Eutimia"   "Mania"     "Depressão"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Dados categóricos podem ser armazenados como um <strong>fator</strong>, usando uma representação numérica subjacente. Cada possível valor de um fator transforma-se em um <strong>nível</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>vetor_em_fator <span class="ot">&lt;-</span> <span class="fu">factor</span>(vetor_com_texto)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>vetor_em_fator</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Eutimia   Mania     Depressão
+Levels: Depressão Eutimia Mania</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="salvando-e-carregando-objetos" class="slide level2">
+<h2>Salvando e carregando objetos</h2>
+<p>Nós podemos salvar um objeto do R como um arquivo para abrí-lo depois:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">save</span>(novo_objeto, <span class="at">file =</span> <span class="st">"novo_objeto.RData"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Nós também podemos carregar arquivos salvos do R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">load</span>(<span class="st">"novo_objeto.RData"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Onde esses arquivos estão sendo salvos? E de onde eles estão sendo carregados?</p>
+</div>
+</section>
+<section id="diretório-de-trabalho" class="slide level2">
+<h2>Diretório de trabalho</h2>
+<p>O R salva e busca por arquivos para abrir no nosso <strong>diretório de trabalho</strong> atual. Nós podemos solicitar para o R que pasta é essa:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">getwd</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/bruno/dox/projects/r-workshop/slides/semana_1"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Da mesma forma, podemos especificar um novo diretório de trabalho:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">setwd</span>(<span class="st">"/home/bruno/Documentos/Pesquisa_Pos_Graduacao/"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="objetos-mais-complexos" class="slide level2 smaller">
+<h2>Objetos mais complexos</h2>
+<p>Os mesmos princípios podem ser usados para criar objetos mais complexos:</p>
+<div>
+<ul>
+<li><strong>Matrizes</strong></li>
+<li><strong>Arrays</strong></li>
+<li><strong>Listas</strong></li>
+<li><strong>Dataframes</strong></li>
+</ul>
+</div>
+<div class="fragment">
+<p>A maioria dos conjuntos de dados que nós trabalhamos em saúde são lidos no R e armazenados como <strong>dataframes</strong>.</p>
+<p>Portanto, nós vamos focar na manipulação e análise de dataframes.</p>
+</div>
+</section>
+<section>
+<section id="dataframes" class="title-slide slide level1 center">
+<h1>Dataframes</h1>
+
+</section>
+<section id="vamos-falar-sobre-íris-iris" class="slide level2">
+<h2>Vamos falar sobre Íris (<code>iris</code>)?</h2>
+<p>No nosso script em R, vamos carregar os dados <code>iris</code>.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">data</span>(iris)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>data(iris)</code> carrega o dataframe no nosso <strong>Ambiente Global</strong>.</p>
+</div>
+<div class="fragment">
+<p><code>View(iris)</code> mostra um painel de visualização da base (usar apenas no <strong>Console</strong>, é uma má prática incluir no seu script). Também podemos usar outras funções:</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">head</span>(iris, <span class="at">n =</span> <span class="dv">5</span>) <span class="co"># Exibir as 5 primeiras linhas, tail() exibe as últimas</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="vamos-seguir-explorando-as-iris" class="slide level2 smaller">
+<h2>Vamos seguir explorando as <code>iris</code></h2>
+<p><code>str()</code> mostra a estrutura de um objeto:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">str</span>(iris) <span class="co"># e[str]utura</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   150 obs. of  5 variables:
+ $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+ $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+ $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+ $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+ $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><code>summary()</code> mostra um resumo do objeto:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">summary</span>(iris)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50  
+                
+                
+                </code></pre>
+</div>
+</div>
+<p>A função <code>summary()</code> mostra informações diferentes para tipos diferentes de objeto.</p>
+</div>
+</section></section>
+<section>
+<section id="indexando-e-criando-subconjuntos-com-r" class="title-slide slide level1 center">
+<h1>Indexando e criando subconjuntos com R</h1>
+
+</section>
+<section id="índices-e-dimensões" class="slide level2 smaller">
+<h2>Índices e dimensões</h2>
+<p>No R base, existem duas maneiras de acessar elementos de um objeto: colchetes (<code>[]</code> ou <code>[[]]</code>) e <code>$</code>. A forma como acessamos o objeto depende de suas <em>dimensões</em>.</p>
+<div class="fragment">
+<p>Dataframes têm <em>2 dimensões</em>: <strong>linhas</strong> e <strong>colunas</strong>. Colchetes nos permitem numericamente extrair <strong>subconjuntos</strong> no formato <code>objeto[linha, coluna]</code>. Deixar o local da linha ou coluna em branco seleciona <em>todos</em> elementos daquela dimensão.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>iris[<span class="dv">1</span>, ] <span class="co"># Primeira linha da base iris</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># Três primeiras linhas, quarta e quinta coluna</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Petal.Width Species
+1         0.2  setosa
+2         0.2  setosa
+3         0.2  setosa</code></pre>
+</div>
+</div>
+<p>O <strong>operador dois pontos</strong> (<code>:</code>) gera um vetor usando a sequência de números inteiros do primeiro até o segundo argumento. <code>1:3</code> equivale a <code>c(1, 2, 3)</code>.</p>
 
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
 
     </div>
   </div>

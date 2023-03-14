@@ -118,8 +118,117 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Este guia vai te acompanhar na instalação do R e RStudio no seu computador.</p>
+<p>Nas instruções abaixo, em qualquer lugar que esteja escrito (versão), haverá uma série de números, como por exemplo <code>4.2.2</code>. A versão específica não importa, mas queremos usar sempre a mais recente.</p>
+<section id="instalando-o-r" class="level1">
+<h1>Instalando o R</h1>
+<section id="windows" class="level2">
+<h2 class="anchored" data-anchor-id="windows">Windows</h2>
+<ol type="1">
+<li>Vá até a <a href="https://cran.r-project.org/bin/windows/base/">página dos Instaladores para Windows</a>.
+<ul>
+<li>Clique em <code>Download R-(versão) for Windows</code>. A versão listada será a mais recente.</li>
+</ul></li>
+<li>Rode o instalador.
+<ul>
+<li>Se o instalador solicitar, dê privilégios administrativos para instalar.</li>
+<li>Siga as instruções na tela.</li>
+<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
+</ul></li>
+<li>Ao finalizar, o R estará instalado!
+<ul>
+<li>Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente.</li>
+</ul></li>
+</ol>
+</section>
+<section id="macos" class="level2">
+<h2 class="anchored" data-anchor-id="macos">MacOS</h2>
+<ol type="1">
+<li>Vá até a <a href="https://cran.r-project.org/bin/macosx/">página dos Instaladores para MacOS</a>.
+<ul>
+<li>Role até “Latest release”.</li>
+<li>Clique em <code>R-(versão).pkg</code> para baixar: A versão listada será a mais recente.</li>
+</ul></li>
+<li>Rode o instalador.
+<ul>
+<li>Siga as instruções na tela.</li>
+<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
+</ul></li>
+<li>Ao finalizar, o R estará instalado!
+<ul>
+<li>Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente.</li>
+</ul></li>
+<li>Vá até a <a href="https://www.xquartz.org/">página de download do XQuartz</a>
+<ul>
+<li>Clique em <code>XQuartz-(versão).dmg</code> para baixar.</li>
+</ul></li>
+<li>Rode o instalador do XQuartz.
+<ul>
+<li>XQuartz é necessário para criar janelas para exibir vários tipos de gráficos do R: ele era incluído no MacOS até a versão 10.8 mas agora precisa ser baixado separadamente.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="instalando-o-rstudio" class="level1">
+<h1>Instalando o RStudio</h1>
+<section id="windows-1" class="level2">
+<h2 class="anchored" data-anchor-id="windows-1">Windows</h2>
+<ol type="1">
+<li>Vá até a <a href="https://posit.co/download/rstudio-desktop/#download">página de download do RStudio</a>.
+<ul>
+<li>Desça até <code>All Installers and Tarballs</code> e clique no link de download ao lado de <code>Windows 10/11</code> para baixar: A versão listada é a mais recente.</li>
+</ul></li>
+<li>Rode o instalador.
+<ul>
+<li>Se o instalador solicitar, dê privilégios administrativos para instalar.</li>
+<li>Siga as instruções na tela.</li>
+<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
+</ul></li>
+<li>Ao finalizar, o RStudio estará instalado!
+<ul>
+<li>Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.</li>
+</ul></li>
+<li>Abra o RStudio e verifique se ele carrega.
+<ul>
+<li>No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.</li>
+<li>Se você estiver com algum problema, enviem um email para <a href="mailto:bmontezano@hcpa.edu.br">bmontezano@hcpa.edu.br</a>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="macos-1" class="level2">
+<h2 class="anchored" data-anchor-id="macos-1">MacOS</h2>
+<ol type="1">
+<li>Vá até a <a href="https://posit.co/download/rstudio-desktop/#download">página de download do RStudio</a>.
+<ul>
+<li>Desça até <code>All Installers and Tarballs</code> e clique no link de download ao lado de <code>macOS 11+</code> para baixar: A versão listada é a mais recente.</li>
+</ul></li>
+<li>Rode o instalador.
+<ul>
+<li>Siga as instruções na tela.</li>
+<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
+</ul></li>
+<li>Ao finalizar, o RStudio estará instalado!
+<ul>
+<li>Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.</li>
+</ul></li>
+<li>Abra o RStudio e verifique se ele carrega.
+<ul>
+<li>No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.</li>
+<li>Se você estiver com algum problema, enviem um email para <a href="mailto:bmontezano@hcpa.edu.br">bmontezano@hcpa.edu.br</a>.</li>
+</ul></li>
+</ol>
+<p>Quando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta na parte inferior esquerda da tela de vocês:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/console_rstudio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Console ao abrir RStudio pela primeira vez.</figcaption><p></p>
+</figure>
+</div>
+<p>Se sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

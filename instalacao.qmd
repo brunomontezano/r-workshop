@@ -3,3 +3,97 @@ title: "Instalação do R e RStudio"
 lang: pt-br
 ---
 
+Este guia vai te acompanhar na instalação do R e RStudio no seu computador.
+
+Nas instruções abaixo, em qualquer lugar que esteja escrito (versão),
+haverá uma série de números, como por exemplo `4.2.2`.
+A versão específica não importa, mas queremos usar sempre a mais recente.
+
+# Instalando o R
+
+## Windows
+
+1. Vá até a [página dos Instaladores para Windows](https://cran.r-project.org/bin/windows/base/).
+    - Clique em `Download R-(versão) for Windows`. A versão listada será a mais recente.
+  
+2. Rode o instalador.
+    - Se o instalador solicitar, dê privilégios administrativos para instalar.
+    - Siga as instruções na tela.
+    - Não há necessidade de modificar nenhuma configuração padrão a não ser que você
+    tenha alguma razão específica.
+    
+3. Ao finalizar, o R estará instalado!
+    - Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral,
+    não usamos o R diretamente.
+    
+## MacOS
+
+1. Vá até a [página dos Instaladores para MacOS](https://cran.r-project.org/bin/macosx/).
+    - Role até "Latest release".
+    - Clique em `R-(versão).pkg` para baixar:
+    A versão listada será a mais recente.
+    
+2. Rode o instalador.
+    - Siga as instruções na tela.
+    - Não há necessidade de modificar nenhuma configuração padrão a não ser que você
+    tenha alguma razão específica.
+    
+3. Ao finalizar, o R estará instalado!
+    - Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral,
+    não usamos o R diretamente.
+    
+4. Vá até a [página de download do XQuartz](https://www.xquartz.org/)
+    - Clique em `XQuartz-(versão).dmg` para baixar.
+    
+5. Rode o instalador do XQuartz.
+    - XQuartz é necessário para criar janelas para exibir vários tipos de gráficos do R:
+    ele era incluído no MacOS até a versão 10.8 mas agora precisa ser baixado
+    separadamente.
+    
+# Instalando o RStudio
+
+## Windows
+
+1. Vá até a [página de download do RStudio](https://posit.co/download/rstudio-desktop/#download).
+    - Desça até `All Installers and Tarballs` e clique no link de download ao lado de
+    `Windows 10/11` para baixar: A versão listada é a mais recente.
+    
+2. Rode o instalador.
+    - Se o instalador solicitar, dê privilégios administrativos para instalar.
+    - Siga as instruções na tela.
+    - Não há necessidade de modificar nenhuma configuração padrão a não ser que você
+    tenha alguma razão específica.
+    
+3. Ao finalizar, o RStudio estará instalado!
+    - Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.
+    
+4. Abra o RStudio e verifique se ele carrega.
+    - No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à
+    imagem ao final deste guia.
+    - Se você estiver com algum problema, enviem um email para [bmontezano@hcpa.edu.br](mailto:bmontezano@hcpa.edu.br).
+    
+## MacOS
+
+1. Vá até a [página de download do RStudio](https://posit.co/download/rstudio-desktop/#download).
+    - Desça até `All Installers and Tarballs` e clique no link de download ao lado de
+    `macOS 11+` para baixar: A versão listada é a mais recente.
+    
+2. Rode o instalador.
+    - Siga as instruções na tela.
+    - Não há necessidade de modificar nenhuma configuração padrão a não ser que você
+    tenha alguma razão específica.
+    
+3. Ao finalizar, o RStudio estará instalado!
+    - Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.
+    
+4. Abra o RStudio e verifique se ele carrega.
+    - No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à
+    imagem ao final deste guia.
+    - Se você estiver com algum problema, enviem um email para [bmontezano@hcpa.edu.br](mailto:bmontezano@hcpa.edu.br).
+    
+Quando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta
+na parte inferior esquerda da tela de vocês:
+
+![Console ao abrir RStudio pela primeira vez.](assets/console_rstudio.png)
+
+Se sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email.

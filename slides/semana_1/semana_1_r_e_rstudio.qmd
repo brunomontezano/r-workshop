@@ -302,3 +302,158 @@ Você pode usar um vetor como argumento para várias funções.
 sqrt(novo_objeto)
 ```
 
+## Vetores de caractere
+
+É comum trabalharmos com dados que são categóricos. Para criar um vetor com elementos
+de texto — chamamos de **string** em programação — devemos inserir o texto entre aspas:
+
+```{r vetor-de-caractere}
+vetor_com_texto <- c("Eutimia", "Mania", "Depressão")
+vetor_com_texto
+```
+
+. . .
+
+Dados categóricos podem ser armazenados como um **fator**, usando uma representação
+numérica subjacente. Cada possível valor de um fator transforma-se em um **nível**.
+
+```{r vetor-fator}
+vetor_em_fator <- factor(vetor_com_texto)
+vetor_em_fator
+```
+
+## Salvando e carregando objetos
+
+Nós podemos salvar um objeto do R como um arquivo para abrí-lo depois:
+
+```{r salvar-objeto}
+#| eval: false
+
+save(novo_objeto, file = "novo_objeto.RData")
+```
+
+. . .
+
+Nós também podemos carregar arquivos salvos do R:
+
+```{r carregar-objeto}
+#| eval: false
+
+load("novo_objeto.RData")
+```
+
+. . .
+
+Onde esses arquivos estão sendo salvos? E de onde eles estão sendo carregados?
+
+## Diretório de trabalho
+
+O R salva e busca por arquivos para abrir no nosso **diretório de trabalho** atual.
+Nós podemos solicitar para o R que pasta é essa:
+
+```{r getwd}
+getwd()
+```
+
+. . .
+
+Da mesma forma, podemos especificar um novo diretório de trabalho:
+
+```{r setwd}
+#| eval: false
+
+setwd("/home/bruno/Documentos/Pesquisa_Pos_Graduacao/")
+```
+
+## Objetos mais complexos {.smaller}
+
+Os mesmos princípios podem ser usados para criar objetos mais complexos:
+
+::: {.nonincremental}
+- **Matrizes**
+- **Arrays**
+- **Listas**
+- **Dataframes**
+:::
+
+. . .
+
+A maioria dos conjuntos de dados que nós trabalhamos em saúde são lidos no R e
+armazenados como **dataframes**.
+
+Portanto, nós vamos focar na manipulação e análise de dataframes.
+
+# Dataframes
+
+## Vamos falar sobre Íris (`iris`)?
+
+No nosso script em R, vamos carregar os dados `iris`.
+
+. . .
+
+```{r carregar-iris}
+data(iris)
+```
+
+`data(iris)` carrega o dataframe no nosso **Ambiente Global**.
+
+. . .
+
+`View(iris)` mostra um painel de visualização da base (usar apenas no **Console**,
+é uma má prática incluir no seu script). Também podemos usar outras funções:
+
+. . .
+
+```{r funcao-head}
+head(iris, n = 5) # Exibir as 5 primeiras linhas, tail() exibe as últimas
+```
+
+## Vamos seguir explorando as `iris` {.smaller}
+
+`str()` mostra a estrutura de um objeto:
+
+```{r funcao-str}
+str(iris) # e[str]utura
+```
+
+. . .
+
+`summary()` mostra um resumo do objeto:
+
+```{r funcao-summary}
+summary(iris)
+```
+
+A função `summary()` mostra informações diferentes para tipos diferentes de objeto.
+
+# Indexando e criando subconjuntos com R
+
+## Índices e dimensões {.smaller}
+
+No R base, existem duas maneiras de acessar elementos de um objeto: colchetes
+(`[]` ou `[[]]`) e `$`. A forma como acessamos o objeto depende de suas *dimensões*.
+
+. . .
+
+Dataframes têm *2 dimensões*: **linhas** e **colunas**. Colchetes nos permitem
+numericamente extrair **subconjuntos** no formato `objeto[linha, coluna]`. Deixar
+o local da linha ou coluna em branco seleciona *todos* elementos daquela dimensão.
+
+```{r primeira-linha-iris}
+iris[1, ] # Primeira linha da base iris
+```
+
+. . .
+
+```{r subset-iris}
+iris[1:3, 4:5] # Três primeiras linhas, quarta e quinta coluna
+```
+
+O **operador dois pontos** (`:`) gera um vetor usando a sequência de números inteiros do
+primeiro até o segundo argumento. `1:3` equivale a `c(1, 2, 3)`.
+
+
+
+
+
+

@@ -118,8 +118,44 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>As versões mais recentes dos pacotes do R estão frequentemente disponíveis apenas como código fonte. Quando instalamos ou atualizamos um pacote, ele pode indicar que precisa ser compilado. Para habilitar seu computador a compilar o código dos pacotes, você precisa configurar algumas opções adicionais. Antes de começar, certifique-se de que o R esteja fechado no seu computador. Recomendo reiniciar a máquina após estas etapas, mas não é obrigatório.</p>
+<section id="mac" class="level2">
+<h2 class="anchored" data-anchor-id="mac">Mac</h2>
+<p>Em um Mac, você só precisa instalar o <em>Xcode Command Line Tools</em>. É bem simpes:</p>
+<ol type="1">
+<li>Abra um terminal.
+<ul>
+<li>Vá na sua busca do Spotlight no canto superior direito e busque por “Terminal”.</li>
+</ul></li>
+<li>Copie e cole o seguinte comando no terminal, e pressione <code>Enter</code>:</li>
+</ol>
+<p><code>xcode-select --install</code></p>
+<ol start="3" type="1">
+<li><p>Você provavelmente vai precisar inserir sua senha para habilitar a instalação do software.</p></li>
+<li><p>Siga as instruções da tela e espera finalizar a instalação.</p></li>
+<li><p>Após finalizado, você pode compilar pacotes no R.</p></li>
+</ol>
+</section>
+<section id="windows" class="level2">
+<h2 class="anchored" data-anchor-id="windows">Windows</h2>
+<p>Em computadores com Windows, precisamos instalar um <em>toolchain</em>. A forma mais simples é através da instalação do <em>RTools</em>:</p>
+<ol type="1">
+<li><p>Vá até <a href="https://cran.r-project.org/bin/windows/Rtools/">esta página</a>.</p></li>
+<li><p>Baixe a versão mais recente do instalador do RTools 64-bit.</p></li>
+<li><p>Execute o arquivo para instalar, seguindo as instruções da tela.</p>
+<ul>
+<li>Se você ficar com alguma dúvida, mantenha as configurações padrão.</li>
+</ul></li>
+<li><p>Retorne para a página onde você clicou no link de download. Verifique se outras orientações são sugeridas. Abra o R após a instalação, e rode <code>Sys.which("make")</code> no Console e veja se o comando encontra um arquivo <code>make.exe</code>. Se sim, deu tudo certo!</p></li>
+<li><p>Após finalizado, você pode compilar pacotes no R.</p></li>
+</ol>
+</section>
+<section id="solução-de-problemas" class="level2">
+<h2 class="anchored" data-anchor-id="solução-de-problemas">Solução de problemas</h2>
+<p>Compilar código é complicado e, às vezes, erros específicos de cada máquina podem surgir mesmo que você tenha seguido tudo acima corretamente. Se você tiver algum problema, entre em contato!</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
