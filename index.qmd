@@ -1,6 +1,9 @@
 ---
-title: "Página inicial"
-subtitle: "Professor: Bruno Montezano\nGrupo Alliance"
+title: "Introdução ao R"
+subtitle: "Conceitos para pesquisadores em ciências da saúde"
+author: "Bruno Montezano"
+institute: "UFRGS"
+date: last-modified
 image: assets/r_logo.png
 lang: pt-br
 about: 

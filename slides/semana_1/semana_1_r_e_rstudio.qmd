@@ -1,13 +1,18 @@
 ---
 title: "R e RStudio"
+subtitle: "Semana 1"
 author: "Bruno Montezano"
+institute: "Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento\nUniversidade Federal do Rio Grande do Sul"
+date: last-modified
+date-format: long
 lang: pt-br
 execute:
   echo: true
 format:
   revealjs:
-    css: "../assets/styles.css"
     incremental: true
+    theme: [default, ../assets/custom.scss]
+    logo: "../assets/logo_ufrgs.png"
 ---
 
 ## Objetivos do curso
@@ -21,6 +26,7 @@ format:
 
 #### Bruno Montezano
 
+- Psicólogo
 - Mestrando em Psiquiatria e Ciências do Comportamento
 - Integrante do grupo de pesquisa Alliance
 - Pesquisa
