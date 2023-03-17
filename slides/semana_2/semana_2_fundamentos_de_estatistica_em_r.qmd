@@ -20,7 +20,6 @@ format:
 - Revisão de conceitos matemáticos
   - Variáveis, vetores e matrizes
   - Linhas e curvas
-  - Derivadas
 
 - Programação
   - Indexação e subconjuntos
@@ -80,5 +79,100 @@ Indexar $x_1$ e $x_3$:
 
 ```{r indexar-multiplos-elementos}
 x[c(1, 3)] # Retorna o primeiro e o terceiro elemento de x
+```
+
+## Matrizes {.smaller}
+
+**Matrizes** são uma tabela retangular de números. Geralmente, elas são identificadas
+por uma letra maiúscula, como $X$.
+
+$$X_{i,j} = \begin{bmatrix}x_{1,1} & x_{1,2}\\x_{2,1} & x_{2,2}\end{bmatrix}$$
+
+Matrizes são indexadas com subscritos para *linhas, colunas* (ou seja, $x_{ij}$).
+
+. . .
+
+$$X = \begin{bmatrix}9 & 25\\14 & 76\end{bmatrix} \;\;\; x_{2,1} = 14$$
+
+&nbsp;
+
+. . .
+
+$$X = \begin{bmatrix}5 & 9 & 8\\3 & 2 & 5\\0 & 1 & 4\end{bmatrix} \;\;\; \text{Qual o elemento } x_{3,2}?$$
+
+## Matrizes em R {.smaller}
+
+```{r criar-matriz-X}
+X <- matrix(c(5, 9, 8, 3, 2, 5, 0, 1, 4), nrow = 3, byrow = TRUE)
+X
+```
+
+Percebam que o R nos mostra os índices nas margens para facilitar a indexação.
+
+. . .
+
+```{r resposta-matriz}
+X[3, 2] # Terceira linha, segunda coluna
+```
+
+. . .
+
+Também podemos pegar vários elementos da matriz (e alterar a ordem):
+
+```{r multiplos-elementos-matriz}
+X[3, c(2, 1)]
+```
+
+## Somatório {.smaller}
+
+$$\sum_{i=1}^{n}x_i$$
+
+<center>"Soma de todos os valores de $x$ do primeiro ($i = 1$) até o último ($n$)"</center>
+
+. . .
+
+&nbsp;
+
+Dado $x = [9, 12, 12, 14, 27]$:
+
+$$\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74$$
+
+. . .
+
+```{r soma-x}
+x <- c(9, 12, 12, 14, 27)
+sum(x)
+```
+
+É comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos,
+por exemplo: $\sum x_i = \sum_{i=1}^{n}x_i$
+
+## Medidas de tendência central
+
+![](../assets/meme_medidas_tendencia_central.jpg){fig-align="center" width=85%}
+
+## Média {.smaller}
+
+A média (aritmética) é o *valor esperado* de uma variável.
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
+
+. . .
+
+Se você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado
+que você poderia fazer sobre esse valor^[Tecnicamente, a média
+minimiza o *erro quadrático*.].
+
+Dito de outra forma, as diferenças positivas e negativas entre todos os valores e a média 
+equivalem entre si.
+
+. . .
+
+```{r calcular-media-na-mao}
+(1/length(x)) * sum(x) # Fórmula da média aritmética
+```
+
+```{r calcular-media-funcao-mean}
+mean(x) # Função mean() é como se fosse um atalho
 ```
 

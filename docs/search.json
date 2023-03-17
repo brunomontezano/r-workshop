@@ -53,7 +53,7 @@
     "href": "index.html#slides",
     "title": "Introdução ao R",
     "section": "Slides",
-    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Fundamentos de estatística em R\n\nCódigo para gerar os slides da Aula 1: R e RStudio"
+    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Fundamentos de estatística em R\n\nCódigo para gerar os slides da Aula 2: Fundamentos de estatística em R"
   },
   {
     "objectID": "compilacao.html",
@@ -95,7 +95,7 @@
     "href": "sobre.html#quantas-aulas-serão-realizadas",
     "title": "Sobre o curso",
     "section": "Quantas aulas serão realizadas?",
-    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nFundamentos de estatística no R\nDistribuições e associações\nInferência estatística\nModelos lineares\n\nOu seja, a princípio, realizaremos cinco aulas neste curso."
+    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nFundamentos de estatística no R\nDistribuições e associações\nVisualização de dados\nInferência estatística\nModelos lineares\nModelos lineares generalizados\n\nOu seja, a princípio, realizaremos sete aulas com duração entre 1 e 2 horas."
   },
   {
     "objectID": "sobre.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
@@ -109,7 +109,7 @@
     "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#conteúdo-de-hoje",
     "title": "Fundamentos de estatística em R",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nRevisão de conceitos matemáticos\n\nVariáveis, vetores e matrizes\nLinhas e curvas\nDerivadas\n\nProgramação\n\nIndexação e subconjuntos\nExpressões lógicas"
+    "text": "Conteúdo de hoje\n\nRevisão de conceitos matemáticos\n\nVariáveis, vetores e matrizes\nLinhas e curvas\n\nProgramação\n\nIndexação e subconjuntos\nExpressões lógicas"
   },
   {
     "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#revisão-de-conceitos-matemáticos",
@@ -131,6 +131,41 @@
     "title": "Fundamentos de estatística em R",
     "section": "Vetores em R",
     "text": "Vetores em R\n\nx <- c(15, 16, 32) # Cria x, um vetor de comprimento 3\nx\n\n[1] 15 16 32\n\n\n\nIndexando \\(x_3\\):\n\nx[3] # Retorna o terceiro elemento de x\n\n[1] 32\n\n\n\n\nNós podemos indexar vários elementos de uma vez.\nIndexar \\(x_1\\) e \\(x_3\\):\n\nx[c(1, 3)] # Retorna o primeiro e o terceiro elemento de x\n\n[1] 15 32"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes",
+    "title": "Fundamentos de estatística em R",
+    "section": "Matrizes",
+    "text": "Matrizes\nMatrizes são uma tabela retangular de números. Geralmente, elas são identificadas por uma letra maiúscula, como \\(X\\).\n\\[X_{i,j} = \\begin{bmatrix}x_{1,1} & x_{1,2}\\\\x_{2,1} & x_{2,2}\\end{bmatrix}\\]\nMatrizes são indexadas com subscritos para linhas, colunas (ou seja, \\(x_{ij}\\)).\n\n\\[X = \\begin{bmatrix}9 & 25\\\\14 & 76\\end{bmatrix} \\;\\;\\; x_{2,1} = 14\\]\n \n\n\n\\[X = \\begin{bmatrix}5 & 9 & 8\\\\3 & 2 & 5\\\\0 & 1 & 4\\end{bmatrix} \\;\\;\\; \\text{Qual o elemento } x_{3,2}?\\]"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes-em-r",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes-em-r",
+    "title": "Fundamentos de estatística em R",
+    "section": "Matrizes em R",
+    "text": "Matrizes em R\n\nX <- matrix(c(5, 9, 8, 3, 2, 5, 0, 1, 4), nrow = 3, byrow = TRUE)\nX\n\n     [,1] [,2] [,3]\n[1,]    5    9    8\n[2,]    3    2    5\n[3,]    0    1    4\n\n\nPercebam que o R nos mostra os índices nas margens para facilitar a indexação.\n\n\nX[3, 2] # Terceira linha, segunda coluna\n\n[1] 1\n\n\n\n\nTambém podemos pegar vários elementos da matriz (e alterar a ordem):\n\nX[3, c(2, 1)]\n\n[1] 1 0"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#somatório",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#somatório",
+    "title": "Fundamentos de estatística em R",
+    "section": "Somatório",
+    "text": "Somatório\n\\[\\sum_{i=1}^{n}x_i\\]\n\n“Soma de todos os valores de \\(x\\) do primeiro (\\(i = 1\\)) até o último (\\(n\\))”\n\n\n \nDado \\(x = [9, 12, 12, 14, 27]\\):\n\\[\\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74\\]\n\n\n\nx <- c(9, 12, 12, 14, 27)\nsum(x)\n\n[1] 74\n\n\nÉ comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos, por exemplo: \\(\\sum x_i = \\sum_{i=1}^{n}x_i\\)"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-tendência-central",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-tendência-central",
+    "title": "Fundamentos de estatística em R",
+    "section": "Medidas de tendência central",
+    "text": "Medidas de tendência central"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#média",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#média",
+    "title": "Fundamentos de estatística em R",
+    "section": "Média",
+    "text": "Média\nA média (aritmética) é o valor esperado de uma variável.\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\n\nSe você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor1.\nDito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.\n\n\n\n(1/length(x)) * sum(x) # Fórmula da média aritmética\n\n[1] 14.8\n\n\n\nmean(x) # Função mean() é como se fosse um atalho\n\n[1] 14.8\n\n\n\n\n\n\n\n\nTecnicamente, a média minimiza o erro quadrático."
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
@@ -165,7 +200,7 @@
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#plano-de-ensino",
     "title": "R e RStudio",
     "section": "Plano de ensino",
-    "text": "Plano de ensino\n\nR e RStudio\nFundamentos de estatística no R\nDistribuições e associações\nInferência estatística\nModelos lineares"
+    "text": "Plano de ensino\n\nR e RStudio\nFundamentos de estatística no R\nDistribuições e associações\nVisualização de dados\nInferência estatística\nModelos lineares\nModelos lineares generalizados"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",

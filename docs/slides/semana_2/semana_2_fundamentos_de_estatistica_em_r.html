@@ -411,7 +411,6 @@ Bruno Montezano
 <ul>
 <li class="fragment">Variáveis, vetores e matrizes</li>
 <li class="fragment">Linhas e curvas</li>
-<li class="fragment">Derivadas</li>
 </ul></li>
 <li class="fragment">Programação
 <ul>
@@ -485,13 +484,107 @@ Bruno Montezano
 <pre><code>[1] 15 32</code></pre>
 </div>
 </div>
+</div>
+</section>
+<section id="matrizes" class="slide level2 smaller">
+<h2>Matrizes</h2>
+<p><strong>Matrizes</strong> são uma tabela retangular de números. Geralmente, elas são identificadas por uma letra maiúscula, como <span class="math inline">\(X\)</span>.</p>
+<p><span class="math display">\[X_{i,j} = \begin{bmatrix}x_{1,1} &amp; x_{1,2}\\x_{2,1} &amp; x_{2,2}\end{bmatrix}\]</span></p>
+<p>Matrizes são indexadas com subscritos para <em>linhas, colunas</em> (ou seja, <span class="math inline">\(x_{ij}\)</span>).</p>
+<div class="fragment">
+<p><span class="math display">\[X = \begin{bmatrix}9 &amp; 25\\14 &amp; 76\end{bmatrix} \;\;\; x_{2,1} = 14\]</span></p>
+<p>&nbsp;</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[X = \begin{bmatrix}5 &amp; 9 &amp; 8\\3 &amp; 2 &amp; 5\\0 &amp; 1 &amp; 4\end{bmatrix} \;\;\; \text{Qual o elemento } x_{3,2}?\]</span></p>
+</div>
+</section>
+<section id="matrizes-em-r" class="slide level2 smaller">
+<h2>Matrizes em R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>X</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3]
+[1,]    5    9    8
+[2,]    3    2    5
+[3,]    0    1    4</code></pre>
+</div>
+</div>
+<p>Percebam que o R nos mostra os índices nas margens para facilitar a indexação.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>X[<span class="dv">3</span>, <span class="dv">2</span>] <span class="co"># Terceira linha, segunda coluna</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Também podemos pegar vários elementos da matriz (e alterar a ordem):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>X[<span class="dv">3</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>)]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 0</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="somatório" class="slide level2 smaller">
+<h2>Somatório</h2>
+<p><span class="math display">\[\sum_{i=1}^{n}x_i\]</span></p>
+<center>
+“Soma de todos os valores de <span class="math inline">\(x\)</span> do primeiro (<span class="math inline">\(i = 1\)</span>) até o último (<span class="math inline">\(n\)</span>)”
+</center>
+<div class="fragment">
+<p>&nbsp;</p>
+<p>Dado <span class="math inline">\(x = [9, 12, 12, 14, 27]\)</span>:</p>
+<p><span class="math display">\[\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74\]</span></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">27</span>)</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 74</code></pre>
+</div>
+</div>
+<p>É comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos, por exemplo: <span class="math inline">\(\sum x_i = \sum_{i=1}^{n}x_i\)</span></p>
+</div>
+</section>
+<section id="medidas-de-tendência-central" class="slide level2">
+<h2>Medidas de tendência central</h2>
+
+<img data-src="../assets/meme_medidas_tendencia_central.jpg" style="width:85.0%" class="r-stretch quarto-figure-center"></section>
+<section id="média" class="slide level2 smaller">
+<h2>Média</h2>
+<p>A média (aritmética) é o <em>valor esperado</em> de uma variável.</p>
+<p><span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}\]</span></p>
+<div class="fragment">
+<p>Se você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor<sup>1</sup>.</p>
+<p>Dito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="fu">length</span>(x)) <span class="sc">*</span> <span class="fu">sum</span>(x) <span class="co"># Fórmula da média aritmética</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.8</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">mean</span>(x) <span class="co"># Função mean() é como se fosse um atalho</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14.8</code></pre>
+</div>
+</div>
 
 <p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Tecnicamente, a média minimiza o <em>erro quadrático</em>.</p></li></ol></aside></section>
+
     </div>
   </div>
 

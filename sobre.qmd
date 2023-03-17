@@ -15,10 +15,12 @@ O plano de aulas seguirá as seguintes aulas:
 1. R e RStudio
 2. Fundamentos de estatística no R
 3. Distribuições e associações
-4. Inferência estatística
-5. Modelos lineares
+4. Visualização de dados
+5. Inferência estatística
+6. Modelos lineares
+7. Modelos lineares generalizados
 
-Ou seja, a princípio, realizaremos cinco aulas neste curso.
+Ou seja, a princípio, realizaremos sete aulas com duração entre 1 e 2 horas.
 
 ## O código-fonte do site do curso é disponibilizado?
 
