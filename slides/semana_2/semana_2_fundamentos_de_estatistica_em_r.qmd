@@ -29,3 +29,56 @@ format:
 ## Revisão de conceitos matemáticos
 
 ![](../assets/meme_revisao_matematica.jpg){fig-align="center" width=45%}
+
+## Variáveis {.smaller}
+
+**Variáveis** são símbolos que representam conjuntos de um ou mais **elementos**
+que podem assumir qualquer quantidade de valores.
+
+::: {.nonincremental}
+- Letras como $x$, $y$ e $z$ são comumente usadas para indicar variáveis
+  - Por exemplo: $x = 3$
+:::
+
+. . .
+
+::: {.nonincremental}
+- Letras maiúsculas ($X$) ou letras com um índice ($x_i$) referem-se a variáveis
+com múltiplos valores — ou seja, com dimensões
+  - Por exemplo: $X = x_i = (15, 16, 32)$
+  - Variáveis com uma dimensão (comprimento) são chamadas de **vetor**
+:::
+
+. . .
+
+::: {.nonincremental}
+- Variáveis como $x_i$ são usadas para **indexar** elementos de vetores
+  - $i$ é uma variável que indica a posição indexada
+  - Por exemplo: $x_1 = 15, x_2 = 16, x_3 = 32$
+:::
+
+## Vetores em R
+
+```{r vetor_xi}
+x <- c(15, 16, 32) # Cria x, um vetor de comprimento 3
+x
+```
+
+. . .
+
+Indexando $x_3$:
+
+```{r indexando_x3}
+x[3] # Retorna o terceiro elemento de x
+```
+
+. . .
+
+Nós podemos indexar vários elementos de uma vez.
+
+Indexar $x_1$ e $x_3$:
+
+```{r indexar-multiplos-elementos}
+x[c(1, 3)] # Retorna o primeiro e o terceiro elemento de x
+```
+
