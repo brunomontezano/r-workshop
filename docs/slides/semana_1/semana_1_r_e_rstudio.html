@@ -402,7 +402,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">16 de março de 2023</p>
+  <p class="date">17 de março de 2023</p>
 </section>
 <section id="objetivos-do-curso" class="slide level2">
 <h2>Objetivos do curso</h2>
@@ -432,13 +432,17 @@ Bruno Montezano
 <section id="logística-do-curso" class="slide level2">
 <h2>Logística do curso</h2>
 <p>Onde?</p>
+<div class="fragment">
 <div>
 <ul>
 <li>Reuniões online</li>
 <li>Encontros presenciais</li>
 </ul>
 </div>
+</div>
+<div class="fragment">
 <p>Materiais: <a href="https://brunomontezano.github.io/r-workshop/">https://brunomontezano.github.io/r-workshop/</a></p>
+</div>
 </section>
 <section id="materiais" class="slide level2">
 <h2>Materiais</h2>
@@ -446,8 +450,6 @@ Bruno Montezano
 <div>
 <ul>
 <li>Slides e códigos usados para gerar os slides</li>
-<li>Um script em R com os códigos dos slides para seguir durante a aula</li>
-<li>Arquivos em PDF dos slides</li>
 <li>Links com outros materiais sugeridos</li>
 </ul>
 </div>
@@ -457,20 +459,26 @@ Bruno Montezano
 <h2>Plano de ensino</h2>
 <ol type="1">
 <li class="fragment">R e RStudio</li>
+<li class="fragment">Fundamentos de estatística no R</li>
+<li class="fragment">Distribuições e associações</li>
+<li class="fragment">Inferência estatística</li>
+<li class="fragment">Modelos lineares</li>
 </ol>
 </section>
 <section id="por-que-aprender-análise-quantitativa-de-dados" class="slide level2">
 <h2>Por que aprender análise quantitativa de dados?</h2>
-<h4 id="vocês-vão-ler-pesquisa-quantitativa">Vocês vão ler pesquisa quantitativa</h4>
+<p><em>Vocês vão ler pesquisa quantitativa</em></p>
 <ul>
 <li class="fragment">Interpretação</li>
 <li class="fragment">Avaliação</li>
 </ul>
-<h4 id="vocês-podem-fazer-pesquisa-quantitativa">Vocês podem fazer pesquisa quantitativa</h4>
+<div class="fragment">
+<p><em>Vocês podem fazer pesquisa quantitativa</em></p>
 <ul>
 <li class="fragment">Análise</li>
 <li class="fragment">Comunicação</li>
 </ul>
+</div>
 </section>
 <section id="mas-precisamos-mesmo-de-programação" class="slide level2 smaller">
 <h2>Mas precisamos mesmo de programação?</h2>
@@ -497,18 +505,23 @@ Bruno Montezano
 <section id="formatação-dos-slides" class="slide level2 smaller">
 <h2>Formatação dos slides</h2>
 <p><strong>Negrito</strong> indica um termo importante.</p>
+<div class="fragment">
 <p><em>Itálico</em> indica ênfase ou instruções para clicar com o mouse.</p>
 <div>
 <ul>
 <li>Exemplo: “Clique em <em>Arquivo &gt; Salvar como…</em>”.</li>
 </ul>
 </div>
+</div>
+<div class="fragment">
 <p><code>Código</code> representa o código em R para ser digitado ou teclas para realizar ações.</p>
 <div>
 <ul>
 <li>Exemplo: “Pressione <code>Ctrl-P</code> para abrir a janela de impressão”.</li>
 </ul>
 </div>
+</div>
+<div class="fragment">
 <p>Os blocos de código são <em>código de fato executado no R</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Quanto dá 25 vezes 11?</span></span>
@@ -517,20 +530,23 @@ Bruno Montezano
 <pre><code>[1] 275</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="por-que-usar-r" class="slide level2 smaller">
 <h2>Por que usar R?</h2>
 <p>R é uma linguagem de programação construída para computação estatística.</p>
+<div class="fragment">
 <p>Vamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?</p>
 <ul>
 <li class="fragment">R é gratuito, então não precisamos de licença</li>
 <li class="fragment">R tem uma grande comunidade para pacotes e suporte</li>
 <li class="fragment">R consegue trabalhar com <em>praticamente</em> qualquer formato de dado</li>
 <li class="fragment">R <em>facilita</em> o processo de replicação e reprodutibilidade</li>
-<li class="fragment">R é uma linguagem então é capaz de fazer <em>quase tudo</em><sup>1</sup></li>
+<li class="fragment">R é uma linguagem, então é capaz de fazer <em>quase tudo</em> (vide os slides e o <a href="https://brunomontezano.github.io/r-workshop/">site do curso</a>)</li>
 <li class="fragment">R é parecido com outras linguagens de programação (Python, Julia, etc)</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Vide os slides e o site do curso.</p></li></ol></aside></section>
+</div>
+</section>
 <section id="rstudio" class="slide level2 smaller">
 <h2>RStudio</h2>
 <p>O RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.</p>
@@ -540,12 +556,14 @@ Bruno Montezano
 <li class="fragment">Ajuda a visualizar os dados e objetos</li>
 <li class="fragment">Habilita integração de código em R em documentos com <strong>Quarto</strong> e <strong>RMarkdown</strong></li>
 </ul>
+<div class="fragment">
 <p>Além disso:</p>
 <ul>
 <li class="fragment">Manejar repositórios <code>git</code></li>
 <li class="fragment">Rodar tutoriais interativos</li>
 <li class="fragment">Lidar com outras linguagens de programação como Python, SQL e HTML</li>
 </ul>
+</div>
 </section>
 <section id="interface-do-rstudio" class="slide level2 smaller">
 <h2>Interface do RStudio</h2>
@@ -557,7 +575,9 @@ Bruno Montezano
 <li class="fragment">Canto superior direito: Lista de objetos no <strong>Ambiente</strong>, aba de <strong>Histórico</strong></li>
 <li class="fragment">Canto inferior direito: Abas para navegar pelos arquivos, ver plots, manejar pacotes, e visualizar arquivos de ajuda</li>
 </ul>
-<p>O layout pode ser modificado em <em>Preferências &gt; Layout do Painel</em></p>
+<div class="fragment">
+<p>O layout pode ser modificado em <em>Ferramentas &gt; Opções Globais &gt; Layout do Painel</em></p>
+</div>
 </section>
 <section id="editando-e-executando-código-em-r" class="slide level2">
 <h2>Editando e executando código em R</h2>
@@ -567,7 +587,9 @@ Bruno Montezano
 <li class="fragment"><p>Com o seu <strong>cursor</strong> (<code>|</code>) na linha que você quer executar, pressione <code>Ctrl+Enter</code> ou <code>⌘+Enter</code>. Notem que o cursor se move para a próxima linha, para que possamos rodar vários códigos em sequência</p></li>
 <li class="fragment"><p>Escreva linhas individuais no <strong>Console</strong> e pressione <code>Enter</code></p></li>
 </ul>
+<div class="fragment">
 <p>O <strong>Console</strong> vai mostrar as linhas que você rodou seguido pela saída.</p>
+</div>
 </section>
 <section id="código-incompleto" class="slide level2">
 <h2>Código incompleto</h2>
@@ -587,12 +609,16 @@ Bruno Montezano
 <pre><code>[1] 666</code></pre>
 </div>
 </div>
+<div class="fragment">
 <p>O <code>[1]</code> na saída indica o <strong>índice</strong> numérico do primeiro elemento da linha.</p>
+</div>
+<div class="fragment">
 <p>Agora, no nosso documento em R em branco no <strong>Editor</strong>, vamos digitar <code>sqrt(81)</code> e clicar <code>Executar</code> ou pressionar <code>Ctrl+Enter</code> ou <code>⌘+Enter</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">sqrt</span>(<span class="dv">81</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9</code></pre>
+</div>
 </div>
 </div>
 </section>
@@ -622,7 +648,7 @@ Bruno Montezano
 <p>Nós fazemos contas matemáticas com operadores, por exemplo, <code>x + y</code>.</p>
 <p><code>+</code> é o operador de adição.</p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Podemos chamar operadores como funções com crase: `+`(x, y)</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Podemos chamar operadores como funções com crase: `+`(x, y)</p></li></ol></aside></section>
 <section id="chamando-objetos" class="slide level2">
 <h2>Chamando objetos</h2>
 <p>Nós podemos mostrar ou “chamar” um objeto através do seu nome.</p>
@@ -858,11 +884,189 @@ Levels: Depressão Eutimia Mania</code></pre>
 </div>
 </div>
 <p>O <strong>operador dois pontos</strong> (<code>:</code>) gera um vetor usando a sequência de números inteiros do primeiro até o segundo argumento. <code>1:3</code> equivale a <code>c(1, 2, 3)</code>.</p>
-
-<p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
-<div class="footer footer-default">
-
 </div>
+</section>
+<section id="dataframes-e-nomes" class="slide level2 smaller">
+<h2>Dataframes e nomes</h2>
+<p>Colunas em dataframes também podem ser acessadas usando seus nomes com o operador de extração <code>$</code>. Ele retorna a coluna extraída como um vetor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>iris<span class="sc">$</span>Sepal.Length[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Percebam que eu usei os colchetes para selecionar apenas os primeiros 10 elementos da coluna.</p>
+<p>Nós podemos combinar os formatos de subconjuntos! Nesse caso nós usamos apenas um único valor (sem índice de coluna), porque os <strong>vetores</strong> possuem <em>apenas uma dimensão</em> (comprimento).</p>
+<p>Se você tentar criar um subconjunto e receber um aviso quanto ao “número incorreto de dimensões”, verifique o seu subconjunto!</p>
+</div>
+</section>
+<section id="indexando-por-expressões" class="slide level2">
+<h2>Indexando por expressões</h2>
+<p>Também podemos indexar usando expressões — ou seja, testes lógicos.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>iris[iris<span class="sc">$</span>Petal.Length <span class="sc">&gt;</span> <span class="fl">6.5</span>, ]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
+106          7.6         3.0          6.6         2.1 virginica
+118          7.7         3.8          6.7         2.2 virginica
+119          7.7         2.6          6.9         2.3 virginica
+123          7.7         2.8          6.7         2.0 virginica</code></pre>
+</div>
+</div>
+</section>
+<section id="como-as-expressões-funcionam" class="slide level2 smaller">
+<h2>Como as expressões funcionam</h2>
+<p>O que <code>iris$Petal.Length &gt; 6.5</code> faz internamente?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>iris<span class="sc">$</span>Petal.Length <span class="sc">&gt;</span> <span class="fl">6.5</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+ [97] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
+[109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE
+[121] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+[145] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Ela retorna um vetor de valores <code>TRUE</code> ou <code>FALSE</code>.</p>
+<p>Ao usar com o operador de subconjunto (<code>[]</code>), elementos que receberam um <code>TRUE</code> são retornados enquanto àqueles que receberam um <code>FALSE</code> são descartados.</p>
+</div>
+</section>
+<section id="operadores-lógicos" class="slide level2 smaller">
+<h2>Operadores lógicos</h2>
+<p>Nós usamos o <code>&gt;</code> para testar “maior que”: <code>iris$Petal.Length &gt; 6.5</code></p>
+<div class="fragment">
+<p>Existem vários outros <strong>operadores lógicos</strong>:</p>
+<ul>
+<li class="fragment"><code>==</code>: igual a</li>
+<li class="fragment"><code>!=</code>: não é igual a</li>
+<li class="fragment"><code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&gt;=</code>: menor que, menor que ou igual a, etc</li>
+<li class="fragment"><code>%in%</code>: usado para checar igual a um entre vários valores</li>
+</ul>
+</div>
+<div class="fragment">
+<p>E também podemos combinar múltiplas condições lógicas:</p>
+<ul>
+<li class="fragment"><code>&amp;</code>: ambas condições precisam ser respeitadas (E)</li>
+<li class="fragment"><code>|</code>: pelo menos uma condição precisa ser respeitada (OU)</li>
+<li class="fragment"><code>!</code>: inverte uma condição lógica (<code>TRUE</code> vira <code>FALSE</code>, <code>FALSE</code> vira <code>TRUE</code>)</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Operadores lógicos são um dos pilares da programação. Experimente com alguns deles para se familiarizar em como eles funcionam!</p>
+</div>
+</section>
+<section id="adendo-valores-ausente" class="slide level2">
+<h2>Adendo: valores ausente</h2>
+<p>Valores ausentes são codificados como <code>NA</code> sem aspas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>vetor_com_missing <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="cn">NA</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Apenas um <code>NA</code> “contamina tudo”: Você receberá NA dos seus cálculos a menos que os remova manualmente ou use um argumento extra <code>na.rm = TRUE</code> em algumas funções:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">mean</span>(vetor_com_missing)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Podemos pegar os missings (<code>NA</code>) e removê-los (<code>rm</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">mean</span>(vetor_com_missing, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.6</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="encontrando-valores-ausentes" class="slide level2 smaller">
+<h2>Encontrando valores ausentes</h2>
+<p><strong>LEMBRETE:</strong> Não podemos testar por valores ausentes vendo se eles são “iguais a” (<code>==</code>) <code>NA</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>vetor_com_missing <span class="sc">==</span> <span class="cn">NA</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA NA NA NA NA NA NA</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Mas podemos usar a função <code>is.na()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">is.na</span>(vetor_com_missing)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Poderíamos criar um subconjunto para chegar na mesma média com <code>na.rm = TRUE</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">mean</span>(vetor_com_missing[<span class="sc">!</span><span class="fu">is.na</span>(vetor_com_missing)])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.6</code></pre>
+</div>
+</div>
+<p><code>!</code> inverte uma condição lógica. Lemos o subconjunto acima como “retorne os não-<code>NA</code>”.</p>
+</div>
+</section>
+<section id="vamos-aprender-com-o-pacotepacote-swirl" class="slide level2">
+<h2>Vamos aprender com o pacote<img data-src="../assets/logo_swirl.png" alt="Pacote swirl"></h2>
+</section>
+<section id="instalando-pacotes" class="slide level2 smaller">
+<h2>Instalando pacotes</h2>
+<p>Assim como nós almejamos que o paciente seja terapeuta de si mesmo, aqui podemos tentar que você sejam professores de si mesmos.</p>
+<div class="fragment">
+<p>Para isso, vamos instalar um <strong>pacote</strong> chamado <code>swirl</code>.</p>
+</div>
+<div class="fragment">
+<p><strong>Pacotes</strong> contêm funções e/ou dados incorporados que podemos utilizar. A potência do R vem dos pacotes!</p>
+</div>
+<div class="fragment">
+<p>No <em>Console</em>, digite <code>install.packages("swirl")</code>.</p>
+<ul>
+<li class="fragment"><p>Notem que o <em>nome do pacote a ser instalado deve estar entre aspas</em>. Isso se dá porque o nome é um termo de busca (texto), e não um objeto!</p></li>
+<li class="fragment"><p>Uma vez instalado um pacote, vocês não precisam reinstalá-lo até atualizar o R. Logo, não devemos incluir <code>install.packages()</code> em nossos scripts.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Nós podemos carregar os pacotes como o <code>swirl</code> usando a função <code>library()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">library</span>(swirl)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="tarefa-de-casa" class="slide level2 smaller">
+<h2>Tarefa de casa</h2>
+<ul>
+<li class="fragment"><p><a href="https://brunomontezano.github.io/r-workshop/">Dar uma olhada no site do curso</a></p></li>
+<li class="fragment"><p>Explorar alguns tutoriais do <code>swirl</code></p>
+<ul>
+<li class="fragment">Use <code>library(swirl)</code> para carregar o pacote</li>
+<li class="fragment">Após carregado, use <code>swirl()</code> para iniciar a interface de tutoriais
+<ul>
+<li class="fragment"><em>Leia as instruções!</em></li>
+</ul></li>
+<li class="fragment">Experimente as aulas de <code>R Programming</code> — estamos em torno da aula 5</li>
+</ul></li>
+<li class="fragment"><p>Exercícios</p>
+<ul>
+<li class="fragment">Crie um vetor de 1 a 25 e armazene em uma variável de nome <code>sequencia</code> (lembrem-se do operador <code>:</code>).</li>
+<li class="fragment">Crie um vetor de caractere de dois elementos com seu nome e último nome (chamado <code>nome_completo</code>) e extraia seu sobrenome usando <code>[]</code>.</li>
+<li class="fragment">Filtrem a base <code>iris</code> com apenas as plantas da espécie <code>setosa</code> (lembrem-se do <code>$</code>, do <code>==</code>, do <code>[]</code>, das aspas ao trabalhar com texto)</li>
+</ul></li>
+</ul>
+
+
+<img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
+
 </div>
 </section></section>
 

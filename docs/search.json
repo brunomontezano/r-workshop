@@ -53,7 +53,7 @@
     "href": "index.html#slides",
     "title": "Introdução ao R",
     "section": "Slides",
-    "text": "Slides\n\nSlides da Aula 1: R e RStudio"
+    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio"
   },
   {
     "objectID": "compilacao.html",
@@ -116,28 +116,28 @@
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#logística-do-curso",
     "title": "R e RStudio",
     "section": "Logística do curso",
-    "text": "Logística do curso\nOnde?\n\n\nReuniões online\nEncontros presenciais\n\n\nMateriais: https://brunomontezano.github.io/r-workshop/"
+    "text": "Logística do curso\nOnde?\n\n\n\nReuniões online\nEncontros presenciais\n\n\n\n\nMateriais: https://brunomontezano.github.io/r-workshop/"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#materiais",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#materiais",
     "title": "R e RStudio",
     "section": "Materiais",
-    "text": "Materiais\nTodos os materiais do curso estarão no site do curso.\n\n\nSlides e códigos usados para gerar os slides\nUm script em R com os códigos dos slides para seguir durante a aula\nArquivos em PDF dos slides\nLinks com outros materiais sugeridos\n\n\nSe algo não estiver funcionado no site, me enviem um email!"
+    "text": "Materiais\nTodos os materiais do curso estarão no site do curso.\n\n\nSlides e códigos usados para gerar os slides\nLinks com outros materiais sugeridos\n\n\nSe algo não estiver funcionado no site, me enviem um email!"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#plano-de-ensino",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#plano-de-ensino",
     "title": "R e RStudio",
     "section": "Plano de ensino",
-    "text": "Plano de ensino\n\nR e RStudio"
+    "text": "Plano de ensino\n\nR e RStudio\nFundamentos de estatística no R\nDistribuições e associações\nInferência estatística\nModelos lineares"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
     "title": "R e RStudio",
     "section": "Por que aprender análise quantitativa de dados?",
-    "text": "Por que aprender análise quantitativa de dados?\nVocês vão ler pesquisa quantitativa\n\nInterpretação\nAvaliação\n\nVocês podem fazer pesquisa quantitativa\n\nAnálise\nComunicação"
+    "text": "Por que aprender análise quantitativa de dados?\nVocês vão ler pesquisa quantitativa\n\nInterpretação\nAvaliação\n\n\nVocês podem fazer pesquisa quantitativa\n\nAnálise\nComunicação"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#mas-precisamos-mesmo-de-programação",
@@ -151,35 +151,35 @@
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#formatação-dos-slides",
     "title": "R e RStudio",
     "section": "Formatação dos slides",
-    "text": "Formatação dos slides\nNegrito indica um termo importante.\nItálico indica ênfase ou instruções para clicar com o mouse.\n\n\nExemplo: “Clique em Arquivo > Salvar como…”.\n\n\nCódigo representa o código em R para ser digitado ou teclas para realizar ações.\n\n\nExemplo: “Pressione Ctrl-P para abrir a janela de impressão”.\n\n\nOs blocos de código são código de fato executado no R.\n\n# Quanto dá 25 vezes 11?\n25 * 11\n\n[1] 275"
+    "text": "Formatação dos slides\nNegrito indica um termo importante.\n\nItálico indica ênfase ou instruções para clicar com o mouse.\n\n\nExemplo: “Clique em Arquivo > Salvar como…”.\n\n\n\n\nCódigo representa o código em R para ser digitado ou teclas para realizar ações.\n\n\nExemplo: “Pressione Ctrl-P para abrir a janela de impressão”.\n\n\n\n\nOs blocos de código são código de fato executado no R.\n\n# Quanto dá 25 vezes 11?\n25 * 11\n\n[1] 275"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-usar-r",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-usar-r",
     "title": "R e RStudio",
     "section": "Por que usar R?",
-    "text": "Por que usar R?\nR é uma linguagem de programação construída para computação estatística.\nVamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?\n\nR é gratuito, então não precisamos de licença\nR tem uma grande comunidade para pacotes e suporte\nR consegue trabalhar com praticamente qualquer formato de dado\nR facilita o processo de replicação e reprodutibilidade\nR é uma linguagem então é capaz de fazer quase tudo1\nR é parecido com outras linguagens de programação (Python, Julia, etc)\n\nVide os slides e o site do curso."
+    "text": "Por que usar R?\nR é uma linguagem de programação construída para computação estatística.\n\nVamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?\n\nR é gratuito, então não precisamos de licença\nR tem uma grande comunidade para pacotes e suporte\nR consegue trabalhar com praticamente qualquer formato de dado\nR facilita o processo de replicação e reprodutibilidade\nR é uma linguagem, então é capaz de fazer quase tudo (vide os slides e o site do curso)\nR é parecido com outras linguagens de programação (Python, Julia, etc)"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#rstudio",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#rstudio",
     "title": "R e RStudio",
     "section": "RStudio",
-    "text": "RStudio\nO RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.\n\nOrganização do código, saídas e plots\nAutocompletar e destacar o código\nAjuda a visualizar os dados e objetos\nHabilita integração de código em R em documentos com Quarto e RMarkdown\n\nAlém disso:\n\nManejar repositórios git\nRodar tutoriais interativos\nLidar com outras linguagens de programação como Python, SQL e HTML"
+    "text": "RStudio\nO RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.\n\nOrganização do código, saídas e plots\nAutocompletar e destacar o código\nAjuda a visualizar os dados e objetos\nHabilita integração de código em R em documentos com Quarto e RMarkdown\n\n\nAlém disso:\n\nManejar repositórios git\nRodar tutoriais interativos\nLidar com outras linguagens de programação como Python, SQL e HTML"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#interface-do-rstudio",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#interface-do-rstudio",
     "title": "R e RStudio",
     "section": "Interface do RStudio",
-    "text": "Interface do RStudio\nVamos abrir o RStudio e ir em Arquivo > Novo Arquivo > R Script.\nVamos entender a interface:\n\nCanto superior esquerdo: Editor de código e visualizador de dados\nCanto inferior esquerdo: Console para rodar código (>)\nCanto superior direito: Lista de objetos no Ambiente, aba de Histórico\nCanto inferior direito: Abas para navegar pelos arquivos, ver plots, manejar pacotes, e visualizar arquivos de ajuda\n\nO layout pode ser modificado em Preferências > Layout do Painel"
+    "text": "Interface do RStudio\nVamos abrir o RStudio e ir em Arquivo > Novo Arquivo > R Script.\nVamos entender a interface:\n\nCanto superior esquerdo: Editor de código e visualizador de dados\nCanto inferior esquerdo: Console para rodar código (>)\nCanto superior direito: Lista de objetos no Ambiente, aba de Histórico\nCanto inferior direito: Abas para navegar pelos arquivos, ver plots, manejar pacotes, e visualizar arquivos de ajuda\n\n\nO layout pode ser modificado em Ferramentas > Opções Globais > Layout do Painel"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#editando-e-executando-código-em-r",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#editando-e-executando-código-em-r",
     "title": "R e RStudio",
     "section": "Editando e executando código em R",
-    "text": "Editando e executando código em R\nPodemos executar (rodar) nosso código de diversas formas:\n\nSelecionar linhas no Editor e clicar em Executar no topo ou pressione Ctrl+Enter ou ⌘+Enter para rodar a seleção\nCom o seu cursor (|) na linha que você quer executar, pressione Ctrl+Enter ou ⌘+Enter. Notem que o cursor se move para a próxima linha, para que possamos rodar vários códigos em sequência\nEscreva linhas individuais no Console e pressione Enter\n\nO Console vai mostrar as linhas que você rodou seguido pela saída."
+    "text": "Editando e executando código em R\nPodemos executar (rodar) nosso código de diversas formas:\n\nSelecionar linhas no Editor e clicar em Executar no topo ou pressione Ctrl+Enter ou ⌘+Enter para rodar a seleção\nCom o seu cursor (|) na linha que você quer executar, pressione Ctrl+Enter ou ⌘+Enter. Notem que o cursor se move para a próxima linha, para que possamos rodar vários códigos em sequência\nEscreva linhas individuais no Console e pressione Enter\n\n\nO Console vai mostrar as linhas que você rodou seguido pela saída."
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#código-incompleto",
@@ -193,7 +193,7 @@
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#r-como-calculadora",
     "title": "R e RStudio",
     "section": "R como calculadora",
-    "text": "R como calculadora\nNo Console, vamos digitar 111 + 222 + 333 e pressionar Enter.\n\n111 + 222 + 333\n\n[1] 666\n\n\nO [1] na saída indica o índice numérico do primeiro elemento da linha.\nAgora, no nosso documento em R em branco no Editor, vamos digitar sqrt(81) e clicar Executar ou pressionar Ctrl+Enter ou ⌘+Enter.\n\nsqrt(81)\n\n[1] 9"
+    "text": "R como calculadora\nNo Console, vamos digitar 111 + 222 + 333 e pressionar Enter.\n\n111 + 222 + 333\n\n[1] 666\n\n\n\nO [1] na saída indica o índice numérico do primeiro elemento da linha.\n\n\nAgora, no nosso documento em R em branco no Editor, vamos digitar sqrt(81) e clicar Executar ou pressionar Ctrl+Enter ou ⌘+Enter.\n\nsqrt(81)\n\n[1] 9"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#funções-e-ajuda",
@@ -278,5 +278,68 @@
     "title": "R e RStudio",
     "section": "Índices e dimensões",
     "text": "Índices e dimensões\nNo R base, existem duas maneiras de acessar elementos de um objeto: colchetes ([] ou [[]]) e $. A forma como acessamos o objeto depende de suas dimensões.\n\nDataframes têm 2 dimensões: linhas e colunas. Colchetes nos permitem numericamente extrair subconjuntos no formato objeto[linha, coluna]. Deixar o local da linha ou coluna em branco seleciona todos elementos daquela dimensão.\n\niris[1, ] # Primeira linha da base iris\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n\n\n\n\n\niris[1:3, 4:5] # Três primeiras linhas, quarta e quinta coluna\n\n  Petal.Width Species\n1         0.2  setosa\n2         0.2  setosa\n3         0.2  setosa\n\n\nO operador dois pontos (:) gera um vetor usando a sequência de números inteiros do primeiro até o segundo argumento. 1:3 equivale a c(1, 2, 3)."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#dataframes-e-nomes",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#dataframes-e-nomes",
+    "title": "R e RStudio",
+    "section": "Dataframes e nomes",
+    "text": "Dataframes e nomes\nColunas em dataframes também podem ser acessadas usando seus nomes com o operador de extração $. Ele retorna a coluna extraída como um vetor:\n\niris$Sepal.Length[1:10]\n\n [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9\n\n\n\nPercebam que eu usei os colchetes para selecionar apenas os primeiros 10 elementos da coluna.\nNós podemos combinar os formatos de subconjuntos! Nesse caso nós usamos apenas um único valor (sem índice de coluna), porque os vetores possuem apenas uma dimensão (comprimento).\nSe você tentar criar um subconjunto e receber um aviso quanto ao “número incorreto de dimensões”, verifique o seu subconjunto!"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#indexando-por-expressões",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#indexando-por-expressões",
+    "title": "R e RStudio",
+    "section": "Indexando por expressões",
+    "text": "Indexando por expressões\nTambém podemos indexar usando expressões — ou seja, testes lógicos.\n\niris[iris$Petal.Length > 6.5, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n106          7.6         3.0          6.6         2.1 virginica\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#como-as-expressões-funcionam",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#como-as-expressões-funcionam",
+    "title": "R e RStudio",
+    "section": "Como as expressões funcionam",
+    "text": "Como as expressões funcionam\nO que iris$Petal.Length > 6.5 faz internamente?\n\niris$Petal.Length > 6.5\n\n  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [97] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE\n[109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE\n[121] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n[145] FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\nEla retorna um vetor de valores TRUE ou FALSE.\nAo usar com o operador de subconjunto ([]), elementos que receberam um TRUE são retornados enquanto àqueles que receberam um FALSE são descartados."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#operadores-lógicos",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#operadores-lógicos",
+    "title": "R e RStudio",
+    "section": "Operadores lógicos",
+    "text": "Operadores lógicos\nNós usamos o > para testar “maior que”: iris$Petal.Length > 6.5\n\nExistem vários outros operadores lógicos:\n\n==: igual a\n!=: não é igual a\n>, >=, <, >=: menor que, menor que ou igual a, etc\n%in%: usado para checar igual a um entre vários valores\n\n\n\nE também podemos combinar múltiplas condições lógicas:\n\n&: ambas condições precisam ser respeitadas (E)\n|: pelo menos uma condição precisa ser respeitada (OU)\n!: inverte uma condição lógica (TRUE vira FALSE, FALSE vira TRUE)\n\n\n\nOperadores lógicos são um dos pilares da programação. Experimente com alguns deles para se familiarizar em como eles funcionam!"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#adendo-valores-ausente",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#adendo-valores-ausente",
+    "title": "R e RStudio",
+    "section": "Adendo: valores ausente",
+    "text": "Adendo: valores ausente\nValores ausentes são codificados como NA sem aspas:\n\nvetor_com_missing <- c(1, 2, NA, 4, 5, 6, NA)\n\nApenas um NA “contamina tudo”: Você receberá NA dos seus cálculos a menos que os remova manualmente ou use um argumento extra na.rm = TRUE em algumas funções:\n\nmean(vetor_com_missing)\n\n[1] NA\n\n\n\nPodemos pegar os missings (NA) e removê-los (rm):\n\nmean(vetor_com_missing, na.rm = TRUE)\n\n[1] 3.6"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#encontrando-valores-ausentes",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#encontrando-valores-ausentes",
+    "title": "R e RStudio",
+    "section": "Encontrando valores ausentes",
+    "text": "Encontrando valores ausentes\nLEMBRETE: Não podemos testar por valores ausentes vendo se eles são “iguais a” (==) NA:\n\nvetor_com_missing == NA\n\n[1] NA NA NA NA NA NA NA\n\n\n\nMas podemos usar a função is.na():\n\nis.na(vetor_com_missing)\n\n[1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE\n\n\n\n\nPoderíamos criar um subconjunto para chegar na mesma média com na.rm = TRUE:\n\nmean(vetor_com_missing[!is.na(vetor_com_missing)])\n\n[1] 3.6\n\n\n! inverte uma condição lógica. Lemos o subconjunto acima como “retorne os não-NA”."
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-aprender-com-o-pacotepacote-swirl",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-aprender-com-o-pacotepacote-swirl",
+    "title": "R e RStudio",
+    "section": "Vamos aprender com o pacote",
+    "text": "Vamos aprender com o pacote"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#instalando-pacotes",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#instalando-pacotes",
+    "title": "R e RStudio",
+    "section": "Instalando pacotes",
+    "text": "Instalando pacotes\nAssim como nós almejamos que o paciente seja terapeuta de si mesmo, aqui podemos tentar que você sejam professores de si mesmos.\n\nPara isso, vamos instalar um pacote chamado swirl.\n\n\nPacotes contêm funções e/ou dados incorporados que podemos utilizar. A potência do R vem dos pacotes!\n\n\nNo Console, digite install.packages(\"swirl\").\n\nNotem que o nome do pacote a ser instalado deve estar entre aspas. Isso se dá porque o nome é um termo de busca (texto), e não um objeto!\nUma vez instalado um pacote, vocês não precisam reinstalá-lo até atualizar o R. Logo, não devemos incluir install.packages() em nossos scripts.\n\n\n\nNós podemos carregar os pacotes como o swirl usando a função library().\n\nlibrary(swirl)"
+  },
+  {
+    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#tarefa-de-casa",
+    "href": "slides/semana_1/semana_1_r_e_rstudio.html#tarefa-de-casa",
+    "title": "R e RStudio",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nDar uma olhada no site do curso\nExplorar alguns tutoriais do swirl\n\nUse library(swirl) para carregar o pacote\nApós carregado, use swirl() para iniciar a interface de tutoriais\n\nLeia as instruções!\n\nExperimente as aulas de R Programming — estamos em torno da aula 5\n\nExercícios\n\nCrie um vetor de 1 a 25 e armazene em uma variável de nome sequencia (lembrem-se do operador :).\nCrie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando [].\nFiltrem a base iris com apenas as plantas da espécie setosa (lembrem-se do $, do ==, do [], das aspas ao trabalhar com texto)"
   }
 ]

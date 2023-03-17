@@ -39,10 +39,14 @@ format:
 
 Onde?
 
+. . .
+
 ::: {.nonincremental}
 - Reuniões online
 - Encontros presenciais
 :::
+
+. . .
 
 Materiais: [https://brunomontezano.github.io/r-workshop/](https://brunomontezano.github.io/r-workshop/)
 
@@ -53,8 +57,6 @@ Todos os materiais do curso estarão no
 
 ::: {.nonincremental}
 - Slides e códigos usados para gerar os slides
-- Um script em R com os códigos dos slides para seguir durante a aula
-- Arquivos em PDF dos slides
 - Links com outros materiais sugeridos
 :::
 
@@ -63,15 +65,21 @@ Se algo não estiver funcionado no site, me enviem um email!
 ## Plano de ensino
 
 1. R e RStudio
+2. Fundamentos de estatística no R
+3. Distribuições e associações
+4. Inferência estatística
+5. Modelos lineares
 
 ## Por que aprender análise quantitativa de dados?
 
-#### Vocês vão ler pesquisa quantitativa
+*Vocês vão ler pesquisa quantitativa*
 
 - Interpretação
 - Avaliação 
 
-#### Vocês podem fazer pesquisa quantitativa
+. . .
+
+*Vocês podem fazer pesquisa quantitativa*
 
 - Análise
 - Comunicação
@@ -97,11 +105,15 @@ Sim. Programação é *importante*.
 
 **Negrito** indica um termo importante.
 
+. . .
+
 *Itálico* indica ênfase ou instruções para clicar com o mouse.
 
 ::: {.nonincremental}
 - Exemplo: "Clique em *Arquivo > Salvar como...*".
 :::
+
+. . .
 
 `Código` representa o código em R para ser digitado ou
 teclas para realizar ações.
@@ -109,6 +121,9 @@ teclas para realizar ações.
 ::: {.nonincremental}
 - Exemplo: "Pressione `Ctrl-P` para abrir a janela de impressão".
 :::
+
+. . .
+
 Os blocos de código são *código de fato executado no R*.
 
 ```{r exemplo-formatacao}
@@ -120,13 +135,15 @@ Os blocos de código são *código de fato executado no R*.
 
 R é uma linguagem de programação construída para computação estatística.
 
+. . .
+
 Vamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?
 
 - R é gratuito, então não precisamos de licença
 - R tem uma grande comunidade para pacotes e suporte
 - R consegue trabalhar com *praticamente* qualquer formato de dado
 - R *facilita* o processo de replicação e reprodutibilidade
-- R é uma linguagem então é capaz de fazer *quase tudo*^[Vide os slides e o site do curso.]
+- R é uma linguagem, então é capaz de fazer *quase tudo* (vide os slides e o [site do curso](https://brunomontezano.github.io/r-workshop/))
 - R é parecido com outras linguagens de programação (Python, Julia, etc)
 
 ## RStudio {.smaller}
@@ -137,6 +154,8 @@ O RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa
 - Autocompletar e destacar o código
 - Ajuda a visualizar os dados e objetos
 - Habilita integração de código em R em documentos com **Quarto** e **RMarkdown**
+
+. . .
 
 Além disso:
 
@@ -156,7 +175,9 @@ Vamos entender a interface:
 - Canto inferior direito: Abas para navegar pelos arquivos, ver plots, manejar
 pacotes, e visualizar arquivos de ajuda
 
-O layout pode ser modificado em *Preferências > Layout do Painel*
+. . .
+
+O layout pode ser modificado em *Ferramentas > Opções Globais > Layout do Painel*
 
 ## Editando e executando código em R
 
@@ -170,6 +191,8 @@ pressione `Ctrl+Enter` ou `⌘+Enter`. Notem que o cursor se move para a próxim
 para que possamos rodar vários códigos em sequência
 
 - Escreva linhas individuais no **Console** e pressione `Enter`
+
+. . .
 
 O **Console** vai mostrar as linhas que você rodou seguido pela saída.
 
@@ -194,7 +217,11 @@ No **Console**, vamos digitar `111 + 222 + 333` e pressionar `Enter`.
 111 + 222 + 333
 ```
 
+. . .
+
 O `[1]` na saída indica o **índice** numérico do primeiro elemento da linha.
+
+. . .
 
 Agora, no nosso documento em R em branco no **Editor**, vamos digitar `sqrt(81)` e
 clicar `Executar` ou pressionar `Ctrl+Enter` ou `⌘+Enter`.
@@ -458,8 +485,176 @@ iris[1:3, 4:5] # Três primeiras linhas, quarta e quinta coluna
 O **operador dois pontos** (`:`) gera um vetor usando a sequência de números inteiros do
 primeiro até o segundo argumento. `1:3` equivale a `c(1, 2, 3)`.
 
+## Dataframes e nomes {.smaller}
+
+Colunas em dataframes também podem ser acessadas usando seus nomes com o operador de extração
+`$`. Ele retorna a coluna extraída como um vetor:
+
+```{r subset-com-cifrao}
+iris$Sepal.Length[1:10]
+```
+
+. . .
+
+Percebam que eu usei os colchetes para selecionar apenas os primeiros 10 elementos da coluna.
+
+Nós podemos combinar os formatos de subconjuntos! Nesse caso nós usamos apenas um único valor
+(sem índice de coluna), porque os **vetores** possuem *apenas uma dimensão* (comprimento).
+
+Se você tentar criar um subconjunto e receber um aviso quanto ao "número incorreto de
+dimensões", verifique o seu subconjunto!
+
+## Indexando por expressões
+
+Também podemos indexar usando expressões — ou seja, testes lógicos.
+
+```{r subset-expressao}
+iris[iris$Petal.Length > 6.5, ]
+```
 
 
+## Como as expressões funcionam {.smaller}
+
+O que `iris$Petal.Length > 6.5` faz internamente?
+
+```{r como-expressoes-funcionam}
+iris$Petal.Length > 6.5
+```
+
+. . .
+
+Ela retorna um vetor de valores `TRUE` ou `FALSE`.
+
+Ao usar com o operador de subconjunto (`[]`), elementos que receberam um `TRUE` são
+retornados enquanto àqueles que receberam um `FALSE` são descartados.
+
+## Operadores lógicos {.smaller}
+
+Nós usamos o `>` para testar "maior que": `iris$Petal.Length > 6.5`
+
+. . .
+
+Existem vários outros **operadores lógicos**:
+
+- `==`: igual a
+- `!=`: não é igual a
+- `>`, `>=`, `<`, `>=`: menor que, menor que ou igual a, etc
+- `%in%`: usado para checar igual a um entre vários valores
+
+. . .
+
+E também podemos combinar múltiplas condições lógicas:
+
+- `&`: ambas condições precisam ser respeitadas (E)
+- `|`: pelo menos uma condição precisa ser respeitada (OU)
+- `!`: inverte uma condição lógica (`TRUE` vira `FALSE`, `FALSE` vira `TRUE`)
+
+. . .
+
+Operadores lógicos são um dos pilares da programação. Experimente com alguns deles
+para se familiarizar em como eles funcionam!
+
+## Adendo: valores ausente
+
+Valores ausentes são codificados como `NA` sem aspas:
+
+```{r vetor-missing}
+vetor_com_missing <- c(1, 2, NA, 4, 5, 6, NA)
+```
+
+Apenas um `NA` "contamina tudo": Você receberá NA dos seus cálculos a menos que
+os remova manualmente ou use um argumento extra `na.rm = TRUE` em algumas
+funções:
+
+```{r media-sem-narm}
+mean(vetor_com_missing)
+```
+
+. . .
+
+Podemos pegar os missings (`NA`) e removê-los (`rm`):
+
+```{r media-com-narm}
+mean(vetor_com_missing, na.rm = TRUE)
+```
+
+## Encontrando valores ausentes {.smaller}
+
+**LEMBRETE:** Não podemos testar por valores ausentes vendo se eles são "iguais a" (`==`) `NA`:
+
+```{r igual-a-na}
+vetor_com_missing == NA
+```
+
+. . .
+
+Mas podemos usar a função `is.na()`:
+
+```{r funcao-isna}
+is.na(vetor_com_missing)
+```
+
+. . .
+
+Poderíamos criar um subconjunto para chegar na mesma média com `na.rm = TRUE`:
+
+```{r media-subconjunto-sem-missing}
+mean(vetor_com_missing[!is.na(vetor_com_missing)])
+```
+
+`!` inverte uma condição lógica. Lemos o subconjunto acima como "retorne os não-`NA`".
 
 
+## Vamos aprender com o pacote![Pacote swirl](../assets/logo_swirl.png)
 
+## Instalando pacotes {.smaller}
+
+Assim como nós almejamos que o paciente seja terapeuta de si mesmo, aqui podemos
+tentar que você sejam professores de si mesmos.
+
+. . .
+
+Para isso, vamos instalar um **pacote** chamado `swirl`.
+
+. . .
+
+**Pacotes** contêm funções e/ou dados incorporados que podemos utilizar.
+A potência do R vem dos pacotes!
+
+. . .
+
+No *Console*, digite `install.packages("swirl")`.
+
+- Notem que o *nome do pacote a ser instalado deve estar entre aspas*. Isso se
+dá porque o nome é um termo de busca (texto), e não um objeto!
+
+- Uma vez instalado um pacote, vocês não precisam reinstalá-lo até atualizar o R.
+Logo, não devemos incluir `install.packages()` em nossos scripts.
+
+. . .
+
+Nós podemos carregar os pacotes como o `swirl` usando a função `library()`.
+
+```{r carregar-swirl}
+#| eval: false
+library(swirl)
+```
+
+## Tarefa de casa {.smaller}
+
+- [Dar uma olhada no site do curso](https://brunomontezano.github.io/r-workshop/)
+
+- Explorar alguns tutoriais do `swirl`
+  - Use `library(swirl)` para carregar o pacote
+  - Após carregado, use `swirl()` para iniciar a interface de tutoriais
+    - *Leia as instruções!*
+  - Experimente as aulas de `R Programming` — estamos em torno da aula 5
+
+- Exercícios
+  - Crie um vetor de 1 a 25 e armazene em uma variável de nome `sequencia`
+  (lembrem-se do operador `:`).
+  - Crie um vetor de caractere de dois elementos com seu nome e último nome
+  (chamado `nome_completo`) e extraia seu sobrenome usando `[]`.
+  - Filtrem a base `iris` com apenas as plantas da espécie 
+  `setosa` (lembrem-se do `$`, do `==`, do `[]`,
+  das aspas ao trabalhar com texto)

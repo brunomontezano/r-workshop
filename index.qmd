@@ -88,3 +88,4 @@ o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatí
 ## Slides
 
 * [Slides da Aula 1: R e RStudio](slides/semana_1/semana_1_r_e_rstudio.html)
+  - [Código para gerar os slides da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_1/semana_1_r_e_rstudio.qmd)
