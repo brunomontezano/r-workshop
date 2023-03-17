@@ -9,3 +9,18 @@ As aulas se darão a partir de um modelo híbrido. Algumas aulas serão presenci
 e outras serão realizadas através de videoconferências em plataformas online.
 
 ## Quantas aulas serão realizadas?
+
+O plano de aulas seguirá as seguintes aulas:
+
+1. R e RStudio
+2. Fundamentos de estatística no R
+3. Distribuições e associações
+4. Inferência estatística
+5. Modelos lineares
+
+Ou seja, a princípio, realizaremos cinco aulas neste curso.
+
+## O código-fonte do site do curso é disponibilizado?
+
+Sim, você pode acessar o [repositório do curso no GitHub](https://github.com/brunomontezano/r-workshop), onde estão contidos todos
+os códigos, dados e slides do curso.

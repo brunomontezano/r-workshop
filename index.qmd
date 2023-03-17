@@ -1,8 +1,10 @@
 ---
 title: "Introdução ao R"
-subtitle: "Conceitos para pesquisadores em ciências da saúde"
+subtitle: "Aplicações em ciências da saúde"
 author: "Bruno Montezano"
 institute: "UFRGS"
+description: "Curso voltado para desenvolvimento de habilidades de manipulação e análise de dados em R para pesquisadores da área da saúde"
+abstract: "O curso/workshop será dividido em cinco aulas, com exercícios para aplicação dos conceitos aprendidos. Conhecimento básico de estatística e experiência prévia em análise de dados é desejável, mas não obrigatório. Os participantes devem ter conhecimento básico de informática."
 date: last-modified
 image: assets/r_logo.png
 lang: pt-br
@@ -37,6 +39,9 @@ códigos em R que facilitam rotinas de análise de dados para epidemiologia.
 escrito por
 Sergio Miranda Freire, trata aspectos introdutórios da programação em R com
 aplicações.
+* [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/): livro
+breve escrito por Ewen Harrison e Riinu Pius sobre aplicação de programação em R
+na manipulação, análise e interpretação de dados em saúde.
 
 ### Visualização de dados
 
@@ -89,3 +94,6 @@ o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatí
 
 * [Slides da Aula 1: R e RStudio](slides/semana_1/semana_1_r_e_rstudio.html)
   - [Código para gerar os slides da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_1/semana_1_r_e_rstudio.qmd)
+
+* [Slides da Aula 2: Fundamentos de estatística em R](slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html)
+  - [Código para gerar os slides da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.qmd)
