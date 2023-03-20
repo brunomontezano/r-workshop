@@ -660,3 +660,16 @@ library(swirl)
   - Filtrem a base `iris` com apenas as plantas da espécie 
   `setosa` (lembrem-se do `$`, do `==`, do `[]`,
   das aspas ao trabalhar com texto)
+
+## Dica: ChatGPT
+
+- O [ChatGPT](https://chat.openai.com/chat) é um assistente virtual que pode ajudar
+na aprendizagem de programação
+em R para pesquisadores em saúde
+- Ele pode responder a perguntas sobre sintaxe, funcionalidades e solução de problemas no R
+
+. . .
+
+Você pode utilizar o pacote [`gptstudio`](https://github.com/MichelNivard/GPTstudio)
+para auxiliar nos códigos, gramática dos documentos,
+ou para comentar seu código no RStudio.

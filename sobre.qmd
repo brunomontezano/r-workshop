@@ -5,8 +5,9 @@ lang: pt-br
 
 ## Onde serão as aulas?
 
-As aulas se darão a partir de um modelo híbrido. Algumas aulas serão presenciais
-e outras serão realizadas através de videoconferências em plataformas online.
+As aulas se darão a partir de um modelo online. As aulas serão
+serão realizadas através de videoconferências na plataformas Google Meet
+para os integrantes do grupo de pesquisa Alliance.
 
 ## Quantas aulas serão realizadas?
 

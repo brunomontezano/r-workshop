@@ -66,6 +66,9 @@ tutoriais interativos em R ao final dos capítulos.
 livro em português, escrito por Filipe Zabala, apresenta diversos capítulos desde
 análise descritiva até modelos de aprendizado de máquina não-supervisionado com
 exemplos em R no decorrer do texto.
+* [Learning Statistics with R](https://learningstatisticswithr.com/book/): escrito
+por Danielle Navarro, trata-se de um livro voltado para introdução de conceitos
+de estatística e probabilidade através de aplicações em R.
 
 ### Reprodutibilidade e Comunicação
 
