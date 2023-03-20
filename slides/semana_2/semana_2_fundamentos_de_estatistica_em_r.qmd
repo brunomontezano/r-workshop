@@ -19,7 +19,7 @@ format:
 
 - Revisão de conceitos matemáticos
   - Variáveis, vetores e matrizes
-  - Linhas e curvas
+  - Medidas de tendência central e dispersão
 
 - Programação
   - Indexação e subconjuntos
@@ -174,5 +174,216 @@ equivalem entre si.
 
 ```{r calcular-media-funcao-mean}
 mean(x) # Função mean() é como se fosse um atalho
+```
+
+## Mediana {.smaller}
+
+O valor para o qual não mais da metade dos
+valores é superior ou inferior^[Tecnicamente, a mediana minimiza o erro absoluto].
+
+. . .
+
+A **mediana** tem essa fórmula esquisita:
+
+$$m(x_i) = \begin{cases} x_{\frac{n+1}{2}},& \text{se } n \text{ ímpar}\\ \frac{1}{2}(x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}), &\text{se } n \text{ par}\end{cases}$$
+
+<center>"Se $x$ tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se $x$ tem um número par de elementos, a mediana é a média dos dois valores do meio".</center>
+
+. . .
+
+&nbsp;
+
+```{r mediana-na-mao}
+sort(x)[(length(x) + 1) / 2] # Mediana na mão quando n é ímpar
+```
+
+```{r funcao-median}
+median(x) # Função median() para calcular qualquer mediana
+```
+
+## Moda {.smaller}
+
+A **moda** é o valor mais **frequente** na variável.
+
+. . .
+
+Existem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda
+ser a medida de tendência central mais intuitiva.
+
+. . .
+
+Vocês podem usar `table()` para ver a frequência de valores:
+
+```{r funcao-table}
+table(x)
+```
+
+. . .
+
+E vocês podem achar a moda diretamente:
+
+```{r achar-moda}
+table(x)[table(x) == max(table(x))]
+```
+
+O código acima se traduz como: "Crie um subconjunto da tabela para quando a contagem for igual ao maior valor."
+
+## Valores extremos
+
+A média é sensível a valores extremos:
+
+```{r outliers}
+z <- c(2, 5, 3, 5, 105)
+mean(z)
+```
+
+. . .
+
+A mediana não é:
+
+```{r mediana-outlier}
+median(z)
+```
+
+. . .
+
+Isso significa que a mediana pode ser uma "média" mais útil quando os dados
+têm valores extremos.
+
+
+Isto é comum com variáveis como renda e números de episódios auto-relatados.
+
+## Medidas de dispersão
+
+![](../assets/meme_variancia.jpg){fig-align="center" width=65%}
+
+## Variância {.smaller}
+
+A variância mede como os dados estão dispersos em torno da média.
+Normalmente usamos a variância *amostral*:
+
+$$
+s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
+$$
+
+Vamos ver isso melhor quando estudarmos distribuições.
+
+. . .
+
+```{r variancia-na-mao}
+sum((x - mean(x))^2 / (length(x) - 1))
+```
+
+```{r funcao-var}
+var(x)
+```
+
+. . .
+
+Se todos os valores são iguais, a variância é *zero*.
+
+## Desvio padrão {.smaller}
+
+O desvio padrão ($s$ ou $sd$, ou $dp$ em português) é simplesmente a raíz quadrada
+da variância:
+
+$$s = sd = dp = \sqrt{s^2}$$
+
+. . .
+
+Você pode interpretar como a distância "típica" dos valores em relação à média.
+
+. . .
+
+```{r raiz-da-variancia}
+sqrt(var(x))
+```
+
+```{r funcao-sd}
+sd(x)
+```
+
+# Retomando indexação e subconjuntos
+
+## Nomes para extrair colunas
+
+Nós também podemos usar os nomes de colunas para selecioná-las na base:
+
+```{r selecionar-coluna-por-nome}
+head(iris[, c("Species", "Petal.Length")])
+```
+
+. . .
+
+Por padrão, a função `head()` mostra as seis primeiras linhas da base.
+
+## Colunas individuais {.smaller}
+
+Se vocês criarem um subconjunto de apenas uma coluna, um vetor será retornado
+ao invés de um dataframe:
+
+```{r coluna-sozinha}
+iris[, "Sepal.Width"]
+```
+
+. . .
+
+*Colunas* em dataframes também podem ser acessadas usando os nomes e o operador
+de extração `$`:
+
+```{r usando-cifrao}
+iris$Sepal.Width
+```
+
+## Extrair: `$`
+
+Vocês podem ter notado o `$` antes ao ter usado o `str()`:
+
+```{r str-iris}
+str(iris)
+```
+
+Como nas margens das matrizes, trata-se de uma dica que você pode selecionar
+colunas dessa forma.
+
+## Combinando estilos de criar subconjuntos {.smaller}
+
+```{r combinar-estilos}
+iris$Petal.Width[1:15]
+```
+
+Aqui eu usei os colchetes para selecionar apenas as 15 primeiras observações dessa
+coluna.
+
+. . .
+
+Nós podemos misturar os estilos de subconjuntos! Nesse exemplo, eu inseri apenas
+um valor (sem índice de coluna) porque os **vetores** possuem *apenas uma
+dimensão* (que é o comprimento).
+
+- O R processa primeiro o `$Petal.Width`
+- E depois processa o `[1:15]`
+
+. . .
+
+Se você receber erros sobre "número incorreto de dimensões", verifique por algum
+erro no seu subconjunto!
+
+# Praticando combinações de condições lógicas
+
+## E: `&` {.smaller}
+
+![](../assets/exemplo_e.png){fig-align="center" width=45%}
+
+```{r operador-e}
+iris[iris$Sepal.Length > 7.2 & iris$Petal.Length > 6.6, ]
+```
+
+## Ou: `|` {.smaller}
+
+![](../assets/exemplo_ou.png){fig-align="center" width=45%}
+
+```{r operador-ou}
+iris[iris$Sepal.Length > 7.2 | iris$Petal.Length > 6.6, ]
 ```
 

@@ -109,7 +109,7 @@
     "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#conteúdo-de-hoje",
     "title": "Fundamentos de estatística em R",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nRevisão de conceitos matemáticos\n\nVariáveis, vetores e matrizes\nLinhas e curvas\n\nProgramação\n\nIndexação e subconjuntos\nExpressões lógicas"
+    "text": "Conteúdo de hoje\n\nRevisão de conceitos matemáticos\n\nVariáveis, vetores e matrizes\nMedidas de tendência central e dispersão\n\nProgramação\n\nIndexação e subconjuntos\nExpressões lógicas"
   },
   {
     "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#revisão-de-conceitos-matemáticos",
@@ -165,7 +165,91 @@
     "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#média",
     "title": "Fundamentos de estatística em R",
     "section": "Média",
-    "text": "Média\nA média (aritmética) é o valor esperado de uma variável.\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\n\nSe você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor1.\nDito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.\n\n\n\n(1/length(x)) * sum(x) # Fórmula da média aritmética\n\n[1] 14.8\n\n\n\nmean(x) # Função mean() é como se fosse um atalho\n\n[1] 14.8\n\n\n\n\n\n\n\n\nTecnicamente, a média minimiza o erro quadrático."
+    "text": "Média\nA média (aritmética) é o valor esperado de uma variável.\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\n\nSe você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor1.\nDito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.\n\n\n\n(1/length(x)) * sum(x) # Fórmula da média aritmética\n\n[1] 14.8\n\n\n\nmean(x) # Função mean() é como se fosse um atalho\n\n[1] 14.8\n\n\n\nTecnicamente, a média minimiza o erro quadrático."
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#mediana",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#mediana",
+    "title": "Fundamentos de estatística em R",
+    "section": "Mediana",
+    "text": "Mediana\nO valor para o qual não mais da metade dos valores é superior ou inferior1.\n\nA mediana tem essa fórmula esquisita:\n\\[m(x_i) = \\begin{cases} x_{\\frac{n+1}{2}},& \\text{se } n \\text{ ímpar}\\\\ \\frac{1}{2}(x_{\\frac{n}{2}} + x_{\\frac{n}{2} + 1}), &\\text{se } n \\text{ par}\\end{cases}\\]\n\n“Se \\(x\\) tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se \\(x\\) tem um número par de elementos, a mediana é a média dos dois valores do meio”.\n\n\n\n \n\nsort(x)[(length(x) + 1) / 2] # Mediana na mão quando n é ímpar\n\n[1] 12\n\n\n\nmedian(x) # Função median() para calcular qualquer mediana\n\n[1] 12\n\n\n\nTecnicamente, a mediana minimiza o erro absoluto"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#moda",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#moda",
+    "title": "Fundamentos de estatística em R",
+    "section": "Moda",
+    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\ntable(x)\n\nx\n 9 12 14 27 \n 1  2  1  1 \n\n\n\n\nE vocês podem achar a moda diretamente:\n\ntable(x)[table(x) == max(table(x))]\n\n12 \n 2 \n\n\nO código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#valores-extremos",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#valores-extremos",
+    "title": "Fundamentos de estatística em R",
+    "section": "Valores extremos",
+    "text": "Valores extremos\nA média é sensível a valores extremos:\n\nz <- c(2, 5, 3, 5, 105)\nmean(z)\n\n[1] 24\n\n\n\nA mediana não é:\n\nmedian(z)\n\n[1] 5\n\n\n\n\nIsso significa que a mediana pode ser uma “média” mais útil quando os dados têm valores extremos.\nIsto é comum com variáveis como renda e números de episódios auto-relatados."
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-dispersão",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-dispersão",
+    "title": "Fundamentos de estatística em R",
+    "section": "Medidas de dispersão",
+    "text": "Medidas de dispersão"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#variância",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#variância",
+    "title": "Fundamentos de estatística em R",
+    "section": "Variância",
+    "text": "Variância\nA variância mede como os dados estão dispersos em torno da média. Normalmente usamos a variância amostral:\n\\[\ns^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}\n\\]\nVamos ver isso melhor quando estudarmos distribuições.\n\n\nsum((x - mean(x))^2 / (length(x) - 1))\n\n[1] 49.7\n\n\n\nvar(x)\n\n[1] 49.7\n\n\n\n\nSe todos os valores são iguais, a variância é zero."
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#desvio-padrão",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#desvio-padrão",
+    "title": "Fundamentos de estatística em R",
+    "section": "Desvio padrão",
+    "text": "Desvio padrão\nO desvio padrão (\\(s\\) ou \\(sd\\), ou \\(dp\\) em português) é simplesmente a raíz quadrada da variância:\n\\[s = sd = dp = \\sqrt{s^2}\\]\n\nVocê pode interpretar como a distância “típica” dos valores em relação à média.\n\n\n\nsqrt(var(x))\n\n[1] 7.049823\n\n\n\nsd(x)\n\n[1] 7.049823"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#nomes-para-extrair-colunas",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#nomes-para-extrair-colunas",
+    "title": "Fundamentos de estatística em R",
+    "section": "Nomes para extrair colunas",
+    "text": "Nomes para extrair colunas\nNós também podemos usar os nomes de colunas para selecioná-las na base:\n\nhead(iris[, c(\"Species\", \"Petal.Length\")])\n\n  Species Petal.Length\n1  setosa          1.4\n2  setosa          1.4\n3  setosa          1.3\n4  setosa          1.5\n5  setosa          1.4\n6  setosa          1.7\n\n\n\nPor padrão, a função head() mostra as seis primeiras linhas da base."
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#colunas-individuais",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#colunas-individuais",
+    "title": "Fundamentos de estatística em R",
+    "section": "Colunas individuais",
+    "text": "Colunas individuais\nSe vocês criarem um subconjunto de apenas uma coluna, um vetor será retornado ao invés de um dataframe:\n\niris[, \"Sepal.Width\"]\n\n  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5\n [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2\n [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3\n [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8\n [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5\n [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9\n[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2\n[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2\n[145] 3.3 3.0 2.5 3.0 3.4 3.0\n\n\n\nColunas em dataframes também podem ser acessadas usando os nomes e o operador de extração $:\n\niris$Sepal.Width\n\n  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5\n [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2\n [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3\n [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8\n [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5\n [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9\n[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2\n[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2\n[145] 3.3 3.0 2.5 3.0 3.4 3.0"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#extrair",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#extrair",
+    "title": "Fundamentos de estatística em R",
+    "section": "Extrair: $",
+    "text": "Extrair: $\nVocês podem ter notado o $ antes ao ter usado o str():\n\nstr(iris)\n\n'data.frame':   150 obs. of  5 variables:\n $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...\n $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...\n $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...\n $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...\n $ Species     : Factor w/ 3 levels \"setosa\",\"versicolor\",..: 1 1 1 1 1 1 1 1 1 1 ...\n\n\nComo nas margens das matrizes, trata-se de uma dica que você pode selecionar colunas dessa forma."
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#combinando-estilos-de-criar-subconjuntos",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#combinando-estilos-de-criar-subconjuntos",
+    "title": "Fundamentos de estatística em R",
+    "section": "Combinando estilos de criar subconjuntos",
+    "text": "Combinando estilos de criar subconjuntos\n\niris$Petal.Width[1:15]\n\n [1] 0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 0.2 0.2 0.1 0.1 0.2\n\n\nAqui eu usei os colchetes para selecionar apenas as 15 primeiras observações dessa coluna.\n\nNós podemos misturar os estilos de subconjuntos! Nesse exemplo, eu inseri apenas um valor (sem índice de coluna) porque os vetores possuem apenas uma dimensão (que é o comprimento).\n\nO R processa primeiro o $Petal.Width\nE depois processa o [1:15]\n\n\n\nSe você receber erros sobre “número incorreto de dimensões”, verifique por algum erro no seu subconjunto!"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#e",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#e",
+    "title": "Fundamentos de estatística em R",
+    "section": "E: &",
+    "text": "E: &\n\n\niris[iris$Sepal.Length > 7.2 & iris$Petal.Length > 6.6, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#ou",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#ou",
+    "title": "Fundamentos de estatística em R",
+    "section": "Ou: |",
+    "text": "Ou: |\n\n\n\n\n\n\niris[iris$Sepal.Length > 7.2 | iris$Petal.Length > 6.6, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n106          7.6         3.0          6.6         2.1 virginica\n108          7.3         2.9          6.3         1.8 virginica\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica\n131          7.4         2.8          6.1         1.9 virginica\n132          7.9         3.8          6.4         2.0 virginica\n136          7.7         3.0          6.1         2.3 virginica"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
