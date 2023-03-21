@@ -100,3 +100,6 @@ o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatí
 
 * [Slides da Aula 2: Fundamentos de estatística em R](slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html)
   - [Código para gerar os slides da Aula 2: Fundamentos de estatística em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.qmd)
+  
+* [Slides da Aula 3: Distribuições e associações](slides/semana_3/semana_3_distribuicoes_e_associacoes.html)
+  - [Código para gerar os slides da Aula 3: Distribuições e associações](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_3/semana_3_distribuicoes_e_associacoes.qmd)

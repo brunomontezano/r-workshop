@@ -1,0 +1,64 @@
+---
+title: "Distribuições e associações"
+subtitle: "Semana 3"
+author: "Bruno Montezano"
+institute: "Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento\nUniversidade Federal do Rio Grande do Sul"
+date: last-modified
+date-format: long
+lang: pt-br
+execute:
+  echo: true
+format:
+  revealjs:
+    incremental: true
+    theme: [default, ../assets/custom.scss]
+    logo: "../assets/logo_ufrgs.png"
+---
+
+## Conteúdo de hoje
+
+- *Pipes*
+- Criando e modificando variáveis
+- Distribuições
+  - Tabulações e tabulações cruzadas
+  - Resumo (sumarização) de dados
+  - Correlações
+  
+## Pacote `tidyverse`
+
+![](../assets/logo_tidyverse.png){fig-align="center" width=45%}
+
+## Instalando o pacote `tidyverse` {.smaller}
+
+Com ajuda do `tidyverse`, vamos praticar o carregamento e manipulação de dados.
+
+. . .
+
+Vamos usar pacotes chamados `readr` e `dplyr` para essas tarefas.
+
+Estes pacotes são parte da família de pacotes [tidyverse](https://www.tidyverse.org/).
+
+:::{.nonincremental}
+- Eles facilitam bastante o uso do R
+:::
+
+. . .
+
+Se você ainda não instalou o pacote `tidyverse`, digite no Console:
+`install.packages("tidyverse")`.
+
+. . .
+
+Esse comando vai instalar uma *grande quantidade* de pacotes do R que vamos usar
+ao longo do curso, incluindo o `readr`, `ggplot2` e o `dplyr`.
+
+## Carregando os pacotes
+
+```{r carregando readr-ggplot2-dplyr}
+#| warning: true
+library(readr)
+library(ggplot2)
+library(dplyr)
+```
+
+## Isso é algum tipo de erro?

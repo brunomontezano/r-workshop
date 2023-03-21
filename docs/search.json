@@ -53,7 +53,7 @@
     "href": "index.html#slides",
     "title": "Introdução ao R",
     "section": "Slides",
-    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Fundamentos de estatística em R\n\nCódigo para gerar os slides da Aula 2: Fundamentos de estatística em R"
+    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Fundamentos de estatística em R\n\nCódigo para gerar os slides da Aula 2: Fundamentos de estatística em R\n\nSlides da Aula 3: Distribuições e associações\n\nCódigo para gerar os slides da Aula 3: Distribuições e associações"
   },
   {
     "objectID": "compilacao.html",
@@ -249,7 +249,49 @@
     "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#ou",
     "title": "Fundamentos de estatística em R",
     "section": "Ou: |",
-    "text": "Ou: |\n\n\n\n\n\n\niris[iris$Sepal.Length > 7.2 | iris$Petal.Length > 6.6, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n106          7.6         3.0          6.6         2.1 virginica\n108          7.3         2.9          6.3         1.8 virginica\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica\n131          7.4         2.8          6.1         1.9 virginica\n132          7.9         3.8          6.4         2.0 virginica\n136          7.7         3.0          6.1         2.3 virginica"
+    "text": "Ou: |\n\n\niris[iris$Sepal.Length > 7.2 | iris$Petal.Length > 6.6, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n106          7.6         3.0          6.6         2.1 virginica\n108          7.3         2.9          6.3         1.8 virginica\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica\n131          7.4         2.8          6.1         1.9 virginica\n132          7.9         3.8          6.4         2.0 virginica\n136          7.7         3.0          6.1         2.3 virginica"
+  },
+  {
+    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#tarefa-de-casa",
+    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#tarefa-de-casa",
+    "title": "Fundamentos de estatística em R",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nCriar um subconjunto da base iris apenas com as plantas da espécie virginica e que possuam uma largura da pétala (Petal.Width) menor ou igual a 1,9cm. Lembrem de usar os colchetes, operadores (==, &, <=), que o ponto de decimal do R não é a vírgula (dica: é o .). Armazene esse subconjunto em um objeto chamado virginicas_estreitas.\nA partir da base iris, calcule a média e o desvio padrão do comprimento da sépala (Sepal.Length) das plantas da espécie versicolor. Lembrem do $ e das funções para calcular média e desvio padrão!"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#conteúdo-de-hoje",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#conteúdo-de-hoje",
+    "title": "Distribuições e associações",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nPipes\nCriando e modificando variáveis\nDistribuições\n\nTabulações e tabulações cruzadas\nResumo (sumarização) de dados\nCorrelações"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-tidyverse",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-tidyverse",
+    "title": "Distribuições e associações",
+    "section": "Pacote tidyverse",
+    "text": "Pacote tidyverse"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#instalando-o-pacote-tidyverse",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#instalando-o-pacote-tidyverse",
+    "title": "Distribuições e associações",
+    "section": "Instalando o pacote tidyverse",
+    "text": "Instalando o pacote tidyverse\nCom ajuda do tidyverse, vamos praticar o carregamento e manipulação de dados.\n\nVamos usar pacotes chamados readr e dplyr para essas tarefas.\nEstes pacotes são parte da família de pacotes tidyverse.\n\n\nEles facilitam bastante o uso do R\n\n\n\n\nSe você ainda não instalou o pacote tidyverse, digite no Console: install.packages(\"tidyverse\").\n\n\nEsse comando vai instalar uma grande quantidade de pacotes do R que vamos usar ao longo do curso, incluindo o readr, ggplot2 e o dplyr."
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#carregando-os-pacotes",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#carregando-os-pacotes",
+    "title": "Distribuições e associações",
+    "section": "Carregando os pacotes",
+    "text": "Carregando os pacotes\n\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#isso-é-algum-tipo-de-erro",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#isso-é-algum-tipo-de-erro",
+    "title": "Distribuições e associações",
+    "section": "Isso é algum tipo de erro?",
+    "text": "Isso é algum tipo de erro?"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",

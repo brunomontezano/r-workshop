@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.335">
 
   <meta name="author" content="Bruno Montezano">
-  <title>Introdução ao R - Fundamentos de estatística em R</title>
+  <title>Introdução ao R - Distribuições e associações</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -388,8 +388,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Fundamentos de estatística em R</h1>
-  <p class="subtitle">Semana 2</p>
+  <h1 class="title">Distribuições e associações</h1>
+  <p class="subtitle">Semana 3</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -407,452 +407,69 @@ Bruno Montezano
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
 <ul>
-<li class="fragment">Revisão de conceitos matemáticos
+<li class="fragment"><em>Pipes</em></li>
+<li class="fragment">Criando e modificando variáveis</li>
+<li class="fragment">Distribuições
 <ul>
-<li class="fragment">Variáveis, vetores e matrizes</li>
-<li class="fragment">Medidas de tendência central e dispersão</li>
-</ul></li>
-<li class="fragment">Programação
-<ul>
-<li class="fragment">Indexação e subconjuntos</li>
-<li class="fragment">Expressões lógicas</li>
+<li class="fragment">Tabulações e tabulações cruzadas</li>
+<li class="fragment">Resumo (sumarização) de dados</li>
+<li class="fragment">Correlações</li>
 </ul></li>
 </ul>
 </section>
-<section id="revisão-de-conceitos-matemáticos" class="slide level2">
-<h2>Revisão de conceitos matemáticos</h2>
+<section id="pacote-tidyverse" class="slide level2">
+<h2>Pacote <code>tidyverse</code></h2>
 
-<img data-src="../assets/meme_revisao_matematica.jpg" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
-<section id="variáveis" class="slide level2 smaller">
-<h2>Variáveis</h2>
-<p><strong>Variáveis</strong> são símbolos que representam conjuntos de um ou mais <strong>elementos</strong> que podem assumir qualquer quantidade de valores.</p>
+<img data-src="../assets/logo_tidyverse.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
+<section id="instalando-o-pacote-tidyverse" class="slide level2 smaller">
+<h2>Instalando o pacote <code>tidyverse</code></h2>
+<p>Com ajuda do <code>tidyverse</code>, vamos praticar o carregamento e manipulação de dados.</p>
+<div class="fragment">
+<p>Vamos usar pacotes chamados <code>readr</code> e <code>dplyr</code> para essas tarefas.</p>
+<p>Estes pacotes são parte da família de pacotes <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
 <div>
 <ul>
-<li>Letras como <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> e <span class="math inline">\(z\)</span> são comumente usadas para indicar variáveis
-<ul>
-<li>Por exemplo: <span class="math inline">\(x = 3\)</span></li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<div>
-<ul>
-<li>Letras maiúsculas (<span class="math inline">\(X\)</span>) ou letras com um índice (<span class="math inline">\(x_i\)</span>) referem-se a variáveis com múltiplos valores — ou seja, com dimensões
-<ul>
-<li>Por exemplo: <span class="math inline">\(X = x_i = (15, 16, 32)\)</span></li>
-<li>Variáveis com uma dimensão (comprimento) são chamadas de <strong>vetor</strong></li>
-</ul></li>
+<li>Eles facilitam bastante o uso do R</li>
 </ul>
 </div>
 </div>
 <div class="fragment">
-<div>
-<ul>
-<li>Variáveis como <span class="math inline">\(x_i\)</span> são usadas para <strong>indexar</strong> elementos de vetores
-<ul>
-<li><span class="math inline">\(i\)</span> é uma variável que indica a posição indexada</li>
-<li>Por exemplo: <span class="math inline">\(x_1 = 15, x_2 = 16, x_3 = 32\)</span></li>
-</ul></li>
-</ul>
+<p>Se você ainda não instalou o pacote <code>tidyverse</code>, digite no Console: <code>install.packages("tidyverse")</code>.</p>
 </div>
+<div class="fragment">
+<p>Esse comando vai instalar uma <em>grande quantidade</em> de pacotes do R que vamos usar ao longo do curso, incluindo o <code>readr</code>, <code>ggplot2</code> e o <code>dplyr</code>.</p>
 </div>
 </section>
-<section id="vetores-em-r" class="slide level2">
-<h2>Vetores em R</h2>
+<section id="carregando-os-pacotes" class="slide level2">
+<h2>Carregando os pacotes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">32</span>) <span class="co"># Cria x, um vetor de comprimento 3</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>x</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 15 16 32</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
 </div>
-</div>
-<div class="fragment">
-<p>Indexando <span class="math inline">\(x_3\)</span>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x[<span class="dv">3</span>] <span class="co"># Retorna o terceiro elemento de x</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 32</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>Nós podemos indexar vários elementos de uma vez.</p>
-<p>Indexar <span class="math inline">\(x_1\)</span> e <span class="math inline">\(x_3\)</span>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co"># Retorna o primeiro e o terceiro elemento de x</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 15 32</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="matrizes" class="slide level2 smaller">
-<h2>Matrizes</h2>
-<p><strong>Matrizes</strong> são uma tabela retangular de números. Geralmente, elas são identificadas por uma letra maiúscula, como <span class="math inline">\(X\)</span>.</p>
-<p><span class="math display">\[X_{i,j} = \begin{bmatrix}x_{1,1} &amp; x_{1,2}\\x_{2,1} &amp; x_{2,2}\end{bmatrix}\]</span></p>
-<p>Matrizes são indexadas com subscritos para <em>linhas, colunas</em> (ou seja, <span class="math inline">\(x_{ij}\)</span>).</p>
-<div class="fragment">
-<p><span class="math display">\[X = \begin{bmatrix}9 &amp; 25\\14 &amp; 76\end{bmatrix} \;\;\; x_{2,1} = 14\]</span></p>
-<p>&nbsp;</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[X = \begin{bmatrix}5 &amp; 9 &amp; 8\\3 &amp; 2 &amp; 5\\0 &amp; 1 &amp; 4\end{bmatrix} \;\;\; \text{Qual o elemento } x_{3,2}?\]</span></p>
-</div>
-</section>
-<section id="matrizes-em-r" class="slide level2 smaller">
-<h2>Matrizes em R</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">4</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a>X</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2] [,3]
-[1,]    5    9    8
-[2,]    3    2    5
-[3,]    0    1    4</code></pre>
-</div>
-</div>
-<p>Percebam que o R nos mostra os índices nas margens para facilitar a indexação.</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>X[<span class="dv">3</span>, <span class="dv">2</span>] <span class="co"># Terceira linha, segunda coluna</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>Também podemos pegar vários elementos da matriz (e alterar a ordem):</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>X[<span class="dv">3</span>, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>)]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 0</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="somatório" class="slide level2 smaller">
-<h2>Somatório</h2>
-<p><span class="math display">\[\sum_{i=1}^{n}x_i\]</span></p>
-<center>
-“Soma de todos os valores de <span class="math inline">\(x\)</span> do primeiro (<span class="math inline">\(i = 1\)</span>) até o último (<span class="math inline">\(n\)</span>)”
-</center>
-<div class="fragment">
-<p>&nbsp;</p>
-<p>Dado <span class="math inline">\(x = [9, 12, 12, 14, 27]\)</span>:</p>
-<p><span class="math display">\[\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74\]</span></p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">27</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 74</code></pre>
-</div>
-</div>
-<p>É comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos, por exemplo: <span class="math inline">\(\sum x_i = \sum_{i=1}^{n}x_i\)</span></p>
-</div>
-</section>
-<section id="medidas-de-tendência-central" class="slide level2">
-<h2>Medidas de tendência central</h2>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
 
-<img data-src="../assets/meme_medidas_tendencia_central.jpg" style="width:85.0%" class="r-stretch quarto-figure-center"></section>
-<section id="média" class="slide level2 smaller">
-<h2>Média</h2>
-<p>A média (aritmética) é o <em>valor esperado</em> de uma variável.</p>
-<p><span class="math display">\[\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}\]</span></p>
-<div class="fragment">
-<p>Se você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor<sup>1</sup>.</p>
-<p>Dito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.</p>
+    filter, lag</code></pre>
 </div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="fu">length</span>(x)) <span class="sc">*</span> <span class="fu">sum</span>(x) <span class="co"># Fórmula da média aritmética</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 14.8</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">mean</span>(x) <span class="co"># Função mean() é como se fosse um atalho</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 14.8</code></pre>
-</div>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Tecnicamente, a média minimiza o <em>erro quadrático</em>.</p></li></ol></aside></section>
-<section id="mediana" class="slide level2 smaller">
-<h2>Mediana</h2>
-<p>O valor para o qual não mais da metade dos valores é superior ou inferior<sup>1</sup>.</p>
-<div class="fragment">
-<p>A <strong>mediana</strong> tem essa fórmula esquisita:</p>
-<p><span class="math display">\[m(x_i) = \begin{cases} x_{\frac{n+1}{2}},&amp; \text{se } n \text{ ímpar}\\ \frac{1}{2}(x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}), &amp;\text{se } n \text{ par}\end{cases}\]</span></p>
-<center>
-“Se <span class="math inline">\(x\)</span> tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se <span class="math inline">\(x\)</span> tem um número par de elementos, a mediana é a média dos dois valores do meio”.
-</center>
-</div>
-<div class="fragment">
-<p>&nbsp;</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">sort</span>(x)[(<span class="fu">length</span>(x) <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">2</span>] <span class="co"># Mediana na mão quando n é ímpar</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">median</span>(x) <span class="co"># Função median() para calcular qualquer mediana</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Tecnicamente, a mediana minimiza o erro absoluto</p></li></ol></aside></section>
-<section id="moda" class="slide level2 smaller">
-<h2>Moda</h2>
-<p>A <strong>moda</strong> é o valor mais <strong>frequente</strong> na variável.</p>
-<div class="fragment">
-<p>Existem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.</p>
-</div>
-<div class="fragment">
-<p>Vocês podem usar <code>table()</code> para ver a frequência de valores:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">table</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>x
- 9 12 14 27 
- 1  2  1  1 </code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>E vocês podem achar a moda diretamente:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">table</span>(x)[<span class="fu">table</span>(x) <span class="sc">==</span> <span class="fu">max</span>(<span class="fu">table</span>(x))]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>12 
- 2 </code></pre>
-</div>
-</div>
-<p>O código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”</p>
-</div>
-</section>
-<section id="valores-extremos" class="slide level2">
-<h2>Valores extremos</h2>
-<p>A média é sensível a valores extremos:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">105</span>)</span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">mean</span>(z)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 24</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p>A mediana não é:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">median</span>(z)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>Isso significa que a mediana pode ser uma “média” mais útil quando os dados têm valores extremos.</p>
-<p>Isto é comum com variáveis como renda e números de episódios auto-relatados.</p>
-</div>
-</section>
-<section id="medidas-de-dispersão" class="slide level2">
-<h2>Medidas de dispersão</h2>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
 
-<img data-src="../assets/meme_variancia.jpg" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
-<section id="variância" class="slide level2 smaller">
-<h2>Variância</h2>
-<p>A variância mede como os dados estão dispersos em torno da média. Normalmente usamos a variância <em>amostral</em>:</p>
-<p><span class="math display">\[
-s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
-\]</span></p>
-<p>Vamos ver isso melhor quando estudarmos distribuições.</p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="fu">length</span>(x) <span class="sc">-</span> <span class="dv">1</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 49.7</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">var</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 49.7</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<p>Se todos os valores são iguais, a variância é <em>zero</em>.</p>
-</div>
-</section>
-<section id="desvio-padrão" class="slide level2 smaller">
-<h2>Desvio padrão</h2>
-<p>O desvio padrão (<span class="math inline">\(s\)</span> ou <span class="math inline">\(sd\)</span>, ou <span class="math inline">\(dp\)</span> em português) é simplesmente a raíz quadrada da variância:</p>
-<p><span class="math display">\[s = sd = dp = \sqrt{s^2}\]</span></p>
-<div class="fragment">
-<p>Você pode interpretar como a distância “típica” dos valores em relação à média.</p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(x))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.049823</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">sd</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.049823</code></pre>
-</div>
+    intersect, setdiff, setequal, union</code></pre>
 </div>
 </div>
 </section>
-<section>
-<section id="retomando-indexação-e-subconjuntos" class="title-slide slide level1 center">
-<h1>Retomando indexação e subconjuntos</h1>
-
-</section>
-<section id="nomes-para-extrair-colunas" class="slide level2">
-<h2>Nomes para extrair colunas</h2>
-<p>Nós também podemos usar os nomes de colunas para selecioná-las na base:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">head</span>(iris[, <span class="fu">c</span>(<span class="st">"Species"</span>, <span class="st">"Petal.Length"</span>)])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Species Petal.Length
-1  setosa          1.4
-2  setosa          1.4
-3  setosa          1.3
-4  setosa          1.5
-5  setosa          1.4
-6  setosa          1.7</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p>Por padrão, a função <code>head()</code> mostra as seis primeiras linhas da base.</p>
-</div>
-</section>
-<section id="colunas-individuais" class="slide level2 smaller">
-<h2>Colunas individuais</h2>
-<p>Se vocês criarem um subconjunto de apenas uma coluna, um vetor será retornado ao invés de um dataframe:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>iris[, <span class="st">"Sepal.Width"</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5
- [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2
- [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3
- [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8
- [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5
- [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9
-[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2
-[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2
-[145] 3.3 3.0 2.5 3.0 3.4 3.0</code></pre>
-</div>
-</div>
-<div class="fragment">
-<p><em>Colunas</em> em dataframes também podem ser acessadas usando os nomes e o operador de extração <code>$</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>iris<span class="sc">$</span>Sepal.Width</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5
- [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2
- [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3
- [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8
- [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5
- [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9
-[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2
-[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2
-[145] 3.3 3.0 2.5 3.0 3.4 3.0</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="extrair" class="slide level2">
-<h2>Extrair: <code>$</code></h2>
-<p>Vocês podem ter notado o <code>$</code> antes ao ter usado o <code>str()</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">str</span>(iris)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   150 obs. of  5 variables:
- $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
- $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
- $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
- $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
- $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-</div>
-</div>
-<p>Como nas margens das matrizes, trata-se de uma dica que você pode selecionar colunas dessa forma.</p>
-</section>
-<section id="combinando-estilos-de-criar-subconjuntos" class="slide level2 smaller">
-<h2>Combinando estilos de criar subconjuntos</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>iris<span class="sc">$</span>Petal.Width[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 0.2 0.2 0.1 0.1 0.2</code></pre>
-</div>
-</div>
-<p>Aqui eu usei os colchetes para selecionar apenas as 15 primeiras observações dessa coluna.</p>
-<div class="fragment">
-<p>Nós podemos misturar os estilos de subconjuntos! Nesse exemplo, eu inseri apenas um valor (sem índice de coluna) porque os <strong>vetores</strong> possuem <em>apenas uma dimensão</em> (que é o comprimento).</p>
-<ul>
-<li class="fragment">O R processa primeiro o <code>$Petal.Width</code></li>
-<li class="fragment">E depois processa o <code>[1:15]</code></li>
-</ul>
-</div>
-<div class="fragment">
-<p>Se você receber erros sobre “número incorreto de dimensões”, verifique por algum erro no seu subconjunto!</p>
-</div>
-</section></section>
-<section>
-<section id="praticando-combinações-de-condições-lógicas" class="title-slide slide level1 center">
-<h1>Praticando combinações de condições lógicas</h1>
-
-</section>
-<section id="e" class="slide level2 smaller">
-<h2>E: <code>&amp;</code></h2>
-
-<img data-src="../assets/exemplo_e.png" style="width:45.0%" class="r-stretch quarto-figure-center"><div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>iris[iris<span class="sc">$</span>Sepal.Length <span class="sc">&gt;</span> <span class="fl">7.2</span> <span class="sc">&amp;</span> iris<span class="sc">$</span>Petal.Length <span class="sc">&gt;</span> <span class="fl">6.6</span>, ]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
-118          7.7         3.8          6.7         2.2 virginica
-119          7.7         2.6          6.9         2.3 virginica
-123          7.7         2.8          6.7         2.0 virginica</code></pre>
-</div>
-</div>
-</section>
-<section id="ou" class="slide level2 smaller">
-<h2>Ou: <code>|</code></h2>
-
-<img data-src="../assets/exemplo_ou.png" style="width:45.0%" class="r-stretch quarto-figure-center"><div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>iris[iris<span class="sc">$</span>Sepal.Length <span class="sc">&gt;</span> <span class="fl">7.2</span> <span class="sc">|</span> iris<span class="sc">$</span>Petal.Length <span class="sc">&gt;</span> <span class="fl">6.6</span>, ]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
-106          7.6         3.0          6.6         2.1 virginica
-108          7.3         2.9          6.3         1.8 virginica
-118          7.7         3.8          6.7         2.2 virginica
-119          7.7         2.6          6.9         2.3 virginica
-123          7.7         2.8          6.7         2.0 virginica
-131          7.4         2.8          6.1         1.9 virginica
-132          7.9         3.8          6.4         2.0 virginica
-136          7.7         3.0          6.1         2.3 virginica</code></pre>
-</div>
-</div>
-</section>
-<section id="tarefa-de-casa" class="slide level2 smaller">
-<h2>Tarefa de casa</h2>
-<ul>
-<li class="fragment"><p>Criar um subconjunto da base <code>iris</code> apenas com as plantas da espécie <code>virginica</code> e que possuam uma largura da pétala (<code>Petal.Width</code>) menor ou igual a 1,9cm. Lembrem de usar os colchetes, operadores (<code>==</code>, <code>&amp;</code>, <code>&lt;=</code>), que o ponto de decimal do R não é a vírgula (dica: é o <code>.</code>). Armazene esse subconjunto em um objeto chamado <code>virginicas_estreitas</code>.</p></li>
-<li class="fragment"><p>A partir da base <code>iris</code>, calcule a média e o desvio padrão do comprimento da sépala (<code>Sepal.Length</code>) das plantas da espécie <code>versicolor</code>. Lembrem do <code>$</code> e das funções para calcular média e desvio padrão!</p></li>
-</ul>
+<section id="isso-é-algum-tipo-de-erro" class="slide level2">
+<h2>Isso é algum tipo de erro?</h2>
 
 
 <img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section></section>
-
+</section>
     </div>
   </div>
 

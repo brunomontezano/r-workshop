@@ -387,3 +387,14 @@ iris[iris$Sepal.Length > 7.2 & iris$Petal.Length > 6.6, ]
 iris[iris$Sepal.Length > 7.2 | iris$Petal.Length > 6.6, ]
 ```
 
+## Tarefa de casa {.smaller}
+
+- Criar um subconjunto da base `iris` apenas com as plantas da espécie `virginica` e
+que possuam uma largura da pétala (`Petal.Width`) menor ou igual a 1,9cm.
+Lembrem de usar os colchetes, operadores (`==`, `&`, `<=`), que o ponto de decimal do
+R não é a vírgula (dica: é o `.`). Armazene esse subconjunto em um objeto chamado
+`virginicas_estreitas`.
+
+- A partir da base `iris`, calcule a média e o desvio padrão do comprimento da sépala
+(`Sepal.Length`) das plantas da espécie
+`versicolor`. Lembrem do `$` e das funções para calcular média e desvio padrão!
