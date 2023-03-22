@@ -61,4 +61,84 @@ library(ggplot2)
 library(dplyr)
 ```
 
-## Isso é algum tipo de erro?
+## Isso é algum tipo de erro? {.smaller}
+
+Quando carregamos pacotes no R que possuem funções que compartilham do mesmo nome que
+funções já carregadas, as funções mais recentemente carregadas sobrescrevem as
+anteriores ("mascara-as").
+
+. . .
+
+Essa **mensagem** está apenas te informando esse processo.
+
+. . .
+
+Por vezes vocês vão receber uma **mensagem de aviso (warning)** ao carregar pacotes ---
+geralmente porque vocês não estão rodando a última versão do R:
+
+```
+Warning message:
+package `readr' was built under R version 4.2.2
+```
+
+Atualize o R para se livrar deste aviso!
+
+## Importando e exportando dados
+
+![](../assets/logo_readr.png){fig-align="center" width=45%}
+
+## Arquivos de texto delimitados
+
+Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado,
+como por exemplo: valores separados por vírgula (**.csv**) ou valores separados
+por tabulação (**.csv**).
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Aqui estão dados em **.csv**:
+
+```
+"id","diagnostico","sexo","idade"
+001,"thb","masculino",34
+002,"tdm","feminino",25
+003,"tdm","masculino",19
+004,"thb","feminino",31
+005,"tdm","feminino",24
+006,"thb","masculino",21
+```
+:::
+
+::: {.column width="50%"}
+E aqui estão dados em **.tsv**:
+
+```
+"id"	"diagnostico"	"sexo"	"idade"
+001	"thb"	"masculino"	34
+002	"tdm"	"feminino"	25
+003	"tdm"	"masculino"	19
+004	"thb"	"feminino"	31
+005	"tdm"	"feminino"	24
+006	"thb"	"masculino"	21
+```
+
+:::
+
+::::
+
+## `readr` {.smaller}
+
+R possui uma variedade de funções incorporadas para importar textos delimitados,
+como `read.table()` e `read.csv()`.
+
+Eu recomendo vocês usarem as versões de funções do pacote `readr`:
+`read_csv()`, `read_tsv()` e `read_delim()`.
+
+`readr` possui algumas vantagens:
+
+- É mais rápido!
+- Trabalha melhor com data e hora
+- Possui uma função `problems()` quando você se depara com erros
+- Barra de progresso para arquivos grandes
+
+## Exemplo de importação com `readr`

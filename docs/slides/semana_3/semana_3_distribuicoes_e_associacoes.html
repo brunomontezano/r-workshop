@@ -402,7 +402,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">21 de março de 2023</p>
+  <p class="date">22 de março de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -462,8 +462,62 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </section>
-<section id="isso-é-algum-tipo-de-erro" class="slide level2">
+<section id="isso-é-algum-tipo-de-erro" class="slide level2 smaller">
 <h2>Isso é algum tipo de erro?</h2>
+<p>Quando carregamos pacotes no R que possuem funções que compartilham do mesmo nome que funções já carregadas, as funções mais recentemente carregadas sobrescrevem as anteriores (“mascara-as”).</p>
+<div class="fragment">
+<p>Essa <strong>mensagem</strong> está apenas te informando esse processo.</p>
+</div>
+<div class="fragment">
+<p>Por vezes vocês vão receber uma <strong>mensagem de aviso (warning)</strong> ao carregar pacotes — geralmente porque vocês não estão rodando a última versão do R:</p>
+<pre><code>Warning message:
+package `readr' was built under R version 4.2.2</code></pre>
+<p>Atualize o R para se livrar deste aviso!</p>
+</div>
+</section>
+<section id="importando-e-exportando-dados" class="slide level2">
+<h2>Importando e exportando dados</h2>
+
+<img data-src="../assets/logo_readr.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
+<section id="arquivos-de-texto-delimitados" class="slide level2">
+<h2>Arquivos de texto delimitados</h2>
+<p>Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (<strong>.csv</strong>) ou valores separados por tabulação (<strong>.csv</strong>).</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Aqui estão dados em <strong>.csv</strong>:</p>
+<pre><code>"id","diagnostico","sexo","idade"
+001,"thb","masculino",34
+002,"tdm","feminino",25
+003,"tdm","masculino",19
+004,"thb","feminino",31
+005,"tdm","feminino",24
+006,"thb","masculino",21</code></pre>
+</div><div class="column" style="width:50%;">
+<p>E aqui estão dados em <strong>.tsv</strong>:</p>
+<pre><code>"id"    "diagnostico"   "sexo"  "idade"
+001 "thb"   "masculino" 34
+002 "tdm"   "feminino"  25
+003 "tdm"   "masculino" 19
+004 "thb"   "feminino"  31
+005 "tdm"   "feminino"  24
+006 "thb"   "masculino" 21</code></pre>
+</div>
+</div>
+</section>
+<section id="readr" class="slide level2 smaller">
+<h2><code>readr</code></h2>
+<p>R possui uma variedade de funções incorporadas para importar textos delimitados, como <code>read.table()</code> e <code>read.csv()</code>.</p>
+<p>Eu recomendo vocês usarem as versões de funções do pacote <code>readr</code>: <code>read_csv()</code>, <code>read_tsv()</code> e <code>read_delim()</code>.</p>
+<p><code>readr</code> possui algumas vantagens:</p>
+<ul>
+<li class="fragment">É mais rápido!</li>
+<li class="fragment">Trabalha melhor com data e hora</li>
+<li class="fragment">Possui uma função <code>problems()</code> quando você se depara com erros</li>
+<li class="fragment">Barra de progresso para arquivos grandes</li>
+</ul>
+</section>
+<section id="exemplo-de-importação-com-readr" class="slide level2">
+<h2>Exemplo de importação com <code>readr</code></h2>
 
 
 <img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">

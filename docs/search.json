@@ -291,7 +291,35 @@
     "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#isso-é-algum-tipo-de-erro",
     "title": "Distribuições e associações",
     "section": "Isso é algum tipo de erro?",
-    "text": "Isso é algum tipo de erro?"
+    "text": "Isso é algum tipo de erro?\nQuando carregamos pacotes no R que possuem funções que compartilham do mesmo nome que funções já carregadas, as funções mais recentemente carregadas sobrescrevem as anteriores (“mascara-as”).\n\nEssa mensagem está apenas te informando esse processo.\n\n\nPor vezes vocês vão receber uma mensagem de aviso (warning) ao carregar pacotes — geralmente porque vocês não estão rodando a última versão do R:\nWarning message:\npackage `readr' was built under R version 4.2.2\nAtualize o R para se livrar deste aviso!"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#importando-e-exportando-dados",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#importando-e-exportando-dados",
+    "title": "Distribuições e associações",
+    "section": "Importando e exportando dados",
+    "text": "Importando e exportando dados"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#arquivos-de-texto-delimitados",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#arquivos-de-texto-delimitados",
+    "title": "Distribuições e associações",
+    "section": "Arquivos de texto delimitados",
+    "text": "Arquivos de texto delimitados\nUma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (.csv) ou valores separados por tabulação (.csv).\n\n\nAqui estão dados em .csv:\n\"id\",\"diagnostico\",\"sexo\",\"idade\"\n001,\"thb\",\"masculino\",34\n002,\"tdm\",\"feminino\",25\n003,\"tdm\",\"masculino\",19\n004,\"thb\",\"feminino\",31\n005,\"tdm\",\"feminino\",24\n006,\"thb\",\"masculino\",21\n\nE aqui estão dados em .tsv:\n\"id\"    \"diagnostico\"   \"sexo\"  \"idade\"\n001 \"thb\"   \"masculino\" 34\n002 \"tdm\"   \"feminino\"  25\n003 \"tdm\"   \"masculino\" 19\n004 \"thb\"   \"feminino\"  31\n005 \"tdm\"   \"feminino\"  24\n006 \"thb\"   \"masculino\" 21"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#readr",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#readr",
+    "title": "Distribuições e associações",
+    "section": "readr",
+    "text": "readr\nR possui uma variedade de funções incorporadas para importar textos delimitados, como read.table() e read.csv().\nEu recomendo vocês usarem as versões de funções do pacote readr: read_csv(), read_tsv() e read_delim().\nreadr possui algumas vantagens:\n\nÉ mais rápido!\nTrabalha melhor com data e hora\nPossui uma função problems() quando você se depara com erros\nBarra de progresso para arquivos grandes"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#exemplo-de-importação-com-readr",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#exemplo-de-importação-com-readr",
+    "title": "Distribuições e associações",
+    "section": "Exemplo de importação com readr",
+    "text": "Exemplo de importação com readr"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
