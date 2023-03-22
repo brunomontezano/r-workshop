@@ -142,3 +142,20 @@ Eu recomendo vocês usarem as versões de funções do pacote `readr`:
 - Barra de progresso para arquivos grandes
 
 ## Exemplo de importação com `readr`
+
+Vamos usar a função `read_csv()` do `readr` para importar alguns dados
+sobre pacientes fictícios:
+
+```{r carregar-dados-pacientes}
+pacientes <- read_csv(
+  "https://raw.githubusercontent.com/brunomontezano/r-workshop/main/data/pacientes.csv"
+)
+
+head(pacientes)
+```
+
+## Pacote `dplyr`
+
+![](../assets/logo_dplyr.png){fig-align="center" width=45%}
+
+

@@ -319,7 +319,14 @@
     "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#exemplo-de-importação-com-readr",
     "title": "Distribuições e associações",
     "section": "Exemplo de importação com readr",
-    "text": "Exemplo de importação com readr"
+    "text": "Exemplo de importação com readr\nVamos usar a função read_csv() do readr para importar alguns dados sobre pacientes fictícios:\n\npacientes <- read_csv(\n  \"https://raw.githubusercontent.com/brunomontezano/r-workshop/main/data/pacientes.csv\"\n)\n\nhead(pacientes)\n\n# A tibble: 6 × 4\n  ID    idade dep_baseline bipolar_follow\n  <chr> <dbl>        <dbl>          <dbl>\n1 001      23            1              0\n2 002      24            1              1\n3 003      28            0              0\n4 004      33            0              0\n5 005      21            0              0\n6 006      33            0              0"
+  },
+  {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-dplyr",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-dplyr",
+    "title": "Distribuições e associações",
+    "section": "Pacote dplyr",
+    "text": "Pacote dplyr"
   },
   {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
