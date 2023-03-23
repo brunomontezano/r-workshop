@@ -95,11 +95,23 @@ o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatí
 
 ## Slides
 
-* [Slides da Aula 1: R e RStudio](slides/semana_1/semana_1_r_e_rstudio.html)
-  - [Código para gerar os slides da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_1/semana_1_r_e_rstudio.qmd)
+* [Slides da Aula 1: R e RStudio](slides/1_r_e_rstudio/slides_r_e_rstudio.html)
+  - [Código para gerar os slides da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/1_r_rstudio/slides_r_e_rstudio.qmd)
 
-* [Slides da Aula 2: Fundamentos de estatística em R](slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html)
-  - [Código para gerar os slides da Aula 2: Fundamentos de estatística em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.qmd)
+* [Slides da Aula 2: Manipulação de dados](slides/2_manipulacao/slides_manipulacao.html)
+  - [Código para gerar os slides da Aula 2: Fundamentos de estatística em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/2_manipulacao/slides_manipulacao.qmd)
   
-* [Slides da Aula 3: Distribuições e associações](slides/semana_3/semana_3_distribuicoes_e_associacoes.html)
-  - [Código para gerar os slides da Aula 3: Distribuições e associações](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/semana_3/semana_3_distribuicoes_e_associacoes.qmd)
+* [Slides da Aula 3: Visualização de dados](slides/3_visualizacao/slides_visualizacao.html)
+  - [Código para gerar os slides da Aula 3: Visualização de dados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/slides_visualizacao.qmd)
+  
+* [Slides da Aula 4: Análise descritiva](slides/4_descritiva/slides_descritiva.html)
+  - [Código para gerar os slides da Aula 4: Análise descritiva](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/slides_descritiva.qmd)
+  
+* [Slides da Aula 5: Inferência estatística](slides/5_inferencia/slides_inferencia.html)
+  - [Código para gerar os slides da Aula 5: Inferência estatística](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/5_inferencia/slides_inferencia.qmd)
+  
+* [Slides da Aula 6: Modelos de regressão](slides/6_regressao/slides_regressao.html)
+  - [Código para gerar os slides da Aula 6: Modelos de regressão](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/6_regressao/slides_regressao.qmd)
+  
+* [Slides da Aula 7: Tópicos avançados](slides/7_topicos_avancados/slides_topicos_avancados.html)
+  - [Código para gerar os slides da Aula 7: Tópicos avançados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/slides_topicos_avancados.qmd)

@@ -1,5 +1,9 @@
 /*-- scss:defaults --*/
 
+$body-bg: #f0f1eb !default;
+$body-color: #000 !default;
+$link-color: #51483d !default;
+$selection-bg: #26351c !default;
 
 /*-- scss:rules --*/
 
@@ -7,4 +11,13 @@
   height: 10% !important;
   max-width: unset !important;
   max-height: unset !important;
+}
+
+.reveal .slide blockquote {
+  border-left: 3px solid $text-muted;
+  padding-left: 0.5em;
+}
+
+.reveal a {
+  line-height: 1.3em;
 }

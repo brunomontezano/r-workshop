@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Bruno Montezano">
-  <title>Introdução ao R - Distribuições e associações</title>
+  <title>Introdução ao R - Análise descritiva</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,70 +28,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -388,8 +324,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Distribuições e associações</h1>
-  <p class="subtitle">Semana 3</p>
+  <h1 class="title">Análise descritiva</h1>
+  <p class="subtitle">Aula 4</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -404,158 +340,24 @@ Bruno Montezano
 
   <p class="date">23 de março de 2023</p>
 </section>
-<section id="conteúdo-de-hoje" class="slide level2">
+<section id="conteúdo-de-hoje" class="slide level2 smaller">
 <h2>Conteúdo de hoje</h2>
 <ul>
-<li class="fragment"><em>Pipes</em></li>
-<li class="fragment">Criando e modificando variáveis</li>
-<li class="fragment">Distribuições
+<li class="fragment">O que é o R e por que usá-lo?</li>
+<li class="fragment">Visão geral do RStudio</li>
+<li class="fragment">Comandos básicos do R
 <ul>
-<li class="fragment">Tabulações e tabulações cruzadas</li>
-<li class="fragment">Resumo (sumarização) de dados</li>
-<li class="fragment">Correlações</li>
+<li class="fragment">Vetores</li>
+<li class="fragment">Matrizes</li>
+<li class="fragment">Data frames</li>
+<li class="fragment">Funções</li>
+<li class="fragment">Pacotes</li>
+<li class="fragment">Ajuda</li>
 </ul></li>
 </ul>
 </section>
-<section id="pacote-tidyverse" class="slide level2">
-<h2>Pacote <code>tidyverse</code></h2>
-
-<img data-src="../assets/logo_tidyverse.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
-<section id="instalando-o-pacote-tidyverse" class="slide level2 smaller">
-<h2>Instalando o pacote <code>tidyverse</code></h2>
-<p>Com ajuda do <code>tidyverse</code>, vamos praticar o carregamento e manipulação de dados.</p>
-<div class="fragment">
-<p>Vamos usar pacotes chamados <code>readr</code> e <code>dplyr</code> para essas tarefas.</p>
-<p>Estes pacotes são parte da família de pacotes <a href="https://www.tidyverse.org/">tidyverse</a>.</p>
-<div>
-<ul>
-<li>Eles facilitam bastante o uso do R</li>
-</ul>
-</div>
-</div>
-<div class="fragment">
-<p>Se você ainda não instalou o pacote <code>tidyverse</code>, digite no Console: <code>install.packages("tidyverse")</code>.</p>
-</div>
-<div class="fragment">
-<p>Esse comando vai instalar uma <em>grande quantidade</em> de pacotes do R que vamos usar ao longo do curso, incluindo o <code>readr</code>, <code>ggplot2</code> e o <code>dplyr</code>.</p>
-</div>
-</section>
-<section id="carregando-os-pacotes" class="slide level2">
-<h2>Carregando os pacotes</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-</div>
-</section>
-<section id="isso-é-algum-tipo-de-erro" class="slide level2 smaller">
-<h2>Isso é algum tipo de erro?</h2>
-<p>Quando carregamos pacotes no R que possuem funções que compartilham do mesmo nome que funções já carregadas, as funções mais recentemente carregadas sobrescrevem as anteriores (“mascara-as”).</p>
-<div class="fragment">
-<p>Essa <strong>mensagem</strong> está apenas te informando esse processo.</p>
-</div>
-<div class="fragment">
-<p>Por vezes vocês vão receber uma <strong>mensagem de aviso (warning)</strong> ao carregar pacotes — geralmente porque vocês não estão rodando a última versão do R:</p>
-<pre><code>Warning message:
-package `readr' was built under R version 4.2.2</code></pre>
-<p>Atualize o R para se livrar deste aviso!</p>
-</div>
-</section>
-<section id="importando-e-exportando-dados" class="slide level2">
-<h2>Importando e exportando dados</h2>
-
-<img data-src="../assets/logo_readr.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
-<section id="arquivos-de-texto-delimitados" class="slide level2">
-<h2>Arquivos de texto delimitados</h2>
-<p>Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (<strong>.csv</strong>) ou valores separados por tabulação (<strong>.csv</strong>).</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Aqui estão dados em <strong>.csv</strong>:</p>
-<pre><code>"id","diagnostico","sexo","idade"
-001,"thb","masculino",34
-002,"tdm","feminino",25
-003,"tdm","masculino",19
-004,"thb","feminino",31
-005,"tdm","feminino",24
-006,"thb","masculino",21</code></pre>
-</div><div class="column" style="width:50%;">
-<p>E aqui estão dados em <strong>.tsv</strong>:</p>
-<pre><code>"id"    "diagnostico"   "sexo"  "idade"
-001 "thb"   "masculino" 34
-002 "tdm"   "feminino"  25
-003 "tdm"   "masculino" 19
-004 "thb"   "feminino"  31
-005 "tdm"   "feminino"  24
-006 "thb"   "masculino" 21</code></pre>
-</div>
-</div>
-</section>
-<section id="readr" class="slide level2 smaller">
-<h2><code>readr</code></h2>
-<p>R possui uma variedade de funções incorporadas para importar textos delimitados, como <code>read.table()</code> e <code>read.csv()</code>.</p>
-<p>Eu recomendo vocês usarem as versões de funções do pacote <code>readr</code>: <code>read_csv()</code>, <code>read_tsv()</code> e <code>read_delim()</code>.</p>
-<p><code>readr</code> possui algumas vantagens:</p>
-<ul>
-<li class="fragment">É mais rápido!</li>
-<li class="fragment">Trabalha melhor com data e hora</li>
-<li class="fragment">Possui uma função <code>problems()</code> quando você se depara com erros</li>
-<li class="fragment">Barra de progresso para arquivos grandes</li>
-</ul>
-</section>
-<section id="exemplo-de-importação-com-readr" class="slide level2">
-<h2>Exemplo de importação com <code>readr</code></h2>
-<p>Vamos usar a função <code>read_csv()</code> do <code>readr</code> para importar alguns dados sobre pacientes fictícios:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>pacientes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="st">"https://raw.githubusercontent.com/brunomontezano/r-workshop/main/data/pacientes.csv"</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>)</span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">head</span>(pacientes)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 4
-  ID    idade dep_baseline bipolar_follow
-  &lt;chr&gt; &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;
-1 001      23            1              0
-2 002      24            1              1
-3 003      28            0              0
-4 004      33            0              0
-5 005      21            0              0
-6 006      33            0              0</code></pre>
-</div>
-</div>
-</section>
-<section id="pacote-dplyr" class="slide level2">
-<h2>Pacote <code>dplyr</code></h2>
-
-<img data-src="../assets/logo_dplyr.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
-<section id="vamos-dar-uma-olhada-nos-pacientes" class="slide level2">
-<h2>Vamos dar uma olhada nos <code>pacientes</code></h2>
-<p><code>dplyr</code> nos dá acesso a função <code>glimpse()</code> para inspecionar dataframes.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">glimpse</span>(pacientes)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 700
-Columns: 4
-$ ID             &lt;chr&gt; "001", "002", "003", "004", "005", "006", "007", "008",…
-$ idade          &lt;dbl&gt; 23, 24, 28, 33, 21, 33, 34, 29, 29, 19, 22, 21, 30, 25,…
-$ dep_baseline   &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-$ bipolar_follow &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</code></pre>
-</div>
-</div>
+<section id="section" class="slide level2">
+<h2></h2>
 
 
 <img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
@@ -773,44 +575,6 @@ $ bipolar_follow &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

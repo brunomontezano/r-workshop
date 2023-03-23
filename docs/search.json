@@ -53,7 +53,7 @@
     "href": "index.html#slides",
     "title": "Introdução ao R",
     "section": "Slides",
-    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Fundamentos de estatística em R\n\nCódigo para gerar os slides da Aula 2: Fundamentos de estatística em R\n\nSlides da Aula 3: Distribuições e associações\n\nCódigo para gerar os slides da Aula 3: Distribuições e associações"
+    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Manipulação de dados\n\nCódigo para gerar os slides da Aula 2: Fundamentos de estatística em R\n\nSlides da Aula 3: Visualização de dados\n\nCódigo para gerar os slides da Aula 3: Visualização de dados\n\nSlides da Aula 4: Análise descritiva\n\nCódigo para gerar os slides da Aula 4: Análise descritiva\n\nSlides da Aula 5: Inferência estatística\n\nCódigo para gerar os slides da Aula 5: Inferência estatística\n\nSlides da Aula 6: Modelos de regressão\n\nCódigo para gerar os slides da Aula 6: Modelos de regressão\n\nSlides da Aula 7: Tópicos avançados\n\nCódigo para gerar os slides da Aula 7: Tópicos avançados"
   },
   {
     "objectID": "compilacao.html",
@@ -95,7 +95,7 @@
     "href": "sobre.html#quantas-aulas-serão-realizadas",
     "title": "Sobre o curso",
     "section": "Quantas aulas serão realizadas?",
-    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nFundamentos de estatística no R\nDistribuições e associações\nVisualização de dados\nInferência estatística\nModelos lineares\nModelos lineares generalizados\n\nOu seja, a princípio, realizaremos sete aulas com duração entre 1 e 2 horas."
+    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nManipulação de dados\nVisualização de dados\nAnálise descritiva\nAnálise inferencial\nModelos de regressão\nTópicos avançados\n\nOu seja, a princípio, realizaremos sete aulas com duração entre 1 e 2 horas."
   },
   {
     "objectID": "sobre.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
@@ -105,486 +105,178 @@
     "text": "O código-fonte do site do curso é disponibilizado?\nSim, você pode acessar o repositório do curso no GitHub, onde estão contidos todos os códigos, dados e slides do curso."
   },
   {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#conteúdo-de-hoje",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#conteúdo-de-hoje",
-    "title": "Fundamentos de estatística em R",
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#conteúdo-de-hoje",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#conteúdo-de-hoje",
+    "title": "Tópicos avançados",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nRevisão de conceitos matemáticos\n\nVariáveis, vetores e matrizes\nMedidas de tendência central e dispersão\n\nProgramação\n\nIndexação e subconjuntos\nExpressões lógicas"
+    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
   },
   {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#revisão-de-conceitos-matemáticos",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#revisão-de-conceitos-matemáticos",
-    "title": "Fundamentos de estatística em R",
-    "section": "Revisão de conceitos matemáticos",
-    "text": "Revisão de conceitos matemáticos"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#variáveis",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#variáveis",
-    "title": "Fundamentos de estatística em R",
-    "section": "Variáveis",
-    "text": "Variáveis\nVariáveis são símbolos que representam conjuntos de um ou mais elementos que podem assumir qualquer quantidade de valores.\n\n\nLetras como \\(x\\), \\(y\\) e \\(z\\) são comumente usadas para indicar variáveis\n\nPor exemplo: \\(x = 3\\)\n\n\n\n\n\n\nLetras maiúsculas (\\(X\\)) ou letras com um índice (\\(x_i\\)) referem-se a variáveis com múltiplos valores — ou seja, com dimensões\n\nPor exemplo: \\(X = x_i = (15, 16, 32)\\)\nVariáveis com uma dimensão (comprimento) são chamadas de vetor\n\n\n\n\n\n\n\nVariáveis como \\(x_i\\) são usadas para indexar elementos de vetores\n\n\\(i\\) é uma variável que indica a posição indexada\nPor exemplo: \\(x_1 = 15, x_2 = 16, x_3 = 32\\)"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#vetores-em-r",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#vetores-em-r",
-    "title": "Fundamentos de estatística em R",
-    "section": "Vetores em R",
-    "text": "Vetores em R\n\nx <- c(15, 16, 32) # Cria x, um vetor de comprimento 3\nx\n\n[1] 15 16 32\n\n\n\nIndexando \\(x_3\\):\n\nx[3] # Retorna o terceiro elemento de x\n\n[1] 32\n\n\n\n\nNós podemos indexar vários elementos de uma vez.\nIndexar \\(x_1\\) e \\(x_3\\):\n\nx[c(1, 3)] # Retorna o primeiro e o terceiro elemento de x\n\n[1] 15 32"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes",
-    "title": "Fundamentos de estatística em R",
-    "section": "Matrizes",
-    "text": "Matrizes\nMatrizes são uma tabela retangular de números. Geralmente, elas são identificadas por uma letra maiúscula, como \\(X\\).\n\\[X_{i,j} = \\begin{bmatrix}x_{1,1} & x_{1,2}\\\\x_{2,1} & x_{2,2}\\end{bmatrix}\\]\nMatrizes são indexadas com subscritos para linhas, colunas (ou seja, \\(x_{ij}\\)).\n\n\\[X = \\begin{bmatrix}9 & 25\\\\14 & 76\\end{bmatrix} \\;\\;\\; x_{2,1} = 14\\]\n \n\n\n\\[X = \\begin{bmatrix}5 & 9 & 8\\\\3 & 2 & 5\\\\0 & 1 & 4\\end{bmatrix} \\;\\;\\; \\text{Qual o elemento } x_{3,2}?\\]"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes-em-r",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#matrizes-em-r",
-    "title": "Fundamentos de estatística em R",
-    "section": "Matrizes em R",
-    "text": "Matrizes em R\n\nX <- matrix(c(5, 9, 8, 3, 2, 5, 0, 1, 4), nrow = 3, byrow = TRUE)\nX\n\n     [,1] [,2] [,3]\n[1,]    5    9    8\n[2,]    3    2    5\n[3,]    0    1    4\n\n\nPercebam que o R nos mostra os índices nas margens para facilitar a indexação.\n\n\nX[3, 2] # Terceira linha, segunda coluna\n\n[1] 1\n\n\n\n\nTambém podemos pegar vários elementos da matriz (e alterar a ordem):\n\nX[3, c(2, 1)]\n\n[1] 1 0"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#somatório",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#somatório",
-    "title": "Fundamentos de estatística em R",
-    "section": "Somatório",
-    "text": "Somatório\n\\[\\sum_{i=1}^{n}x_i\\]\n\n“Soma de todos os valores de \\(x\\) do primeiro (\\(i = 1\\)) até o último (\\(n\\))”\n\n\n \nDado \\(x = [9, 12, 12, 14, 27]\\):\n\\[\\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74\\]\n\n\n\nx <- c(9, 12, 12, 14, 27)\nsum(x)\n\n[1] 74\n\n\nÉ comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos, por exemplo: \\(\\sum x_i = \\sum_{i=1}^{n}x_i\\)"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-tendência-central",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-tendência-central",
-    "title": "Fundamentos de estatística em R",
-    "section": "Medidas de tendência central",
-    "text": "Medidas de tendência central"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#média",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#média",
-    "title": "Fundamentos de estatística em R",
-    "section": "Média",
-    "text": "Média\nA média (aritmética) é o valor esperado de uma variável.\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\n\nSe você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor1.\nDito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.\n\n\n\n(1/length(x)) * sum(x) # Fórmula da média aritmética\n\n[1] 14.8\n\n\n\nmean(x) # Função mean() é como se fosse um atalho\n\n[1] 14.8\n\n\n\nTecnicamente, a média minimiza o erro quadrático."
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#mediana",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#mediana",
-    "title": "Fundamentos de estatística em R",
-    "section": "Mediana",
-    "text": "Mediana\nO valor para o qual não mais da metade dos valores é superior ou inferior1.\n\nA mediana tem essa fórmula esquisita:\n\\[m(x_i) = \\begin{cases} x_{\\frac{n+1}{2}},& \\text{se } n \\text{ ímpar}\\\\ \\frac{1}{2}(x_{\\frac{n}{2}} + x_{\\frac{n}{2} + 1}), &\\text{se } n \\text{ par}\\end{cases}\\]\n\n“Se \\(x\\) tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se \\(x\\) tem um número par de elementos, a mediana é a média dos dois valores do meio”.\n\n\n\n \n\nsort(x)[(length(x) + 1) / 2] # Mediana na mão quando n é ímpar\n\n[1] 12\n\n\n\nmedian(x) # Função median() para calcular qualquer mediana\n\n[1] 12\n\n\n\nTecnicamente, a mediana minimiza o erro absoluto"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#moda",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#moda",
-    "title": "Fundamentos de estatística em R",
-    "section": "Moda",
-    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\ntable(x)\n\nx\n 9 12 14 27 \n 1  2  1  1 \n\n\n\n\nE vocês podem achar a moda diretamente:\n\ntable(x)[table(x) == max(table(x))]\n\n12 \n 2 \n\n\nO código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#valores-extremos",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#valores-extremos",
-    "title": "Fundamentos de estatística em R",
-    "section": "Valores extremos",
-    "text": "Valores extremos\nA média é sensível a valores extremos:\n\nz <- c(2, 5, 3, 5, 105)\nmean(z)\n\n[1] 24\n\n\n\nA mediana não é:\n\nmedian(z)\n\n[1] 5\n\n\n\n\nIsso significa que a mediana pode ser uma “média” mais útil quando os dados têm valores extremos.\nIsto é comum com variáveis como renda e números de episódios auto-relatados."
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-dispersão",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#medidas-de-dispersão",
-    "title": "Fundamentos de estatística em R",
-    "section": "Medidas de dispersão",
-    "text": "Medidas de dispersão"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#variância",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#variância",
-    "title": "Fundamentos de estatística em R",
-    "section": "Variância",
-    "text": "Variância\nA variância mede como os dados estão dispersos em torno da média. Normalmente usamos a variância amostral:\n\\[\ns^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}\n\\]\nVamos ver isso melhor quando estudarmos distribuições.\n\n\nsum((x - mean(x))^2 / (length(x) - 1))\n\n[1] 49.7\n\n\n\nvar(x)\n\n[1] 49.7\n\n\n\n\nSe todos os valores são iguais, a variância é zero."
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#desvio-padrão",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#desvio-padrão",
-    "title": "Fundamentos de estatística em R",
-    "section": "Desvio padrão",
-    "text": "Desvio padrão\nO desvio padrão (\\(s\\) ou \\(sd\\), ou \\(dp\\) em português) é simplesmente a raíz quadrada da variância:\n\\[s = sd = dp = \\sqrt{s^2}\\]\n\nVocê pode interpretar como a distância “típica” dos valores em relação à média.\n\n\n\nsqrt(var(x))\n\n[1] 7.049823\n\n\n\nsd(x)\n\n[1] 7.049823"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#nomes-para-extrair-colunas",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#nomes-para-extrair-colunas",
-    "title": "Fundamentos de estatística em R",
-    "section": "Nomes para extrair colunas",
-    "text": "Nomes para extrair colunas\nNós também podemos usar os nomes de colunas para selecioná-las na base:\n\nhead(iris[, c(\"Species\", \"Petal.Length\")])\n\n  Species Petal.Length\n1  setosa          1.4\n2  setosa          1.4\n3  setosa          1.3\n4  setosa          1.5\n5  setosa          1.4\n6  setosa          1.7\n\n\n\nPor padrão, a função head() mostra as seis primeiras linhas da base."
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#colunas-individuais",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#colunas-individuais",
-    "title": "Fundamentos de estatística em R",
-    "section": "Colunas individuais",
-    "text": "Colunas individuais\nSe vocês criarem um subconjunto de apenas uma coluna, um vetor será retornado ao invés de um dataframe:\n\niris[, \"Sepal.Width\"]\n\n  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5\n [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2\n [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3\n [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8\n [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5\n [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9\n[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2\n[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2\n[145] 3.3 3.0 2.5 3.0 3.4 3.0\n\n\n\nColunas em dataframes também podem ser acessadas usando os nomes e o operador de extração $:\n\niris$Sepal.Width\n\n  [1] 3.5 3.0 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 3.7 3.4 3.0 3.0 4.0 4.4 3.9 3.5\n [19] 3.8 3.8 3.4 3.7 3.6 3.3 3.4 3.0 3.4 3.5 3.4 3.2 3.1 3.4 4.1 4.2 3.1 3.2\n [37] 3.5 3.6 3.0 3.4 3.5 2.3 3.2 3.5 3.8 3.0 3.8 3.2 3.7 3.3 3.2 3.2 3.1 2.3\n [55] 2.8 2.8 3.3 2.4 2.9 2.7 2.0 3.0 2.2 2.9 2.9 3.1 3.0 2.7 2.2 2.5 3.2 2.8\n [73] 2.5 2.8 2.9 3.0 2.8 3.0 2.9 2.6 2.4 2.4 2.7 2.7 3.0 3.4 3.1 2.3 3.0 2.5\n [91] 2.6 3.0 2.6 2.3 2.7 3.0 2.9 2.9 2.5 2.8 3.3 2.7 3.0 2.9 3.0 3.0 2.5 2.9\n[109] 2.5 3.6 3.2 2.7 3.0 2.5 2.8 3.2 3.0 3.8 2.6 2.2 3.2 2.8 2.8 2.7 3.3 3.2\n[127] 2.8 3.0 2.8 3.0 2.8 3.8 2.8 2.8 2.6 3.0 3.4 3.1 3.0 3.1 3.1 3.1 2.7 3.2\n[145] 3.3 3.0 2.5 3.0 3.4 3.0"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#extrair",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#extrair",
-    "title": "Fundamentos de estatística em R",
-    "section": "Extrair: $",
-    "text": "Extrair: $\nVocês podem ter notado o $ antes ao ter usado o str():\n\nstr(iris)\n\n'data.frame':   150 obs. of  5 variables:\n $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...\n $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...\n $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...\n $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...\n $ Species     : Factor w/ 3 levels \"setosa\",\"versicolor\",..: 1 1 1 1 1 1 1 1 1 1 ...\n\n\nComo nas margens das matrizes, trata-se de uma dica que você pode selecionar colunas dessa forma."
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#combinando-estilos-de-criar-subconjuntos",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#combinando-estilos-de-criar-subconjuntos",
-    "title": "Fundamentos de estatística em R",
-    "section": "Combinando estilos de criar subconjuntos",
-    "text": "Combinando estilos de criar subconjuntos\n\niris$Petal.Width[1:15]\n\n [1] 0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 0.2 0.2 0.1 0.1 0.2\n\n\nAqui eu usei os colchetes para selecionar apenas as 15 primeiras observações dessa coluna.\n\nNós podemos misturar os estilos de subconjuntos! Nesse exemplo, eu inseri apenas um valor (sem índice de coluna) porque os vetores possuem apenas uma dimensão (que é o comprimento).\n\nO R processa primeiro o $Petal.Width\nE depois processa o [1:15]\n\n\n\nSe você receber erros sobre “número incorreto de dimensões”, verifique por algum erro no seu subconjunto!"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#e",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#e",
-    "title": "Fundamentos de estatística em R",
-    "section": "E: &",
-    "text": "E: &\n\n\niris[iris$Sepal.Length > 7.2 & iris$Petal.Length > 6.6, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#ou",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#ou",
-    "title": "Fundamentos de estatística em R",
-    "section": "Ou: |",
-    "text": "Ou: |\n\n\niris[iris$Sepal.Length > 7.2 | iris$Petal.Length > 6.6, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n106          7.6         3.0          6.6         2.1 virginica\n108          7.3         2.9          6.3         1.8 virginica\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica\n131          7.4         2.8          6.1         1.9 virginica\n132          7.9         3.8          6.4         2.0 virginica\n136          7.7         3.0          6.1         2.3 virginica"
-  },
-  {
-    "objectID": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#tarefa-de-casa",
-    "href": "slides/semana_2/semana_2_fundamentos_de_estatistica_em_r.html#tarefa-de-casa",
-    "title": "Fundamentos de estatística em R",
-    "section": "Tarefa de casa",
-    "text": "Tarefa de casa\n\nCriar um subconjunto da base iris apenas com as plantas da espécie virginica e que possuam uma largura da pétala (Petal.Width) menor ou igual a 1,9cm. Lembrem de usar os colchetes, operadores (==, &, <=), que o ponto de decimal do R não é a vírgula (dica: é o .). Armazene esse subconjunto em um objeto chamado virginicas_estreitas.\nA partir da base iris, calcule a média e o desvio padrão do comprimento da sépala (Sepal.Length) das plantas da espécie versicolor. Lembrem do $ e das funções para calcular média e desvio padrão!"
-  },
-  {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#conteúdo-de-hoje",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#conteúdo-de-hoje",
-    "title": "Distribuições e associações",
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#conteúdo-de-hoje",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#conteúdo-de-hoje",
+    "title": "Visualização de dados",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nPipes\nCriando e modificando variáveis\nDistribuições\n\nTabulações e tabulações cruzadas\nResumo (sumarização) de dados\nCorrelações"
+    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
   },
   {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-tidyverse",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-tidyverse",
-    "title": "Distribuições e associações",
-    "section": "Pacote tidyverse",
-    "text": "Pacote tidyverse"
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#conteúdo-de-hoje",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#conteúdo-de-hoje",
+    "title": "Manipulação de dados",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nImportação de dados\nFatores\nIndexação de data frames\nManipulação de dados\n\nSelecionar colunas\nCriar e modificar colunas\nFiltragem de linhas\nValores ausentes\n\nSumarização de dados\n\nAgrupar e resumir dados\nFormatos longo e largo de dados\nUnir dados"
   },
   {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#instalando-o-pacote-tidyverse",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#instalando-o-pacote-tidyverse",
-    "title": "Distribuições e associações",
-    "section": "Instalando o pacote tidyverse",
-    "text": "Instalando o pacote tidyverse\nCom ajuda do tidyverse, vamos praticar o carregamento e manipulação de dados.\n\nVamos usar pacotes chamados readr e dplyr para essas tarefas.\nEstes pacotes são parte da família de pacotes tidyverse.\n\n\nEles facilitam bastante o uso do R\n\n\n\n\nSe você ainda não instalou o pacote tidyverse, digite no Console: install.packages(\"tidyverse\").\n\n\nEsse comando vai instalar uma grande quantidade de pacotes do R que vamos usar ao longo do curso, incluindo o readr, ggplot2 e o dplyr."
+    "objectID": "slides/4_descritiva/slides_descritiva.html#conteúdo-de-hoje",
+    "href": "slides/4_descritiva/slides_descritiva.html#conteúdo-de-hoje",
+    "title": "Análise descritiva",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
   },
   {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#carregando-os-pacotes",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#carregando-os-pacotes",
-    "title": "Distribuições e associações",
-    "section": "Carregando os pacotes",
-    "text": "Carregando os pacotes\n\nlibrary(readr)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union"
+    "objectID": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
+    "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
+    "title": "Inferência estatística",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
   },
   {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#isso-é-algum-tipo-de-erro",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#isso-é-algum-tipo-de-erro",
-    "title": "Distribuições e associações",
-    "section": "Isso é algum tipo de erro?",
-    "text": "Isso é algum tipo de erro?\nQuando carregamos pacotes no R que possuem funções que compartilham do mesmo nome que funções já carregadas, as funções mais recentemente carregadas sobrescrevem as anteriores (“mascara-as”).\n\nEssa mensagem está apenas te informando esse processo.\n\n\nPor vezes vocês vão receber uma mensagem de aviso (warning) ao carregar pacotes — geralmente porque vocês não estão rodando a última versão do R:\nWarning message:\npackage `readr' was built under R version 4.2.2\nAtualize o R para se livrar deste aviso!"
+    "objectID": "slides/6_regressao/slides_regressao.html#conteúdo-de-hoje",
+    "href": "slides/6_regressao/slides_regressao.html#conteúdo-de-hoje",
+    "title": "Modelos de regressão",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
   },
   {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#importando-e-exportando-dados",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#importando-e-exportando-dados",
-    "title": "Distribuições e associações",
-    "section": "Importando e exportando dados",
-    "text": "Importando e exportando dados"
-  },
-  {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#arquivos-de-texto-delimitados",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#arquivos-de-texto-delimitados",
-    "title": "Distribuições e associações",
-    "section": "Arquivos de texto delimitados",
-    "text": "Arquivos de texto delimitados\nUma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (.csv) ou valores separados por tabulação (.csv).\n\n\nAqui estão dados em .csv:\n\"id\",\"diagnostico\",\"sexo\",\"idade\"\n001,\"thb\",\"masculino\",34\n002,\"tdm\",\"feminino\",25\n003,\"tdm\",\"masculino\",19\n004,\"thb\",\"feminino\",31\n005,\"tdm\",\"feminino\",24\n006,\"thb\",\"masculino\",21\n\nE aqui estão dados em .tsv:\n\"id\"    \"diagnostico\"   \"sexo\"  \"idade\"\n001 \"thb\"   \"masculino\" 34\n002 \"tdm\"   \"feminino\"  25\n003 \"tdm\"   \"masculino\" 19\n004 \"thb\"   \"feminino\"  31\n005 \"tdm\"   \"feminino\"  24\n006 \"thb\"   \"masculino\" 21"
-  },
-  {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#readr",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#readr",
-    "title": "Distribuições e associações",
-    "section": "readr",
-    "text": "readr\nR possui uma variedade de funções incorporadas para importar textos delimitados, como read.table() e read.csv().\nEu recomendo vocês usarem as versões de funções do pacote readr: read_csv(), read_tsv() e read_delim().\nreadr possui algumas vantagens:\n\nÉ mais rápido!\nTrabalha melhor com data e hora\nPossui uma função problems() quando você se depara com erros\nBarra de progresso para arquivos grandes"
-  },
-  {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#exemplo-de-importação-com-readr",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#exemplo-de-importação-com-readr",
-    "title": "Distribuições e associações",
-    "section": "Exemplo de importação com readr",
-    "text": "Exemplo de importação com readr\nVamos usar a função read_csv() do readr para importar alguns dados sobre pacientes fictícios:\n\npacientes <- read_csv(\n  \"https://raw.githubusercontent.com/brunomontezano/r-workshop/main/data/pacientes.csv\"\n)\n\nhead(pacientes)\n\n# A tibble: 6 × 4\n  ID    idade dep_baseline bipolar_follow\n  <chr> <dbl>        <dbl>          <dbl>\n1 001      23            1              0\n2 002      24            1              1\n3 003      28            0              0\n4 004      33            0              0\n5 005      21            0              0\n6 006      33            0              0"
-  },
-  {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-dplyr",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#pacote-dplyr",
-    "title": "Distribuições e associações",
-    "section": "Pacote dplyr",
-    "text": "Pacote dplyr"
-  },
-  {
-    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#vamos-dar-uma-olhada-nos-pacientes",
-    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#vamos-dar-uma-olhada-nos-pacientes",
-    "title": "Distribuições e associações",
-    "section": "Vamos dar uma olhada nos pacientes",
-    "text": "Vamos dar uma olhada nos pacientes\ndplyr nos dá acesso a função glimpse() para inspecionar dataframes.\n\nglimpse(pacientes)\n\nRows: 700\nColumns: 4\n$ ID             <chr> \"001\", \"002\", \"003\", \"004\", \"005\", \"006\", \"007\", \"008\",…\n$ idade          <dbl> 23, 24, 28, 33, 21, 33, 34, 29, 29, 19, 22, 21, 30, 25,…\n$ dep_baseline   <dbl> 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…\n$ bipolar_follow <dbl> 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
     "title": "R e RStudio",
     "section": "Objetivos do curso",
-    "text": "Objetivos do curso\n\nDesenvolver habilidades básicas no manejo e visualização de dados em R\nAprender conceitos básicos de programação\nIntroduzir práticas de reprodutibilidade em pesquisa acadêmica\nIntroduzir conceitos e rotinas de análise de dados em saúde"
+    "text": "Objetivos do curso\n\nDesenvolver habilidades básicas no manejo e visualização de dados em R\nAprender conceitos básicos de programação\nIntroduzir conceitos e rotinas de análise de dados em saúde"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#quem-sou-eu",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#quem-sou-eu",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#quem-sou-eu",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#quem-sou-eu",
     "title": "R e RStudio",
     "section": "Quem sou eu?",
     "text": "Quem sou eu?\nBruno Montezano\n\nPsicólogo\nMestrando em Psiquiatria e Ciências do Comportamento\nIntegrante do grupo de pesquisa Alliance\nPesquisa\n\nPsiquiatria de precisão\nAprendizado de máquina\nTranstorno bipolar\nSuicídio"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#logística-do-curso",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#logística-do-curso",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#logística-do-curso",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#logística-do-curso",
     "title": "R e RStudio",
     "section": "Logística do curso",
-    "text": "Logística do curso\nOnde?\n\n\n\nReuniões online\nEncontros presenciais\n\n\n\n\nMateriais: https://brunomontezano.github.io/r-workshop/"
+    "text": "Logística do curso\nComo será realizado?\n\n\n\nSete aulas virtuais\nPlataforma Google Meet ou Zoom\nSegunda às 19h\nDuração média: 45min\n\n\n\n\nMateriais: https://brunomontezano.github.io/r-workshop/"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#materiais",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#materiais",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#conteúdo-de-hoje",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#conteúdo-de-hoje",
+    "title": "R e RStudio",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#materiais",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#materiais",
     "title": "R e RStudio",
     "section": "Materiais",
     "text": "Materiais\nTodos os materiais do curso estarão no site do curso.\n\n\nSlides e códigos usados para gerar os slides\nLinks com outros materiais sugeridos\n\n\nSe algo não estiver funcionado no site, me enviem um email!"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#plano-de-ensino",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#plano-de-ensino",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#cronograma-de-aulas",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#cronograma-de-aulas",
     "title": "R e RStudio",
-    "section": "Plano de ensino",
-    "text": "Plano de ensino\n\nR e RStudio\nFundamentos de estatística no R\nDistribuições e associações\nVisualização de dados\nInferência estatística\nModelos lineares\nModelos lineares generalizados"
+    "section": "Cronograma de aulas",
+    "text": "Cronograma de aulas\n\nR e RStudio (10/04/2023)\nManipulação de dados (17/04/2023)\nVisualização de dados (24/04/2023)\nAnálise descritiva (01/05/2023)\nInferência estatística (08/05/2023)\nModelos de regressão (15/05/2023)\nTópicos avançados (22/05/2023)\n\n\nLembrando que todas as aulas serão realizadas às 19h do horário de Brasília."
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
     "title": "R e RStudio",
     "section": "Por que aprender análise quantitativa de dados?",
     "text": "Por que aprender análise quantitativa de dados?\nVocês vão ler pesquisa quantitativa\n\nInterpretação\nAvaliação\n\n\nVocês podem fazer pesquisa quantitativa\n\nAnálise\nComunicação"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#mas-precisamos-mesmo-de-programação",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#mas-precisamos-mesmo-de-programação",
-    "title": "R e RStudio",
-    "section": "Mas precisamos mesmo de programação?",
-    "text": "Mas precisamos mesmo de programação?\nSim. Programação é importante.\n\nLimpar dados na mão é:\n\nPropenso a erros\nDemorado\nNão é reprodutível\n\nProgramação pode nos abrir portas\n\nTestar novos métodos\nMelhor compreensão de resultados\nAutomatização de rotinas\n\nMas a frustração nos acompanha nessa jornada…\n\nA boa notícia é que nos acostumamos"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#formatação-dos-slides",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#formatação-dos-slides",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#formatação-dos-slides",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#formatação-dos-slides",
     "title": "R e RStudio",
     "section": "Formatação dos slides",
     "text": "Formatação dos slides\nNegrito indica um termo importante.\n\nItálico indica ênfase ou instruções para clicar com o mouse.\n\n\nExemplo: “Clique em Arquivo > Salvar como…”.\n\n\n\n\nCódigo representa o código em R para ser digitado ou teclas para realizar ações.\n\n\nExemplo: “Pressione Ctrl-P para abrir a janela de impressão”.\n\n\n\n\nOs blocos de código são código de fato executado no R.\n\n# Quanto dá 25 vezes 11?\n25 * 11\n\n[1] 275"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-usar-r",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#por-que-usar-r",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#por-que-usar-r",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#por-que-usar-r",
     "title": "R e RStudio",
     "section": "Por que usar R?",
     "text": "Por que usar R?\nR é uma linguagem de programação construída para computação estatística.\n\nVamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?\n\nR é gratuito, então não precisamos de licença\nR tem uma grande comunidade para pacotes e suporte\nR consegue trabalhar com praticamente qualquer formato de dado\nR facilita o processo de replicação e reprodutibilidade\nR é uma linguagem, então é capaz de fazer quase tudo (vide os slides e o site do curso)\nR é parecido com outras linguagens de programação (Python, Julia, etc)"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#rstudio",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#rstudio",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#rstudio",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#rstudio",
     "title": "R e RStudio",
     "section": "RStudio",
-    "text": "RStudio\nO RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.\n\nOrganização do código, saídas e plots\nAutocompletar e destacar o código\nAjuda a visualizar os dados e objetos\nHabilita integração de código em R em documentos com Quarto e RMarkdown\n\n\nAlém disso:\n\nManejar repositórios git\nRodar tutoriais interativos\nLidar com outras linguagens de programação como Python, SQL e HTML"
+    "text": "RStudio\nO RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.\n\nOrganização do código, saídas e plots\nAutocompletar e destacar o código\nAjuda a visualizar os dados e objetos\nHabilita integração de código em R em documentos com Quarto e RMarkdown\n\nArtigos\nLivros\nApresentações\nRelatórios\nWebsites e blogs"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#interface-do-rstudio",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#interface-do-rstudio",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#interface-do-rstudio",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#interface-do-rstudio",
     "title": "R e RStudio",
     "section": "Interface do RStudio",
-    "text": "Interface do RStudio\nVamos abrir o RStudio e ir em Arquivo > Novo Arquivo > R Script.\nVamos entender a interface:\n\nCanto superior esquerdo: Editor de código e visualizador de dados\nCanto inferior esquerdo: Console para rodar código (>)\nCanto superior direito: Lista de objetos no Ambiente, aba de Histórico\nCanto inferior direito: Abas para navegar pelos arquivos, ver plots, manejar pacotes, e visualizar arquivos de ajuda\n\n\nO layout pode ser modificado em Ferramentas > Opções Globais > Layout do Painel"
+    "text": "Interface do RStudio\nVamos abrir o RStudio e ir em Arquivo > Novo Arquivo > R Script."
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#editando-e-executando-código-em-r",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#editando-e-executando-código-em-r",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#editando-e-executando-código-em-r",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#editando-e-executando-código-em-r",
     "title": "R e RStudio",
     "section": "Editando e executando código em R",
     "text": "Editando e executando código em R\nPodemos executar (rodar) nosso código de diversas formas:\n\nSelecionar linhas no Editor e clicar em Executar no topo ou pressione Ctrl+Enter ou ⌘+Enter para rodar a seleção\nCom o seu cursor (|) na linha que você quer executar, pressione Ctrl+Enter ou ⌘+Enter. Notem que o cursor se move para a próxima linha, para que possamos rodar vários códigos em sequência\nEscreva linhas individuais no Console e pressione Enter\n\n\nO Console vai mostrar as linhas que você rodou seguido pela saída."
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#código-incompleto",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#código-incompleto",
-    "title": "R e RStudio",
-    "section": "Código incompleto",
-    "text": "Código incompleto\nSe você errar (por exemplo, esquecer de fechar um parênteses), o R pode mostrar um + pedindo para que você complete o comando:\n\n> (11 - 2\n+\n\nOu finalize o comando, ou aperte Esc para sair dessa operação."
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#r-como-calculadora",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#r-como-calculadora",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#r-como-calculadora",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#r-como-calculadora",
     "title": "R e RStudio",
     "section": "R como calculadora",
     "text": "R como calculadora\nNo Console, vamos digitar 111 + 222 + 333 e pressionar Enter.\n\n111 + 222 + 333\n\n[1] 666\n\n\n\nO [1] na saída indica o índice numérico do primeiro elemento da linha.\n\n\nAgora, no nosso documento em R em branco no Editor, vamos digitar sqrt(81) e clicar Executar ou pressionar Ctrl+Enter ou ⌘+Enter.\n\nsqrt(81)\n\n[1] 9"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#funções-e-ajuda",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#funções-e-ajuda",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#funções-e-ajuda",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#funções-e-ajuda",
     "title": "R e RStudio",
     "section": "Funções e Ajuda",
     "text": "Funções e Ajuda\nsqrt() é um exemplo de função do R.\nSe nós não soubermos o que sqrt() é, podemos digitar ?sqrt no Console e ver a aba de Ajuda na direita.\n\n?sqrt\n\n\nArgumentos são as entradas de uma função. Nesse caso, o único argumento para sqrt() é x, que pode ser um número ou um vetor de números.\nArquivos de ajuda provém documentação em como usar as funções e o que a função retorna."
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#criando-objetos",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#criando-objetos",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-objetos",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-objetos",
     "title": "R e RStudio",
     "section": "Criando objetos",
-    "text": "Criando objetos\nR armazena tudo como um objeto, incluindo dados, funções, modelos, e saída.\nA criação de um objeto pode ser feita usando o operador de atribuição: <-\n\nnovo_objeto <- 144\n\n\nOperadores como o <- são funções que se parecem com símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre () como na função sqrt(x).1\n\n\nNós fazemos contas matemáticas com operadores, por exemplo, x + y.\n+ é o operador de adição.\n\nPodemos chamar operadores como funções com crase: `+`(x, y)"
+    "text": "Criando objetos\nR armazena tudo como um objeto, incluindo dados, funções, modelos, e saídas.\nA criação de um objeto pode ser feita usando o operador de atribuição: <-\n\nnovo_objeto <- 144\n\n\nOperadores como o <- são funções que se parecem com símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre () como na função sqrt(x)\n\n\nNós fazemos contas matemáticas com operadores, por exemplo, x + y.\n+ é o operador de adição."
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#chamando-objetos",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#chamando-objetos",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#chamando-objetos",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#chamando-objetos",
     "title": "R e RStudio",
     "section": "Chamando objetos",
-    "text": "Chamando objetos\nNós podemos mostrar ou “chamar” um objeto através do seu nome.\n\nnovo_objeto\n\n[1] 144\n\n\n\nNomes de objetos podem conter _ e ., mas não podem começar com números. Tente sempre ser consistente ao nomear objetos.\n\n\nPoder autocompletar seu código significa que nomes longos são melhores que nomes vagos!\nBons nomes previnem confusão."
+    "text": "Chamando objetos\nNós podemos mostrar ou “chamar” um objeto através do seu nome.\n\nnovo_objeto\n\n[1] 144\n\n\n\nDicas para nomear objetos:\n\nNão pode iniciar com números\nSugiro usar nomes em letra minúscula\nSugiro usar . ou _ para dividir palavras\nUsem nomes informativos\nEvitem o uso de caracteres especiais"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#usando-objetos",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#usando-objetos",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#usando-objetos",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#usando-objetos",
     "title": "R e RStudio",
     "section": "Usando objetos",
-    "text": "Usando objetos\nVocê pode tratar o nome do objeto como se ele fosse os valores armazenados no próprio objeto.\n\n\nnovo_objeto + 10\n\n[1] 154\n\n\n\nnovo_objeto + novo_objeto\n\n[1] 288\n\n\n\nsqrt(novo_objeto)\n\n[1] 12"
+    "text": "Usando objetos\nVocê pode tratar o nome do objeto como se ele fosse os valores armazenados no próprio objeto.\n\n\nnovo_objeto + 10\n\n[1] 154\n\n\n\nnovo_objeto + novo_objeto\n\n[1] 288\n\n\n\nsqrt(novo_objeto)\n\n[1] 12\n\n\n\nnovo_objeto ^ 2\n\n[1] 20736"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#criando-vetores",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#criando-vetores",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-vetores",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-vetores",
     "title": "R e RStudio",
     "section": "Criando vetores",
     "text": "Criando vetores\nUm vetor é uma série de elementos, como números, por exemplo.\nNós podemos criar um vetor usando a função c() que significa “combinar”.\n\nnovo_objeto <- c(4, 9, 16, 25, 36)\nnovo_objeto\n\n[1]  4  9 16 25 36\n\n\n\nAtribuir em um nome já existente sobrescreve esse objeto.\n\n\nVocê pode usar um vetor como argumento para várias funções.\n\n\n\nsqrt(novo_objeto)\n\n[1] 2 3 4 5 6"
   },
   {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vetores-de-caractere",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vetores-de-caractere",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#tipos-de-dados",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#tipos-de-dados",
     "title": "R e RStudio",
-    "section": "Vetores de caractere",
-    "text": "Vetores de caractere\nÉ comum trabalharmos com dados que são categóricos. Para criar um vetor com elementos de texto — chamamos de string em programação — devemos inserir o texto entre aspas:\n\nvetor_com_texto <- c(\"Eutimia\", \"Mania\", \"Depressão\")\nvetor_com_texto\n\n[1] \"Eutimia\"   \"Mania\"     \"Depressão\"\n\n\n\nDados categóricos podem ser armazenados como um fator, usando uma representação numérica subjacente. Cada possível valor de um fator transforma-se em um nível.\n\nvetor_em_fator <- factor(vetor_com_texto)\nvetor_em_fator\n\n[1] Eutimia   Mania     Depressão\nLevels: Depressão Eutimia Mania"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#salvando-e-carregando-objetos",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#salvando-e-carregando-objetos",
-    "title": "R e RStudio",
-    "section": "Salvando e carregando objetos",
-    "text": "Salvando e carregando objetos\nNós podemos salvar um objeto do R como um arquivo para abrí-lo depois:\n\nsave(novo_objeto, file = \"novo_objeto.RData\")\n\n\nNós também podemos carregar arquivos salvos do R:\n\nload(\"novo_objeto.RData\")\n\n\n\nOnde esses arquivos estão sendo salvos? E de onde eles estão sendo carregados?"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#diretório-de-trabalho",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#diretório-de-trabalho",
-    "title": "R e RStudio",
-    "section": "Diretório de trabalho",
-    "text": "Diretório de trabalho\nO R salva e busca por arquivos para abrir no nosso diretório de trabalho atual. Nós podemos solicitar para o R que pasta é essa:\n\ngetwd()\n\n[1] \"/home/bruno/dox/projects/r-workshop/slides/semana_1\"\n\n\n\nDa mesma forma, podemos especificar um novo diretório de trabalho:\n\nsetwd(\"/home/bruno/Documentos/Pesquisa_Pos_Graduacao/\")"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetos-mais-complexos",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#objetos-mais-complexos",
-    "title": "R e RStudio",
-    "section": "Objetos mais complexos",
-    "text": "Objetos mais complexos\nOs mesmos princípios podem ser usados para criar objetos mais complexos:\n\n\nMatrizes\nArrays\nListas\nDataframes\n\n\n\nA maioria dos conjuntos de dados que nós trabalhamos em saúde são lidos no R e armazenados como dataframes.\nPortanto, nós vamos focar na manipulação e análise de dataframes."
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-falar-sobre-íris-iris",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-falar-sobre-íris-iris",
-    "title": "R e RStudio",
-    "section": "Vamos falar sobre Íris (iris)?",
-    "text": "Vamos falar sobre Íris (iris)?\nNo nosso script em R, vamos carregar os dados iris.\n\n\ndata(iris)\n\ndata(iris) carrega o dataframe no nosso Ambiente Global.\n\n\nView(iris) mostra um painel de visualização da base (usar apenas no Console, é uma má prática incluir no seu script). Também podemos usar outras funções:\n\n\n\nhead(iris, n = 5) # Exibir as 5 primeiras linhas, tail() exibe as últimas\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-seguir-explorando-as-iris",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-seguir-explorando-as-iris",
-    "title": "R e RStudio",
-    "section": "Vamos seguir explorando as iris",
-    "text": "Vamos seguir explorando as iris\nstr() mostra a estrutura de um objeto:\n\nstr(iris) # e[str]utura\n\n'data.frame':   150 obs. of  5 variables:\n $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...\n $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...\n $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...\n $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...\n $ Species     : Factor w/ 3 levels \"setosa\",\"versicolor\",..: 1 1 1 1 1 1 1 1 1 1 ...\n\n\n\nsummary() mostra um resumo do objeto:\n\nsummary(iris)\n\n  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   \n Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  \n 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  \n Median :5.800   Median :3.000   Median :4.350   Median :1.300  \n Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  \n 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  \n Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  \n       Species  \n setosa    :50  \n versicolor:50  \n virginica :50  \n                \n                \n                \n\n\nA função summary() mostra informações diferentes para tipos diferentes de objeto."
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#índices-e-dimensões",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#índices-e-dimensões",
-    "title": "R e RStudio",
-    "section": "Índices e dimensões",
-    "text": "Índices e dimensões\nNo R base, existem duas maneiras de acessar elementos de um objeto: colchetes ([] ou [[]]) e $. A forma como acessamos o objeto depende de suas dimensões.\n\nDataframes têm 2 dimensões: linhas e colunas. Colchetes nos permitem numericamente extrair subconjuntos no formato objeto[linha, coluna]. Deixar o local da linha ou coluna em branco seleciona todos elementos daquela dimensão.\n\niris[1, ] # Primeira linha da base iris\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n\n\n\n\n\niris[1:3, 4:5] # Três primeiras linhas, quarta e quinta coluna\n\n  Petal.Width Species\n1         0.2  setosa\n2         0.2  setosa\n3         0.2  setosa\n\n\nO operador dois pontos (:) gera um vetor usando a sequência de números inteiros do primeiro até o segundo argumento. 1:3 equivale a c(1, 2, 3)."
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#dataframes-e-nomes",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#dataframes-e-nomes",
-    "title": "R e RStudio",
-    "section": "Dataframes e nomes",
-    "text": "Dataframes e nomes\nColunas em dataframes também podem ser acessadas usando seus nomes com o operador de extração $. Ele retorna a coluna extraída como um vetor:\n\niris$Sepal.Length[1:10]\n\n [1] 5.1 4.9 4.7 4.6 5.0 5.4 4.6 5.0 4.4 4.9\n\n\n\nPercebam que eu usei os colchetes para selecionar apenas os primeiros 10 elementos da coluna.\nNós podemos combinar os formatos de subconjuntos! Nesse caso nós usamos apenas um único valor (sem índice de coluna), porque os vetores possuem apenas uma dimensão (comprimento).\nSe você tentar criar um subconjunto e receber um aviso quanto ao “número incorreto de dimensões”, verifique o seu subconjunto!"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#indexando-por-expressões",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#indexando-por-expressões",
-    "title": "R e RStudio",
-    "section": "Indexando por expressões",
-    "text": "Indexando por expressões\nTambém podemos indexar usando expressões — ou seja, testes lógicos.\n\niris[iris$Petal.Length > 6.5, ]\n\n    Sepal.Length Sepal.Width Petal.Length Petal.Width   Species\n106          7.6         3.0          6.6         2.1 virginica\n118          7.7         3.8          6.7         2.2 virginica\n119          7.7         2.6          6.9         2.3 virginica\n123          7.7         2.8          6.7         2.0 virginica"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#como-as-expressões-funcionam",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#como-as-expressões-funcionam",
-    "title": "R e RStudio",
-    "section": "Como as expressões funcionam",
-    "text": "Como as expressões funcionam\nO que iris$Petal.Length > 6.5 faz internamente?\n\niris$Petal.Length > 6.5\n\n  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [49] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [61] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [73] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [85] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n [97] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE\n[109] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE\n[121] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n[133] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n[145] FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\nEla retorna um vetor de valores TRUE ou FALSE.\nAo usar com o operador de subconjunto ([]), elementos que receberam um TRUE são retornados enquanto àqueles que receberam um FALSE são descartados."
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#operadores-lógicos",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#operadores-lógicos",
-    "title": "R e RStudio",
-    "section": "Operadores lógicos",
-    "text": "Operadores lógicos\nNós usamos o > para testar “maior que”: iris$Petal.Length > 6.5\n\nExistem vários outros operadores lógicos:\n\n==: igual a\n!=: não é igual a\n>, >=, <, >=: menor que, menor que ou igual a, etc\n%in%: usado para checar igual a um entre vários valores\n\n\n\nE também podemos combinar múltiplas condições lógicas:\n\n&: ambas condições precisam ser respeitadas (E)\n|: pelo menos uma condição precisa ser respeitada (OU)\n!: inverte uma condição lógica (TRUE vira FALSE, FALSE vira TRUE)\n\n\n\nOperadores lógicos são um dos pilares da programação. Experimente com alguns deles para se familiarizar em como eles funcionam!"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#adendo-valores-ausente",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#adendo-valores-ausente",
-    "title": "R e RStudio",
-    "section": "Adendo: valores ausente",
-    "text": "Adendo: valores ausente\nValores ausentes são codificados como NA sem aspas:\n\nvetor_com_missing <- c(1, 2, NA, 4, 5, 6, NA)\n\nApenas um NA “contamina tudo”: Você receberá NA dos seus cálculos a menos que os remova manualmente ou use um argumento extra na.rm = TRUE em algumas funções:\n\nmean(vetor_com_missing)\n\n[1] NA\n\n\n\nPodemos pegar os missings (NA) e removê-los (rm):\n\nmean(vetor_com_missing, na.rm = TRUE)\n\n[1] 3.6"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#encontrando-valores-ausentes",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#encontrando-valores-ausentes",
-    "title": "R e RStudio",
-    "section": "Encontrando valores ausentes",
-    "text": "Encontrando valores ausentes\nLEMBRETE: Não podemos testar por valores ausentes vendo se eles são “iguais a” (==) NA:\n\nvetor_com_missing == NA\n\n[1] NA NA NA NA NA NA NA\n\n\n\nMas podemos usar a função is.na():\n\nis.na(vetor_com_missing)\n\n[1] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE\n\n\n\n\nPoderíamos criar um subconjunto para chegar na mesma média com na.rm = TRUE:\n\nmean(vetor_com_missing[!is.na(vetor_com_missing)])\n\n[1] 3.6\n\n\n! inverte uma condição lógica. Lemos o subconjunto acima como “retorne os não-NA”."
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-aprender-com-o-pacotepacote-swirl",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#vamos-aprender-com-o-pacotepacote-swirl",
-    "title": "R e RStudio",
-    "section": "Vamos aprender com o pacote",
-    "text": "Vamos aprender com o pacote"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#instalando-pacotes",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#instalando-pacotes",
-    "title": "R e RStudio",
-    "section": "Instalando pacotes",
-    "text": "Instalando pacotes\nAssim como nós almejamos que o paciente seja terapeuta de si mesmo, aqui podemos tentar que você sejam professores de si mesmos.\n\nPara isso, vamos instalar um pacote chamado swirl.\n\n\nPacotes contêm funções e/ou dados incorporados que podemos utilizar. A potência do R vem dos pacotes!\n\n\nNo Console, digite install.packages(\"swirl\").\n\nNotem que o nome do pacote a ser instalado deve estar entre aspas. Isso se dá porque o nome é um termo de busca (texto), e não um objeto!\nUma vez instalado um pacote, vocês não precisam reinstalá-lo até atualizar o R. Logo, não devemos incluir install.packages() em nossos scripts.\n\n\n\nNós podemos carregar os pacotes como o swirl usando a função library().\n\nlibrary(swirl)"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#tarefa-de-casa",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#tarefa-de-casa",
-    "title": "R e RStudio",
-    "section": "Tarefa de casa",
-    "text": "Tarefa de casa\n\nDar uma olhada no site do curso\nExplorar alguns tutoriais do swirl\n\nUse library(swirl) para carregar o pacote\nApós carregado, use swirl() para iniciar a interface de tutoriais\n\nLeia as instruções!\n\nExperimente as aulas de R Programming — estamos em torno da aula 5\n\nExercícios\n\nCrie um vetor de 1 a 25 e armazene em uma variável de nome sequencia (lembrem-se do operador :).\nCrie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando [].\nFiltrem a base iris com apenas as plantas da espécie setosa (lembrem-se do $, do ==, do [], das aspas ao trabalhar com texto)"
-  },
-  {
-    "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#dica-chatgpt",
-    "href": "slides/semana_1/semana_1_r_e_rstudio.html#dica-chatgpt",
-    "title": "R e RStudio",
-    "section": "Dica: ChatGPT",
-    "text": "Dica: ChatGPT\n\nO ChatGPT é um assistente virtual que pode ajudar na aprendizagem de programação em R para pesquisadores em saúde\nEle pode responder a perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio."
+    "section": "Tipos de dados",
+    "text": "Tipos de dados\nOs vetores podem assumir três classes principais no R.\n\nEles podem ser numéricos:\n\nvetor_numerico <- 215\nvetor_numerico\n\n[1] 215\n\n\n\n\nPodem ser de caractere (ou string):\n\nvetor_de_caractere <- \"Bruno\"\nvetor_de_caractere\n\n[1] \"Bruno\"\n\n\n\n\nOu lógicos:\n\nvetor_logico <- c(TRUE, FALSE, FALSE, TRUE)\nvetor_logico\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\nLembrando que os vetores podem ter um único elemento, como o vetor_numerico e o vetor_de_caractere criados acima."
   }
 ]

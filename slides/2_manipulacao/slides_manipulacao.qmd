@@ -1,0 +1,34 @@
+---
+title: "Manipulação de dados"
+subtitle: "Aula 2"
+author: "Bruno Montezano"
+institute: "Grupo Alliance<br>Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento<br>Universidade Federal do Rio Grande do Sul"
+date: last-modified
+date-format: long
+lang: pt-br
+execute:
+  echo: true
+format:
+  revealjs:
+    incremental: true
+    theme: [default, ../assets/custom.scss]
+    logo: "../assets/logo_ufrgs.png"
+---
+
+## Conteúdo de hoje
+
+- Importação de dados
+- Fatores
+- Indexação de data frames
+- Manipulação de dados
+  - Selecionar colunas
+  - Criar e modificar colunas
+  - Filtragem de linhas
+  - Valores ausentes
+- Sumarização de dados
+  - Agrupar e resumir dados
+  - Formatos longo e largo de dados
+  - Unir dados
+
+  
+##

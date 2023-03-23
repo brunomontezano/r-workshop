@@ -1,0 +1,360 @@
+---
+title: "R e RStudio"
+subtitle: "Aula 1"
+author: "Bruno Montezano"
+institute: "Grupo Alliance<br>Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento<br>Universidade Federal do Rio Grande do Sul"
+date: last-modified
+date-format: long
+lang: pt-br
+execute:
+  echo: true
+format:
+  revealjs:
+    incremental: true
+    smaller: true
+    theme: [default, ../assets/custom.scss]
+    logo: "../assets/logo_ufrgs.png"
+---
+
+## Objetivos do curso
+
+- Desenvolver habilidades básicas no manejo e visualização de dados em R
+
+- Aprender conceitos básicos de programação
+
+- Introduzir conceitos e rotinas de análise de dados em saúde
+
+## Quem sou eu?
+
+#### Bruno Montezano
+
+- Psicólogo
+
+- Mestrando em Psiquiatria e Ciências do Comportamento
+
+- Integrante do grupo de pesquisa Alliance
+
+- Pesquisa
+  - Psiquiatria de precisão
+  - Aprendizado de máquina
+  - Transtorno bipolar
+  - Suicídio
+  
+## Logística do curso
+
+Como será realizado?
+
+. . .
+
+::: {.nonincremental}
+- Sete aulas virtuais
+- Plataforma Google Meet ou Zoom
+- Segunda às 19h
+- Duração média: 45min
+:::
+
+. . .
+
+Materiais: [https://brunomontezano.github.io/r-workshop/](https://brunomontezano.github.io/r-workshop/)
+
+## Conteúdo de hoje
+
+- O que é o R e por que usá-lo?
+- Visão geral do RStudio
+- Comandos básicos do R
+  - Vetores
+  - Matrizes
+  - Data frames
+  - Funções
+  - Pacotes
+  - Ajuda
+  
+## Materiais
+
+Todos os materiais do curso estarão no
+[site do curso](https://brunomontezano.github.io/r-workshop/).
+
+::: {.nonincremental}
+- Slides e códigos usados para gerar os slides
+- Links com outros materiais sugeridos
+:::
+
+Se algo não estiver funcionado no site, [me enviem um email](mailto:bmontezano@hcpa.edu.br)!
+
+## Cronograma de aulas
+
+1. R e RStudio (10/04/2023)
+2. Manipulação de dados (17/04/2023)
+3. Visualização de dados (24/04/2023)
+4. Análise descritiva (01/05/2023)
+5. Inferência estatística (08/05/2023)
+6. Modelos de regressão (15/05/2023)
+7. Tópicos avançados (22/05/2023)
+
+. . .
+
+Lembrando que todas as aulas serão realizadas às 19h do horário de Brasília.
+
+
+## Por que aprender análise quantitativa de dados?
+
+*Vocês vão ler pesquisa quantitativa*
+
+- Interpretação
+- Avaliação 
+
+. . .
+
+*Vocês podem fazer pesquisa quantitativa*
+
+- Análise
+- Comunicação
+
+## Formatação dos slides
+
+**Negrito** indica um termo importante.
+
+. . .
+
+*Itálico* indica ênfase ou instruções para clicar com o mouse.
+
+::: {.nonincremental}
+- Exemplo: "Clique em *Arquivo > Salvar como...*".
+:::
+
+. . .
+
+`Código` representa o código em R para ser digitado ou
+teclas para realizar ações.
+
+::: {.nonincremental}
+- Exemplo: "Pressione `Ctrl-P` para abrir a janela de impressão".
+:::
+
+. . .
+
+Os blocos de código são *código de fato executado no R*.
+
+```{r exemplo-formatacao}
+# Quanto dá 25 vezes 11?
+25 * 11
+```
+
+## Por que usar R?
+
+R é uma linguagem de programação construída para computação estatística.
+
+. . .
+
+Vamos supor que vocês já tenham domínio no Excel, SPSS, Stata, ou SAS, por quê usar R?
+
+- R é gratuito, então não precisamos de licença
+- R tem uma grande comunidade para pacotes e suporte
+- R consegue trabalhar com *praticamente* qualquer formato de dado
+- R *facilita* o processo de replicação e reprodutibilidade
+- R é uma linguagem, então é capaz de fazer *quase tudo* (vide os slides e o [site do curso](https://brunomontezano.github.io/r-workshop/))
+- R é parecido com outras linguagens de programação (Python, Julia, etc)
+
+## RStudio
+
+O RStudio é um ambiente de desenvolvimento integrado (IDE) para facilitar nossa vida.
+
+- Organização do código, saídas e plots
+- Autocompletar e destacar o código
+- Ajuda a visualizar os dados e objetos
+- Habilita integração de código em R em documentos com **Quarto** e **RMarkdown**
+  - Artigos
+  - Livros
+  - Apresentações
+  - Relatórios
+  - Websites e blogs
+  
+
+## Interface do RStudio
+
+Vamos abrir o RStudio e ir em *Arquivo > Novo Arquivo > R Script*.
+
+![](../assets/interface_rstudio.png){fig-align="center" width=95%}
+
+## Editando e executando código em R
+
+Podemos executar (rodar) nosso código de diversas formas:
+
+- Selecionar linhas no **Editor** e clicar em *Executar* no topo ou pressione
+`Ctrl+Enter` ou `⌘+Enter` para rodar a seleção
+
+- Com o seu **cursor** (`|`) na linha que você quer executar,
+pressione `Ctrl+Enter` ou `⌘+Enter`. Notem que o cursor se move para a próxima linha,
+para que possamos rodar vários códigos em sequência
+
+- Escreva linhas individuais no **Console** e pressione `Enter`
+
+. . .
+
+O **Console** vai mostrar as linhas que você rodou seguido pela saída.
+
+## R como calculadora
+
+No **Console**, vamos digitar `111 + 222 + 333` e pressionar `Enter`.
+
+```{r soma}
+111 + 222 + 333
+```
+
+. . .
+
+O `[1]` na saída indica o **índice** numérico do primeiro elemento da linha.
+
+. . .
+
+Agora, no nosso documento em R em branco no **Editor**, vamos digitar `sqrt(81)` e
+clicar `Executar` ou pressionar `Ctrl+Enter` ou `⌘+Enter`.
+
+```{r rodar-sqrt}
+sqrt(81)
+```
+
+## Funções e Ajuda
+
+`sqrt()` é um exemplo de **função** do R.
+
+Se nós não soubermos o que `sqrt()` é, podemos digitar `?sqrt` no **Console** e ver
+a aba de **Ajuda** na direita.
+
+```{r ajuda-sqrt}
+#| eval: false
+?sqrt
+```
+
+. . .
+
+**Argumentos** são as *entradas* de uma função. Nesse caso, o único argumento para
+`sqrt()` é `x`, que pode ser um número ou um vetor de números.
+
+Arquivos de ajuda provém documentação em como usar as funções e o que a função
+retorna.
+
+## Criando objetos
+
+R armazena *tudo* como um **objeto**, incluindo dados, funções, modelos, e saídas.
+
+A criação de um objeto pode ser feita usando o **operador de atribuição**: `<-`
+
+```{r criar-objeto}
+novo_objeto <- 144
+```
+
+. . .
+
+**Operadores** como o `<-` são funções que se parecem com símbolos mas geralmente ficam
+entre argumentos (números ou objetos) ao invés de ter eles entre `()` como na função
+`sqrt(x)`
+
+. . .
+
+Nós fazemos contas matemáticas com operadores, por exemplo, `x + y`.
+
+`+` é o operador de adição.
+
+## Chamando objetos
+
+Nós podemos mostrar ou "chamar" um objeto através do seu nome.
+
+```{r chamar-objeto}
+novo_objeto
+```
+
+. . .
+
+Dicas para nomear objetos:
+
+- *Não* pode iniciar com números
+- Sugiro usar nomes em letra minúscula
+- Sugiro usar `.` ou `_` para dividir palavras
+- Usem nomes informativos
+- Evitem o uso de caracteres especiais
+
+## Usando objetos
+
+Você pode tratar o **nome** do objeto como se ele fosse os valores armazenados no
+próprio objeto.
+
+. . .
+
+```{r somar-dez}
+novo_objeto + 10
+```
+
+```{r objeto-mais-objeto}
+novo_objeto + novo_objeto
+```
+
+
+```{r sqrt-objeto}
+sqrt(novo_objeto)
+```
+
+```{r objeto-ao-quadrado}
+novo_objeto ^ 2
+```
+
+## Criando vetores
+
+Um **vetor** é uma série de **elementos**, como números, por exemplo.
+
+Nós podemos criar um vetor usando a função `c()` que significa "combinar".
+
+```{r criar-vetor}
+novo_objeto <- c(4, 9, 16, 25, 36)
+novo_objeto
+```
+
+. . .
+
+Atribuir em um nome já existente *sobrescreve esse objeto*.
+
+. . .
+
+Você pode usar um vetor como argumento para várias funções.
+
+. . .
+
+```{r sqrt-vetor}
+sqrt(novo_objeto)
+```
+
+## Tipos de dados
+
+Os vetores podem assumir três **classes** principais no R.
+
+. . .
+
+Eles podem ser numéricos:
+
+```{r vetor-numerico}
+vetor_numerico <- 215
+vetor_numerico
+```
+
+. . .
+
+Podem ser de caractere (ou **string**):
+
+```{r vetor-caractere}
+vetor_de_caractere <- "Bruno"
+vetor_de_caractere
+```
+
+. . .
+
+Ou lógicos:
+
+```{r vetor-logico}
+vetor_logico <- c(TRUE, FALSE, FALSE, TRUE)
+vetor_logico
+```
+
+. . .
+
+Lembrando que os vetores podem ter um único elemento, como o `vetor_numerico`
+e o `vetor_de_caractere` criados acima.

@@ -1,0 +1,30 @@
+---
+title: "Análise descritiva"
+subtitle: "Aula 4"
+author: "Bruno Montezano"
+institute: "Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento\nUniversidade Federal do Rio Grande do Sul"
+date: last-modified
+date-format: long
+lang: pt-br
+execute:
+  echo: true
+format:
+  revealjs:
+    incremental: true
+    theme: [default, ../assets/custom.scss]
+    logo: "../assets/logo_ufrgs.png"
+---
+
+## Conteúdo de hoje {.smaller}
+
+- O que é o R e por que usá-lo?
+- Visão geral do RStudio
+- Comandos básicos do R
+  - Vetores
+  - Matrizes
+  - Data frames
+  - Funções
+  - Pacotes
+  - Ajuda
+  
+##
