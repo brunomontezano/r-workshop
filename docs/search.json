@@ -329,6 +329,13 @@
     "text": "Pacote dplyr"
   },
   {
+    "objectID": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#vamos-dar-uma-olhada-nos-pacientes",
+    "href": "slides/semana_3/semana_3_distribuicoes_e_associacoes.html#vamos-dar-uma-olhada-nos-pacientes",
+    "title": "Distribuições e associações",
+    "section": "Vamos dar uma olhada nos pacientes",
+    "text": "Vamos dar uma olhada nos pacientes\ndplyr nos dá acesso a função glimpse() para inspecionar dataframes.\n\nglimpse(pacientes)\n\nRows: 700\nColumns: 4\n$ ID             <chr> \"001\", \"002\", \"003\", \"004\", \"005\", \"006\", \"007\", \"008\",…\n$ idade          <dbl> 23, 24, 28, 33, 21, 33, 34, 29, 29, 19, 22, 21, 30, 25,…\n$ dep_baseline   <dbl> 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…\n$ bipolar_follow <dbl> 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…"
+  },
+  {
     "objectID": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
     "href": "slides/semana_1/semana_1_r_e_rstudio.html#objetivos-do-curso",
     "title": "R e RStudio",

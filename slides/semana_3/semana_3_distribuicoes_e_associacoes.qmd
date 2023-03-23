@@ -159,3 +159,11 @@ head(pacientes)
 ![](../assets/logo_dplyr.png){fig-align="center" width=45%}
 
 
+## Vamos dar uma olhada nos `pacientes`
+
+`dplyr` nos dá acesso a função `glimpse()` para inspecionar dataframes.
+
+```{r glimpse-pacientes}
+glimpse(pacientes)
+```
+

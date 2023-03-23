@@ -7,7 +7,7 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.335">
+  <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Bruno Montezano">
   <title>Introdução ao R - Distribuições e associações</title>
@@ -402,7 +402,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">22 de março de 2023</p>
+  <p class="date">23 de março de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -540,14 +540,25 @@ package `readr' was built under R version 4.2.2</code></pre>
 </section>
 <section id="pacote-dplyr" class="slide level2">
 <h2>Pacote <code>dplyr</code></h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="../assets/logo_dplyr.png" style="width:45.0%"></p>
-</figure>
+
+<img data-src="../assets/logo_dplyr.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
+<section id="vamos-dar-uma-olhada-nos-pacientes" class="slide level2">
+<h2>Vamos dar uma olhada nos <code>pacientes</code></h2>
+<p><code>dplyr</code> nos dá acesso a função <code>glimpse()</code> para inspecionar dataframes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">glimpse</span>(pacientes)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 700
+Columns: 4
+$ ID             &lt;chr&gt; "001", "002", "003", "004", "005", "006", "007", "008",…
+$ idade          &lt;dbl&gt; 23, 24, 28, 33, 21, 33, 34, 29, 29, 19, 22, 21, 30, 25,…
+$ dep_baseline   &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+$ bipolar_follow &lt;dbl&gt; 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</code></pre>
+</div>
 </div>
 
-<p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
-<div class="footer footer-default">
+
+<img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
