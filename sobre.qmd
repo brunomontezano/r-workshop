@@ -38,3 +38,19 @@ Ou seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora.
 
 Sim, você pode acessar o [repositório do curso no GitHub](https://github.com/brunomontezano/r-workshop), onde estão contidos todos
 os códigos, dados e slides do curso.
+
+## Que %#$&! Não consegui completar o exercício $x$! Isso não é para mim!
+
+O aprendizado de programação e análise de dadosé uma jornada árdua porque muitas
+vezes nos deparamos com conceitos e conteúdos que nunca estudamos antes. O fator
+mais importante no êxito nessa caminhada é persistir e saber como buscar ajuda.
+
+No contexto do curso, vocês podem enviar um email para solicitar ajuda, serão
+muito bem-vindos! O endereço é
+[bmontezano@hcpa.edu.br](mailto:bmontezano@hcpa.edu.br). Alguns sites bons de
+conhecer para buscar dúvidas ou solucionar problemas específicos são o
+[Stack Overflow](https://stackoverflow.com/questions/tagged/r) e a
+[Posit Community](https://community.rstudio.com/) (antiga RStudio Community).
+Nestes fóruns, os usuários de R publicam dúvidas, perguntas, problemas e soluções
+para diferentes tipos de rotinas de análise e manipulação de dados. Você pode
+criar sua conta e fazer você mesmo suas perguntas também!
