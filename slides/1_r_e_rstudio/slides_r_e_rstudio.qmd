@@ -601,11 +601,15 @@ funcionalidades no R.
 
 ::: {.column width="46%"}
 
-![`install.packages("nomedopacote")`](../assets/rapaz_colocando_lampada.jpg){fig-align="center"}
+Instale uma vez!
+
+![`install.packages("lampada")`](../assets/rapaz_colocando_lampada.jpg){fig-align="center"}
 :::
 
 ::: {.column width="54%"}
-![`library(nomedopacote)`](../assets/rapaz_ligando_lampada.jpg)
+Use variás vezes!
+
+![`library(lampada)`](../assets/rapaz_ligando_lampada.jpg)
 :::
 
 ::::

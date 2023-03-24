@@ -452,6 +452,67 @@ Bruno Montezano
 <h2>Importando e exportando dados com <code>readr</code></h2>
 
 <img data-src="../assets/logo_readr.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
+<section id="caminhos" class="slide level2">
+<h2>Caminhos</h2>
+<p>Um passo essencial na importação de dados é saber onde está o arquivo a ser importado.</p>
+<div class="fragment">
+<p>Toda função vai exigir um <strong>caminho</strong>, ou seja, uma <strong>string</strong> que representa o endereço do arquivo no computador.</p>
+</div>
+<div class="fragment">
+<p>Há duas formas de passar o caminho ao R: através de um <strong>caminho absoluto</strong> ou <strong>caminho relativo</strong>.</p>
+</div>
+<div class="fragment">
+<p>Antes, vamos entender o que é o <strong>diretório de trabalho</strong>.</p>
+</div>
+</section>
+<section id="diretório-de-trabalho" class="slide level2">
+<h2>Diretório de trabalho</h2>
+<p>O diretório de trabalho (<em>working directory</em>) é a pasta na qual o R vai buscar os arquivos ao lê-los ou salvá-los.</p>
+<div class="fragment">
+<p>Podemos descobrir que pasta é essa através da função <code>getwd()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">getwd</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/bruno/dox/projects/r-workshop/slides/2_manipulacao"</code></pre>
+</div>
+</div>
+<p>A função retorna uma string com o caminho do seu diretório de trabalho.</p>
+</div>
+<div class="fragment">
+<p>O diretório de trabalho pode ser modificado através da função <code>setwd()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">setwd</span>(<span class="st">"/home/bruno/Documents/Projects/Thesis"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="caminhos-absolutos" class="slide level2">
+<h2>Caminhos absolutos</h2>
+<p>Caminhos absolutos são aqueles que iniciam na pasta raíz do seu computador.</p>
+<div class="fragment">
+<p>Este é o caminho absoluto onde os slides desta aula foram produzidos:</p>
+<pre><code>"/home/bruno/dox/projects/r-workshop/slides/2_manipulacao"</code></pre>
+</div>
+<div class="fragment">
+<p>Em computadores com Windows pode ter uma cara parecida com esta:</p>
+<pre><code>"C:/Users/Bruno/Documents/Projects/Thesis"</code></pre>
+</div>
+<div class="fragment">
+<p>Na maioria dos casos, caminhos absolutos são <strong>má prática</strong>, pois deixam o código irreprodutível. Se você trocar de computador ou passar o script para outra pessoa rodar, o código não vai funcionar, pois o caminho absoluto para o arquivo muito provavelmente será diferente.</p>
+</div>
+</section>
+<section id="caminhos-relativos" class="slide level2">
+<h2>Caminhos relativos</h2>
+<p>Caminhos relativos são aqueles que iniciam no diretório de trabalho da sua sessão.</p>
+<div class="fragment">
+<p>O diretório de trabalho da sessão usada para produzir os slides é a pasta <code>r-workshop</code>. Olhem o caminho absoluto no slide anterior. Logo, o caminho relativo para a pasta onde os slides foram produzidos seria apenas <code>slides/2_manipulacao</code>.</p>
+</div>
+<div class="fragment">
+<p>Trabalhar com <strong>projetos no RStudio</strong> ajuda bastante o uso de caminhos relativos, pois nos incentiva a colocar todos os arquivos da análise dentro da pasta do projeto. Projetos podem ser criados em <em>Arquivo &gt; Novo Projeto…</em></p>
+</div>
+<div class="fragment">
+<p>Assim, se você usar apenas caminhos relativos e compartilhar a pasta do projeto com alguém, todos os caminhos existentes nos códigos continuarão a funcionar em qualquer computador!</p>
+</div>
+</section>
 <section id="arquivos-de-texto-delimitados" class="slide level2">
 <h2>Arquivos de texto delimitados</h2>
 <p>Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (<strong>.csv</strong>) ou valores separados por tabulação (<strong>.csv</strong>).</p>
@@ -501,13 +562,13 @@ Bruno Montezano
 <div class="fragment">
 <p>Também podemos exportar dados em <code>.csv</code>, por exemplo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(dados)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">library</span>(readr)</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">write_csv</span>(</span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="at">x =</span> pixar_bilheteria,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>  <span class="at">file =</span> <span class="st">"/home/bruno/tmp/dados_bilheteria.csv"</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(dados)</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">write_csv</span>(</span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="at">x =</span> pixar_bilheteria,</span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="at">file =</span> <span class="st">"/home/bruno/tmp/dados_bilheteria.csv"</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -526,13 +587,13 @@ Bruno Montezano
 <div class="fragment">
 <p>Da mesma forma, podemos exportar dados em <code>.sav</code> (formato do SPSS):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(dados)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">library</span>(haven)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">write_sav</span>(</span>
-<span id="cb6-5"><a href="#cb6-5"></a>  <span class="at">data =</span> pixar_bilheteria,</span>
-<span id="cb6-6"><a href="#cb6-6"></a>  <span class="at">path =</span> <span class="st">"/home/bruno/tmp/dados_bilheteria.sav"</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">library</span>(dados)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">library</span>(haven)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">write_sav</span>(</span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="at">data =</span> pixar_bilheteria,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="at">path =</span> <span class="st">"/home/bruno/tmp/dados_bilheteria.sav"</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>

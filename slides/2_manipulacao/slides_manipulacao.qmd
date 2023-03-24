@@ -61,6 +61,99 @@ install.packages("tidyverse")
 
 ![](../assets/logo_readr.png){fig-align="center" width=45%}
 
+## Caminhos
+
+Um passo essencial na importação de dados é saber onde está o arquivo a ser importado.
+
+. . .
+
+Toda função vai exigir um **caminho**, ou seja, uma **string** que representa
+o endereço do arquivo no computador.
+
+. . .
+
+Há duas formas de passar o caminho ao R: através de um **caminho absoluto**
+ou **caminho relativo**.
+
+. . .
+
+Antes, vamos entender o que é o **diretório de trabalho**.
+
+## Diretório de trabalho
+
+O diretório de trabalho (*working directory*) é a pasta na qual o R vai
+buscar os arquivos ao lê-los ou salvá-los.
+
+. . .
+
+Podemos descobrir que pasta é essa através da função `getwd()`:
+
+```{r getwd}
+getwd()
+```
+
+A função retorna uma string com o caminho do seu diretório de trabalho.
+
+. . .
+
+O diretório de trabalho pode ser modificado através da função `setwd()`:
+
+```{r setwd}
+#| eval: false
+setwd("/home/bruno/Documents/Projects/Thesis")
+```
+
+## Caminhos absolutos
+
+Caminhos absolutos são aqueles que iniciam na pasta raíz do seu computador.
+
+. . .
+
+Este é o caminho absoluto onde os slides desta aula foram produzidos:
+
+```
+"/home/bruno/dox/projects/r-workshop/slides/2_manipulacao"
+```
+
+. . .
+
+Em computadores com Windows pode ter uma cara parecida com esta:
+
+```
+"C:/Users/Bruno/Documents/Projects/Thesis"
+```
+
+. . .
+
+Na maioria dos casos, caminhos absolutos são **má prática**, pois deixam
+o código irreprodutível. Se você trocar de computador ou passar o script para
+outra pessoa rodar, o código não vai funcionar, pois o caminho absoluto para o
+arquivo muito provavelmente será diferente.
+
+## Caminhos relativos
+
+Caminhos relativos são aqueles que iniciam no diretório de trabalho da sua
+sessão.
+
+. . .
+
+O diretório de trabalho da sessão usada para produzir os slides é a pasta
+`r-workshop`. Olhem o caminho absoluto no slide anterior. Logo, o caminho
+relativo para a pasta onde os slides foram produzidos seria apenas
+`slides/2_manipulacao`.
+
+. . .
+
+Trabalhar com **projetos no RStudio** ajuda bastante o uso de caminhos
+relativos, pois nos incentiva a colocar todos os arquivos da análise dentro da
+pasta do projeto. Projetos podem ser criados em *Arquivo > Novo Projeto...*
+
+. . .
+
+Assim, se você usar apenas caminhos relativos e compartilhar a pasta do projeto
+com alguém, todos os caminhos existentes nos códigos continuarão a funcionar em
+qualquer computador!
+
 ## Arquivos de texto delimitados
 
 Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado,
@@ -143,7 +236,6 @@ write_csv(
   file = "/home/bruno/tmp/dados_bilheteria.csv"
 )
 ```
-
 
 ## `haven` e `readxl`
 
