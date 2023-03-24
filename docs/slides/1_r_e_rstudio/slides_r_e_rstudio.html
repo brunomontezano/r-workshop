@@ -382,6 +382,9 @@
       margin-right: 0; 
     }
   </style>
+  
+  <script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -402,7 +405,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">23 de março de 2023</p>
+  <p class="date">24 de março de 2023</p>
 </section>
 <section id="objetivos-do-curso" class="slide level2">
 <h2>Objetivos do curso</h2>
@@ -448,12 +451,11 @@ Bruno Montezano
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
 <ul>
-<li class="fragment">O que é o R e por que usá-lo?</li>
-<li class="fragment">Visão geral do RStudio</li>
-<li class="fragment">Comandos básicos do R
+<li class="fragment"><p>O que é o R e por que usá-lo?</p></li>
+<li class="fragment"><p>Visão geral do RStudio</p></li>
+<li class="fragment"><p>Comandos básicos do R</p>
 <ul>
 <li class="fragment">Vetores</li>
-<li class="fragment">Matrizes</li>
 <li class="fragment">Data frames</li>
 <li class="fragment">Funções</li>
 <li class="fragment">Pacotes</li>
@@ -623,11 +625,18 @@ Bruno Montezano
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>novo_objeto <span class="ot">&lt;-</span> <span class="dv">144</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
-<p><strong>Operadores</strong> como o <code>&lt;-</code> são funções que se parecem com símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre <code>()</code> como na função <code>sqrt(x)</code></p>
+<p><strong>Operadores</strong> como o <code>&lt;-</code> são funções que parecem símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre <code>()</code> como na função <code>sqrt(x)</code></p>
 </div>
 <div class="fragment">
 <p>Nós fazemos contas matemáticas com operadores, por exemplo, <code>x + y</code>.</p>
-<p><code>+</code> é o operador de adição.</p>
+<p><code>+</code> é o operador de adição. Mas temos outros operadores matemáticos:</p>
+<ul>
+<li class="fragment"><code>-</code>: subtração</li>
+<li class="fragment"><code>*</code>: multiplicação</li>
+<li class="fragment"><code>/</code>: divisão</li>
+<li class="fragment"><code>^</code>: potenciação</li>
+<li class="fragment"><code>%%</code> módulo (resto da divisão)</li>
+</ul>
 </div>
 </section>
 <section id="chamando-objetos" class="slide level2">
@@ -678,6 +687,12 @@ Bruno Montezano
 <pre><code>[1] 20736</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>novo_objeto <span class="sc">%%</span> <span class="dv">2</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
 </div>
 </section>
 <section id="criando-vetores" class="slide level2">
@@ -685,8 +700,8 @@ Bruno Montezano
 <p>Um <strong>vetor</strong> é uma série de <strong>elementos</strong>, como números, por exemplo.</p>
 <p>Nós podemos criar um vetor usando a função <code>c()</code> que significa “combinar”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>novo_objeto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">25</span>, <span class="dv">36</span>)</span>
-<span id="cb19-2"><a href="#cb19-2"></a>novo_objeto</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>novo_objeto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">25</span>, <span class="dv">36</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>novo_objeto</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  4  9 16 25 36</code></pre>
 </div>
@@ -699,21 +714,33 @@ Bruno Montezano
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">sqrt</span>(novo_objeto)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">sqrt</span>(novo_objeto) <span class="co"># Calcular raíz quadrada para cada elemento do vetor</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 3 4 5 6</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">mean</span>(novo_objeto) <span class="co"># Calcular a média do vetor</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">sum</span>(novo_objeto) <span class="co"># Somar todos os elementos do vetor</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 90</code></pre>
+</div>
+</div>
 </div>
 </section>
-<section id="tipos-de-dados" class="slide level2">
-<h2>Tipos de dados</h2>
+<section id="classes" class="slide level2">
+<h2>Classes</h2>
 <p>Os vetores podem assumir três <strong>classes</strong> principais no R.</p>
 <div class="fragment">
 <p>Eles podem ser numéricos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>vetor_numerico <span class="ot">&lt;-</span> <span class="dv">215</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>vetor_numerico</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>vetor_numerico <span class="ot">&lt;-</span> <span class="dv">215</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>vetor_numerico</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 215</code></pre>
 </div>
@@ -722,25 +749,414 @@ Bruno Montezano
 <div class="fragment">
 <p>Podem ser de caractere (ou <strong>string</strong>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>vetor_de_caractere <span class="ot">&lt;-</span> <span class="st">"Bruno"</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>vetor_de_caractere</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>vetor_de_caractere <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bruno"</span>, <span class="st">"Montezano"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2"></a>vetor_de_caractere</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Bruno"</code></pre>
+<pre><code>[1] "Bruno"     "Montezano"</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
 <p>Ou lógicos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>vetor_logico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb27-2"><a href="#cb27-2"></a>vetor_logico</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>vetor_logico <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb33-2"><a href="#cb33-2"></a>vetor_logico</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  TRUE FALSE FALSE  TRUE</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p>Lembrando que os vetores podem ter um único elemento, como o <code>vetor_numerico</code> e o <code>vetor_de_caractere</code> criados acima.</p>
+<p>Lembrando que os vetores podem ter um único elemento, como o <code>vetor_numerico</code> criado acima.</p>
+</div>
+</section>
+<section id="indexando-vetores-pela-posição" class="slide level2">
+<h2>Indexando vetores pela posição</h2>
+<p>Quando temos vetores de mais de um elemento, pode ser interessante acessar elementos específicos. Para isso, podemos usar os colchetes (<code>[]</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>vetor_exemplo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">13</span>, <span class="dv">22</span>, <span class="dv">95</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a></span>
+<span id="cb35-3"><a href="#cb35-3"></a>vetor_exemplo[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)] <span class="co"># Dessa forma, extraímos apenas o primeiro e o terceiro elemento</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2 22</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>animais <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Gato"</span>, <span class="st">"Cachorro"</span>, <span class="st">"Vaca"</span>, <span class="st">"Zebra"</span>, <span class="st">"Gorila"</span>, <span class="st">"Avestruz"</span>, <span class="st">"Cabra"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2"></a></span>
+<span id="cb37-3"><a href="#cb37-3"></a>animais[<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>] <span class="co"># Extrair apenas do elemento 3 até o elemento 5</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Vaca"   "Zebra"  "Gorila"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>animais[<span class="dv">2</span>] <span class="co"># Extrair apenas o "melhor amigo do homem"</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Cachorro"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>O <strong>operador dois pontos</strong> (<code>:</code>) gera um vetor usando a sequência de números inteiros do primeiro até o segundo argumento. <code>3:5</code> equivale a <code>c(3, 4, 5)</code>.</p>
+</div>
+</section>
+<section id="indexando-vetores-por-expressões" class="slide level2">
+<h2>Indexando vetores por expressões</h2>
+<p>Temos nosso vetor de exemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>vetor_exemplo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2 13 22 95</code></pre>
+</div>
+</div>
+<p>Podemos querer extrair elementos de um vetor a partir de alguma condição, na forma de <strong>expressões lógicas</strong>.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>vetor_exemplo[vetor_exemplo <span class="sc">&gt;</span> <span class="dv">15</span>] <span class="co"># Extrair apenas os elementos de valor maior que 5</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22 95</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>vetor_exemplo[vetor_exemplo <span class="sc">&lt;=</span> <span class="dv">13</span>] <span class="co"># Extrair elementos de valor menor ou igual a 13</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2 13</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Existem vários outros <strong>operadores lógicos</strong>:</p>
+<ul>
+<li class="fragment"><code>==</code>: igual a</li>
+<li class="fragment"><code>!=</code>: não é igual a</li>
+<li class="fragment"><code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&gt;=</code>: menor que, menor que ou igual a, etc</li>
+<li class="fragment"><code>%in%</code>: usado para checar igual a um entre vários valores</li>
+</ul>
+</div>
+</section>
+<section id="combinando-expressões-lógicas" class="slide level2">
+<h2>Combinando expressões lógicas</h2>
+<p>Podemos combinar mais de uma condição com os seguintes operadores:</p>
+<div>
+<ul>
+<li><code>&amp;</code>: ambas condições precisam ser respeitadas (E)</li>
+<li><code>|</code>: pelo menos uma condição precisa ser respeitada (OU)</li>
+<li><code>!</code>: inverte uma condição lógica (<code>TRUE</code> vira <code>FALSE</code>, <code>FALSE</code> vira <code>TRUE</code>)</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>vetor_exemplo[vetor_exemplo <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> vetor_exemplo <span class="sc">&lt;</span> <span class="dv">15</span>] <span class="co"># Valores maiores que 5 E menores que 15</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>vetor_exemplo[vetor_exemplo <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">|</span> vetor_exemplo <span class="sc">&lt;</span> <span class="dv">15</span>] <span class="co"># Valores menores que 5 OU menores que 15</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2 13 22 95</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>vetor_exemplo[vetor_exemplo <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)] <span class="co"># Elementos que são iguais a algum número de 1 até 15</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2 13</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>vetor_exemplo[<span class="sc">!</span>vetor_exemplo <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>)] <span class="co"># Elementos que NÃO são iguais a algum número de 1 até 15</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22 95</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Agora, vamos dar uma olhada em outra estrutura de dados, os <em>data frames</em>!</p>
+</div>
+</section>
+<section id="o-que-é-um-data.frame" class="slide level2">
+<h2>O que é um <code>data.frame</code>?</h2>
+<p>Um <strong>data frame</strong> é uma tabela na qual cada <strong>coluna</strong> contém valores de uma <strong>variável</strong> e cada <strong>linha</strong> contém uma <strong>observação</strong>. Estrutura de dados mais comum em saúde.</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<ul>
+<li class="fragment">Toda coluna possui um nome</li>
+<li class="fragment">Toda coluna possui valores de mesmo tipo</li>
+<li class="fragment">Cada coluna deve conter o mesmo número de linhas de dados</li>
+<li class="fragment">Cada linha deve conter o mesmo número de colunas de dados</li>
+</ul>
+</div><div class="column" style="width:65%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/questionario_libreoffice.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="criando-um-data.frame" class="slide level2">
+<h2>Criando um <code>data.frame</code></h2>
+<p>Vamos criar um <code>data.frame</code> no R com cinco variáveis e quatro observações.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>df_aula <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb55-2"><a href="#cb55-2"></a>  <span class="at">nome =</span> <span class="fu">c</span>(<span class="st">"Bruno"</span>, <span class="st">"Marcos"</span>, <span class="st">"Pedro"</span>, <span class="st">"José"</span>),</span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="at">idade =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">22</span>, <span class="dv">25</span>, <span class="dv">21</span>),</span>
+<span id="cb55-4"><a href="#cb55-4"></a>  <span class="at">profissao =</span> <span class="fu">c</span>(<span class="st">"Psicólogo"</span>, <span class="st">"Professor"</span>, <span class="st">"Jogador de futebol"</span>, <span class="st">"Bombeiro"</span>),</span>
+<span id="cb55-5"><a href="#cb55-5"></a>  <span class="at">tem_namorada =</span> <span class="fu">c</span>(<span class="st">"Sim"</span>, <span class="st">"Sim"</span>, <span class="st">"Não"</span>, <span class="st">"Sim"</span>),</span>
+<span id="cb55-6"><a href="#cb55-6"></a>  <span class="at">gosta_de_r =</span> <span class="fu">c</span>(<span class="st">"Sim"</span>, <span class="st">"Não"</span>, <span class="st">"Não"</span>, <span class="st">"Não"</span>)</span>
+<span id="cb55-7"><a href="#cb55-7"></a>)</span>
+<span id="cb55-8"><a href="#cb55-8"></a></span>
+<span id="cb55-9"><a href="#cb55-9"></a>df_aula</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    nome idade          profissao tem_namorada gosta_de_r
+1  Bruno    18          Psicólogo          Sim        Sim
+2 Marcos    22          Professor          Sim        Não
+3  Pedro    25 Jogador de futebol          Não        Não
+4   José    21           Bombeiro          Sim        Não</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Na próxima aula, vamos aprender a carregar nossos próprios dados para dentro do R!</p>
+</div>
+</section>
+<section id="indexando-um-data.frame" class="slide level2">
+<h2>Indexando um <code>data.frame</code></h2>
+<p>Diferente dos vetores, que são objetos unidimensionais, os <em>data frames possuem duas dimensões</em>.</p>
+<div class="fragment">
+<p>Nesse caso, vamos usar os colchetes (<code>[]</code>) para indexar a base na forma: <code>objeto_do_dataframe[linha, coluna]</code>.</p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>df_aula[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    nome          profissao
+2 Marcos          Professor
+3  Pedro Jogador de futebol
+4   José           Bombeiro</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">nome</th>
+<th style="text-align: right;">idade</th>
+<th style="text-align: left;">profissao</th>
+<th style="text-align: left;">tem_namorada</th>
+<th style="text-align: left;">gosta_de_r</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: Bruno !important;">Bruno</span></td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: Psicólogo !important;">Psicólogo</span></td>
+<td style="text-align: left;">Sim</td>
+<td style="text-align: left;">Sim</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: orange !important;">Marcos</span></td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: orange !important;">Professor</span></td>
+<td style="text-align: left;">Sim</td>
+<td style="text-align: left;">Não</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: orange !important;">Pedro</span></td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: orange !important;">Jogador de futebol</span></td>
+<td style="text-align: left;">Não</td>
+<td style="text-align: left;">Não</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: orange !important;">José</span></td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;"><span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: orange !important;">Bombeiro</span></td>
+<td style="text-align: left;">Sim</td>
+<td style="text-align: left;">Não</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>df_aula[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>), ]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   nome idade profissao tem_namorada gosta_de_r
+1 Bruno    18 Psicólogo          Sim        Sim
+4  José    21  Bombeiro          Sim        Não</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> nome </th>
+   <th style="text-align:right;"> idade </th>
+   <th style="text-align:left;"> profissao </th>
+   <th style="text-align:left;"> tem_namorada </th>
+   <th style="text-align:left;"> gosta_de_r </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;background-color: orange !important;"> Bruno </td>
+   <td style="text-align:right;background-color: orange !important;"> 18 </td>
+   <td style="text-align:left;background-color: orange !important;"> Psicólogo </td>
+   <td style="text-align:left;background-color: orange !important;"> Sim </td>
+   <td style="text-align:left;background-color: orange !important;"> Sim </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Marcos </td>
+   <td style="text-align:right;"> 22 </td>
+   <td style="text-align:left;"> Professor </td>
+   <td style="text-align:left;"> Sim </td>
+   <td style="text-align:left;"> Não </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pedro </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:left;"> Jogador de futebol </td>
+   <td style="text-align:left;"> Não </td>
+   <td style="text-align:left;"> Não </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;background-color: orange !important;"> José </td>
+   <td style="text-align:right;background-color: orange !important;"> 21 </td>
+   <td style="text-align:left;background-color: orange !important;"> Bombeiro </td>
+   <td style="text-align:left;background-color: orange !important;"> Sim </td>
+   <td style="text-align:left;background-color: orange !important;"> Não </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexação-e-colunas-no-data.frame" class="slide level2">
+<h2>Indexação e colunas no <code>data.frame</code></h2>
+<p>Também podemos indexar a partir de <strong>expressões lógicas</strong> assim como nos vetores. Para isso, fazemos uso do operador <code>$</code>.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>df_aula[df_aula<span class="sc">$</span>tem_namorada <span class="sc">==</span> <span class="st">"Sim"</span>, ] <span class="co"># Notem que a dimensão da coluna está vazia</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    nome idade profissao tem_namorada gosta_de_r
+1  Bruno    18 Psicólogo          Sim        Sim
+2 Marcos    22 Professor          Sim        Não
+4   José    21  Bombeiro          Sim        Não</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>df_aula[df_aula<span class="sc">$</span>gosta_de_r <span class="sc">==</span> <span class="st">"Não"</span> <span class="sc">&amp;</span> df_aula<span class="sc">$</span>idade <span class="sc">&gt;</span> <span class="dv">21</span>, ] <span class="co"># Idade &gt; 21 e que não gostam de R</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    nome idade          profissao tem_namorada gosta_de_r
+2 Marcos    22          Professor          Sim        Não
+3  Pedro    25 Jogador de futebol          Não        Não</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>O <code>$</code> pode ser usado para extrair uma coluna em forma de vetor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>df_aula<span class="sc">$</span>idade</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18 22 25 21</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">mean</span>(df_aula<span class="sc">$</span>idade)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 21.5</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="pacotes" class="slide level2">
+<h2>Pacotes</h2>
+<p><strong>Pacotes</strong> são conjuntos de funções ou dados que podem adicionar novas funcionalidades no R.</p>
+<div class="columns">
+<div class="column" style="width:46%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/rapaz_colocando_lampada.jpg"></p>
+<p></p><figcaption><code>install.packages("nomedopacote")</code></figcaption><p></p>
+</figure>
+</div>
+</div><div class="column" style="width:54%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/rapaz_ligando_lampada.jpg"></p>
+<p></p><figcaption><code>library(nomedopacote)</code></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="instalando-o-pacote-dados" class="slide level2">
+<h2>Instalando o pacote <code>dados</code></h2>
+<p>O pacote <code>dados</code> disponibiliza diversas bases de dados para aprendizado. E a melhor parte, são todas traduzidas para português!</p>
+<div class="fragment">
+<p>O pacote pode ser instalado com a função <code>install.packages()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">install.packages</span>(<span class="st">"dados"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>E então carregamos com a função <code>library()</code> para usar os dados disponibilizados:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">library</span>(dados)</span>
+<span id="cb70-2"><a href="#cb70-2"></a></span>
+<span id="cb70-3"><a href="#cb70-3"></a>pixar_bilheteria</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 24 × 5
+   filme                  orcamento bilheteria_eua_canada bilheteria_outros_pa…¹
+   &lt;chr&gt;                      &lt;dbl&gt;                 &lt;dbl&gt;                  &lt;dbl&gt;
+ 1 Toy Story - Um Mundo …  30000000             191796233              181757800
+ 2 Vida de Inseto         120000000             162798565              200460294
+ 3 Toy Story 2             90000000             245852179              251522597
+ 4 Monstros S. A.         115000000             289916256              342400393
+ 5 Procurando Nemo         94000000             339714978              531300000
+ 6 Os Incríveis            92000000             261441092              370165621
+ 7 Carros                 120000000             244082982              217900167
+ 8 Ratatouille            150000000             206445654              417280431
+ 9 WALL-E                 180000000             223808164              297503696
+10 Up - Altas Aventuras   175000000             293004164              442094918
+# ℹ 14 more rows
+# ℹ abbreviated name: ¹​bilheteria_outros_paises
+# ℹ 1 more variable: bilheteria_mundial &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tarefa-de-casa" class="slide level2">
+<h2>Tarefa de casa</h2>
+<ul>
+<li class="fragment"><a href="https://brunomontezano.github.io/r-workshop/">Dê uma olhada no site do curso</a></li>
+<li class="fragment">Crie um vetor de 1 a 25 e armazene em uma variável de nome <code>sequencia</code>
+<ul>
+<li class="fragment">Lembrem-se do operador <code>:</code></li>
+</ul></li>
+<li class="fragment">Crie um vetor de caractere de dois elementos com seu nome e último nome (chamado <code>nome_completo</code>) e extraia seu sobrenome usando <code>[]</code></li>
+<li class="fragment">Filtre a base <code>pixar_bilheteria</code> do pacote <code>dados</code> e extraia apenas os filmes que tiveram orçamento menor que 100 milhões
+<ul>
+<li class="fragment">Lembrem-se do <code>$</code>, do <code>&lt;</code>, do <code>[]</code> e da função <code>library()</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="dica-chatgpt" class="slide level2">
+<h2>Dica: ChatGPT</h2>
+<ul>
+<li class="fragment">O <a href="https://chat.openai.com/chat">ChatGPT</a> é um assistente virtual que pode ajudar na aprendizagem de programação em R para pesquisadores em saúde</li>
+<li class="fragment">Ele pode responder a perguntas sobre sintaxe, funcionalidades e solução de problemas no R</li>
+</ul>
+<div class="fragment">
+<p>Você pode utilizar o pacote <a href="https://github.com/MichelNivard/GPTstudio"><code>gptstudio</code></a> para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio.</p>
 
 <p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
 <div class="footer footer-default">

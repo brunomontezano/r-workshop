@@ -53,7 +53,7 @@
     "href": "index.html#slides",
     "title": "Introdução ao R",
     "section": "Slides",
-    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Manipulação de dados\n\nCódigo para gerar os slides da Aula 2: Fundamentos de estatística em R\n\nSlides da Aula 3: Visualização de dados\n\nCódigo para gerar os slides da Aula 3: Visualização de dados\n\nSlides da Aula 4: Análise descritiva\n\nCódigo para gerar os slides da Aula 4: Análise descritiva\n\nSlides da Aula 5: Inferência estatística\n\nCódigo para gerar os slides da Aula 5: Inferência estatística\n\nSlides da Aula 6: Modelos de regressão\n\nCódigo para gerar os slides da Aula 6: Modelos de regressão\n\nSlides da Aula 7: Tópicos avançados\n\nCódigo para gerar os slides da Aula 7: Tópicos avançados"
+    "text": "Slides\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\n\nSlides da Aula 2: Manipulação de dados\n\nCódigo para gerar os slides da Aula 2: Manipulação de dados\n\nSlides da Aula 3: Visualização de dados\n\nCódigo para gerar os slides da Aula 3: Visualização de dados\n\nSlides da Aula 4: Análise descritiva\n\nCódigo para gerar os slides da Aula 4: Análise descritiva\n\nSlides da Aula 5: Inferência estatística\n\nCódigo para gerar os slides da Aula 5: Inferência estatística\n\nSlides da Aula 6: Modelos de regressão\n\nCódigo para gerar os slides da Aula 6: Modelos de regressão\n\nSlides da Aula 7: Tópicos avançados\n\nCódigo para gerar os slides da Aula 7: Tópicos avançados"
   },
   {
     "objectID": "compilacao.html",
@@ -88,14 +88,21 @@
     "href": "sobre.html",
     "title": "Sobre o curso",
     "section": "",
-    "text": "As aulas se darão a partir de um modelo online. As aulas serão serão realizadas através de videoconferências na plataformas Google Meet para os integrantes do grupo de pesquisa Alliance."
+    "text": "O público-alvo deste curso de introdução ao R para análises nas ciências da saúde é composto principalmente por psiquiatras, psicólogos e outros profissionais de saúde que desejam aprender a utilizar ferramentas de análise de dados para suas pesquisas e práticas clínicas. O curso é voltado tanto para iniciantes em programação quanto para aqueles que já possuem algum conhecimento prévio em R, mas desejam aprimorar suas habilidades e aprender novas técnicas para análise de dados."
+  },
+  {
+    "objectID": "sobre.html#onde-serão-as-aulas",
+    "href": "sobre.html#onde-serão-as-aulas",
+    "title": "Sobre o curso",
+    "section": "Onde serão as aulas?",
+    "text": "Onde serão as aulas?\nAs aulas se darão em formato virtual. As aulas serão serão realizadas através de videoconferências na plataformas Google Meet para os integrantes do grupo de pesquisa Alliance, ministradas pelo psicólogo e mestrando Bruno Montezano."
   },
   {
     "objectID": "sobre.html#quantas-aulas-serão-realizadas",
     "href": "sobre.html#quantas-aulas-serão-realizadas",
     "title": "Sobre o curso",
     "section": "Quantas aulas serão realizadas?",
-    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nManipulação de dados\nVisualização de dados\nAnálise descritiva\nAnálise inferencial\nModelos de regressão\nTópicos avançados\n\nOu seja, a princípio, realizaremos sete aulas com duração entre 1 e 2 horas."
+    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nManipulação de dados\nVisualização de dados\nAnálise descritiva\nAnálise inferencial\nModelos de regressão\nTópicos avançados\n\nOu seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora."
   },
   {
     "objectID": "sobre.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
@@ -172,7 +179,7 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#conteúdo-de-hoje",
     "title": "R e RStudio",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
+    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nData frames\nFunções\nPacotes\nAjuda"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#materiais",
@@ -249,7 +256,7 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-objetos",
     "title": "R e RStudio",
     "section": "Criando objetos",
-    "text": "Criando objetos\nR armazena tudo como um objeto, incluindo dados, funções, modelos, e saídas.\nA criação de um objeto pode ser feita usando o operador de atribuição: <-\n\nnovo_objeto <- 144\n\n\nOperadores como o <- são funções que se parecem com símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre () como na função sqrt(x)\n\n\nNós fazemos contas matemáticas com operadores, por exemplo, x + y.\n+ é o operador de adição."
+    "text": "Criando objetos\nR armazena tudo como um objeto, incluindo dados, funções, modelos, e saídas.\nA criação de um objeto pode ser feita usando o operador de atribuição: <-\n\nnovo_objeto <- 144\n\n\nOperadores como o <- são funções que parecem símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre () como na função sqrt(x)\n\n\nNós fazemos contas matemáticas com operadores, por exemplo, x + y.\n+ é o operador de adição. Mas temos outros operadores matemáticos:\n\n-: subtração\n*: multiplicação\n/: divisão\n^: potenciação\n%% módulo (resto da divisão)"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#chamando-objetos",
@@ -263,20 +270,97 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#usando-objetos",
     "title": "R e RStudio",
     "section": "Usando objetos",
-    "text": "Usando objetos\nVocê pode tratar o nome do objeto como se ele fosse os valores armazenados no próprio objeto.\n\n\nnovo_objeto + 10\n\n[1] 154\n\n\n\nnovo_objeto + novo_objeto\n\n[1] 288\n\n\n\nsqrt(novo_objeto)\n\n[1] 12\n\n\n\nnovo_objeto ^ 2\n\n[1] 20736"
+    "text": "Usando objetos\nVocê pode tratar o nome do objeto como se ele fosse os valores armazenados no próprio objeto.\n\n\nnovo_objeto + 10\n\n[1] 154\n\n\n\nnovo_objeto + novo_objeto\n\n[1] 288\n\n\n\nsqrt(novo_objeto)\n\n[1] 12\n\n\n\nnovo_objeto ^ 2\n\n[1] 20736\n\n\n\nnovo_objeto %% 2\n\n[1] 0"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-vetores",
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-vetores",
     "title": "R e RStudio",
     "section": "Criando vetores",
-    "text": "Criando vetores\nUm vetor é uma série de elementos, como números, por exemplo.\nNós podemos criar um vetor usando a função c() que significa “combinar”.\n\nnovo_objeto <- c(4, 9, 16, 25, 36)\nnovo_objeto\n\n[1]  4  9 16 25 36\n\n\n\nAtribuir em um nome já existente sobrescreve esse objeto.\n\n\nVocê pode usar um vetor como argumento para várias funções.\n\n\n\nsqrt(novo_objeto)\n\n[1] 2 3 4 5 6"
+    "text": "Criando vetores\nUm vetor é uma série de elementos, como números, por exemplo.\nNós podemos criar um vetor usando a função c() que significa “combinar”.\n\nnovo_objeto <- c(4, 9, 16, 25, 36)\nnovo_objeto\n\n[1]  4  9 16 25 36\n\n\n\nAtribuir em um nome já existente sobrescreve esse objeto.\n\n\nVocê pode usar um vetor como argumento para várias funções.\n\n\n\nsqrt(novo_objeto) # Calcular raíz quadrada para cada elemento do vetor\n\n[1] 2 3 4 5 6\n\n\n\nmean(novo_objeto) # Calcular a média do vetor\n\n[1] 18\n\n\n\nsum(novo_objeto) # Somar todos os elementos do vetor\n\n[1] 90"
   },
   {
-    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#tipos-de-dados",
-    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#tipos-de-dados",
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#classes",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#classes",
     "title": "R e RStudio",
-    "section": "Tipos de dados",
-    "text": "Tipos de dados\nOs vetores podem assumir três classes principais no R.\n\nEles podem ser numéricos:\n\nvetor_numerico <- 215\nvetor_numerico\n\n[1] 215\n\n\n\n\nPodem ser de caractere (ou string):\n\nvetor_de_caractere <- \"Bruno\"\nvetor_de_caractere\n\n[1] \"Bruno\"\n\n\n\n\nOu lógicos:\n\nvetor_logico <- c(TRUE, FALSE, FALSE, TRUE)\nvetor_logico\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\nLembrando que os vetores podem ter um único elemento, como o vetor_numerico e o vetor_de_caractere criados acima."
+    "section": "Classes",
+    "text": "Classes\nOs vetores podem assumir três classes principais no R.\n\nEles podem ser numéricos:\n\nvetor_numerico <- 215\nvetor_numerico\n\n[1] 215\n\n\n\n\nPodem ser de caractere (ou string):\n\nvetor_de_caractere <- c(\"Bruno\", \"Montezano\")\nvetor_de_caractere\n\n[1] \"Bruno\"     \"Montezano\"\n\n\n\n\nOu lógicos:\n\nvetor_logico <- c(TRUE, FALSE, FALSE, TRUE)\nvetor_logico\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\n\n\nLembrando que os vetores podem ter um único elemento, como o vetor_numerico criado acima."
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexando-vetores-pela-posição",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexando-vetores-pela-posição",
+    "title": "R e RStudio",
+    "section": "Indexando vetores pela posição",
+    "text": "Indexando vetores pela posição\nQuando temos vetores de mais de um elemento, pode ser interessante acessar elementos específicos. Para isso, podemos usar os colchetes ([]).\n\nvetor_exemplo <- c(2, 13, 22, 95)\n\nvetor_exemplo[c(1, 3)] # Dessa forma, extraímos apenas o primeiro e o terceiro elemento\n\n[1]  2 22\n\n\n\nanimais <- c(\"Gato\", \"Cachorro\", \"Vaca\", \"Zebra\", \"Gorila\", \"Avestruz\", \"Cabra\")\n\nanimais[3:5] # Extrair apenas do elemento 3 até o elemento 5\n\n[1] \"Vaca\"   \"Zebra\"  \"Gorila\"\n\nanimais[2] # Extrair apenas o \"melhor amigo do homem\"\n\n[1] \"Cachorro\"\n\n\n\nO operador dois pontos (:) gera um vetor usando a sequência de números inteiros do primeiro até o segundo argumento. 3:5 equivale a c(3, 4, 5)."
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexando-vetores-por-expressões",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexando-vetores-por-expressões",
+    "title": "R e RStudio",
+    "section": "Indexando vetores por expressões",
+    "text": "Indexando vetores por expressões\nTemos nosso vetor de exemplo:\n\nvetor_exemplo\n\n[1]  2 13 22 95\n\n\nPodemos querer extrair elementos de um vetor a partir de alguma condição, na forma de expressões lógicas.\n\n\nvetor_exemplo[vetor_exemplo > 15] # Extrair apenas os elementos de valor maior que 5\n\n[1] 22 95\n\n\n\nvetor_exemplo[vetor_exemplo <= 13] # Extrair elementos de valor menor ou igual a 13\n\n[1]  2 13\n\n\n\n\nExistem vários outros operadores lógicos:\n\n==: igual a\n!=: não é igual a\n>, >=, <, >=: menor que, menor que ou igual a, etc\n%in%: usado para checar igual a um entre vários valores"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#combinando-expressões-lógicas",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#combinando-expressões-lógicas",
+    "title": "R e RStudio",
+    "section": "Combinando expressões lógicas",
+    "text": "Combinando expressões lógicas\nPodemos combinar mais de uma condição com os seguintes operadores:\n\n\n&: ambas condições precisam ser respeitadas (E)\n|: pelo menos uma condição precisa ser respeitada (OU)\n!: inverte uma condição lógica (TRUE vira FALSE, FALSE vira TRUE)\n\n\n\n\nvetor_exemplo[vetor_exemplo > 5 & vetor_exemplo < 15] # Valores maiores que 5 E menores que 15\n\n[1] 13\n\n\n\nvetor_exemplo[vetor_exemplo > 5 | vetor_exemplo < 15] # Valores menores que 5 OU menores que 15\n\n[1]  2 13 22 95\n\n\n\nvetor_exemplo[vetor_exemplo %in% c(1:15)] # Elementos que são iguais a algum número de 1 até 15\n\n[1]  2 13\n\n\n\nvetor_exemplo[!vetor_exemplo %in% c(1:15)] # Elementos que NÃO são iguais a algum número de 1 até 15\n\n[1] 22 95\n\n\n\n\nAgora, vamos dar uma olhada em outra estrutura de dados, os data frames!"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#o-que-é-um-data.frame",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#o-que-é-um-data.frame",
+    "title": "R e RStudio",
+    "section": "O que é um data.frame?",
+    "text": "O que é um data.frame?\nUm data frame é uma tabela na qual cada coluna contém valores de uma variável e cada linha contém uma observação. Estrutura de dados mais comum em saúde.\n\n\n\nToda coluna possui um nome\nToda coluna possui valores de mesmo tipo\nCada coluna deve conter o mesmo número de linhas de dados\nCada linha deve conter o mesmo número de colunas de dados"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-um-data.frame",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-um-data.frame",
+    "title": "R e RStudio",
+    "section": "Criando um data.frame",
+    "text": "Criando um data.frame\nVamos criar um data.frame no R com cinco variáveis e quatro observações.\n\ndf_aula <- data.frame(\n  nome = c(\"Bruno\", \"Marcos\", \"Pedro\", \"José\"),\n  idade = c(18, 22, 25, 21),\n  profissao = c(\"Psicólogo\", \"Professor\", \"Jogador de futebol\", \"Bombeiro\"),\n  tem_namorada = c(\"Sim\", \"Sim\", \"Não\", \"Sim\"),\n  gosta_de_r = c(\"Sim\", \"Não\", \"Não\", \"Não\")\n)\n\ndf_aula\n\n    nome idade          profissao tem_namorada gosta_de_r\n1  Bruno    18          Psicólogo          Sim        Sim\n2 Marcos    22          Professor          Sim        Não\n3  Pedro    25 Jogador de futebol          Não        Não\n4   José    21           Bombeiro          Sim        Não\n\n\n\nNa próxima aula, vamos aprender a carregar nossos próprios dados para dentro do R!"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexando-um-data.frame",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexando-um-data.frame",
+    "title": "R e RStudio",
+    "section": "Indexando um data.frame",
+    "text": "Indexando um data.frame\nDiferente dos vetores, que são objetos unidimensionais, os data frames possuem duas dimensões.\n\nNesse caso, vamos usar os colchetes ([]) para indexar a base na forma: objeto_do_dataframe[linha, coluna].\n\n\n\n\n\ndf_aula[2:4, c(1, 3)]\n\n    nome          profissao\n2 Marcos          Professor\n3  Pedro Jogador de futebol\n4   José           Bombeiro\n\n\n\n\n\n\n\nnome\nidade\nprofissao\ntem_namorada\ngosta_de_r\n\n\n\n\nBruno\n18\nPsicólogo\nSim\nSim\n\n\nMarcos\n22\nProfessor\nSim\nNão\n\n\nPedro\n25\nJogador de futebol\nNão\nNão\n\n\nJosé\n21\nBombeiro\nSim\nNão\n\n\n\n\n\n\n\ndf_aula[c(1, 4), ]\n\n   nome idade profissao tem_namorada gosta_de_r\n1 Bruno    18 Psicólogo          Sim        Sim\n4  José    21  Bombeiro          Sim        Não\n\n\n\n\n\n\n \n  \n    nome \n    idade \n    profissao \n    tem_namorada \n    gosta_de_r \n  \n \n\n  \n    Bruno \n    18 \n    Psicólogo \n    Sim \n    Sim \n  \n  \n    Marcos \n    22 \n    Professor \n    Sim \n    Não \n  \n  \n    Pedro \n    25 \n    Jogador de futebol \n    Não \n    Não \n  \n  \n    José \n    21 \n    Bombeiro \n    Sim \n    Não"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexação-e-colunas-no-data.frame",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexação-e-colunas-no-data.frame",
+    "title": "R e RStudio",
+    "section": "Indexação e colunas no data.frame",
+    "text": "Indexação e colunas no data.frame\nTambém podemos indexar a partir de expressões lógicas assim como nos vetores. Para isso, fazemos uso do operador $.\n\n\ndf_aula[df_aula$tem_namorada == \"Sim\", ] # Notem que a dimensão da coluna está vazia\n\n    nome idade profissao tem_namorada gosta_de_r\n1  Bruno    18 Psicólogo          Sim        Sim\n2 Marcos    22 Professor          Sim        Não\n4   José    21  Bombeiro          Sim        Não\n\n\n\ndf_aula[df_aula$gosta_de_r == \"Não\" & df_aula$idade > 21, ] # Idade > 21 e que não gostam de R\n\n    nome idade          profissao tem_namorada gosta_de_r\n2 Marcos    22          Professor          Sim        Não\n3  Pedro    25 Jogador de futebol          Não        Não\n\n\n\n\nO $ pode ser usado para extrair uma coluna em forma de vetor:\n\ndf_aula$idade\n\n[1] 18 22 25 21\n\n\n\nmean(df_aula$idade)\n\n[1] 21.5"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#pacotes",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#pacotes",
+    "title": "R e RStudio",
+    "section": "Pacotes",
+    "text": "Pacotes\nPacotes são conjuntos de funções ou dados que podem adicionar novas funcionalidades no R.\n\n\n\n\n\ninstall.packages(\"nomedopacote\")\n\n\n\n\n\n\nlibrary(nomedopacote)"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#instalando-o-pacote-dados",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#instalando-o-pacote-dados",
+    "title": "R e RStudio",
+    "section": "Instalando o pacote dados",
+    "text": "Instalando o pacote dados\nO pacote dados disponibiliza diversas bases de dados para aprendizado. E a melhor parte, são todas traduzidas para português!\n\nO pacote pode ser instalado com a função install.packages():\n\ninstall.packages(\"dados\")\n\n\n\nE então carregamos com a função library() para usar os dados disponibilizados:\n\nlibrary(dados)\n\npixar_bilheteria\n\n# A tibble: 24 × 5\n   filme                  orcamento bilheteria_eua_canada bilheteria_outros_pa…¹\n   <chr>                      <dbl>                 <dbl>                  <dbl>\n 1 Toy Story - Um Mundo …  30000000             191796233              181757800\n 2 Vida de Inseto         120000000             162798565              200460294\n 3 Toy Story 2             90000000             245852179              251522597\n 4 Monstros S. A.         115000000             289916256              342400393\n 5 Procurando Nemo         94000000             339714978              531300000\n 6 Os Incríveis            92000000             261441092              370165621\n 7 Carros                 120000000             244082982              217900167\n 8 Ratatouille            150000000             206445654              417280431\n 9 WALL-E                 180000000             223808164              297503696\n10 Up - Altas Aventuras   175000000             293004164              442094918\n# ℹ 14 more rows\n# ℹ abbreviated name: ¹​bilheteria_outros_paises\n# ℹ 1 more variable: bilheteria_mundial <dbl>"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#tarefa-de-casa",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#tarefa-de-casa",
+    "title": "R e RStudio",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nDê uma olhada no site do curso\nCrie um vetor de 1 a 25 e armazene em uma variável de nome sequencia\n\nLembrem-se do operador :\n\nCrie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando []\nFiltre a base pixar_bilheteria do pacote dados e extraia apenas os filmes que tiveram orçamento menor que 100 milhões\n\nLembrem-se do $, do <, do [] e da função library()"
+  },
+  {
+    "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#dica-chatgpt",
+    "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#dica-chatgpt",
+    "title": "R e RStudio",
+    "section": "Dica: ChatGPT",
+    "text": "Dica: ChatGPT\n\nO ChatGPT é um assistente virtual que pode ajudar na aprendizagem de programação em R para pesquisadores em saúde\nEle pode responder a perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio."
   }
 ]

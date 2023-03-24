@@ -14,6 +14,8 @@ format:
     smaller: true
     theme: [default, ../assets/custom.scss]
     logo: "../assets/logo_ufrgs.png"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ## Objetivos do curso
@@ -60,10 +62,11 @@ Materiais: [https://brunomontezano.github.io/r-workshop/](https://brunomontezano
 ## Conteúdo de hoje
 
 - O que é o R e por que usá-lo?
+
 - Visão geral do RStudio
+
 - Comandos básicos do R
   - Vetores
-  - Matrizes
   - Data frames
   - Funções
   - Pacotes
@@ -246,7 +249,7 @@ novo_objeto <- 144
 
 . . .
 
-**Operadores** como o `<-` são funções que se parecem com símbolos mas geralmente ficam
+**Operadores** como o `<-` são funções que parecem símbolos mas geralmente ficam
 entre argumentos (números ou objetos) ao invés de ter eles entre `()` como na função
 `sqrt(x)`
 
@@ -254,7 +257,13 @@ entre argumentos (números ou objetos) ao invés de ter eles entre `()` como na 
 
 Nós fazemos contas matemáticas com operadores, por exemplo, `x + y`.
 
-`+` é o operador de adição.
+`+` é o operador de adição. Mas temos outros operadores matemáticos:
+
+- `-`: subtração
+- `*`: multiplicação
+- `/`: divisão
+- `^`: potenciação
+- `%%` módulo (resto da divisão)
 
 ## Chamando objetos
 
@@ -298,6 +307,11 @@ sqrt(novo_objeto)
 novo_objeto ^ 2
 ```
 
+```{r objeto-par}
+novo_objeto %% 2
+```
+
+
 ## Criando vetores
 
 Um **vetor** é uma série de **elementos**, como números, por exemplo.
@@ -320,10 +334,19 @@ Você pode usar um vetor como argumento para várias funções.
 . . .
 
 ```{r sqrt-vetor}
-sqrt(novo_objeto)
+sqrt(novo_objeto) # Calcular raíz quadrada para cada elemento do vetor
 ```
 
-## Tipos de dados
+```{r media-vetor}
+mean(novo_objeto) # Calcular a média do vetor
+```
+
+```{r soma-vetor}
+sum(novo_objeto) # Somar todos os elementos do vetor
+```
+
+
+## Classes
 
 Os vetores podem assumir três **classes** principais no R.
 
@@ -341,7 +364,7 @@ vetor_numerico
 Podem ser de caractere (ou **string**):
 
 ```{r vetor-caractere}
-vetor_de_caractere <- "Bruno"
+vetor_de_caractere <- c("Bruno", "Montezano")
 vetor_de_caractere
 ```
 
@@ -357,4 +380,283 @@ vetor_logico
 . . .
 
 Lembrando que os vetores podem ter um único elemento, como o `vetor_numerico`
-e o `vetor_de_caractere` criados acima.
+criado acima.
+
+## Indexando vetores pela posição
+
+Quando temos vetores de mais de um elemento, pode ser interessante acessar
+elementos específicos. Para isso, podemos usar os colchetes (`[]`).
+
+```{r subset-vetor}
+vetor_exemplo <- c(2, 13, 22, 95)
+
+vetor_exemplo[c(1, 3)] # Dessa forma, extraímos apenas o primeiro e o terceiro elemento
+```
+
+```{r subset-vetor-string}
+animais <- c("Gato", "Cachorro", "Vaca", "Zebra", "Gorila", "Avestruz", "Cabra")
+
+animais[3:5] # Extrair apenas do elemento 3 até o elemento 5
+
+animais[2] # Extrair apenas o "melhor amigo do homem"
+```
+
+. . .
+
+O **operador dois pontos** (`:`) gera um vetor usando a sequência de números inteiros do
+primeiro até o segundo argumento. `3:5` equivale a `c(3, 4, 5)`.
+
+## Indexando vetores por expressões
+
+Temos nosso vetor de exemplo:
+
+```{r printar-vetor}
+vetor_exemplo
+```
+
+
+Podemos querer extrair elementos de um vetor a partir de alguma
+condição, na forma de **expressões lógicas**.
+
+. . .
+
+```{r extrair-maior-que-cinco}
+vetor_exemplo[vetor_exemplo > 15] # Extrair apenas os elementos de valor maior que 5
+```
+
+```{r extrair-menores-ou-iguais-13}
+vetor_exemplo[vetor_exemplo <= 13] # Extrair elementos de valor menor ou igual a 13
+```
+
+. . .
+
+Existem vários outros **operadores lógicos**:
+
+- `==`: igual a
+- `!=`: não é igual a
+- `>`, `>=`, `<`, `>=`: menor que, menor que ou igual a, etc
+- `%in%`: usado para checar igual a um entre vários valores
+
+## Combinando expressões lógicas
+
+Podemos combinar mais de uma condição com os seguintes operadores:
+
+::: {.nonincremental}
+- `&`: ambas condições precisam ser respeitadas (E)
+- `|`: pelo menos uma condição precisa ser respeitada (OU)
+- `!`: inverte uma condição lógica (`TRUE` vira `FALSE`, `FALSE` vira `TRUE`)
+:::
+
+. . .
+
+```{r exemplo-e}
+vetor_exemplo[vetor_exemplo > 5 & vetor_exemplo < 15] # Valores maiores que 5 E menores que 15
+```
+
+```{r exemplo-ou}
+vetor_exemplo[vetor_exemplo > 5 | vetor_exemplo < 15] # Valores menores que 5 OU menores que 15
+```
+
+```{r exemplo-in}
+vetor_exemplo[vetor_exemplo %in% c(1:15)] # Elementos que são iguais a algum número de 1 até 15
+```
+
+```{r exemplo-nao}
+vetor_exemplo[!vetor_exemplo %in% c(1:15)] # Elementos que NÃO são iguais a algum número de 1 até 15
+```
+
+. . .
+
+Agora, vamos dar uma olhada em outra estrutura de dados, os *data frames*!
+
+## O que é um `data.frame`?
+
+Um **data frame** é uma tabela na qual cada **coluna** contém valores de uma
+**variável** e cada **linha** contém uma **observação**. Estrutura de dados
+mais comum em saúde.
+
+:::: {.columns}
+
+::: {.column width="35%"}
+- Toda coluna possui um nome
+- Toda coluna possui valores de mesmo tipo
+- Cada coluna deve conter o mesmo número de linhas de dados
+- Cada linha deve conter o mesmo número de colunas de dados
+:::
+
+::: {.column width="65%"}
+![](../assets/questionario_libreoffice.png){fig-align="center" width=100%}
+:::
+
+::::
+
+
+
+## Criando um `data.frame`
+
+Vamos criar um `data.frame` no R com cinco variáveis e quatro observações.
+
+```{r criando-df}
+df_aula <- data.frame(
+  nome = c("Bruno", "Marcos", "Pedro", "José"),
+  idade = c(18, 22, 25, 21),
+  profissao = c("Psicólogo", "Professor", "Jogador de futebol", "Bombeiro"),
+  tem_namorada = c("Sim", "Sim", "Não", "Sim"),
+  gosta_de_r = c("Sim", "Não", "Não", "Não")
+)
+
+df_aula
+```
+
+. . .
+
+Na próxima aula, vamos aprender a carregar nossos próprios dados para dentro do R!
+
+## Indexando um `data.frame`
+
+Diferente dos vetores, que são objetos unidimensionais, os *data frames possuem
+duas dimensões*.
+
+. . .
+
+Nesse caso, vamos usar os colchetes (`[]`) para indexar a base na forma:
+`objeto_do_dataframe[linha, coluna]`.
+
+. . .
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r filtrar-df-aula}
+df_aula[2:4, c(1, 3)]
+```
+
+```{r pintar-tabela}
+#| echo: false
+df_aula |> 
+  dplyr::mutate(
+    nome = kableExtra::cell_spec(
+      nome, background = ifelse(nome %in% c("Marcos", "Pedro", "José"),
+                                "orange", nome)),
+    profissao = kableExtra::cell_spec(
+      profissao, background = ifelse(profissao %in% c("Professor", "Jogador de futebol",
+                                                 "Bombeiro"),
+                                "orange", profissao))
+  ) |> 
+  kableExtra::kable(format = "simple")
+
+```
+:::
+
+::: {.column width="50%"}
+```{r filtrar-df-aula-todas-colunas}
+df_aula[c(1, 4), ]
+```
+
+```{r pintar-tabela-todas}
+#| echo: false
+df_aula |> 
+  kableExtra::kable(format = "html") |> 
+  kableExtra::row_spec(row = c(1, 4), background = "orange")
+
+```
+:::
+
+::::
+
+## Indexação e colunas no `data.frame`
+
+Também podemos indexar a partir de **expressões lógicas** assim como nos vetores.
+Para isso, fazemos uso do operador `$`.
+
+. . .
+
+```{r tem-namorada}
+df_aula[df_aula$tem_namorada == "Sim", ] # Notem que a dimensão da coluna está vazia
+```
+
+```{r nao-gosta-de-r-e-maior-que-21}
+df_aula[df_aula$gosta_de_r == "Não" & df_aula$idade > 21, ] # Idade > 21 e que não gostam de R
+```
+
+. . .
+
+O `$` pode ser usado para extrair uma coluna em forma de vetor:
+
+```{r pegar-idade}
+df_aula$idade
+```
+
+```{r media-idade}
+mean(df_aula$idade)
+```
+
+
+## Pacotes
+
+**Pacotes** são conjuntos de funções ou dados que podem adicionar novas
+funcionalidades no R.
+
+:::: {.columns}
+
+::: {.column width="46%"}
+
+![`install.packages("nomedopacote")`](../assets/rapaz_colocando_lampada.jpg){fig-align="center"}
+:::
+
+::: {.column width="54%"}
+![`library(nomedopacote)`](../assets/rapaz_ligando_lampada.jpg)
+:::
+
+::::
+
+## Instalando o pacote `dados`
+
+O pacote `dados` disponibiliza diversas bases de dados para aprendizado.
+E a melhor parte, são todas traduzidas para português!
+
+. . .
+
+O pacote pode ser instalado com a função `install.packages()`:
+
+```{r instalar-dados}
+#| eval: false
+install.packages("dados")
+```
+
+. . .
+
+E então carregamos com a função `library()` para usar os dados disponibilizados:
+
+```{r carregar-dados}
+library(dados)
+
+pixar_bilheteria
+```
+
+
+
+
+## Tarefa de casa
+
+- [Dê uma olhada no site do curso](https://brunomontezano.github.io/r-workshop/)
+- Crie um vetor de 1 a 25 e armazene em uma variável de nome `sequencia`
+  - Lembrem-se do operador `:`
+- Crie um vetor de caractere de dois elementos com seu nome e último nome
+(chamado `nome_completo`) e extraia seu sobrenome usando `[]`
+- Filtre a base `pixar_bilheteria` do pacote `dados` 
+e extraia apenas os filmes que tiveram orçamento menor que 100 milhões
+  - Lembrem-se do `$`, do `<`, do `[]` e da função `library()`
+
+## Dica: ChatGPT
+
+- O [ChatGPT](https://chat.openai.com/chat) é um assistente virtual que pode ajudar
+na aprendizagem de programação
+em R para pesquisadores em saúde
+- Ele pode responder a perguntas sobre sintaxe, funcionalidades e solução de problemas no R
+
+. . .
+
+Você pode utilizar o pacote [`gptstudio`](https://github.com/MichelNivard/GPTstudio)
+para auxiliar nos códigos, gramática dos documentos,
+ou para comentar seu código no RStudio.

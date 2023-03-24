@@ -3,11 +3,22 @@ title: "Sobre o curso"
 lang: pt-br
 ---
 
+## Quem é o público alvo?
+
+O público-alvo deste curso de introdução ao R para análises nas ciências da
+saúde é composto principalmente por psiquiatras, psicólogos e outros
+profissionais de saúde que desejam aprender a utilizar ferramentas de análise de
+dados para suas pesquisas e práticas clínicas. O curso é voltado tanto para
+iniciantes em programação quanto para aqueles que já possuem algum conhecimento
+prévio em R, mas desejam aprimorar suas habilidades e aprender novas técnicas
+para análise de dados.
+
 ## Onde serão as aulas?
 
-As aulas se darão a partir de um modelo online. As aulas serão
+As aulas se darão em formato virtual. As aulas serão
 serão realizadas através de videoconferências na plataformas Google Meet
-para os integrantes do grupo de pesquisa Alliance.
+para os integrantes do grupo de pesquisa Alliance, ministradas pelo
+psicólogo e mestrando Bruno Montezano.
 
 ## Quantas aulas serão realizadas?
 
@@ -21,7 +32,7 @@ O plano de aulas seguirá as seguintes aulas:
 6. Modelos de regressão
 7. Tópicos avançados
 
-Ou seja, a princípio, realizaremos sete aulas com duração entre 1 e 2 horas.
+Ou seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora.
 
 ## O código-fonte do site do curso é disponibilizado?
 
