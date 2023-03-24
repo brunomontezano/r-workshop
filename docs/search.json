@@ -217,6 +217,69 @@
     "text": "dplyr\nO pacote dplyr provê um conjunto de funções que nos ajudam nos problemas mais comuns em manipulação de dados.\n\nmutate(): Adicionar ou modificar variáveis\nselect(): Selecionar variáveis (colunas)\nfilter(): Selecionar observações (linhas)\nsummarise(): Reduzir múltiplos valores a um único resumo\narrange(): Reordenar as observações (linhas)\n\n\nO dplyr possibilita o uso da função group_by() para performar as operações de forma agrupada.\n\n\nVamos ver cada uma destas funções separadamente."
   },
   {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#mas-antes-pipes",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#mas-antes-pipes",
+    "title": "Manipulação de dados",
+    "section": "Mas antes, pipes (|>)",
+    "text": "Mas antes, pipes (|>)\nA maior parte das funções do tidyverse são construídas com o uso do pipe (|>) em mente.\n\nOs atalhos para inserir o pipe são: Ctrl + Shift + M ou ⌘ + Shift + M.\n\n\nOs pipes pegam o objeto da esquerda e aplicam a função da direita. Lemos como: “e então…”.\n\nx <- c(2, 7, 40, 11, 21)\n\nsqrt(sum(x)) # Somar valores do vetor x e tirar a raíz quadrada da soma\n\n[1] 9\n\nx |> sum() |> sqrt() # Mesmo cálculo, agora com pipe!\n\n[1] 9\n\n\n\n\nOs pipes nos poupam tempo de digitação, tornam o código legível e permitem o encadeamento de funções como acima, por isso os usamos o tempo todo quando manipulamos data frames."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#usando-pipe",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#usando-pipe",
+    "title": "Manipulação de dados",
+    "section": "Usando pipe",
+    "text": "Usando pipe\nOs pipes são mais legíveis quando temos cada função em uma nova linha.\n\n\npegue_estes_dados |> \n  aplicar_primeira_funcao(com = este_valor) |> \n  aplicar_proxima_funcao(usando = esse_valor) |> ...\n\n\n\nO que estiver à esquerda do pipe (ou no exemplo, o que estiver acima) é repassado como primeiro argumento da função na direita (ou abaixo). Outros argumentos seguem à direita."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#atribuindo-valores-ao-usar-pipe",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#atribuindo-valores-ao-usar-pipe",
+    "title": "Manipulação de dados",
+    "section": "Atribuindo valores ao usar pipe",
+    "text": "Atribuindo valores ao usar pipe\nAo criar objetos provenientes da saída de funções encadeadas com pipe, coloque o operador de atribuição (<-) no início.\n\nraiz_quadrada_da_soma <- x |> \n  sum() |> \n  sqrt()\n\nraiz_quadrada_da_soma\n\n[1] 9\n\n\n\nNão importa o tamanho da cadeia de funções, eu recomendo que vocês realizem a atribuição sempre no topo."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#vamos-colocar-a-mão-na-massa-no-questionario",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#vamos-colocar-a-mão-na-massa-no-questionario",
+    "title": "Manipulação de dados",
+    "section": "Vamos colocar a mão na massa no questionario",
+    "text": "Vamos colocar a mão na massa no questionario\nquestionario é uma base de dados disponibilizada no pacote dados.\n\n# install.packages(\"dados\")\nlibrary(dados)\n\nquestionario\n\n# A tibble: 21,483 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Nunca casou      26 Branca US$ 8… Indepe… Protest… Batistas d…       12\n 2  2000 Divorciado(a)    48 Branca US$ 8… Não fo… Protest… Batista, n…       NA\n 3  2000 Viúvo(a)         67 Branca Não s… Indepe… Protest… Sem denomi…        2\n 4  2000 Nunca casou      39 Branca Não s… Indepe… Cristã … Não se apl…        4\n 5  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1\n 6  2000 Casado(a)        25 Branca US$ 2… Fortem… Protest… Batistas d…       NA\n 7  2000 Nunca casou      36 Branca US$ 2… Não fo… Cristã   Não se apl…        3\n 8  2000 Divorciado(a)    44 Branca US$ 7… Indepe… Protest… Sínodo lut…       NA\n 9  2000 Casado(a)        44 Branca US$ 2… Não fo… Protest… Outra              0\n10  2000 Casado(a)        47 Branca US$ 2… Fortem… Protest… Batistas d…        3\n# ℹ 21,473 more rows\n\n\nTrata-se de uma base de dados do General Social Survey (GSS). Dados de 2000 a 2014."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#filtrando-linhas-com-filter",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#filtrando-linhas-com-filter",
+    "title": "Manipulação de dados",
+    "section": "Filtrando linhas com filter()",
+    "text": "Filtrando linhas com filter()\nPodemos usar a função filter() para filtrar as observações da base de dados.\n\n\nlibrary(dplyr)\n\ndivorciados <- questionario |> \n  filter(estado_civil == \"Divorciado(a)\")\n\ndivorciados\n\n# A tibble: 3,383 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Divorciado(a)    48 Branca US$ 8… Não fo… Protest… Batista, n…       NA\n 2  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1\n 3  2000 Divorciado(a)    44 Branca US$ 7… Indepe… Protest… Sínodo lut…       NA\n 4  2000 Divorciado(a)    52 Branca US$ 2… Indepe… Nenhuma  Não se apl…        1\n 5  2000 Divorciado(a)    72 Branca Não s… Fortem… Protest… Batistas d…        7\n 6  2000 Divorciado(a)    36 Negra  US$ 1… Fortem… Nenhuma  Não se apl…       NA\n 7  2000 Divorciado(a)    39 Negra  Não s… Indepe… Nenhuma  Não se apl…       NA\n 8  2000 Divorciado(a)    51 Branca US$ 2… Indepe… Protest… Batista, n…        2\n 9  2000 Divorciado(a)    45 Branca US$ 2… Indepe… Protest… Batistas d…        2\n10  2000 Divorciado(a)    78 Branca Não s… Indepe… Protest… Batistas d…        4\n# ℹ 3,373 more rows"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#ordenando-linhas-com-arrange",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#ordenando-linhas-com-arrange",
+    "title": "Manipulação de dados",
+    "section": "Ordenando linhas com arrange()",
+    "text": "Ordenando linhas com arrange()\nCom a função arrange(), nós podemos reordenar as observações da base de dados.\n\n\nquestionario |> \n  arrange(ano, desc(idade))\n\n# A tibble: 21,483 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Viúvo(a)         89 Branca Não s… Não fo… Protest… Outras lut…        4\n 2  2000 Viúvo(a)         89 Branca Não s… Indepe… Protest… Outras met…        3\n 3  2000 Nunca casou      89 Branca Não s… Indepe… Protest… Igreja lut…        2\n 4  2000 Viúvo(a)         89 Negra  Não s… Indepe… Protest… Batista, n…        8\n 5  2000 Viúvo(a)         89 Branca Não s… Não fo… Protest… Evangélica…        3\n 6  2000 Divorciado(a)    89 Branca Não s… Não fo… Protest… Igreja met…        3\n 7  2000 Casado(a)        89 Branca Não s… Fortem… Protest… União pres…        5\n 8  2000 Viúvo(a)         89 Negra  Não s… Não fo… Protest… Batista, n…       10\n 9  2000 Casado(a)        89 Negra  Não s… Fortem… Protest… Convenção …        3\n10  2000 Viúvo(a)         89 Negra  Não s… Fortem… Protest… Outras bat…        8\n# ℹ 21,473 more rows\n\n\n\n\nOs dados foram ordenados pelo ano de forma ascendente e idadede forma descendente."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#selecionando-colunas-com-select",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#selecionando-colunas-com-select",
+    "title": "Manipulação de dados",
+    "section": "Selecionando colunas com select()",
+    "text": "Selecionando colunas com select()\nNão apenas podemos limitar as linhas, mas podemos incluir colunas específicas (e colocá-las na ordem listada) usando select().\n\n\ndivorciados |> \n  select(ano, idade, horas_tv)\n\n# A tibble: 3,383 × 3\n     ano idade horas_tv\n   <int> <int>    <int>\n 1  2000    48       NA\n 2  2000    25        1\n 3  2000    44       NA\n 4  2000    52        1\n 5  2000    72        7\n 6  2000    36       NA\n 7  2000    39       NA\n 8  2000    51        2\n 9  2000    45        2\n10  2000    78        4\n# ℹ 3,373 more rows"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#removendo-colunas-com-select",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#removendo-colunas-com-select",
+    "title": "Manipulação de dados",
+    "section": "Removendo colunas com select()",
+    "text": "Removendo colunas com select()\nAo invés de selecionar, podemos remover colunas específicas com select() usando -.\n\ndivorciados |> \n  select(-estado_civil, -renda, -denominacao)\n\n# A tibble: 3,383 × 6\n     ano idade raca   partido                              religiao    horas_tv\n   <int> <int> <fct>  <fct>                                <fct>          <int>\n 1  2000    48 Branca Não fortemente repubicano            Protestante       NA\n 2  2000    25 Branca Não fortemente democrata             Nenhuma            1\n 3  2000    44 Branca Independente, inclinação democrata   Protestante       NA\n 4  2000    52 Branca Independente, inclinação democrata   Nenhuma            1\n 5  2000    72 Branca Fortemente democrata                 Protestante        7\n 6  2000    36 Negra  Fortemente democrata                 Nenhuma           NA\n 7  2000    39 Negra  Independente                         Nenhuma           NA\n 8  2000    51 Branca Independente                         Protestante        2\n 9  2000    45 Branca Independente, inclinação republicana Protestante        2\n10  2000    78 Branca Independente, inclinação democrata   Protestante        4\n# ℹ 3,373 more rows"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#funções-auxiliares-para-o-select",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#funções-auxiliares-para-o-select",
+    "title": "Manipulação de dados",
+    "section": "Funções auxiliares para o select()",
+    "text": "Funções auxiliares para o select()\nselect() tem uma série de funções auxiliares como starts_with(), ends_with(), e contains(), ou pode ser dada uma gama de colunas em sequência varinicial:varfinal.\n\n\n\n\nquestionario |>\n  select(ends_with(\"ao\"))\n\n# A tibble: 21,483 × 2\n   religiao        denominacao           \n   <fct>           <fct>                 \n 1 Protestante     Batistas do sul       \n 2 Protestante     Batista, não sabe qual\n 3 Protestante     Sem denominação       \n 4 Cristã ortodoxa Não se aplica         \n 5 Nenhuma         Não se aplica         \n 6 Protestante     Batistas do sul       \n 7 Cristã          Não se aplica         \n 8 Protestante     Sínodo luterano       \n 9 Protestante     Outra                 \n10 Protestante     Batistas do sul       \n# ℹ 21,473 more rows\n\n\n\n\nquestionario |> \n  select(ano:raca)\n\n# A tibble: 21,483 × 4\n     ano estado_civil  idade raca  \n   <int> <fct>         <int> <fct> \n 1  2000 Nunca casou      26 Branca\n 2  2000 Divorciado(a)    48 Branca\n 3  2000 Viúvo(a)         67 Branca\n 4  2000 Nunca casou      39 Branca\n 5  2000 Divorciado(a)    25 Branca\n 6  2000 Casado(a)        25 Branca\n 7  2000 Nunca casou      36 Branca\n 8  2000 Divorciado(a)    44 Branca\n 9  2000 Casado(a)        44 Branca\n10  2000 Casado(a)        47 Branca\n# ℹ 21,473 more rows\n\n\n\n\n\n\n?select para mais detalhes."
+  },
+  {
     "objectID": "slides/4_descritiva/slides_descritiva.html#conteúdo-de-hoje",
     "href": "slides/4_descritiva/slides_descritiva.html#conteúdo-de-hoje",
     "title": "Análise descritiva",
@@ -446,5 +509,61 @@
     "title": "R e RStudio",
     "section": "Dica: ChatGPT",
     "text": "Dica: ChatGPT\n\nO ChatGPT é um chatbot que pode ajudar na aprendizagem de programação\nEle pode responder perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#criando-novas-colunas-com-mutate",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#criando-novas-colunas-com-mutate",
+    "title": "Manipulação de dados",
+    "section": "Criando novas colunas com mutate()",
+    "text": "Criando novas colunas com mutate()\nNo dplyr, nós podemos adicionar novas colunas usando mutate().\n\n\ndivorciados |> \n  filter(raca == \"Branca\") |> \n  select(ano, idade, horas_tv) |> \n  mutate(idade_em_decadas = idade / 10,\n         horas_tv_em_minutos = horas_tv * 60)\n\n# A tibble: 2,676 × 5\n     ano idade horas_tv idade_em_decadas horas_tv_em_minutos\n   <int> <int>    <int>            <dbl>               <dbl>\n 1  2000    48       NA              4.8                  NA\n 2  2000    25        1              2.5                  60\n 3  2000    44       NA              4.4                  NA\n 4  2000    52        1              5.2                  60\n 5  2000    72        7              7.2                 420\n 6  2000    51        2              5.1                 120\n 7  2000    45        2              4.5                 120\n 8  2000    78        4              7.8                 240\n 9  2000    61       NA              6.1                  NA\n10  2000    75        7              7.5                 420\n# ℹ 2,666 more rows"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#criando-e-modificando-colunas-com-mutate",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#criando-e-modificando-colunas-com-mutate",
+    "title": "Manipulação de dados",
+    "section": "Criando e modificando colunas com mutate()",
+    "text": "Criando e modificando colunas com mutate()\nNo dplyr, nós podemos adicionar ou modificar colunas usando mutate().\n\n\n\n\ndivorciados |> \n  filter(raca == \"Branca\") |> \n  select(ano, idade, horas_tv) |> \n  mutate(idade_em_decadas = idade / 10,\n         horas_tv_em_minutos = horas_tv * 60)\n\n# A tibble: 2,676 × 5\n     ano idade horas_tv idade_em_decadas horas_tv_em_minutos\n   <int> <int>    <int>            <dbl>               <dbl>\n 1  2000    48       NA              4.8                  NA\n 2  2000    25        1              2.5                  60\n 3  2000    44       NA              4.4                  NA\n 4  2000    52        1              5.2                  60\n 5  2000    72        7              7.2                 420\n 6  2000    51        2              5.1                 120\n 7  2000    45        2              4.5                 120\n 8  2000    78        4              7.8                 240\n 9  2000    61       NA              6.1                  NA\n10  2000    75        7              7.5                 420\n# ℹ 2,666 more rows\n\n\n\n\ndivorciados |> \n  filter(religiao == \"Protestante\") |> \n  select(ano, idade, horas_tv) |> \n  mutate(horas_tv = horas_tv * 60)\n\n# A tibble: 1,792 × 3\n     ano idade horas_tv\n   <int> <int>    <dbl>\n 1  2000    48       NA\n 2  2000    44       NA\n 3  2000    72      420\n 4  2000    51      120\n 5  2000    45      120\n 6  2000    78      240\n 7  2000    75      420\n 8  2000    62       NA\n 9  2000    40       NA\n10  2000    56      120\n# ℹ 1,782 more rows"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#agregando-dados-com-summarise",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#agregando-dados-com-summarise",
+    "title": "Manipulação de dados",
+    "section": "Agregando dados com summarise()",
+    "text": "Agregando dados com summarise()\nsummarise() pega suas colunas de dados e computa algo usando todas as linhas.\n\nContar a quantidaade de linhas\nCalcular a média ou mediana\nComputar a soma\nObter um valor mínimo ou máximo\n\n\nOu seja, qualquer função que agregue múltiplos valores em um único valor (por exemplo, sd(), mean() ou max()) podem ser usadas com o summarise()."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#exemplo-com-summarise",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#exemplo-com-summarise",
+    "title": "Manipulação de dados",
+    "section": "Exemplo com summarise()",
+    "text": "Exemplo com summarise()\nPara os divorciados do ano de 2000, vamos captar o número de observações, a média da idade, a mediana das horas de TV assistidas diariamente e a amplitude de horas de TV assistidas por dia.\n\n\ndivorciados |> \n  filter(ano == 2000) |> \n  summarise(n_observacoes = n(),\n            media_idade = mean(idade, na.rm = TRUE),\n            mediana_horas_tv = median(horas_tv, na.rm = TRUE),\n            amplitude_horas_tv = max(horas_tv, na.rm = TRUE) - min(horas_tv, na.rm = TRUE))\n\n# A tibble: 1 × 4\n  n_observacoes media_idade mediana_horas_tv amplitude_horas_tv\n          <int>       <dbl>            <dbl>              <int>\n1           441        48.6                2                 15\n\n\n\n\nEstas novas variáveis foram calculadas usando todas as linhas do conjunto de dados divorciados."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#evitando-repetição-com-summariseacross",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#evitando-repetição-com-summariseacross",
+    "title": "Manipulação de dados",
+    "section": "Evitando repetição com summarise(across())",
+    "text": "Evitando repetição com summarise(across())\nTalvez vocês precisem calcular a média e o desvio padrão de um conjunto de colunas. Com across(), coloquem as variáveis a serem calculadas primeiro (usando c()) e coloque as funções a serem usadas em uma list() depois.\n\n\ndivorciados |> \n  filter(ano == 2014) |> \n  summarise(across(c(idade, horas_tv),\n                   list(media = \\(x) mean(x, na.rm = TRUE),\n                        desvio_padrao = \\(x) sd(x, na.rm = TRUE))))\n\n# A tibble: 1 × 4\n  idade_media idade_desvio_padrao horas_tv_media horas_tv_desvio_padrao\n        <dbl>               <dbl>          <dbl>                  <dbl>\n1        54.2                13.1           2.85                   2.36"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#agrupando-com-group_by",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#agrupando-com-group_by",
+    "title": "Manipulação de dados",
+    "section": "Agrupando com group_by()",
+    "text": "Agrupando com group_by()\nA função group_by() muda como as funções operam sobre os dados, em especial, a summarise().\n\nFunções usadas após o group_by() são computadas dentro de cada grupo como definido pelas variáveis dadas, em vez de sobre todas as linhas de uma só vez.\n\n\nNormalmente, vamos agrupar por variáveis de valores:\n\nInteiros\nFatores\nCaracteres\n\n\n\nE não por valores contínuos (números com vírgula)."
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#exemplo-de-group_by",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#exemplo-de-group_by",
+    "title": "Manipulação de dados",
+    "section": "Exemplo de group_by()",
+    "text": "Exemplo de group_by()\nVamos supor que eu queira saber o número de religiões reportadas pelos entrevistados, o número de observações (tamanho da amostra) e a média de horas diárias assistidas de TV em cada ano, ou seja, agrupado pelo ano.\n\n\nquestionario |> \n  group_by(ano) |> \n  summarise(numero_de_religioes = n_distinct(religiao),\n            n_observacoes = n(),\n            media_horas_tv = mean(horas_tv, na.rm = TRUE))\n\n# A tibble: 8 × 4\n    ano numero_de_religioes n_observacoes media_horas_tv\n  <int>               <int>         <int>          <dbl>\n1  2000                  15          2817           2.97\n2  2002                  15          2765           2.98\n3  2004                  14          2812           2.87\n4  2006                  14          4510           2.94\n5  2008                  15          2023           2.98\n6  2010                  15          2044           3.03\n7  2012                  15          1974           3.09\n8  2014                  15          2538           2.98"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#tarefa-de-casa",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#tarefa-de-casa",
+    "title": "Manipulação de dados",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nEscolha uma das bases de dados do pacote dados e utilize ao menos uma vez as funções: select(), mutate(), filter(), arrange(), summarise() e group_by()\n\nAs bases disponíveis podem ser acessadas no site de referência do pacote\n\nNos dados questionario do pacote dados, crie um subconjunto apenas com as observações do ano de 2016 e armazene em um objeto chamado dados_2016"
   }
 ]

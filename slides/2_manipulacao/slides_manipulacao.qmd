@@ -289,3 +289,298 @@ de forma agrupada.
 . . .
 
 Vamos ver cada uma destas funções separadamente.
+
+## Mas antes, *pipes* (`|>`)
+
+A maior parte das funções do `tidyverse` são construídas com o uso do
+**pipe** (`|>`) em mente.
+
+. . .
+
+Os atalhos para inserir o pipe são:
+`Ctrl + Shift + M` ou `⌘ + Shift + M`.
+
+. . .
+
+Os pipes pegam o objeto da *esquerda* e aplicam a função da *direita*.
+Lemos como: "e então...".
+
+```{r exemplo-pipe}
+x <- c(2, 7, 40, 11, 21)
+
+sqrt(sum(x)) # Somar valores do vetor x e tirar a raíz quadrada da soma
+
+x |> sum() |> sqrt() # Mesmo cálculo, agora com pipe!
+```
+
+. . .
+
+Os pipes nos poupam tempo de digitação, tornam o código legível e permitem o
+encadeamento de funções como acima, por isso os usamos o tempo todo quando
+manipulamos data frames.
+
+## Usando pipe
+
+Os pipes são mais legíveis quando temos cada função em uma nova linha.
+
+. . .
+
+```{r estrutura-pipe}
+#| eval: false
+pegue_estes_dados |> 
+  aplicar_primeira_funcao(com = este_valor) |> 
+  aplicar_proxima_funcao(usando = esse_valor) |> ...
+```
+
+. . .
+
+O que estiver à esquerda do pipe (ou no exemplo, o que estiver acima) é repassado como
+*primeiro argumento* da
+função na direita (ou abaixo). Outros argumentos seguem à direita.
+
+## Atribuindo valores ao usar pipe
+
+Ao criar objetos provenientes da saída de funções encadeadas com pipe,
+coloque o operador de atribuição (`<-`) no início.
+
+```{r atribuir-com-pipe}
+raiz_quadrada_da_soma <- x |> 
+  sum() |> 
+  sqrt()
+
+raiz_quadrada_da_soma
+```
+
+. . .
+
+Não importa o tamanho da cadeia de funções, eu recomendo que vocês realizem a
+atribuição sempre no topo.
+
+## Vamos colocar a mão na massa no `questionario`
+
+`questionario` é uma base de dados disponibilizada no pacote `dados`.
+
+```{r}
+# install.packages("dados")
+library(dados)
+
+questionario
+```
+
+Trata-se de uma base de dados do General Social Survey (GSS). Dados de
+2000 a 2014.
+
+## Filtrando linhas com `filter()`
+
+Podemos usar a função `filter()` para filtrar as observações da base de dados.
+
+. . .
+
+```{r filtrar-divorciado}
+library(dplyr)
+
+divorciados <- questionario |> 
+  filter(estado_civil == "Divorciado(a)")
+
+divorciados
+```
+
+## Ordenando linhas com `arrange()`
+
+Com a função `arrange()`, nós podemos reordenar as observações da base de dados.
+
+. . .
+
+```{r reordenar-questionario}
+questionario |> 
+  arrange(ano, desc(idade))
+```
+
+. . .
+
+Os dados foram ordenados pelo `ano` de forma ascendente e `idade`de forma
+descendente.
+
+## Selecionando colunas com `select()`
+
+Não apenas podemos limitar as linhas, mas podemos incluir colunas específicas (e
+colocá-las na ordem listada) usando `select()`.
+
+. . .
+
+```{r selecionar-variaveis-divorciados}
+divorciados |> 
+  select(ano, idade, horas_tv)
+```
+
+## Removendo colunas com `select()`
+
+Ao invés de selecionar, podemos remover colunas específicas com `select()` usando `-`.
+
+```{r removendo-com-select}
+divorciados |> 
+  select(-estado_civil, -renda, -denominacao)
+```
+
+## Funções auxiliares para o `select()`
+
+`select()` tem uma série de funções auxiliares como `starts_with()`, `ends_with()`,
+e `contains()`, ou pode ser dada uma gama de colunas em sequência `varinicial:varfinal`.
+
+. . .
+
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r select-starts-with}
+questionario |>
+  select(ends_with("ao"))
+```
+:::
+
+::: {.column width="50%"}
+```{r select-sequencia}
+questionario |> 
+  select(ano:raca)
+```
+:::
+
+::::
+
+. . . 
+
+`?select` para mais detalhes.
+
+## Criando e modificando colunas com `mutate()`
+
+No `dplyr`, nós podemos adicionar ou modificar colunas usando `mutate()`.
+
+. . .
+
+:::: {.columns}
+
+::: {.column width="56%"}
+```{r adicionar-colunas-mutate}
+divorciados |> 
+  filter(raca == "Branca") |> 
+  select(ano, idade, horas_tv) |> 
+  mutate(idade_em_decadas = idade / 10,
+         horas_tv_em_minutos = horas_tv * 60)
+```
+:::
+
+::: {.column width="44%"}
+```{r modificar-colunas-mutate}
+divorciados |> 
+  filter(religiao == "Protestante") |> 
+  select(ano, idade, horas_tv) |> 
+  mutate(horas_tv = horas_tv * 60)
+```
+:::
+
+::::
+
+## Agregando dados com `summarise()`
+
+`summarise()` pega suas colunas de dados e computa algo usando todas as linhas.
+
+- Contar a quantidaade de linhas
+- Calcular a média ou mediana
+- Computar a soma
+- Obter um valor mínimo ou máximo
+
+. . .
+
+Ou seja, qualquer função que agregue *múltiplos valores* em um *único valor*
+(por exemplo, `sd()`, `mean()` ou `max()`) podem ser usadas com o
+`summarise()`.
+
+## Exemplo com `summarise()`
+
+Para os divorciados do ano de 2000, vamos captar o número de observações, 
+a média da idade, a mediana das horas de TV assistidas diariamente e a
+amplitude de horas de TV assistidas por dia.
+
+. . .
+
+```{r exemplo-summarise}
+divorciados |> 
+  filter(ano == 2000) |> 
+  summarise(n_observacoes = n(),
+            media_idade = mean(idade, na.rm = TRUE),
+            mediana_horas_tv = median(horas_tv, na.rm = TRUE),
+            amplitude_horas_tv = max(horas_tv, na.rm = TRUE) - min(horas_tv, na.rm = TRUE))
+```
+
+. . .
+
+Estas novas variáveis foram calculadas usando *todas as linhas* do conjunto de
+dados `divorciados`.
+
+## Evitando repetição com `summarise(across())`
+
+Talvez vocês precisem calcular a média e o desvio padrão de um conjunto de
+colunas. Com `across()`, coloquem as variáveis a serem calculadas primeiro (usando
+`c()`) e coloque as funções a serem usadas em uma `list()`
+depois.
+
+. . .
+
+```{r summarise-across}
+divorciados |> 
+  filter(ano == 2014) |> 
+  summarise(across(c(idade, horas_tv),
+                   list(media = \(x) mean(x, na.rm = TRUE),
+                        desvio_padrao = \(x) sd(x, na.rm = TRUE))))
+```
+
+## Agrupando com `group_by()`
+
+A função `group_by()` muda como as funções operam sobre os dados, em especial,
+a `summarise()`.
+
+. . .
+
+Funções usadas após o `group_by()` são computadas dentro de cada grupo como
+definido pelas variáveis dadas, em vez de sobre todas as linhas de uma só vez.
+
+. . .
+
+Normalmente, vamos agrupar por variáveis de valores:
+
+- Inteiros
+- Fatores
+- Caracteres
+
+. . .
+
+E **não** por valores contínuos (números com vírgula).
+
+## Exemplo de `group_by()`
+
+Vamos supor que eu queira saber o número de religiões reportadas pelos
+entrevistados, o número de observações (tamanho da amostra) e a média
+de horas diárias assistidas de TV em cada ano, ou seja, *agrupado* pelo
+ano.
+
+. . .
+
+```{r exemplo-group-by}
+questionario |> 
+  group_by(ano) |> 
+  summarise(numero_de_religioes = n_distinct(religiao),
+            n_observacoes = n(),
+            media_horas_tv = mean(horas_tv, na.rm = TRUE))
+```
+
+## Tarefa de casa
+
+- Escolha uma das bases de dados do pacote `dados` e utilize ao menos uma vez
+as funções: `select()`, `mutate()`, `filter()`, `arrange()`, `summarise()` e
+`group_by()`
+  - As bases disponíveis podem ser acessadas no [site de referência do pacote](https://cienciadedatos.github.io/dados/reference/index.html)
+  
+- Nos dados `questionario` do pacote `dados`, crie um subconjunto apenas com
+as observações do ano de 2016 e armazene em um objeto chamado `dados_2016`

@@ -490,8 +490,6 @@ mais comum em saúde.
 
 ::::
 
-
-
 ## Criando um `data.frame`
 
 Vamos criar um `data.frame` no R com cinco variáveis e quatro observações.
@@ -637,9 +635,6 @@ library(dados)
 
 pixar_bilheteria
 ```
-
-
-
 
 ## Tarefa de casa
 
