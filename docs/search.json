@@ -123,7 +123,7 @@
     "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#conteúdo-de-hoje",
     "title": "Tópicos avançados",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
+    "text": "Conteúdo de hoje\n\nO que é machine learning?\nAprendizado supervisionado e não-supervisionado\nMétricas de avaliação de modelos\nRegressão logística\nÁrvores de decisão\nRandom forests\nModelos não-supervisionados\nLimitações\nExemplo"
   },
   {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#conteúdo-de-hoje",
@@ -340,21 +340,21 @@
     "href": "slides/4_descritiva/slides_descritiva.html#conteúdo-de-hoje",
     "title": "Análise descritiva",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
+    "text": "Conteúdo de hoje\n\nMedidas de tendência central\nMedidas de dispersão\nMedidas de assimetria e curtose\nTestes de normalidade\nTransformação de dados\nTabelas de frequência"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "title": "Inferência estatística",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
+    "text": "Conteúdo de hoje\n\nIntrodução\nPopulação e amostra\nIntervalos de confiança\nTestes de hipótese\n\nHipótese nula e alternativa\nTipos de erro\nInterpretação de resultados"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#conteúdo-de-hoje",
     "href": "slides/6_regressao/slides_regressao.html#conteúdo-de-hoje",
     "title": "Modelos de regressão",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
+    "text": "Conteúdo de hoje\n\nConceito\nVariável dependente e independente\nRegressão linear simples\nPressupostos\nRegressão linear múltipla\nComparação de modelos"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",

@@ -2,7 +2,7 @@
 title: "Análise descritiva"
 subtitle: "Aula 4"
 author: "Bruno Montezano"
-institute: "Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento\nUniversidade Federal do Rio Grande do Sul"
+institute: "Grupo Alliance<br>Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento<br>Universidade Federal do Rio Grande do Sul"
 date: last-modified
 date-format: long
 lang: pt-br
@@ -11,20 +11,16 @@ execute:
 format:
   revealjs:
     incremental: true
+    smaller: true
     theme: [default, ../assets/custom.scss]
     logo: "../assets/logo_ufrgs.png"
 ---
 
-## Conteúdo de hoje {.smaller}
+## Conteúdo de hoje
 
-- O que é o R e por que usá-lo?
-- Visão geral do RStudio
-- Comandos básicos do R
-  - Vetores
-  - Matrizes
-  - Data frames
-  - Funções
-  - Pacotes
-  - Ajuda
-  
-##
+- Medidas de tendência central
+- Medidas de dispersão
+- Medidas de assimetria e curtose
+- Testes de normalidade
+- Transformação de dados
+- Tabelas de frequência

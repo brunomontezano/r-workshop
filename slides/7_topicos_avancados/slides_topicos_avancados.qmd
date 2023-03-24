@@ -2,7 +2,7 @@
 title: "Tópicos avançados"
 subtitle: "Aula 7"
 author: "Bruno Montezano"
-institute: "Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento\nUniversidade Federal do Rio Grande do Sul"
+institute: "Grupo Alliance<br>Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento<br>Universidade Federal do Rio Grande do Sul"
 date: last-modified
 date-format: long
 lang: pt-br
@@ -11,20 +11,19 @@ execute:
 format:
   revealjs:
     incremental: true
+    smaller: true
     theme: [default, ../assets/custom.scss]
     logo: "../assets/logo_ufrgs.png"
 ---
 
-## Conteúdo de hoje {.smaller}
+## Conteúdo de hoje
 
-- O que é o R e por que usá-lo?
-- Visão geral do RStudio
-- Comandos básicos do R
-  - Vetores
-  - Matrizes
-  - Data frames
-  - Funções
-  - Pacotes
-  - Ajuda
-  
-##
+- O que é machine learning?
+- Aprendizado supervisionado e não-supervisionado
+- Métricas de avaliação de modelos
+- Regressão logística
+- Árvores de decisão
+- Random forests
+- Modelos não-supervisionados
+- Limitações
+- Exemplo
