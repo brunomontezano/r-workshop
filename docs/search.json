@@ -133,6 +133,62 @@
     "text": "Conteúdo de hoje\n\nImportação de dados\nFatores\nIndexação de data frames\nManipulação de dados\n\nSelecionar colunas\nCriar e modificar colunas\nFiltragem de linhas\nValores ausentes\n\nSumarização de dados\n\nAgrupar e resumir dados\nFormatos longo e largo de dados\nUnir dados"
   },
   {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#tidyverse",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#tidyverse",
+    "title": "Manipulação de dados",
+    "section": "tidyverse",
+    "text": "tidyverse"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#o-que-é-o-tidyverse",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#o-que-é-o-tidyverse",
+    "title": "Manipulação de dados",
+    "section": "O que é o tidyverse?",
+    "text": "O que é o tidyverse?\nO tidyverse é uma coleção de pacotes de R desenvolvidos para ciência de dados.\n\nNo curso, vamos usar alguns pacotes do tidyverse, como:\n\nreadr, readxl e haven: importação de dados\ndplyr: manipulação de dados\ntidyr: reformatação de tabelas\nggplot2: visualização de dados\n\n\n\nPara instalar o conjunto de pacotes:\n\ninstall.packages(\"tidyverse\")"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#importando-e-exportando-dados-com-readr",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#importando-e-exportando-dados-com-readr",
+    "title": "Manipulação de dados",
+    "section": "Importando e exportando dados com readr",
+    "text": "Importando e exportando dados com readr"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#arquivos-de-texto-delimitados",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#arquivos-de-texto-delimitados",
+    "title": "Manipulação de dados",
+    "section": "Arquivos de texto delimitados",
+    "text": "Arquivos de texto delimitados\nUma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (.csv) ou valores separados por tabulação (.csv).\n\n\nAqui estão dados em .csv:\n\"id\",\"diagnostico\",\"sexo\",\"idade\"\n001,\"thb\",\"masculino\",34\n002,\"tdm\",\"feminino\",25\n003,\"tdm\",\"masculino\",19\n004,\"thb\",\"feminino\",31\n005,\"tdm\",\"feminino\",24\n006,\"thb\",\"masculino\",21\n\nE aqui estão dados em .tsv:\n\"id\"    \"diagnostico\"   \"sexo\"  \"idade\"\n001 \"thb\"   \"masculino\" 34\n002 \"tdm\"   \"feminino\"  25\n003 \"tdm\"   \"masculino\" 19\n004 \"thb\"   \"feminino\"  31\n005 \"tdm\"   \"feminino\"  24\n006 \"thb\"   \"masculino\" 21\n\n\n\nOu poderíamos ter um arquivo em .txt separado por barras, por exemplo:\n\"id\"/\"diagnostico\"/\"sexo\"/\"idade\"\n001/\"thb\"/\"masculino\"/34\n002/\"tdm\"/\"feminino\"/25\n003/\"tdm\"/\"masculino\"/19\n004/\"thb\"/\"feminino\"/31\n005/\"tdm\"/\"feminino\"/24\n006/\"thb\"/\"masculino\"/21"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#readr",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#readr",
+    "title": "Manipulação de dados",
+    "section": "readr",
+    "text": "readr\nO pacote readr possui várias funções para carregar arquivos de texto delimitados: read_csv(), read_csv2(), read_tsv() e read_delim().\n\nreadr possui algumas vantagens:\n\nÉ mais rápido!\nTrabalha melhor com data e hora\nBarra de progresso para arquivos grandes\n\n\n\nTambém podemos exportar dados em .csv, por exemplo:\n\nlibrary(dados)\nlibrary(readr)\n\nwrite_csv(\n  x = pixar_bilheteria,\n  file = \"/home/bruno/tmp/dados_bilheteria.csv\"\n)"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#haven-e-readxl",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#haven-e-readxl",
+    "title": "Manipulação de dados",
+    "section": "haven e readxl",
+    "text": "haven e readxl\nNa saúde, é comum trabalhar com dados provenientes de outros softwares.\n\nPodemos usar algumas funções dos pacotes haven e readxl para lê-los:\n\nArquivos do SPSS: read_spss() do pacote haven\nArquivos do SAS: read_sas() do pacote haven\nArquivos do Stata: read_stata() do pacote haven\nArquivos do Excel: read_xlsx() do pacote readxl\n\n\n\nDa mesma forma, podemos exportar dados em .sav (formato do SPSS):\n\nlibrary(dados)\nlibrary(haven)\n\nwrite_sav(\n  data = pixar_bilheteria,\n  path = \"/home/bruno/tmp/dados_bilheteria.sav\"\n)"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#pacote-dplyr",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#pacote-dplyr",
+    "title": "Manipulação de dados",
+    "section": "Pacote dplyr",
+    "text": "Pacote dplyr"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#dplyr",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#dplyr",
+    "title": "Manipulação de dados",
+    "section": "dplyr",
+    "text": "dplyr\nO pacote dplyr provê um conjunto de funções que nos ajudam nos problemas mais comuns em manipulação de dados.\n\nmutate(): Adicionar ou modificar variáveis\nselect(): Selecionar variáveis (colunas)\nfilter(): Selecionar observações (linhas)\nsummarise(): Reduzir múltiplos valores a um único resumo\narrange(): Reordenar as observações (linhas)\n\n\nO dplyr possibilita o uso da função group_by() para performar as operações de forma agrupada.\n\n\nVamos ver cada uma destas funções separadamente."
+  },
+  {
     "objectID": "slides/4_descritiva/slides_descritiva.html#conteúdo-de-hoje",
     "href": "slides/4_descritiva/slides_descritiva.html#conteúdo-de-hoje",
     "title": "Análise descritiva",
@@ -354,13 +410,13 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#tarefa-de-casa",
     "title": "R e RStudio",
     "section": "Tarefa de casa",
-    "text": "Tarefa de casa\n\nDê uma olhada no site do curso\nCrie um vetor de 1 a 25 e armazene em uma variável de nome sequencia\n\nLembrem-se do operador :\n\nCrie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando []\nFiltre a base pixar_bilheteria do pacote dados e extraia apenas os filmes que tiveram orçamento menor que 100 milhões\n\nLembrem-se do $, do <, do [] e da função library()"
+    "text": "Tarefa de casa\n\nDê uma olhada no site do curso\nCrie um vetor de 1 a 25 e armazene em uma variável de nome sequencia\n\nLembre-se do operador :\n\nCrie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando []\nFiltre a base pixar_bilheteria do pacote dados e extraia apenas os filmes que tiveram orçamento menor que 100 milhões\n\nLembre-se do $, do <, do [] e da função library()"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#dica-chatgpt",
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#dica-chatgpt",
     "title": "R e RStudio",
     "section": "Dica: ChatGPT",
-    "text": "Dica: ChatGPT\n\nO ChatGPT é um assistente virtual que pode ajudar na aprendizagem de programação em R para pesquisadores em saúde\nEle pode responder a perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio."
+    "text": "Dica: ChatGPT\n\nO ChatGPT é um chatbot que pode ajudar na aprendizagem de programação\nEle pode responder perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio."
   }
 ]

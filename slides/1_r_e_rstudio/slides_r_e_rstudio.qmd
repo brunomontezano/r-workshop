@@ -641,19 +641,19 @@ pixar_bilheteria
 
 - [Dê uma olhada no site do curso](https://brunomontezano.github.io/r-workshop/)
 - Crie um vetor de 1 a 25 e armazene em uma variável de nome `sequencia`
-  - Lembrem-se do operador `:`
+  - Lembre-se do operador `:`
 - Crie um vetor de caractere de dois elementos com seu nome e último nome
 (chamado `nome_completo`) e extraia seu sobrenome usando `[]`
 - Filtre a base `pixar_bilheteria` do pacote `dados` 
 e extraia apenas os filmes que tiveram orçamento menor que 100 milhões
-  - Lembrem-se do `$`, do `<`, do `[]` e da função `library()`
+  - Lembre-se do `$`, do `<`, do `[]` e da função `library()`
 
 ## Dica: ChatGPT
 
-- O [ChatGPT](https://chat.openai.com/chat) é um assistente virtual que pode ajudar
+- O [ChatGPT](https://chat.openai.com/chat) é um chatbot que pode ajudar
 na aprendizagem de programação
-em R para pesquisadores em saúde
-- Ele pode responder a perguntas sobre sintaxe, funcionalidades e solução de problemas no R
+
+- Ele pode responder perguntas sobre sintaxe, funcionalidades e solução de problemas no R
 
 . . .
 

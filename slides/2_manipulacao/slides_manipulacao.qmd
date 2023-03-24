@@ -11,6 +11,7 @@ execute:
 format:
   revealjs:
     incremental: true
+    smaller: true
     theme: [default, ../assets/custom.scss]
     logo: "../assets/logo_ufrgs.png"
 ---
@@ -29,6 +30,170 @@ format:
   - Agrupar e resumir dados
   - Formatos longo e largo de dados
   - Unir dados
-
   
-##
+## `tidyverse`
+
+![](../assets/logo_tidyverse.png){fig-align="center" width=45%}
+
+## O que é o `tidyverse`?
+
+O `tidyverse` é uma coleção de pacotes de R desenvolvidos para ciência de dados.
+
+. . .
+
+No curso, vamos usar alguns pacotes do `tidyverse`, como:
+
+- `readr`, `readxl` e `haven`: importação de dados
+- `dplyr`: manipulação de dados
+- `tidyr`: reformatação de tabelas
+- `ggplot2`: visualização de dados
+
+. . .
+
+Para instalar o conjunto de pacotes:
+
+```{r instalar-tidyverse}
+#| eval: false
+install.packages("tidyverse")
+```
+
+## Importando e exportando dados com `readr`
+
+![](../assets/logo_readr.png){fig-align="center" width=45%}
+
+## Arquivos de texto delimitados
+
+Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado,
+como por exemplo: valores separados por vírgula (**.csv**) ou valores separados
+por tabulação (**.csv**).
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Aqui estão dados em **.csv**:
+
+```
+"id","diagnostico","sexo","idade"
+001,"thb","masculino",34
+002,"tdm","feminino",25
+003,"tdm","masculino",19
+004,"thb","feminino",31
+005,"tdm","feminino",24
+006,"thb","masculino",21
+```
+:::
+
+::: {.column width="50%"}
+E aqui estão dados em **.tsv**:
+
+```
+"id"	"diagnostico"	"sexo"	"idade"
+001	"thb"	"masculino"	34
+002	"tdm"	"feminino"	25
+003	"tdm"	"masculino"	19
+004	"thb"	"feminino"	31
+005	"tdm"	"feminino"	24
+006	"thb"	"masculino"	21
+```
+
+:::
+
+::::
+
+. . .
+
+Ou poderíamos ter um arquivo em **.txt** separado por barras, por exemplo:
+
+```
+"id"/"diagnostico"/"sexo"/"idade"
+001/"thb"/"masculino"/34
+002/"tdm"/"feminino"/25
+003/"tdm"/"masculino"/19
+004/"thb"/"feminino"/31
+005/"tdm"/"feminino"/24
+006/"thb"/"masculino"/21
+```
+
+
+## `readr`
+
+
+O pacote `readr` possui várias funções para carregar arquivos de texto delimitados:
+`read_csv()`, `read_csv2()`, `read_tsv()` e `read_delim()`.
+
+. . .
+
+`readr` possui algumas vantagens:
+
+- É mais rápido!
+- Trabalha melhor com data e hora
+- Barra de progresso para arquivos grandes
+
+. . .
+
+Também podemos exportar dados em `.csv`, por exemplo:
+
+```{r exportar-csv}
+#| eval: false
+library(dados)
+library(readr)
+
+write_csv(
+  x = pixar_bilheteria,
+  file = "/home/bruno/tmp/dados_bilheteria.csv"
+)
+```
+
+
+## `haven` e `readxl`
+
+Na saúde, é comum trabalhar com dados provenientes de outros softwares.
+
+. . .
+
+Podemos usar algumas funções dos pacotes `haven` e `readxl` para lê-los:
+
+- Arquivos do SPSS: `read_spss()` do pacote `haven`
+- Arquivos do SAS: `read_sas()` do pacote `haven`
+- Arquivos do Stata: `read_stata()` do pacote `haven`
+- Arquivos do Excel: `read_xlsx()` do pacote `readxl`
+
+. . .
+
+Da mesma forma, podemos exportar dados em `.sav` (formato do SPSS):
+
+```{r exportar-sav}
+#| eval: false
+library(dados)
+library(haven)
+
+write_sav(
+  data = pixar_bilheteria,
+  path = "/home/bruno/tmp/dados_bilheteria.sav"
+)
+
+```
+
+## Pacote `dplyr`
+
+![](../assets/logo_dplyr.png){fig-align="center" width=45%}
+
+## `dplyr`
+
+O pacote `dplyr` provê um conjunto de funções que nos ajudam nos problemas
+mais comuns em manipulação de dados.
+
+- `mutate()`: Adicionar ou modificar variáveis
+- `select()`: Selecionar variáveis (colunas)
+- `filter()`: Selecionar observações (linhas)
+- `summarise()`: Reduzir múltiplos valores a um único resumo
+- `arrange()`: Reordenar as observações (linhas)
+
+. . .
+
+O `dplyr` possibilita o uso da função `group_by()` para performar as operações
+de forma agrupada.
+
+. . .
+
+Vamos ver cada uma destas funções separadamente.
