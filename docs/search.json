@@ -130,7 +130,7 @@
     "href": "slides/3_visualizacao/slides_visualizacao.html#conteúdo-de-hoje",
     "title": "Visualização de dados",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nO que é o R e por que usá-lo?\nVisão geral do RStudio\nComandos básicos do R\n\nVetores\nMatrizes\nData frames\nFunções\nPacotes\nAjuda"
+    "text": "Conteúdo de hoje\n\nPacote ggplot2\n\nGramática dos gráficos\nEstética\nMapeamento\n\nGráficos básicos\nPersonalização de gráficos\nExemplos práticos\nExtensões de ggplot2"
   },
   {
     "objectID": "slides/2_manipulacao/slides_manipulacao.html#conteúdo-de-hoje",
