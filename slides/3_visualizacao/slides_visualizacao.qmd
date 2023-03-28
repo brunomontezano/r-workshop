@@ -35,6 +35,9 @@ bibliography: references.bib
 Para a aula de hoje, vamos usar os `dados_starwars`.
 
 Este conjunto de dados contém 14 variáveis de 87 personagens dos filmes da saga Star Wars.
+
+No decorrer da aula, vamos introduzir outras bases de dados para exemplificar
+cada tipo de gráfico.
 :::
 
 ::: {.column width="30%"}
@@ -42,7 +45,7 @@ Este conjunto de dados contém 14 variáveis de 87 personagens dos filmes da sag
 :::
 :::
 
-## Carregando os `dados_starwars`
+## `dados_starwars`
 
 ```{r carregar-starwars}
 library(dados)
@@ -55,7 +58,7 @@ dados_starwars
 
 ![](../assets/logo_ggplot2.png){fig-align="center" width="45%"}
 
-## Exemplo iniciais de `ggplot2`
+## Exemplos iniciais de `ggplot2`
 
 ::: columns
 ::: {.column width="50%"}
@@ -66,7 +69,7 @@ library(ggplot2)
 dados_starwars |>
   ggplot() +
   aes(x = massa, y = altura) +
-  geom_point(color = "red", size = 3) +
+  geom_point(color = "forestgreen", size = 3) +
   xlab("Massa (kg)") +
   ylab("Altura (cm)") +
   ggtitle("Altura e massa dos personagens") +
@@ -78,15 +81,16 @@ dados_starwars |>
 ```{r exemplo-inicial-ggplot2-codigo-com-filter}
 #| eval: false
 dados_starwars |>
-  filter(massa < 1000) |>
+  filter(!is.na(genero)) |>
   ggplot() +
-  aes(x = massa, y = altura) +
-  geom_point(color = "red", size = 3) +
+  aes(x = massa, y = altura, color = genero) +
+  geom_point(size = 4, alpha = 0.7) +
   xlab("Massa (kg)") +
   ylab("Altura (cm)") +
   ggtitle("Altura e massa dos personagens",
-          "Com peso menor que 1 tonelada") +
-  theme_bw(base_size = 18)
+          "Estratificado por gênero") +
+  theme_minimal(base_size = 20) +
+  scale_color_discrete(name = "Gênero")
 ```
 :::
 
@@ -99,7 +103,7 @@ library(ggplot2)
 
 ggplot(data = dados_starwars,
        aes(x = massa, y = altura)) +
-  geom_point(color = "red", size = 3) +
+  geom_point(color = "forestgreen", size = 3) +
   xlab("Massa (kg)") +
   ylab("Altura (cm)") +
   ggtitle("Altura e massa dos personagens") +
@@ -107,14 +111,15 @@ ggplot(data = dados_starwars,
   #theme(plot.background = element_rect(fill = "#f0f1eb"))
 
 ggplot(data = dados_starwars |> 
-         filter(massa < 1000),
-       aes(x = massa, y = altura)) +
-  geom_point(color = "red", size = 3) +
+         filter(!is.na(genero)),
+       aes(x = massa, y = altura, color = genero)) +
+  geom_point(size = 4, alpha = 0.7) +
   xlab("Massa (kg)") +
   ylab("Altura (cm)") +
   ggtitle("Altura e massa dos personagens",
-          "Com peso menor que 1 tonelada") +
-  theme_bw(base_size = 18) #+
+          "Estratificado por gênero") +
+  theme_minimal(base_size = 20) +
+  scale_color_discrete(name = "Gênero")
   #theme(plot.background = element_rect(fill = "#f0f1eb"))
 ```
 :::
@@ -125,9 +130,9 @@ ggplot(data = dados_starwars |>
 O pacote `ggplot2` segue duas filosofias que facilitam a compreensão do processo de construção de gráficos:
 
 ::: nonincremental
--   Um gráfico estatístico é uma representação visual dos dados por meio de atributos estéticos (posição, cor, forma, tamanho) de formas geométricas (pontos, linhas, curvas) [@thegram2005]
+- Um gráfico estatístico é uma representação visual dos dados por meio de atributos estéticos (posição, cor, forma, tamanho) de formas geométricas (pontos, linhas, curvas) [@thegram2005]
 
--   Um gráfico pode ser construído em camadas (sobreposição de elementos visuais) [@layered-grammar]
+- Um gráfico pode ser construído em camadas (sobreposição de elementos visuais) [@layered-grammar]
 :::
 
 ## Camadas
@@ -165,6 +170,136 @@ dados_starwars |>
 ```
 
 
+:::
+
+## Por que o `+`?
+
+O `ggplot2`, diferentemente dos outros pacotes do Tidyverse, não usa o *pipe*
+(`|>`) porque o `ggplot2` surgiu [antes que o autor tomasse conhecimento do
+pipe](https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/comment/cvi19ly/?utm_source=share&utm_medium=web2x&context=3).
+
+<iframe id="reddit-embed" src="https://www.redditmedia.com/r/dataisbeautiful/comments/3mp9r7/im_hadley_wickham_chief_scientist_at_rstudio_and/cvi19ly/?depth=1&amp;showmore=false&amp;embed=true&amp;showmedia=false" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="437" width="640" scrolling="no"></iframe>
+
+## Dica: Como escolher o gráfico mais adequado?
+
+<center>
+<figure>
+    <a href="https://www.data-to-viz.com/">
+    <img src="../assets/from_data_to_viz.png" style="width:100%">
+    </a>
+</figure>
+</center>
+
+## Gráfico de pontos (dispersão)
+
+Geralmente usado para visualizar a associação de duas variáveis contínuas.
+
+. . .
+
+Como por exemplo, verificar a associação entre altura e massa nos personagens
+do Star Wars.
+
+. . .
+
+```{r scatterplot-altura-massa}
+#| fig-align: "center"
+#| out.width: "70%"
+dados_starwars |> # Usar os `dados_starwars`
+  ggplot() + # Iniciar o canvas
+  aes(x = massa, y = altura) + # Mapear massa no eixo x e altura no eixo y
+  geom_point() # Usar a geometria de pontos para criar um gráfico de dispersão
+```
+
+## `dados_gapminder`
+
+
+::: columns
+::: {.column width="55%"}
+Para aprender o próximo gráfico, vamos usar os `dados_gapminder`.
+
+Trata-se de um projeto sueco criado por Hans Rosling que coleta
+dados sobre diversas tendências globais. Na parte dos dados que vamos utilizar,
+temos informações de 1952 a 2007 (intervalos de 5 anos).
+
+Estes dados possuem 1.704 observações e 6 variáveis, sendo elas: `pais`,
+`continente`, `ano`, `expectativa_de_vida`, `populacao`, `pib_per_capita`.
+:::
+
+::: {.column width="45%"}
+![](../assets/logo_gapminder.png)
+:::
+:::
+
+## Exibindo `dados_gapminder`
+
+```{r printar-gapminder}
+dados_gapminder
+```
+
+## Gráfico de linhas
+
+Utilizamos o `geom_line()` para fazer gráficos de linhas. Eles são ótimos para
+representar *séries temporais*, ou seja, observações medidas repetidamente em
+intervalos de tempo.
+
+. . .
+
+Tal qual no gráfico de pontos, precisamos definir as posições $x$ e $y$ para
+construirmos os gráficos de linhas.
+
+. . .
+
+No próximo slide, vamos olhar um exemplo de gráfico de linha do PIB per capita
+do Brasil ao decorrer dos anos.
+
+## PIB per capita do Brasil
+
+::: {.panel-tabset}
+## Linhas
+```{r pib-do-brasil}
+#| fig-align: "center"
+#| out.width: "70%"
+dados_gapminder |> 
+  filter(pais == "Brasil") |> 
+  ggplot() +
+  aes(x = ano, y = pib_per_capita) +
+  geom_line()
+```
+
+## Eixos
+```{r pib-do-brasil-eixos}
+#| fig-align: "center"
+#| out.width: "65%"
+dados_gapminder |> 
+  filter(pais == "Brasil") |> 
+  ggplot() +
+  aes(x = ano, y = pib_per_capita) +
+  geom_line() +
+  scale_x_continuous(breaks = seq(1952, 2007, 5)) +
+  scale_y_continuous(labels = scales::dollar_format(prefix = "R$ ",
+                                             decimal.mark = ",",
+                                             big.mark = "."))
+```
+
+## Tema e rótulos
+```{r pib-do-brasil-tema-rotulos}
+#| fig-align: "center"
+#| out.width: "50%"
+dados_gapminder |> 
+  filter(pais == "Brasil") |> 
+  ggplot() +
+  aes(x = ano, y = pib_per_capita) +
+  geom_line(linewidth = 2, color = "darkslateblue") +
+  scale_x_continuous(breaks = seq(1952, 2007, 5)) +
+  scale_y_continuous(labels = scales::dollar_format(prefix = "R$ ",
+                                             decimal.mark = ",",
+                                             big.mark = ".")) +
+  labs(x = "Ano", y = "PIB per capita",
+       title = "PIB per capita do Brasil ao passar dos anos",
+       subtitle = "De 1952 a 2007",
+       caption = "Fonte: Gapminder") +
+  theme_minimal(base_size = 16, base_family = "Charter")
+```
 :::
 
 ## Referências

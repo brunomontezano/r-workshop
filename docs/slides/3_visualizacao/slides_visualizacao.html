@@ -421,7 +421,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">27 de março de 2023</p>
+  <p class="date">28 de março de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -444,13 +444,14 @@ Bruno Montezano
 <div class="column" style="width:70%;">
 <p>Para a aula de hoje, vamos usar os <code>dados_starwars</code>.</p>
 <p>Este conjunto de dados contém 14 variáveis de 87 personagens dos filmes da saga Star Wars.</p>
+<p>No decorrer da aula, vamos introduzir outras bases de dados para exemplificar cada tipo de gráfico.</p>
 </div><div class="column" style="width:30%;">
 <p><img data-src="../assets/star_wars_poster.jpg"></p>
 </div>
 </div>
 </section>
-<section id="carregando-os-dados_starwars" class="slide level2">
-<h2>Carregando os <code>dados_starwars</code></h2>
+<section id="dados_starwars" class="slide level2">
+<h2><code>dados_starwars</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(dados)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(dplyr)</span>
@@ -480,8 +481,8 @@ Bruno Montezano
 <h2><code>ggplot2</code></h2>
 
 <img data-src="../assets/logo_ggplot2.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
-<section id="exemplo-iniciais-de-ggplot2" class="slide level2">
-<h2>Exemplo iniciais de <code>ggplot2</code></h2>
+<section id="exemplos-iniciais-de-ggplot2" class="slide level2">
+<h2>Exemplos iniciais de <code>ggplot2</code></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
@@ -490,7 +491,7 @@ Bruno Montezano
 <span id="cb3-3"><a href="#cb3-3"></a>dados_starwars <span class="sc">|&gt;</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"forestgreen"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">xlab</span>(<span class="st">"Massa (kg)"</span>) <span class="sc">+</span></span>
 <span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">ylab</span>(<span class="st">"Altura (cm)"</span>) <span class="sc">+</span></span>
 <span id="cb3-9"><a href="#cb3-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Altura e massa dos personagens"</span>) <span class="sc">+</span></span>
@@ -499,15 +500,16 @@ Bruno Montezano
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>dados_starwars <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(massa <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(genero)) <span class="sc">|&gt;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura) <span class="sc">+</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura, <span class="at">color =</span> genero) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">xlab</span>(<span class="st">"Massa (kg)"</span>) <span class="sc">+</span></span>
 <span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">ylab</span>(<span class="st">"Altura (cm)"</span>) <span class="sc">+</span></span>
 <span id="cb4-8"><a href="#cb4-8"></a>  <span class="fu">ggtitle</span>(<span class="st">"Altura e massa dos personagens"</span>,</span>
-<span id="cb4-9"><a href="#cb4-9"></a>          <span class="st">"Com peso menor que 1 tonelada"</span>) <span class="sc">+</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">18</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-9"><a href="#cb4-9"></a>          <span class="st">"Estratificado por gênero"</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">"Gênero"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
@@ -581,6 +583,155 @@ Bruno Montezano
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="slides_visualizacao_files/figure-revealjs/geometria-1.png" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="por-que-o" class="slide level2">
+<h2>Por que o <code>+</code>?</h2>
+<p>O <code>ggplot2</code>, diferentemente dos outros pacotes do Tidyverse, não usa o <em>pipe</em> (<code>|&gt;</code>) porque o <code>ggplot2</code> surgiu <a href="https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/comment/cvi19ly/?utm_source=share&amp;utm_medium=web2x&amp;context=3">antes que o autor tomasse conhecimento do pipe</a>.</p>
+<iframe id="reddit-embed" src="https://www.redditmedia.com/r/dataisbeautiful/comments/3mp9r7/im_hadley_wickham_chief_scientist_at_rstudio_and/cvi19ly/?depth=1&amp;showmore=false&amp;embed=true&amp;showmedia=false" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="437" width="640" scrolling="no">
+</iframe>
+</section>
+<section id="dica-como-escolher-o-gráfico-mais-adequado" class="slide level2">
+<h2>Dica: Como escolher o gráfico mais adequado?</h2>
+<center>
+<figure>
+<a href="https://www.data-to-viz.com/"> <img src="../assets/from_data_to_viz.png" style="width:100%"> </a>
+</figure>
+</center>
+</section>
+<section id="gráfico-de-pontos-dispersão" class="slide level2">
+<h2>Gráfico de pontos (dispersão)</h2>
+<p>Geralmente usado para visualizar a associação de duas variáveis contínuas.</p>
+<div class="fragment">
+<p>Como por exemplo, verificar a associação entre altura e massa nos personagens do Star Wars.</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>dados_starwars <span class="sc">|&gt;</span> <span class="co"># Usar os `dados_starwars`</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="co"># Iniciar o canvas</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura) <span class="sc">+</span> <span class="co"># Mapear massa no eixo x e altura no eixo y</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_point</span>() <span class="co"># Usar a geometria de pontos para criar um gráfico de dispersão</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/scatterplot-altura-massa-1.png" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dados_gapminder" class="slide level2">
+<h2><code>dados_gapminder</code></h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Para aprender o próximo gráfico, vamos usar os <code>dados_gapminder</code>.</p>
+<p>Trata-se de um projeto sueco criado por Hans Rosling que coleta dados sobre diversas tendências globais. Na parte dos dados que vamos utilizar, temos informações de 1952 a 2007 (intervalos de 5 anos).</p>
+<p>Estes dados possuem 1.704 observações e 6 variáveis, sendo elas: <code>pais</code>, <code>continente</code>, <code>ano</code>, <code>expectativa_de_vida</code>, <code>populacao</code>, <code>pib_per_capita</code>.</p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="../assets/logo_gapminder.png"></p>
+</div>
+</div>
+</section>
+<section id="exibindo-dados_gapminder" class="slide level2">
+<h2>Exibindo <code>dados_gapminder</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>dados_gapminder</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   pais        continente   ano expectativa_de_vida populacao pib_per_capita
+   &lt;fct&gt;       &lt;fct&gt;      &lt;int&gt;               &lt;dbl&gt;     &lt;int&gt;          &lt;dbl&gt;
+ 1 Afeganistão Ásia        1952                28.8   8425333           779.
+ 2 Afeganistão Ásia        1957                30.3   9240934           821.
+ 3 Afeganistão Ásia        1962                32.0  10267083           853.
+ 4 Afeganistão Ásia        1967                34.0  11537966           836.
+ 5 Afeganistão Ásia        1972                36.1  13079460           740.
+ 6 Afeganistão Ásia        1977                38.4  14880372           786.
+ 7 Afeganistão Ásia        1982                39.9  12881816           978.
+ 8 Afeganistão Ásia        1987                40.8  13867957           852.
+ 9 Afeganistão Ásia        1992                41.7  16317921           649.
+10 Afeganistão Ásia        1997                41.8  22227415           635.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="gráfico-de-linhas" class="slide level2">
+<h2>Gráfico de linhas</h2>
+<p>Utilizamos o <code>geom_line()</code> para fazer gráficos de linhas. Eles são ótimos para representar <em>séries temporais</em>, ou seja, observações medidas repetidamente em intervalos de tempo.</p>
+<div class="fragment">
+<p>Tal qual no gráfico de pontos, precisamos definir as posições <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> para construirmos os gráficos de linhas.</p>
+</div>
+<div class="fragment">
+<p>No próximo slide, vamos olhar um exemplo de gráfico de linha do PIB per capita do Brasil ao decorrer dos anos.</p>
+</div>
+</section>
+<section id="pib-per-capita-do-brasil" class="slide level2">
+<h2>PIB per capita do Brasil</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Linhas</a></li><li><a href="#tabset-2-2">Eixos</a></li><li><a href="#tabset-2-3">Tema e rótulos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/pib-do-brasil-1.png" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1952</span>, <span class="dv">2007</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>,</span>
+<span id="cb12-8"><a href="#cb12-8"></a>                                             <span class="at">decimal.mark =</span> <span class="st">","</span>,</span>
+<span id="cb12-9"><a href="#cb12-9"></a>                                             <span class="at">big.mark =</span> <span class="st">"."</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/pib-do-brasil-eixos-1.png" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkslateblue"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1952</span>, <span class="dv">2007</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>                                             <span class="at">decimal.mark =</span> <span class="st">","</span>,</span>
+<span id="cb13-9"><a href="#cb13-9"></a>                                             <span class="at">big.mark =</span> <span class="st">"."</span>)) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ano"</span>, <span class="at">y =</span> <span class="st">"PIB per capita"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11"></a>       <span class="at">title =</span> <span class="st">"PIB per capita do Brasil ao passar dos anos"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12"></a>       <span class="at">subtitle =</span> <span class="st">"De 1952 a 2007"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Gapminder"</span>) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/pib-do-brasil-tema-rotulos-1.png" style="width:50.0%"></p>
 </figure>
 </div>
 </div>

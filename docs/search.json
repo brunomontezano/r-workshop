@@ -137,14 +137,14 @@
     "href": "slides/3_visualizacao/slides_visualizacao.html#que-a-força-esteja-com-você",
     "title": "Visualização de dados",
     "section": "Que a Força esteja com você!",
-    "text": "Que a Força esteja com você!\n\n\nPara a aula de hoje, vamos usar os dados_starwars.\nEste conjunto de dados contém 14 variáveis de 87 personagens dos filmes da saga Star Wars."
+    "text": "Que a Força esteja com você!\n\n\nPara a aula de hoje, vamos usar os dados_starwars.\nEste conjunto de dados contém 14 variáveis de 87 personagens dos filmes da saga Star Wars.\nNo decorrer da aula, vamos introduzir outras bases de dados para exemplificar cada tipo de gráfico."
   },
   {
-    "objectID": "slides/3_visualizacao/slides_visualizacao.html#carregando-os-dados_starwars",
-    "href": "slides/3_visualizacao/slides_visualizacao.html#carregando-os-dados_starwars",
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#dados_starwars",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#dados_starwars",
     "title": "Visualização de dados",
-    "section": "Carregando os dados_starwars",
-    "text": "Carregando os dados_starwars\n\nlibrary(dados)\nlibrary(dplyr)\n\ndados_starwars\n\n# A tibble: 87 × 14\n   nome      altura massa cor_do_cabelo cor_da_pele cor_dos_olhos ano_nascimento\n   <chr>      <int> <dbl> <chr>         <chr>       <chr>                  <dbl>\n 1 Luke Sky…    172    77 Loiro         Branca cla… Azul                    19  \n 2 C-3PO        167    75 <NA>          Ouro        Amarelo                112  \n 3 R2-D2         96    32 <NA>          Branca, Az… Vermelho                33  \n 4 Darth Va…    202   136 Nenhum        Branca      Amarelo                 41.9\n 5 Leia Org…    150    49 Castanho      Clara       Castanho                19  \n 6 Owen Lars    178   120 Castanho, Ci… Clara       Azul                    52  \n 7 Beru Whi…    165    75 Castanho      Clara       Azul                    47  \n 8 R5-D4         97    32 <NA>          Branca, Ve… Vermelho                NA  \n 9 Biggs Da…    183    84 Preto         Clara       Castanho                24  \n10 Obi-Wan …    182    77 Ruivo, Branco Branca cla… Azul acinzen…           57  \n# ℹ 77 more rows\n# ℹ 7 more variables: sexo_biologico <chr>, genero <chr>, planeta_natal <chr>,\n#   especie <chr>, filmes <list>, veiculos <list>, naves_espaciais <list>"
+    "section": "dados_starwars",
+    "text": "dados_starwars\n\nlibrary(dados)\nlibrary(dplyr)\n\ndados_starwars\n\n# A tibble: 87 × 14\n   nome      altura massa cor_do_cabelo cor_da_pele cor_dos_olhos ano_nascimento\n   <chr>      <int> <dbl> <chr>         <chr>       <chr>                  <dbl>\n 1 Luke Sky…    172    77 Loiro         Branca cla… Azul                    19  \n 2 C-3PO        167    75 <NA>          Ouro        Amarelo                112  \n 3 R2-D2         96    32 <NA>          Branca, Az… Vermelho                33  \n 4 Darth Va…    202   136 Nenhum        Branca      Amarelo                 41.9\n 5 Leia Org…    150    49 Castanho      Clara       Castanho                19  \n 6 Owen Lars    178   120 Castanho, Ci… Clara       Azul                    52  \n 7 Beru Whi…    165    75 Castanho      Clara       Azul                    47  \n 8 R5-D4         97    32 <NA>          Branca, Ve… Vermelho                NA  \n 9 Biggs Da…    183    84 Preto         Clara       Castanho                24  \n10 Obi-Wan …    182    77 Ruivo, Branco Branca cla… Azul acinzen…           57  \n# ℹ 77 more rows\n# ℹ 7 more variables: sexo_biologico <chr>, genero <chr>, planeta_natal <chr>,\n#   especie <chr>, filmes <list>, veiculos <list>, naves_espaciais <list>"
   },
   {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#ggplot2",
@@ -154,11 +154,11 @@
     "text": "ggplot2"
   },
   {
-    "objectID": "slides/3_visualizacao/slides_visualizacao.html#exemplo-iniciais-de-ggplot2",
-    "href": "slides/3_visualizacao/slides_visualizacao.html#exemplo-iniciais-de-ggplot2",
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#exemplos-iniciais-de-ggplot2",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#exemplos-iniciais-de-ggplot2",
     "title": "Visualização de dados",
-    "section": "Exemplo iniciais de ggplot2",
-    "text": "Exemplo iniciais de ggplot2\n\n\n\nlibrary(ggplot2)\n\ndados_starwars |>\n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point(color = \"red\", size = 3) +\n  xlab(\"Massa (kg)\") +\n  ylab(\"Altura (cm)\") +\n  ggtitle(\"Altura e massa dos personagens\") +\n  theme_bw(base_size = 18)\n\n\n\ndados_starwars |>\n  filter(massa < 1000) |>\n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point(color = \"red\", size = 3) +\n  xlab(\"Massa (kg)\") +\n  ylab(\"Altura (cm)\") +\n  ggtitle(\"Altura e massa dos personagens\",\n          \"Com peso menor que 1 tonelada\") +\n  theme_bw(base_size = 18)"
+    "section": "Exemplos iniciais de ggplot2",
+    "text": "Exemplos iniciais de ggplot2\n\n\n\nlibrary(ggplot2)\n\ndados_starwars |>\n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point(color = \"forestgreen\", size = 3) +\n  xlab(\"Massa (kg)\") +\n  ylab(\"Altura (cm)\") +\n  ggtitle(\"Altura e massa dos personagens\") +\n  theme_bw(base_size = 18)\n\n\n\ndados_starwars |>\n  filter(!is.na(genero)) |>\n  ggplot() +\n  aes(x = massa, y = altura, color = genero) +\n  geom_point(size = 4, alpha = 0.7) +\n  xlab(\"Massa (kg)\") +\n  ylab(\"Altura (cm)\") +\n  ggtitle(\"Altura e massa dos personagens\",\n          \"Estratificado por gênero\") +\n  theme_minimal(base_size = 20) +\n  scale_color_discrete(name = \"Gênero\")"
   },
   {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#gramática-de-gráficos-em-camadas",
@@ -173,6 +173,55 @@
     "title": "Visualização de dados",
     "section": "Camadas",
     "text": "Camadas\n\nCanvasEixosGeometria\n\n\n\ndados_starwars |> \n  ggplot()\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |> \n  ggplot() +\n  aes(x = massa, y = altura)\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |> \n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#por-que-o",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#por-que-o",
+    "title": "Visualização de dados",
+    "section": "Por que o +?",
+    "text": "Por que o +?\nO ggplot2, diferentemente dos outros pacotes do Tidyverse, não usa o pipe (|>) porque o ggplot2 surgiu antes que o autor tomasse conhecimento do pipe."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#dica-como-escolher-o-gráfico-mais-adequado",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#dica-como-escolher-o-gráfico-mais-adequado",
+    "title": "Visualização de dados",
+    "section": "Dica: Como escolher o gráfico mais adequado?",
+    "text": "Dica: Como escolher o gráfico mais adequado?"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-pontos-dispersão",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-pontos-dispersão",
+    "title": "Visualização de dados",
+    "section": "Gráfico de pontos (dispersão)",
+    "text": "Gráfico de pontos (dispersão)\nGeralmente usado para visualizar a associação de duas variáveis contínuas.\n\nComo por exemplo, verificar a associação entre altura e massa nos personagens do Star Wars.\n\n\n\ndados_starwars |> # Usar os `dados_starwars`\n  ggplot() + # Iniciar o canvas\n  aes(x = massa, y = altura) + # Mapear massa no eixo x e altura no eixo y\n  geom_point() # Usar a geometria de pontos para criar um gráfico de dispersão"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#dados_gapminder",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#dados_gapminder",
+    "title": "Visualização de dados",
+    "section": "dados_gapminder",
+    "text": "dados_gapminder\n\n\nPara aprender o próximo gráfico, vamos usar os dados_gapminder.\nTrata-se de um projeto sueco criado por Hans Rosling que coleta dados sobre diversas tendências globais. Na parte dos dados que vamos utilizar, temos informações de 1952 a 2007 (intervalos de 5 anos).\nEstes dados possuem 1.704 observações e 6 variáveis, sendo elas: pais, continente, ano, expectativa_de_vida, populacao, pib_per_capita."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#exibindo-dados_gapminder",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#exibindo-dados_gapminder",
+    "title": "Visualização de dados",
+    "section": "Exibindo dados_gapminder",
+    "text": "Exibindo dados_gapminder\n\ndados_gapminder\n\n# A tibble: 1,704 × 6\n   pais        continente   ano expectativa_de_vida populacao pib_per_capita\n   <fct>       <fct>      <int>               <dbl>     <int>          <dbl>\n 1 Afeganistão Ásia        1952                28.8   8425333           779.\n 2 Afeganistão Ásia        1957                30.3   9240934           821.\n 3 Afeganistão Ásia        1962                32.0  10267083           853.\n 4 Afeganistão Ásia        1967                34.0  11537966           836.\n 5 Afeganistão Ásia        1972                36.1  13079460           740.\n 6 Afeganistão Ásia        1977                38.4  14880372           786.\n 7 Afeganistão Ásia        1982                39.9  12881816           978.\n 8 Afeganistão Ásia        1987                40.8  13867957           852.\n 9 Afeganistão Ásia        1992                41.7  16317921           649.\n10 Afeganistão Ásia        1997                41.8  22227415           635.\n# ℹ 1,694 more rows"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-linhas",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-linhas",
+    "title": "Visualização de dados",
+    "section": "Gráfico de linhas",
+    "text": "Gráfico de linhas\nUtilizamos o geom_line() para fazer gráficos de linhas. Eles são ótimos para representar séries temporais, ou seja, observações medidas repetidamente em intervalos de tempo.\n\nTal qual no gráfico de pontos, precisamos definir as posições \\(x\\) e \\(y\\) para construirmos os gráficos de linhas.\n\n\nNo próximo slide, vamos olhar um exemplo de gráfico de linha do PIB per capita do Brasil ao decorrer dos anos."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#pib-per-capita-do-brasil",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#pib-per-capita-do-brasil",
+    "title": "Visualização de dados",
+    "section": "PIB per capita do Brasil",
+    "text": "PIB per capita do Brasil\n\nLinhasEixosTema e rótulos\n\n\n\ndados_gapminder |> \n  filter(pais == \"Brasil\") |> \n  ggplot() +\n  aes(x = ano, y = pib_per_capita) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\n\ndados_gapminder |> \n  filter(pais == \"Brasil\") |> \n  ggplot() +\n  aes(x = ano, y = pib_per_capita) +\n  geom_line() +\n  scale_x_continuous(breaks = seq(1952, 2007, 5)) +\n  scale_y_continuous(labels = scales::dollar_format(prefix = \"R$ \",\n                                             decimal.mark = \",\",\n                                             big.mark = \".\"))\n\n\n\n\n\n\n\n\n\n\n\ndados_gapminder |> \n  filter(pais == \"Brasil\") |> \n  ggplot() +\n  aes(x = ano, y = pib_per_capita) +\n  geom_line(linewidth = 2, color = \"darkslateblue\") +\n  scale_x_continuous(breaks = seq(1952, 2007, 5)) +\n  scale_y_continuous(labels = scales::dollar_format(prefix = \"R$ \",\n                                             decimal.mark = \",\",\n                                             big.mark = \".\")) +\n  labs(x = \"Ano\", y = \"PIB per capita\",\n       title = \"PIB per capita do Brasil ao passar dos anos\",\n       subtitle = \"De 1952 a 2007\",\n       caption = \"Fonte: Gapminder\") +\n  theme_minimal(base_size = 16, base_family = \"Charter\")"
   },
   {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#referências",
