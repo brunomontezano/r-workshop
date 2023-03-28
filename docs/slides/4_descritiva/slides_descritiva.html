@@ -714,11 +714,56 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 1                         1200             3550             4750</code></pre>
 </div>
 </div>
+</div>
+</section>
+<section id="assimetria" class="slide level2">
+<h2>Assimetria</h2>
+<p>A assimetria mede o quão assimétrica é uma distribuição. Pode assumir valores positivos ou negativos. A média, mediana e moda em geral <em>não</em> são iguais em distribuições assimétricas</p>
+<ul>
+<li class="fragment">Uma assimetria negativa indica que a cauda está no lado esquerdo da distribuição</li>
+<li class="fragment">Uma assimetria positiva indica que a cauda está no lado direito da distribuição</li>
+<li class="fragment">Um valor de zero indica que não há assimetria na distribuição</li>
+</ul>
+</section>
+<section id="exemplo-de-distribuição-assimétrica" class="slide level2">
+<h2>Exemplo de distribuição assimétrica</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rchisq</span>(<span class="dv">1000</span>, <span class="dv">10</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> x) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Valores"</span>, <span class="at">y =</span> <span class="st">"Frequência"</span>) <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_clean</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_descritiva_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
+<section id="curtose" class="slide level2">
+<h2>Curtose</h2>
+<p>Curtose é a medida da forma da distribuição em relação à sua média.</p>
+<ul>
+<li class="fragment">A curtose de uma distribuição normal é 3</li>
+<li class="fragment">Se uma dada distribuição tem uma curtose menor que 3, ela é chamada de platicúrtica</li>
+<li class="fragment">Se uma dada distribuição tem uma curtose maior que 3, diz-se que é leptocúrtica</li>
+</ul>
+<div class="fragment">
+<p><em>Quanto maior a curtose, maior a propensão a outliers.</em></p>
+</div>
+</section>
+<section id="visualizando-a-curtose" class="slide level2">
+<h2>Visualizando a curtose</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_descritiva_files/figure-revealjs/exemplo-curtose-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
 
 <p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
-</div>
 </div>
 </section>
 

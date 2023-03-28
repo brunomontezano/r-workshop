@@ -306,3 +306,62 @@ pinguins |>
   )
 ```
 
+## Assimetria
+
+A assimetria mede o quão assimétrica é uma distribuição. Pode assumir valores
+positivos ou negativos. A média, mediana e moda em geral *não* são iguais em
+distribuições assimétricas
+
+* Uma assimetria negativa indica que a cauda está no lado esquerdo da
+distribuição
+* Uma assimetria
+positiva indica que a cauda está no lado direito da distribuição
+* Um valor de zero indica que não há assimetria na
+distribuição
+
+## Exemplo de distribuição assimétrica
+
+```{r}
+#| fig-align: "center"
+#| out.width: "65%"
+tibble(x = rchisq(1000, 10)) |> 
+  ggplot() +
+  aes(x = x) +
+  geom_histogram() +
+  labs(x = "Valores", y = "Frequência") +
+  ggthemes::theme_clean(base_size = 16, base_family = "Charter")
+```
+
+## Curtose
+
+Curtose é a medida da forma da distribuição em relação à sua média.
+
+* A curtose de uma distribuição normal é 3
+* Se uma dada distribuição tem uma curtose menor que 3, ela é chamada de platicúrtica
+* Se uma dada distribuição tem uma curtose maior que 3, diz-se que é leptocúrtica
+
+. . .
+
+*Quanto maior a curtose, maior a propensão a outliers.*
+
+## Visualizando a curtose
+
+```{r exemplo-curtose}
+#| fig-align: "center"
+#| out.width: "100%"
+#| echo: false
+alta_curtose <- tibble(valores = rnorm(1000, mean = 0, sd = 1) * 5,
+                       curtose = "Alta")
+
+baixa_curtose <- tibble(valores = rnorm(1000, mean = 0, sd = 2),
+                       curtose = "Baixa")
+                       
+dados_curtose <- bind_rows(alta_curtose, baixa_curtose)
+
+dados_curtose |> 
+ggplot() +
+  geom_histogram(aes(x = valores, fill = curtose), alpha = 0.5) +
+  labs(title = "Comparação de alta e baixa curtose", x = "Valores",
+       y = "Frequência", fill = "Curtose") +
+  theme_bw(base_size = 16, base_family = "Charter")
+```

@@ -665,6 +665,34 @@
     "text": "Intervalo interquartil\nO intervalo interquartil representa a diferença entre o primeiro quartil (o 25º percentil) e o terceiro quartil (o 75º percentil) de um conjunto de dados.\n\\[IQR = Q_3 - Q_1\\]\n\nEm termos simples, o quão distantes estão os 50% valores do meio da variável.\n\n\n\npinguins |>\n  filter(!is.na(massa_corporal)) |>\n  summarise(\n    intervalo_interquartil_massa = IQR(massa_corporal),\n    primeiro_quartil = quantile(massa_corporal)[\"25%\"],\n    terceiro_quartil = quantile(massa_corporal)[\"75%\"]\n  )\n\n# A tibble: 1 × 3\n  intervalo_interquartil_massa primeiro_quartil terceiro_quartil\n                         <dbl>            <dbl>            <dbl>\n1                         1200             3550             4750"
   },
   {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#assimetria",
+    "href": "slides/4_descritiva/slides_descritiva.html#assimetria",
+    "title": "Análise descritiva",
+    "section": "Assimetria",
+    "text": "Assimetria\nA assimetria mede o quão assimétrica é uma distribuição. Pode assumir valores positivos ou negativos. A média, mediana e moda em geral não são iguais em distribuições assimétricas\n\nUma assimetria negativa indica que a cauda está no lado esquerdo da distribuição\nUma assimetria positiva indica que a cauda está no lado direito da distribuição\nUm valor de zero indica que não há assimetria na distribuição"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#exemplo-de-distribuição-assimétrica",
+    "href": "slides/4_descritiva/slides_descritiva.html#exemplo-de-distribuição-assimétrica",
+    "title": "Análise descritiva",
+    "section": "Exemplo de distribuição assimétrica",
+    "text": "Exemplo de distribuição assimétrica\n\ntibble(x = rchisq(1000, 10)) |> \n  ggplot() +\n  aes(x = x) +\n  geom_histogram() +\n  labs(x = \"Valores\", y = \"Frequência\") +\n  ggthemes::theme_clean(base_size = 16, base_family = \"Charter\")"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#curtose",
+    "href": "slides/4_descritiva/slides_descritiva.html#curtose",
+    "title": "Análise descritiva",
+    "section": "Curtose",
+    "text": "Curtose\nCurtose é a medida da forma da distribuição em relação à sua média.\n\nA curtose de uma distribuição normal é 3\nSe uma dada distribuição tem uma curtose menor que 3, ela é chamada de platicúrtica\nSe uma dada distribuição tem uma curtose maior que 3, diz-se que é leptocúrtica\n\n\nQuanto maior a curtose, maior a propensão a outliers."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#visualizando-a-curtose",
+    "href": "slides/4_descritiva/slides_descritiva.html#visualizando-a-curtose",
+    "title": "Análise descritiva",
+    "section": "Visualizando a curtose",
+    "text": "Visualizando a curtose"
+  },
+  {
     "objectID": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "title": "Inferência estatística",
