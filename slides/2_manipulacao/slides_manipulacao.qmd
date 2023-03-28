@@ -28,8 +28,6 @@ format:
   - Valores ausentes
 - Sumarização de dados
   - Agrupar e resumir dados
-  - Formatos longo e largo de dados
-  - Unir dados
   
 ## `tidyverse`
 
@@ -370,12 +368,70 @@ questionario
 Trata-se de uma base de dados do General Social Survey (GSS). Dados de
 2000 a 2014.
 
+## Valores ausentes
+
+Valores ausentes ocorrem quando nenhum valor é armazenado para uma variável em uma
+observação.
+
+. . .
+
+O R identifica os valores ausentes através do `NA`. Vamos entender as implicações
+do `NA`.
+
+. . .
+
+```{r criar-vetor-com-missing-e-media}
+vetor_com_missing <- c(25, NA, 13, 44, 12, NA)
+
+mean(vetor_com_missing)
+```
+
+. . .
+
+No entanto, existem maneiras de aplicar funções em vetores (ou colunas) com
+`NA`s.
+
+```{r media-com-narm}
+mean(vetor_com_missing, na.rm = TRUE)
+```
+
+. . .
+
+```{r media-narm-na-mao}
+mean(vetor_com_missing[!is.na(vetor_com_missing)])
+```
+
+## Fatores
+
+**Fatores** são uma classe de dados para categorizar dados e armazenar como **níveis**.
+
+. . .
+
+Variáveis como sexo e diagnóstico psiquiátrico seriam bons exemplos
+de fatores.
+
+. . .
+
+```{r vetor-com-fator}
+sexo <- factor(c("Masculino", "Feminino", "Feminino", "Masculino", "Masculino"))
+
+sexo
+```
+
+```{r printar-questionario}
+questionario
+```
+
 ## Filtrando linhas com `filter()`
 
 Podemos usar a função `filter()` para filtrar as observações da base de dados.
 
 . . .
 
+::: {style="font-size: 0.68em"}
+:::: {.columns}
+
+::: {.column width="50%"}
 ```{r filtrar-divorciado}
 library(dplyr)
 
@@ -384,6 +440,24 @@ divorciados <- questionario |>
 
 divorciados
 ```
+:::
+
+::: {.column width="50%"}
+```{r divorciados-sem-missing-horas-tv}
+divorciados |> 
+  filter(!is.na(horas_tv))
+```
+:::
+
+::::
+:::
+
+. . .
+
+No segundo exemplo, `!is.na(horas_tv)` mantém na base de dados apenas as
+observações dos divorciados que **não** possuem valores ausentes na coluna
+`horas_tv`.
+
 
 ## Ordenando linhas com `arrange()`
 

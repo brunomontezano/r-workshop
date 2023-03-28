@@ -14,15 +14,160 @@ format:
     smaller: true
     theme: [default, ../assets/custom.scss]
     logo: "../assets/logo_ufrgs.png"
+bibliography: references.bib
 ---
 
 ## Conteúdo de hoje
 
-- Pacote `ggplot2`
-  - Gramática dos gráficos
-  - Estética
-  - Mapeamento
-- Gráficos básicos
-- Personalização de gráficos
-- Exemplos práticos
-- Extensões de ggplot2
+-   Pacote `ggplot2`
+    -   Gramática dos gráficos
+    -   Estética
+    -   Mapeamento
+-   Gráficos básicos
+-   Personalização de gráficos
+-   Exemplos práticos
+-   Extensões de ggplot2
+
+## Que a Força esteja com você!
+
+::: columns
+::: {.column width="70%"}
+Para a aula de hoje, vamos usar os `dados_starwars`.
+
+Este conjunto de dados contém 14 variáveis de 87 personagens dos filmes da saga Star Wars.
+:::
+
+::: {.column width="30%"}
+![](../assets/star_wars_poster.jpg)
+:::
+:::
+
+## Carregando os `dados_starwars`
+
+```{r carregar-starwars}
+library(dados)
+library(dplyr)
+
+dados_starwars
+```
+
+## `ggplot2`
+
+![](../assets/logo_ggplot2.png){fig-align="center" width="45%"}
+
+## Exemplo iniciais de `ggplot2`
+
+::: columns
+::: {.column width="50%"}
+```{r exemplo-inicial-ggplot2-codigo}
+#| eval: false
+library(ggplot2)
+
+dados_starwars |>
+  ggplot() +
+  aes(x = massa, y = altura) +
+  geom_point(color = "red", size = 3) +
+  xlab("Massa (kg)") +
+  ylab("Altura (cm)") +
+  ggtitle("Altura e massa dos personagens") +
+  theme_bw(base_size = 18)
+```
+
+<br>
+
+```{r exemplo-inicial-ggplot2-codigo-com-filter}
+#| eval: false
+dados_starwars |>
+  filter(massa < 1000) |>
+  ggplot() +
+  aes(x = massa, y = altura) +
+  geom_point(color = "red", size = 3) +
+  xlab("Massa (kg)") +
+  ylab("Altura (cm)") +
+  ggtitle("Altura e massa dos personagens",
+          "Com peso menor que 1 tonelada") +
+  theme_bw(base_size = 18)
+```
+:::
+
+::: {.column width="50%"}
+```{r exemplo-inicial-ggplot2-output}
+#| echo: false
+#| out-width: 100%
+#| fig-align: "center"
+library(ggplot2)
+
+ggplot(data = dados_starwars,
+       aes(x = massa, y = altura)) +
+  geom_point(color = "red", size = 3) +
+  xlab("Massa (kg)") +
+  ylab("Altura (cm)") +
+  ggtitle("Altura e massa dos personagens") +
+  theme_bw(base_size = 18) #+
+  #theme(plot.background = element_rect(fill = "#f0f1eb"))
+
+ggplot(data = dados_starwars |> 
+         filter(massa < 1000),
+       aes(x = massa, y = altura)) +
+  geom_point(color = "red", size = 3) +
+  xlab("Massa (kg)") +
+  ylab("Altura (cm)") +
+  ggtitle("Altura e massa dos personagens",
+          "Com peso menor que 1 tonelada") +
+  theme_bw(base_size = 18) #+
+  #theme(plot.background = element_rect(fill = "#f0f1eb"))
+```
+:::
+:::
+
+## Gramática de gráficos em camadas
+
+O pacote `ggplot2` segue duas filosofias que facilitam a compreensão do processo de construção de gráficos:
+
+::: nonincremental
+-   Um gráfico estatístico é uma representação visual dos dados por meio de atributos estéticos (posição, cor, forma, tamanho) de formas geométricas (pontos, linhas, curvas) [@thegram2005]
+
+-   Um gráfico pode ser construído em camadas (sobreposição de elementos visuais) [@layered-grammar]
+:::
+
+## Camadas
+
+::: {.panel-tabset}
+
+## Canvas
+
+```{r canvas}
+#| out-width: 75%
+#| fig-align: "center"
+dados_starwars |> 
+  ggplot()
+```
+
+## Eixos
+
+```{r eixos}
+#| out-width: 75%
+#| fig-align: "center"
+dados_starwars |> 
+  ggplot() +
+  aes(x = massa, y = altura)
+```
+
+## Geometria
+
+```{r geometria}
+#| out-width: 75%
+#| fig-align: "center"
+dados_starwars |> 
+  ggplot() +
+  aes(x = massa, y = altura) +
+  geom_point()
+```
+
+
+:::
+
+## Referências
+
+::: {#refs}
+:::

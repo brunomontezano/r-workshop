@@ -133,11 +133,60 @@
     "text": "Conteúdo de hoje\n\nPacote ggplot2\n\nGramática dos gráficos\nEstética\nMapeamento\n\nGráficos básicos\nPersonalização de gráficos\nExemplos práticos\nExtensões de ggplot2"
   },
   {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#que-a-força-esteja-com-você",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#que-a-força-esteja-com-você",
+    "title": "Visualização de dados",
+    "section": "Que a Força esteja com você!",
+    "text": "Que a Força esteja com você!\n\n\nPara a aula de hoje, vamos usar os dados_starwars.\nEste conjunto de dados contém 14 variáveis de 87 personagens dos filmes da saga Star Wars."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#carregando-os-dados_starwars",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#carregando-os-dados_starwars",
+    "title": "Visualização de dados",
+    "section": "Carregando os dados_starwars",
+    "text": "Carregando os dados_starwars\n\nlibrary(dados)\nlibrary(dplyr)\n\ndados_starwars\n\n# A tibble: 87 × 14\n   nome      altura massa cor_do_cabelo cor_da_pele cor_dos_olhos ano_nascimento\n   <chr>      <int> <dbl> <chr>         <chr>       <chr>                  <dbl>\n 1 Luke Sky…    172    77 Loiro         Branca cla… Azul                    19  \n 2 C-3PO        167    75 <NA>          Ouro        Amarelo                112  \n 3 R2-D2         96    32 <NA>          Branca, Az… Vermelho                33  \n 4 Darth Va…    202   136 Nenhum        Branca      Amarelo                 41.9\n 5 Leia Org…    150    49 Castanho      Clara       Castanho                19  \n 6 Owen Lars    178   120 Castanho, Ci… Clara       Azul                    52  \n 7 Beru Whi…    165    75 Castanho      Clara       Azul                    47  \n 8 R5-D4         97    32 <NA>          Branca, Ve… Vermelho                NA  \n 9 Biggs Da…    183    84 Preto         Clara       Castanho                24  \n10 Obi-Wan …    182    77 Ruivo, Branco Branca cla… Azul acinzen…           57  \n# ℹ 77 more rows\n# ℹ 7 more variables: sexo_biologico <chr>, genero <chr>, planeta_natal <chr>,\n#   especie <chr>, filmes <list>, veiculos <list>, naves_espaciais <list>"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#ggplot2",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#ggplot2",
+    "title": "Visualização de dados",
+    "section": "ggplot2",
+    "text": "ggplot2"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#exemplo-iniciais-de-ggplot2",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#exemplo-iniciais-de-ggplot2",
+    "title": "Visualização de dados",
+    "section": "Exemplo iniciais de ggplot2",
+    "text": "Exemplo iniciais de ggplot2\n\n\n\nlibrary(ggplot2)\n\ndados_starwars |>\n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point(color = \"red\", size = 3) +\n  xlab(\"Massa (kg)\") +\n  ylab(\"Altura (cm)\") +\n  ggtitle(\"Altura e massa dos personagens\") +\n  theme_bw(base_size = 18)\n\n\n\ndados_starwars |>\n  filter(massa < 1000) |>\n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point(color = \"red\", size = 3) +\n  xlab(\"Massa (kg)\") +\n  ylab(\"Altura (cm)\") +\n  ggtitle(\"Altura e massa dos personagens\",\n          \"Com peso menor que 1 tonelada\") +\n  theme_bw(base_size = 18)"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#gramática-de-gráficos-em-camadas",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#gramática-de-gráficos-em-camadas",
+    "title": "Visualização de dados",
+    "section": "Gramática de gráficos em camadas",
+    "text": "Gramática de gráficos em camadas\nO pacote ggplot2 segue duas filosofias que facilitam a compreensão do processo de construção de gráficos:\n\n\nUm gráfico estatístico é uma representação visual dos dados por meio de atributos estéticos (posição, cor, forma, tamanho) de formas geométricas (pontos, linhas, curvas) (Wilkinson 2005)\nUm gráfico pode ser construído em camadas (sobreposição de elementos visuais) (Wickham 2010)"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#camadas",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#camadas",
+    "title": "Visualização de dados",
+    "section": "Camadas",
+    "text": "Camadas\n\nCanvasEixosGeometria\n\n\n\ndados_starwars |> \n  ggplot()\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |> \n  ggplot() +\n  aes(x = massa, y = altura)\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |> \n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#referências",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#referências",
+    "title": "Visualização de dados",
+    "section": "Referências",
+    "text": "Referências\n\n\nWickham, Hadley. 2010. \"A layered grammar of graphics\". Journal of Computational and Graphical Statistics 19 (1): 3–28. https://doi.org/10.1198/jcgs.2009.07098.\n\n\nWilkinson, Leland. 2005. The Grammar of Graphics. Springer-Verlag. https://doi.org/10.1007/0-387-28695-0."
+  },
+  {
     "objectID": "slides/2_manipulacao/slides_manipulacao.html#conteúdo-de-hoje",
     "href": "slides/2_manipulacao/slides_manipulacao.html#conteúdo-de-hoje",
     "title": "Manipulação de dados",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nImportação de dados\nFatores\nIndexação de data frames\nManipulação de dados\n\nSelecionar colunas\nCriar e modificar colunas\nFiltragem de linhas\nValores ausentes\n\nSumarização de dados\n\nAgrupar e resumir dados\nFormatos longo e largo de dados\nUnir dados"
+    "text": "Conteúdo de hoje\n\nImportação de dados\nFatores\nIndexação de data frames\nManipulação de dados\n\nSelecionar colunas\nCriar e modificar colunas\nFiltragem de linhas\nValores ausentes\n\nSumarização de dados\n\nAgrupar e resumir dados"
   },
   {
     "objectID": "slides/2_manipulacao/slides_manipulacao.html#tidyverse",
@@ -252,11 +301,25 @@
     "text": "Vamos colocar a mão na massa no questionario\nquestionario é uma base de dados disponibilizada no pacote dados.\n\n# install.packages(\"dados\")\nlibrary(dados)\n\nquestionario\n\n# A tibble: 21,483 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Nunca casou      26 Branca US$ 8… Indepe… Protest… Batistas d…       12\n 2  2000 Divorciado(a)    48 Branca US$ 8… Não fo… Protest… Batista, n…       NA\n 3  2000 Viúvo(a)         67 Branca Não s… Indepe… Protest… Sem denomi…        2\n 4  2000 Nunca casou      39 Branca Não s… Indepe… Cristã … Não se apl…        4\n 5  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1\n 6  2000 Casado(a)        25 Branca US$ 2… Fortem… Protest… Batistas d…       NA\n 7  2000 Nunca casou      36 Branca US$ 2… Não fo… Cristã   Não se apl…        3\n 8  2000 Divorciado(a)    44 Branca US$ 7… Indepe… Protest… Sínodo lut…       NA\n 9  2000 Casado(a)        44 Branca US$ 2… Não fo… Protest… Outra              0\n10  2000 Casado(a)        47 Branca US$ 2… Fortem… Protest… Batistas d…        3\n# ℹ 21,473 more rows\n\n\nTrata-se de uma base de dados do General Social Survey (GSS). Dados de 2000 a 2014."
   },
   {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#valores-ausentes",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#valores-ausentes",
+    "title": "Manipulação de dados",
+    "section": "Valores ausentes",
+    "text": "Valores ausentes\nValores ausentes ocorrem quando nenhum valor é armazenado para uma variável em uma observação.\n\nO R identifica os valores ausentes através do NA. Vamos entender as implicações do NA.\n\n\n\nvetor_com_missing <- c(25, NA, 13, 44, 12, NA)\n\nmean(vetor_com_missing)\n\n[1] NA\n\n\n\n\nNo entanto, existem maneiras de aplicar funções em vetores (ou colunas) com NAs.\n\nmean(vetor_com_missing, na.rm = TRUE)\n\n[1] 23.5\n\n\n\n\n\nmean(vetor_com_missing[!is.na(vetor_com_missing)])\n\n[1] 23.5"
+  },
+  {
+    "objectID": "slides/2_manipulacao/slides_manipulacao.html#fatores",
+    "href": "slides/2_manipulacao/slides_manipulacao.html#fatores",
+    "title": "Manipulação de dados",
+    "section": "Fatores",
+    "text": "Fatores\nFatores são uma classe de dados para categorizar dados e armazenar como níveis.\n\nVariáveis como sexo e diagnóstico psiquiátrico seriam bons exemplos de fatores.\n\n\n\nsexo <- factor(c(\"Masculino\", \"Feminino\", \"Feminino\", \"Masculino\", \"Masculino\"))\n\nsexo\n\n[1] Masculino Feminino  Feminino  Masculino Masculino\nLevels: Feminino Masculino\n\n\n\nquestionario\n\n# A tibble: 21,483 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Nunca casou      26 Branca US$ 8… Indepe… Protest… Batistas d…       12\n 2  2000 Divorciado(a)    48 Branca US$ 8… Não fo… Protest… Batista, n…       NA\n 3  2000 Viúvo(a)         67 Branca Não s… Indepe… Protest… Sem denomi…        2\n 4  2000 Nunca casou      39 Branca Não s… Indepe… Cristã … Não se apl…        4\n 5  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1\n 6  2000 Casado(a)        25 Branca US$ 2… Fortem… Protest… Batistas d…       NA\n 7  2000 Nunca casou      36 Branca US$ 2… Não fo… Cristã   Não se apl…        3\n 8  2000 Divorciado(a)    44 Branca US$ 7… Indepe… Protest… Sínodo lut…       NA\n 9  2000 Casado(a)        44 Branca US$ 2… Não fo… Protest… Outra              0\n10  2000 Casado(a)        47 Branca US$ 2… Fortem… Protest… Batistas d…        3\n# ℹ 21,473 more rows"
+  },
+  {
     "objectID": "slides/2_manipulacao/slides_manipulacao.html#filtrando-linhas-com-filter",
     "href": "slides/2_manipulacao/slides_manipulacao.html#filtrando-linhas-com-filter",
     "title": "Manipulação de dados",
     "section": "Filtrando linhas com filter()",
-    "text": "Filtrando linhas com filter()\nPodemos usar a função filter() para filtrar as observações da base de dados.\n\n\nlibrary(dplyr)\n\ndivorciados <- questionario |> \n  filter(estado_civil == \"Divorciado(a)\")\n\ndivorciados\n\n# A tibble: 3,383 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Divorciado(a)    48 Branca US$ 8… Não fo… Protest… Batista, n…       NA\n 2  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1\n 3  2000 Divorciado(a)    44 Branca US$ 7… Indepe… Protest… Sínodo lut…       NA\n 4  2000 Divorciado(a)    52 Branca US$ 2… Indepe… Nenhuma  Não se apl…        1\n 5  2000 Divorciado(a)    72 Branca Não s… Fortem… Protest… Batistas d…        7\n 6  2000 Divorciado(a)    36 Negra  US$ 1… Fortem… Nenhuma  Não se apl…       NA\n 7  2000 Divorciado(a)    39 Negra  Não s… Indepe… Nenhuma  Não se apl…       NA\n 8  2000 Divorciado(a)    51 Branca US$ 2… Indepe… Protest… Batista, n…        2\n 9  2000 Divorciado(a)    45 Branca US$ 2… Indepe… Protest… Batistas d…        2\n10  2000 Divorciado(a)    78 Branca Não s… Indepe… Protest… Batistas d…        4\n# ℹ 3,373 more rows"
+    "text": "Filtrando linhas com filter()\nPodemos usar a função filter() para filtrar as observações da base de dados.\n\n\n\n\n\nlibrary(dplyr)\n\ndivorciados <- questionario |> \n  filter(estado_civil == \"Divorciado(a)\")\n\ndivorciados\n\n# A tibble: 3,383 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Divorciado(a)    48 Branca US$ 8… Não fo… Protest… Batista, n…       NA\n 2  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1\n 3  2000 Divorciado(a)    44 Branca US$ 7… Indepe… Protest… Sínodo lut…       NA\n 4  2000 Divorciado(a)    52 Branca US$ 2… Indepe… Nenhuma  Não se apl…        1\n 5  2000 Divorciado(a)    72 Branca Não s… Fortem… Protest… Batistas d…        7\n 6  2000 Divorciado(a)    36 Negra  US$ 1… Fortem… Nenhuma  Não se apl…       NA\n 7  2000 Divorciado(a)    39 Negra  Não s… Indepe… Nenhuma  Não se apl…       NA\n 8  2000 Divorciado(a)    51 Branca US$ 2… Indepe… Protest… Batista, n…        2\n 9  2000 Divorciado(a)    45 Branca US$ 2… Indepe… Protest… Batistas d…        2\n10  2000 Divorciado(a)    78 Branca Não s… Indepe… Protest… Batistas d…        4\n# ℹ 3,373 more rows\n\n\n\n\ndivorciados |> \n  filter(!is.na(horas_tv))\n\n# A tibble: 1,768 × 9\n     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv\n   <int> <fct>         <int> <fct>  <fct>  <fct>   <fct>    <fct>          <int>\n 1  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1\n 2  2000 Divorciado(a)    52 Branca US$ 2… Indepe… Nenhuma  Não se apl…        1\n 3  2000 Divorciado(a)    72 Branca Não s… Fortem… Protest… Batistas d…        7\n 4  2000 Divorciado(a)    51 Branca US$ 2… Indepe… Protest… Batista, n…        2\n 5  2000 Divorciado(a)    45 Branca US$ 2… Indepe… Protest… Batistas d…        2\n 6  2000 Divorciado(a)    78 Branca Não s… Indepe… Protest… Batistas d…        4\n 7  2000 Divorciado(a)    75 Branca Não s… Fortem… Protest… Associação…        7\n 8  2000 Divorciado(a)    46 Branca US$ 2… Não fo… Inter n… Não se apl…        2\n 9  2000 Divorciado(a)    39 Branca Se ne… Indepe… Nenhuma  Não se apl…        0\n10  2000 Divorciado(a)    56 Branca Se ne… Não fo… Judaísmo Não se apl…        3\n# ℹ 1,758 more rows\n\n\n\n\n\n\n\nNo segundo exemplo, !is.na(horas_tv) mantém na base de dados apenas as observações dos divorciados que não possuem valores ausentes na coluna horas_tv."
   },
   {
     "objectID": "slides/2_manipulacao/slides_manipulacao.html#ordenando-linhas-com-arrange",

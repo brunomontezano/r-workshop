@@ -402,7 +402,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">24 de março de 2023</p>
+  <p class="date">27 de março de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -420,8 +420,6 @@ Bruno Montezano
 <li class="fragment">Sumarização de dados
 <ul>
 <li class="fragment">Agrupar e resumir dados</li>
-<li class="fragment">Formatos longo e largo de dados</li>
-<li class="fragment">Unir dados</li>
 </ul></li>
 </ul>
 </section>
@@ -701,17 +699,91 @@ Bruno Montezano
 </div>
 <p>Trata-se de uma base de dados do General Social Survey (GSS). Dados de 2000 a 2014.</p>
 </section>
+<section id="valores-ausentes" class="slide level2">
+<h2>Valores ausentes</h2>
+<p>Valores ausentes ocorrem quando nenhum valor é armazenado para uma variável em uma observação.</p>
+<div class="fragment">
+<p>O R identifica os valores ausentes através do <code>NA</code>. Vamos entender as implicações do <code>NA</code>.</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>vetor_com_missing <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="cn">NA</span>, <span class="dv">13</span>, <span class="dv">44</span>, <span class="dv">12</span>, <span class="cn">NA</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">mean</span>(vetor_com_missing)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>No entanto, existem maneiras de aplicar funções em vetores (ou colunas) com <code>NA</code>s.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">mean</span>(vetor_com_missing, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23.5</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">mean</span>(vetor_com_missing[<span class="sc">!</span><span class="fu">is.na</span>(vetor_com_missing)])</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23.5</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="fatores" class="slide level2">
+<h2>Fatores</h2>
+<p><strong>Fatores</strong> são uma classe de dados para categorizar dados e armazenar como <strong>níveis</strong>.</p>
+<div class="fragment">
+<p>Variáveis como sexo e diagnóstico psiquiátrico seriam bons exemplos de fatores.</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>sexo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Masculino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Feminino"</span>, <span class="st">"Masculino"</span>, <span class="st">"Masculino"</span>))</span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a>sexo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Masculino Feminino  Feminino  Masculino Masculino
+Levels: Feminino Masculino</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>questionario</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 21,483 × 9
+     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv
+   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;  &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;          &lt;int&gt;
+ 1  2000 Nunca casou      26 Branca US$ 8… Indepe… Protest… Batistas d…       12
+ 2  2000 Divorciado(a)    48 Branca US$ 8… Não fo… Protest… Batista, n…       NA
+ 3  2000 Viúvo(a)         67 Branca Não s… Indepe… Protest… Sem denomi…        2
+ 4  2000 Nunca casou      39 Branca Não s… Indepe… Cristã … Não se apl…        4
+ 5  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1
+ 6  2000 Casado(a)        25 Branca US$ 2… Fortem… Protest… Batistas d…       NA
+ 7  2000 Nunca casou      36 Branca US$ 2… Não fo… Cristã   Não se apl…        3
+ 8  2000 Divorciado(a)    44 Branca US$ 7… Indepe… Protest… Sínodo lut…       NA
+ 9  2000 Casado(a)        44 Branca US$ 2… Não fo… Protest… Outra              0
+10  2000 Casado(a)        47 Branca US$ 2… Fortem… Protest… Batistas d…        3
+# ℹ 21,473 more rows</code></pre>
+</div>
+</div>
+</div>
+</section>
 <section id="filtrando-linhas-com-filter" class="slide level2">
 <h2>Filtrando linhas com <code>filter()</code></h2>
 <p>Podemos usar a função <code>filter()</code> para filtrar as observações da base de dados.</p>
 <div class="fragment">
+<div style="font-size: 0.68em">
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb21-2"><a href="#cb21-2"></a></span>
-<span id="cb21-3"><a href="#cb21-3"></a>divorciados <span class="ot">&lt;-</span> questionario <span class="sc">|&gt;</span> </span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">filter</span>(estado_civil <span class="sc">==</span> <span class="st">"Divorciado(a)"</span>)</span>
-<span id="cb21-5"><a href="#cb21-5"></a></span>
-<span id="cb21-6"><a href="#cb21-6"></a>divorciados</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a>divorciados <span class="ot">&lt;-</span> questionario <span class="sc">|&gt;</span> </span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">filter</span>(estado_civil <span class="sc">==</span> <span class="st">"Divorciado(a)"</span>)</span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a>divorciados</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,383 × 9
      ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv
@@ -729,6 +801,33 @@ Bruno Montezano
 # ℹ 3,373 more rows</code></pre>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>divorciados <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(horas_tv))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,768 × 9
+     ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv
+   &lt;int&gt; &lt;fct&gt;         &lt;int&gt; &lt;fct&gt;  &lt;fct&gt;  &lt;fct&gt;   &lt;fct&gt;    &lt;fct&gt;          &lt;int&gt;
+ 1  2000 Divorciado(a)    25 Branca Não s… Não fo… Nenhuma  Não se apl…        1
+ 2  2000 Divorciado(a)    52 Branca US$ 2… Indepe… Nenhuma  Não se apl…        1
+ 3  2000 Divorciado(a)    72 Branca Não s… Fortem… Protest… Batistas d…        7
+ 4  2000 Divorciado(a)    51 Branca US$ 2… Indepe… Protest… Batista, n…        2
+ 5  2000 Divorciado(a)    45 Branca US$ 2… Indepe… Protest… Batistas d…        2
+ 6  2000 Divorciado(a)    78 Branca Não s… Indepe… Protest… Batistas d…        4
+ 7  2000 Divorciado(a)    75 Branca Não s… Fortem… Protest… Associação…        7
+ 8  2000 Divorciado(a)    46 Branca US$ 2… Não fo… Inter n… Não se apl…        2
+ 9  2000 Divorciado(a)    39 Branca Se ne… Indepe… Nenhuma  Não se apl…        0
+10  2000 Divorciado(a)    56 Branca Se ne… Não fo… Judaísmo Não se apl…        3
+# ℹ 1,758 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>No segundo exemplo, <code>!is.na(horas_tv)</code> mantém na base de dados apenas as observações dos divorciados que <strong>não</strong> possuem valores ausentes na coluna <code>horas_tv</code>.</p>
 </div>
 </section>
 <section id="ordenando-linhas-com-arrange" class="slide level2">
@@ -736,8 +835,8 @@ Bruno Montezano
 <p>Com a função <code>arrange()</code>, nós podemos reordenar as observações da base de dados.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>questionario <span class="sc">|&gt;</span> </span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">arrange</span>(ano, <span class="fu">desc</span>(idade))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>questionario <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">arrange</span>(ano, <span class="fu">desc</span>(idade))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 21,483 × 9
      ano estado_civil  idade raca   renda  partido religiao denominacao horas_tv
@@ -765,8 +864,8 @@ Bruno Montezano
 <p>Não apenas podemos limitar as linhas, mas podemos incluir colunas específicas (e colocá-las na ordem listada) usando <code>select()</code>.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>divorciados <span class="sc">|&gt;</span> </span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">select</span>(ano, idade, horas_tv)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>divorciados <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">select</span>(ano, idade, horas_tv)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,383 × 3
      ano idade horas_tv
@@ -790,8 +889,8 @@ Bruno Montezano
 <h2>Removendo colunas com <code>select()</code></h2>
 <p>Ao invés de selecionar, podemos remover colunas específicas com <code>select()</code> usando <code>-</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>divorciados <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">select</span>(<span class="sc">-</span>estado_civil, <span class="sc">-</span>renda, <span class="sc">-</span>denominacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>divorciados <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">select</span>(<span class="sc">-</span>estado_civil, <span class="sc">-</span>renda, <span class="sc">-</span>denominacao)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,383 × 6
      ano idade raca   partido                              religiao    horas_tv
@@ -817,8 +916,8 @@ Bruno Montezano
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>questionario <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"ao"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>questionario <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"ao"</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 21,483 × 2
    religiao        denominacao           
@@ -838,8 +937,8 @@ Bruno Montezano
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>questionario <span class="sc">|&gt;</span> </span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">select</span>(ano<span class="sc">:</span>raca)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>questionario <span class="sc">|&gt;</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">select</span>(ano<span class="sc">:</span>raca)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 21,483 × 4
      ano estado_civil  idade raca  
@@ -871,11 +970,11 @@ Bruno Montezano
 <div class="columns">
 <div class="column" style="width:56%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>divorciados <span class="sc">|&gt;</span> </span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">filter</span>(raca <span class="sc">==</span> <span class="st">"Branca"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">select</span>(ano, idade, horas_tv) <span class="sc">|&gt;</span> </span>
-<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">mutate</span>(<span class="at">idade_em_decadas =</span> idade <span class="sc">/</span> <span class="dv">10</span>,</span>
-<span id="cb33-5"><a href="#cb33-5"></a>         <span class="at">horas_tv_em_minutos =</span> horas_tv <span class="sc">*</span> <span class="dv">60</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>divorciados <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">filter</span>(raca <span class="sc">==</span> <span class="st">"Branca"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb45-3"><a href="#cb45-3"></a>  <span class="fu">select</span>(ano, idade, horas_tv) <span class="sc">|&gt;</span> </span>
+<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">mutate</span>(<span class="at">idade_em_decadas =</span> idade <span class="sc">/</span> <span class="dv">10</span>,</span>
+<span id="cb45-5"><a href="#cb45-5"></a>         <span class="at">horas_tv_em_minutos =</span> horas_tv <span class="sc">*</span> <span class="dv">60</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,676 × 5
      ano idade horas_tv idade_em_decadas horas_tv_em_minutos
@@ -895,10 +994,10 @@ Bruno Montezano
 </div>
 </div><div class="column" style="width:44%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>divorciados <span class="sc">|&gt;</span> </span>
-<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">filter</span>(religiao <span class="sc">==</span> <span class="st">"Protestante"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">select</span>(ano, idade, horas_tv) <span class="sc">|&gt;</span> </span>
-<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">mutate</span>(<span class="at">horas_tv =</span> horas_tv <span class="sc">*</span> <span class="dv">60</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>divorciados <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">filter</span>(religiao <span class="sc">==</span> <span class="st">"Protestante"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">select</span>(ano, idade, horas_tv) <span class="sc">|&gt;</span> </span>
+<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">mutate</span>(<span class="at">horas_tv =</span> horas_tv <span class="sc">*</span> <span class="dv">60</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,792 × 3
      ano idade horas_tv
@@ -938,12 +1037,12 @@ Bruno Montezano
 <p>Para os divorciados do ano de 2000, vamos captar o número de observações, a média da idade, a mediana das horas de TV assistidas diariamente e a amplitude de horas de TV assistidas por dia.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>divorciados <span class="sc">|&gt;</span> </span>
-<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">2000</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">summarise</span>(<span class="at">n_observacoes =</span> <span class="fu">n</span>(),</span>
-<span id="cb37-4"><a href="#cb37-4"></a>            <span class="at">media_idade =</span> <span class="fu">mean</span>(idade, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb37-5"><a href="#cb37-5"></a>            <span class="at">mediana_horas_tv =</span> <span class="fu">median</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb37-6"><a href="#cb37-6"></a>            <span class="at">amplitude_horas_tv =</span> <span class="fu">max</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>divorciados <span class="sc">|&gt;</span> </span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">2000</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-3"><a href="#cb49-3"></a>  <span class="fu">summarise</span>(<span class="at">n_observacoes =</span> <span class="fu">n</span>(),</span>
+<span id="cb49-4"><a href="#cb49-4"></a>            <span class="at">media_idade =</span> <span class="fu">mean</span>(idade, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb49-5"><a href="#cb49-5"></a>            <span class="at">mediana_horas_tv =</span> <span class="fu">median</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb49-6"><a href="#cb49-6"></a>            <span class="at">amplitude_horas_tv =</span> <span class="fu">max</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
   n_observacoes media_idade mediana_horas_tv amplitude_horas_tv
@@ -961,11 +1060,11 @@ Bruno Montezano
 <p>Talvez vocês precisem calcular a média e o desvio padrão de um conjunto de colunas. Com <code>across()</code>, coloquem as variáveis a serem calculadas primeiro (usando <code>c()</code>) e coloque as funções a serem usadas em uma <code>list()</code> depois.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>divorciados <span class="sc">|&gt;</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(idade, horas_tv),</span>
-<span id="cb39-4"><a href="#cb39-4"></a>                   <span class="fu">list</span>(<span class="at">media =</span> \(x) <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb39-5"><a href="#cb39-5"></a>                        <span class="at">desvio_padrao =</span> \(x) <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>divorciados <span class="sc">|&gt;</span> </span>
+<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">2014</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(idade, horas_tv),</span>
+<span id="cb51-4"><a href="#cb51-4"></a>                   <span class="fu">list</span>(<span class="at">media =</span> \(x) <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb51-5"><a href="#cb51-5"></a>                        <span class="at">desvio_padrao =</span> \(x) <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
   idade_media idade_desvio_padrao horas_tv_media horas_tv_desvio_padrao
@@ -998,11 +1097,11 @@ Bruno Montezano
 <p>Vamos supor que eu queira saber o número de religiões reportadas pelos entrevistados, o número de observações (tamanho da amostra) e a média de horas diárias assistidas de TV em cada ano, ou seja, <em>agrupado</em> pelo ano.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>questionario <span class="sc">|&gt;</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">group_by</span>(ano) <span class="sc">|&gt;</span> </span>
-<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">summarise</span>(<span class="at">numero_de_religioes =</span> <span class="fu">n_distinct</span>(religiao),</span>
-<span id="cb41-4"><a href="#cb41-4"></a>            <span class="at">n_observacoes =</span> <span class="fu">n</span>(),</span>
-<span id="cb41-5"><a href="#cb41-5"></a>            <span class="at">media_horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>questionario <span class="sc">|&gt;</span> </span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">group_by</span>(ano) <span class="sc">|&gt;</span> </span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">summarise</span>(<span class="at">numero_de_religioes =</span> <span class="fu">n_distinct</span>(religiao),</span>
+<span id="cb53-4"><a href="#cb53-4"></a>            <span class="at">n_observacoes =</span> <span class="fu">n</span>(),</span>
+<span id="cb53-5"><a href="#cb53-5"></a>            <span class="at">media_horas_tv =</span> <span class="fu">mean</span>(horas_tv, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 4
     ano numero_de_religioes n_observacoes media_horas_tv
