@@ -193,7 +193,14 @@
     "href": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-pontos-dispersão",
     "title": "Visualização de dados",
     "section": "Gráfico de pontos (dispersão)",
-    "text": "Gráfico de pontos (dispersão)\nGeralmente usado para visualizar a associação de duas variáveis contínuas.\n\nComo por exemplo, verificar a associação entre altura e massa nos personagens do Star Wars.\n\n\n\ndados_starwars |> # Usar os `dados_starwars`\n  ggplot() + # Iniciar o canvas\n  aes(x = massa, y = altura) + # Mapear massa no eixo x e altura no eixo y\n  geom_point() # Usar a geometria de pontos para criar um gráfico de dispersão"
+    "text": "Gráfico de pontos (dispersão)\nGeralmente usado para visualizar a associação de duas variáveis contínuas.\n\nComo por exemplo, verificar a associação entre altura e massa nos personagens do Star Wars.\n\n\n\ndados_starwars |> # Usar os `dados_starwars`\n  filter(massa < 1000) |> # Manter apenas observações com menos de 1.000kg de massa\n  ggplot() + # Iniciar o canvas\n  aes(x = massa, y = altura) + # Mapear massa no eixo x e altura no eixo y\n  geom_point() # Usar a geometria de pontos para criar um gráfico de dispersão"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#ggplot2-é-extremamente-versátil",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#ggplot2-é-extremamente-versátil",
+    "title": "Visualização de dados",
+    "section": "ggplot2 é extremamente versátil",
+    "text": "ggplot2 é extremamente versátil"
   },
   {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#dados_gapminder",
@@ -222,6 +229,104 @@
     "title": "Visualização de dados",
     "section": "PIB per capita do Brasil",
     "text": "PIB per capita do Brasil\n\nLinhasEixosTema e rótulos\n\n\n\ndados_gapminder |> \n  filter(pais == \"Brasil\") |> \n  ggplot() +\n  aes(x = ano, y = pib_per_capita) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\n\ndados_gapminder |> \n  filter(pais == \"Brasil\") |> \n  ggplot() +\n  aes(x = ano, y = pib_per_capita) +\n  geom_line() +\n  scale_x_continuous(breaks = seq(1952, 2007, 5)) +\n  scale_y_continuous(labels = scales::dollar_format(prefix = \"R$ \",\n                                             decimal.mark = \",\",\n                                             big.mark = \".\"))\n\n\n\n\n\n\n\n\n\n\n\ndados_gapminder |> \n  filter(pais == \"Brasil\") |> \n  ggplot() +\n  aes(x = ano, y = pib_per_capita) +\n  geom_line(linewidth = 2, color = \"darkslateblue\") +\n  scale_x_continuous(breaks = seq(1952, 2007, 5)) +\n  scale_y_continuous(labels = scales::dollar_format(prefix = \"R$ \",\n                                             decimal.mark = \",\",\n                                             big.mark = \".\")) +\n  labs(x = \"Ano\", y = \"PIB per capita\",\n       title = \"PIB per capita do Brasil ao passar dos anos\",\n       subtitle = \"De 1952 a 2007\",\n       caption = \"Fonte: Gapminder\") +\n  theme_minimal(base_size = 16, base_family = \"Charter\")"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#como-os-filmes-da-pixar-foram-avaliados",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#como-os-filmes-da-pixar-foram-avaliados",
+    "title": "Visualização de dados",
+    "section": "Como os filmes da Pixar foram avaliados?",
+    "text": "Como os filmes da Pixar foram avaliados?\n\n\nPara o próximo gráfico, vamos tentar responder a seguinte pergunta:\n“Segundo a CinemaScore, qual a nota mais recebida pelos filmes da Pixar?”\nPara isso, vamos usar outra base de dados do pacote dados, chamada pixar_avalicao_publico."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#pixar_avalicao_publico",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#pixar_avalicao_publico",
+    "title": "Visualização de dados",
+    "section": "pixar_avalicao_publico",
+    "text": "pixar_avalicao_publico\n\npixar_avalicao_publico\n\n# A tibble: 24 × 5\n   filme                  nota_rotten_tomatoes nota_metacritic nota_cinema_score\n   <chr>                                 <dbl>           <dbl> <chr>            \n 1 Toy Story - Um Mundo …                  100              95 A                \n 2 Vida de Inseto                           92              77 A                \n 3 Toy Story 2                             100              88 A+               \n 4 Monstros S. A.                           96              79 A+               \n 5 Procurando Nemo                          99              90 A+               \n 6 Os Incríveis                             97              90 A+               \n 7 Carros                                   74              73 A                \n 8 Ratatouille                              96              96 A                \n 9 WALL-E                                   95              95 A                \n10 Up - Altas Aventuras                     98              88 A+               \n# ℹ 14 more rows\n# ℹ 1 more variable: nota_critics_choice <dbl>\n\n\n\n\npixar_avalicao_publico |> \n  count(nota_cinema_score) # A função count() serve para contar os valores únicos de uma variável\n\n# A tibble: 4 × 2\n  nota_cinema_score     n\n  <chr>             <int>\n1 A                    13\n2 A+                    7\n3 A-                    2\n4 <NA>                  2"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-barras",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-barras",
+    "title": "Visualização de dados",
+    "section": "Gráfico de barras",
+    "text": "Gráfico de barras\nO gráfico de barras é muito usado para apresentar a frequência de uma determinada categoria de uma variável.\n\nNo exemplo a seguir, acrescentamos o ggplot2 ao código do slide anterior para criar um gráfico de barras com a frequência de cada nota (A-, A, A+) dos filmes da Pixar segundo o CinemaScore."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#exemplo-de-gráfico-de-barras",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#exemplo-de-gráfico-de-barras",
+    "title": "Visualização de dados",
+    "section": "Exemplo de gráfico de barras",
+    "text": "Exemplo de gráfico de barras\n\npixar_avalicao_publico |> \n  count(nota_cinema_score) |> \n  ggplot() +\n  aes(x = nota_cinema_score, y = n) |> \n  geom_col()"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-barras-após-ajustes",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#gráfico-de-barras-após-ajustes",
+    "title": "Visualização de dados",
+    "section": "Gráfico de barras após ajustes",
+    "text": "Gráfico de barras após ajustes\n\n\n\npixar_avalicao_publico |>\n  rename(nota = nota_cinema_score) |>\n  count(nota) |>\n  mutate(\n    nota = forcats::fct_na_value_to_level(nota,\n                                          \"Sem escore\"),\n    nota = factor(nota,\n                  levels = c(\"A-\", \"A\",\n                             \"A+\",\n                             \"Sem escore\")),\n    cor = dplyr::case_when(nota == \"A\" ~ \"Colorido\",\n                           .default = \"Cinza\")\n  ) |>\n  ggplot() +\n  aes(x = nota, y = n, fill = cor) |>\n  geom_col(width = 0.5, show.legend = FALSE) +\n  scale_fill_manual(values = c(\"gray25\", \"darkorange\")) +\n  labs(title = \"A maioria dos filmes receberam nota A.\",\n       x = \"Nota segundo CinemaScore\",\n       y = \"Número de filmes\") +\n  theme_classic(base_size = 18, base_family = \"Charter\")"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#histograma",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#histograma",
+    "title": "Visualização de dados",
+    "section": "Histograma",
+    "text": "Histograma\nHistogramas são úteis para avaliarmos a distribuição de uma variável numérica.\n\nPara criar histogramas, usamos o geom_histogram(). Para isso, precisamos apenas do atributo \\(x\\) (o eixo \\(y\\) é construído de forma automática).\n\n\nNa sequência, podemos observar um exemplo de histograma das notas dos filmes da Pixar no Rotten Tomatoes.\n\n\n\npixar_avalicao_publico |> \n  ggplot() +\n  aes(x = nota_rotten_tomatoes) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#exemplo-de-histograma-mais-bonito",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#exemplo-de-histograma-mais-bonito",
+    "title": "Visualização de dados",
+    "section": "Exemplo de histograma “mais bonito”",
+    "text": "Exemplo de histograma “mais bonito”\n\npixar_avalicao_publico |> \n  ggplot() +\n  aes(x = nota_rotten_tomatoes) +\n  geom_histogram(fill = \"cyan4\") +\n  labs(x = \"Nota segundo críticos do Rotten Tomatoes\",\n       y = \"Contagem\",\n       title = \"Como se distribuem as notas segundo os críticos do Rotten Tomatoes?\",\n       subtitle = \"Dados de 24 filmes da Pixar\",\n       caption = \"Fonte: Wikipedia\") +\n  theme_light(base_size = 16, base_family = \"Charter\")"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#box-plot",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#box-plot",
+    "title": "Visualização de dados",
+    "section": "Box plot",
+    "text": "Box plot\nOs box plots são úteis para estudar a distribuição de uma variável, especialmente ao comparar várias distribuições.\n\nPara construir um box plot, usamos o geom_boxplot(). Para tal, usamos atributos \\(x\\) e \\(y\\), mapeando uma variável categórica para o atributo \\(x\\).\n\n\n\ndados_gapminder |> \n  filter(ano == 1952) |> \n  ggplot() +\n  aes(x = continente, y = expectativa_de_vida) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#box-plot-após-ajustes",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#box-plot-após-ajustes",
+    "title": "Visualização de dados",
+    "section": "Box plot após ajustes",
+    "text": "Box plot após ajustes\n\ndados_gapminder |> \n  filter(ano == 1952) |> \n  ggplot() +\n  aes(x = continente, y = expectativa_de_vida, color = continente) +\n  geom_boxplot(show.legend = FALSE) +\n  theme_light(base_size = 16, base_family = \"Charter\") +\n  labs(x = \"Continente\", y = \"Expectativa de vida (em anos)\",\n       title = \"Como se distribuía a expectativa de vida em cada continente em 1952?\",\n       caption = \"Fonte: Gapminder\") +\n  annotate(\"text\", x = 1, y = 65,\n           label = \"Em 1952,\\na África tinha\\numa expectativa\\nde vida\\nde 38,8 anos.\",\n           size = 4)"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#títulos-labels-e-escalas",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#títulos-labels-e-escalas",
+    "title": "Visualização de dados",
+    "section": "Títulos, labels e escalas",
+    "text": "Títulos, labels e escalas\nPara colocar títulos ou trocar os labels (rótulos) dos atributos, utilizamos a função labs().\n\nPara mudar as escalas (textos e quebras), usamos as funções da família scale_[estética]_[opção]().\n\n\nPara definir qual porção do gráfico deve ser mostrada (limites), podemos usar as funções xlim() e ylim()."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#cores",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#cores",
+    "title": "Visualização de dados",
+    "section": "Cores",
+    "text": "Cores\nPara escolher manualmente as cores que coloriram ou preencheram um plot, use as funções scale_color_manual() ou scale_fill_manual().\n\nPara trocar o nome das legendas geradas por atributos de cor, use as funções scale_color_discrete() ou scale_fill_discrete()."
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#temas",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#temas",
+    "title": "Visualização de dados",
+    "section": "Temas",
+    "text": "Temas\nComo vocês devem ter percebido, o ggplot2 traz consigo alguns temas prontos a partir de funções da família theme_[estilo_do_tema].\n\nVocê também pode criar o seu próprio tema usando a função theme(). Não teremos como ver durante as aulas, pois requer um pouco mais de conhecimento técnico, mas é um processo divertido de aprender!"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#dica-extensões-do-ggplot2",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#dica-extensões-do-ggplot2",
+    "title": "Visualização de dados",
+    "section": "Dica: Extensões do ggplot2",
+    "text": "Dica: Extensões do ggplot2\n\nO ggplot2 é muito potente, mas não possui todos os gráficos possíveis\nPor conta disso, a comunidade desenvolve extensões que vão desde pacotes com novos temas ou cores, geometrias, eixos ou até a possibilidade de criar calendários customizados 😂\nA equipe do Tidyverse mantém uma lista curada de extensões do ggplot2"
+  },
+  {
+    "objectID": "slides/3_visualizacao/slides_visualizacao.html#tarefa-de-casa",
+    "href": "slides/3_visualizacao/slides_visualizacao.html#tarefa-de-casa",
+    "title": "Visualização de dados",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nA partir dos dados pinguins do pacote dados, crie:\n\nUm gráfico de pontos (dispersão)\nUm box plot (variável numérica estratificada por uma variável categórica)\nUm histograma\n\nEscolha um dos seus gráficos para ajustá-lo e deixá-lo visualmente mais agradável!\n\nAjustar rótulos, tamanho da fonte, cores, adicionar título, e o que mais você achar importante\nLembre-se da função labs() e família theme_[estilo_do_tema]()"
   },
   {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#referências",

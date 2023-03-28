@@ -205,10 +205,21 @@ do Star Wars.
 #| fig-align: "center"
 #| out.width: "70%"
 dados_starwars |> # Usar os `dados_starwars`
+  filter(massa < 1000) |> # Manter apenas observações com menos de 1.000kg de massa
   ggplot() + # Iniciar o canvas
   aes(x = massa, y = altura) + # Mapear massa no eixo x e altura no eixo y
   geom_point() # Usar a geometria de pontos para criar um gráfico de dispersão
 ```
+
+## `ggplot2` é extremamente versátil
+
+<center>
+<figure>
+    <a href="https://github.com/brunomontezano/grafico-star-wars">
+    <img src="https://raw.githubusercontent.com/brunomontezano/grafico-star-wars/main/plot_final.png" style="width:100%">
+    </a>
+</figure>
+</center>
 
 ## `dados_gapminder`
 
@@ -301,6 +312,280 @@ dados_gapminder |>
   theme_minimal(base_size = 16, base_family = "Charter")
 ```
 :::
+
+## Como os filmes da Pixar foram avaliados?
+
+::: columns
+::: {.column width="55%"}
+Para o próximo gráfico, vamos tentar responder a seguinte pergunta:
+
+"Segundo a CinemaScore, qual a nota mais recebida pelos filmes da Pixar?"
+
+Para isso, vamos usar outra base de dados do pacote `dados`, chamada
+`pixar_avalicao_publico`.
+:::
+
+::: {.column width="45%"}
+![](../assets/logo_pixar.png)
+:::
+:::
+
+## `pixar_avalicao_publico`
+
+```{r mostrar-avaliacao-pixar}
+pixar_avalicao_publico
+```
+
+. . .
+
+```{r count-avaliacao-cinema-score}
+pixar_avalicao_publico |> 
+  count(nota_cinema_score) # A função count() serve para contar os valores únicos de uma variável
+```
+
+## Gráfico de barras
+
+O gráfico de barras é muito usado para apresentar a frequência de uma
+determinada categoria de uma variável.
+
+. . .
+
+No exemplo a seguir, acrescentamos o `ggplot2` ao código do slide anterior
+para criar um gráfico de barras com a frequência de cada nota (A-, A, A+) dos
+filmes da Pixar segundo o CinemaScore.
+
+## Exemplo de gráfico de barras
+
+```{r grafico-barras-cinema-score}
+#| out-width: 60%
+#| fig-align: "center"
+pixar_avalicao_publico |> 
+  count(nota_cinema_score) |> 
+  ggplot() +
+  aes(x = nota_cinema_score, y = n) |> 
+  geom_col()
+```
+
+## Gráfico de barras após ajustes
+
+::: columns
+::: {.column width="60%"}
+```{r grafico-barras-cinema-score-ajustado}
+#| out-width: 60%
+#| fig-align: "center"
+#| eval: false
+pixar_avalicao_publico |>
+  rename(nota = nota_cinema_score) |>
+  count(nota) |>
+  mutate(
+    nota = forcats::fct_na_value_to_level(nota,
+                                          "Sem escore"),
+    nota = factor(nota,
+                  levels = c("A-", "A",
+                             "A+",
+                             "Sem escore")),
+    cor = dplyr::case_when(nota == "A" ~ "Colorido",
+                           .default = "Cinza")
+  ) |>
+  ggplot() +
+  aes(x = nota, y = n, fill = cor) |>
+  geom_col(width = 0.5, show.legend = FALSE) +
+  scale_fill_manual(values = c("gray25", "darkorange")) +
+  labs(title = "A maioria dos filmes receberam nota A.",
+       x = "Nota segundo CinemaScore",
+       y = "Número de filmes") +
+  theme_classic(base_size = 18, base_family = "Charter")
+```
+:::
+
+::: {.column width="40%"}
+```{r grafico-barras-cinema-score-ajustado-output}
+#| out-width: 100%
+#| fig-align: "center"
+#| echo: false
+pixar_avalicao_publico |> 
+  count(nota_cinema_score) |> 
+  mutate(nota_cinema_score = forcats::fct_na_value_to_level(
+    nota_cinema_score, "Sem escore"),
+    nota_cinema_score = factor(nota_cinema_score,
+                               levels = c("A-", "A",
+                                          "A+",
+                                          "Sem escore")),
+    cor = dplyr::case_when(
+    nota_cinema_score == "A" ~ "Colorido",
+    .default = "Cinza"
+  )) |> 
+  ggplot() +
+  aes(x = nota_cinema_score, y = n, fill = cor) |> 
+  geom_col(width = 0.5, show.legend = FALSE) +
+  scale_fill_manual(values = c("gray25", "darkorange")) +
+  labs(title = "A maioria dos filmes (n = 13) receberam nota A.",
+       x = "Nota segundo CinemaScore",
+       y = "Número de filmes") +
+  theme_classic(base_size = 18, base_family = "Charter")
+```
+:::
+:::
+
+## Histograma
+
+Histogramas são úteis para avaliarmos a distribuição de uma variável numérica.
+
+. . .
+
+Para criar histogramas, usamos o `geom_histogram()`. Para isso, precisamos
+apenas do atributo $x$ (o eixo $y$ é construído de forma automática).
+
+. . .
+
+Na sequência, podemos observar um exemplo de histograma das notas dos filmes
+da Pixar no Rotten Tomatoes.
+
+. . .
+
+```{r histograma-simples-rotten-tomatoes}
+#| fig-align: "center"
+#| out.width: "55%"
+pixar_avalicao_publico |> 
+  ggplot() +
+  aes(x = nota_rotten_tomatoes) +
+  geom_histogram()
+```
+
+
+## Exemplo de histograma "mais bonito"
+
+```{r histograma-rotten-tomatoes}
+#| fig-align: "center"
+#| out.width: "100%"
+pixar_avalicao_publico |> 
+  ggplot() +
+  aes(x = nota_rotten_tomatoes) +
+  geom_histogram(fill = "cyan4") +
+  labs(x = "Nota segundo críticos do Rotten Tomatoes",
+       y = "Contagem",
+       title = "Como se distribuem as notas segundo os críticos do Rotten Tomatoes?",
+       subtitle = "Dados de 24 filmes da Pixar",
+       caption = "Fonte: Wikipedia") +
+  theme_light(base_size = 16, base_family = "Charter")
+```
+
+## Box plot
+
+Os box plots são úteis para estudar a distribuição de uma variável,
+especialmente ao comparar várias distribuições.
+
+. . .
+
+Para construir um box plot, usamos o `geom_boxplot()`. Para tal, usamos
+atributos $x$ e $y$, mapeando uma variável categórica para o atributo $x$.
+
+. . .
+
+```{r boxplot-gapminder}
+#| fig-align: "center"
+#| out.width: "60%"
+dados_gapminder |> 
+  filter(ano == 1952) |> 
+  ggplot() +
+  aes(x = continente, y = expectativa_de_vida) +
+  geom_boxplot()
+```
+
+## Box plot após ajustes
+
+```{r}
+#| fig-align: "center"
+dados_gapminder |> 
+  filter(ano == 1952) |> 
+  ggplot() +
+  aes(x = continente, y = expectativa_de_vida, color = continente) +
+  geom_boxplot(show.legend = FALSE) +
+  theme_light(base_size = 16, base_family = "Charter") +
+  labs(x = "Continente", y = "Expectativa de vida (em anos)",
+       title = "Como se distribuía a expectativa de vida em cada continente em 1952?",
+       caption = "Fonte: Gapminder") +
+  annotate("text", x = 1, y = 65,
+           label = "Em 1952,\na África tinha\numa expectativa\nde vida\nde 38,8 anos.",
+           size = 4)
+```
+
+## Títulos, labels e escalas
+
+Para colocar títulos ou trocar os labels (rótulos) dos atributos, utilizamos
+a função `labs()`.
+
+. . .
+
+Para mudar as escalas (textos e quebras), usamos as funções da família
+`scale_[estética]_[opção]()`.
+
+. . .
+
+Para definir qual porção do gráfico deve ser mostrada (limites), podemos usar
+as funções `xlim()` e `ylim()`.
+
+## Cores
+
+Para escolher manualmente as cores que coloriram ou preencheram um plot,
+use as funções `scale_color_manual()` ou `scale_fill_manual()`.
+
+. . . 
+
+Para trocar o nome das legendas geradas por atributos de cor,
+use as funções `scale_color_discrete()` ou `scale_fill_discrete()`.
+
+## Temas
+
+Como vocês devem ter percebido, o `ggplot2` traz consigo alguns temas prontos
+a partir de funções da família `theme_[estilo_do_tema]`.
+
+. . .
+
+Você também pode criar o seu próprio tema usando a função `theme()`.
+Não teremos
+como ver durante as aulas, pois requer um pouco mais de conhecimento
+técnico, mas é um processo divertido de aprender!
+
+## Dica: Extensões do `ggplot2`
+
+* O `ggplot2` é muito potente, mas não possui todos os gráficos possíveis
+
+* Por conta disso, a comunidade desenvolve extensões que vão desde pacotes
+com novos temas ou cores, geometrias, eixos ou até a
+[possibilidade de criar calendários customizados](https://r-coder.com/calendar-plot-r/) 😂
+
+* A equipe do Tidyverse mantém uma [lista curada de extensões do `ggplot2`](https://exts.ggplot2.tidyverse.org/gallery/)
+
+. . .
+
+```{r calendario-mes-abril}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "60%"
+calendR::calendR(year = 2023, month = 04,
+        special.days = c(10, 17, 24),
+        special.col = "#bfe2f2",
+        low.col = "white",
+        title = "Aulas de R no mês de abril de 2023",
+        subtitle = "Exclusivas para o grupo de pesquisa Alliance",
+        weeknames = c("Segunda", "Terça",
+                      "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"),
+        lunar = FALSE)
+```
+
+## Tarefa de casa
+
+* A partir dos dados `pinguins` do pacote `dados`, crie:
+  - Um gráfico de pontos (dispersão)
+  - Um box plot (variável numérica estratificada por uma variável categórica)
+  - Um histograma
+  
+* Escolha um dos seus gráficos para ajustá-lo e deixá-lo visualmente mais
+agradável!
+  - Ajustar rótulos, tamanho da fonte, cores, adicionar título, e o que
+  mais você achar importante
+  - Lembre-se da função `labs()` e família `theme_[estilo_do_tema]()`
 
 ## Referências
 

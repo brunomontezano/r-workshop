@@ -614,9 +614,10 @@ Bruno Montezano
 <div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>dados_starwars <span class="sc">|&gt;</span> <span class="co"># Usar os `dados_starwars`</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="co"># Iniciar o canvas</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura) <span class="sc">+</span> <span class="co"># Mapear massa no eixo x e altura no eixo y</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_point</span>() <span class="co"># Usar a geometria de pontos para criar um gráfico de dispersão</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">filter</span>(massa <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">|&gt;</span> <span class="co"># Manter apenas observações com menos de 1.000kg de massa</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="co"># Iniciar o canvas</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura) <span class="sc">+</span> <span class="co"># Mapear massa no eixo x e altura no eixo y</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">geom_point</span>() <span class="co"># Usar a geometria de pontos para criar um gráfico de dispersão</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -626,6 +627,14 @@ Bruno Montezano
 </div>
 </div>
 </div>
+</section>
+<section id="ggplot2-é-extremamente-versátil" class="slide level2">
+<h2><code>ggplot2</code> é extremamente versátil</h2>
+<center>
+<figure>
+<a href="https://github.com/brunomontezano/grafico-star-wars"> <img src="https://raw.githubusercontent.com/brunomontezano/grafico-star-wars/main/plot_final.png" style="width:100%"> </a>
+</figure>
+</center>
 </section>
 <section id="dados_gapminder" class="slide level2">
 <h2><code>dados_gapminder</code></h2>
@@ -739,6 +748,255 @@ Bruno Montezano
 </div>
 </div>
 </div>
+</section>
+<section id="como-os-filmes-da-pixar-foram-avaliados" class="slide level2">
+<h2>Como os filmes da Pixar foram avaliados?</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Para o próximo gráfico, vamos tentar responder a seguinte pergunta:</p>
+<p>“Segundo a CinemaScore, qual a nota mais recebida pelos filmes da Pixar?”</p>
+<p>Para isso, vamos usar outra base de dados do pacote <code>dados</code>, chamada <code>pixar_avalicao_publico</code>.</p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="../assets/logo_pixar.png"></p>
+</div>
+</div>
+</section>
+<section id="pixar_avalicao_publico" class="slide level2">
+<h2><code>pixar_avalicao_publico</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>pixar_avalicao_publico</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 24 × 5
+   filme                  nota_rotten_tomatoes nota_metacritic nota_cinema_score
+   &lt;chr&gt;                                 &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;            
+ 1 Toy Story - Um Mundo …                  100              95 A                
+ 2 Vida de Inseto                           92              77 A                
+ 3 Toy Story 2                             100              88 A+               
+ 4 Monstros S. A.                           96              79 A+               
+ 5 Procurando Nemo                          99              90 A+               
+ 6 Os Incríveis                             97              90 A+               
+ 7 Carros                                   74              73 A                
+ 8 Ratatouille                              96              96 A                
+ 9 WALL-E                                   95              95 A                
+10 Up - Altas Aventuras                     98              88 A+               
+# ℹ 14 more rows
+# ℹ 1 more variable: nota_critics_choice &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">count</span>(nota_cinema_score) <span class="co"># A função count() serve para contar os valores únicos de uma variável</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  nota_cinema_score     n
+  &lt;chr&gt;             &lt;int&gt;
+1 A                    13
+2 A+                    7
+3 A-                    2
+4 &lt;NA&gt;                  2</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfico-de-barras" class="slide level2">
+<h2>Gráfico de barras</h2>
+<p>O gráfico de barras é muito usado para apresentar a frequência de uma determinada categoria de uma variável.</p>
+<div class="fragment">
+<p>No exemplo a seguir, acrescentamos o <code>ggplot2</code> ao código do slide anterior para criar um gráfico de barras com a frequência de cada nota (A-, A, A+) dos filmes da Pixar segundo o CinemaScore.</p>
+</div>
+</section>
+<section id="exemplo-de-gráfico-de-barras" class="slide level2">
+<h2>Exemplo de gráfico de barras</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">count</span>(nota_cinema_score) <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota_cinema_score, <span class="at">y =</span> n) <span class="sc">|&gt;</span> </span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_visualizacao_files/figure-revealjs/grafico-barras-cinema-score-1.png" style="width:60.0%" class="r-stretch quarto-figure-center"></section>
+<section id="gráfico-de-barras-após-ajustes" class="slide level2">
+<h2>Gráfico de barras após ajustes</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">rename</span>(<span class="at">nota =</span> nota_cinema_score) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">count</span>(nota) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-5"><a href="#cb19-5"></a>    <span class="at">nota =</span> forcats<span class="sc">::</span><span class="fu">fct_na_value_to_level</span>(nota,</span>
+<span id="cb19-6"><a href="#cb19-6"></a>                                          <span class="st">"Sem escore"</span>),</span>
+<span id="cb19-7"><a href="#cb19-7"></a>    <span class="at">nota =</span> <span class="fu">factor</span>(nota,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A-"</span>, <span class="st">"A"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9"></a>                             <span class="st">"A+"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10"></a>                             <span class="st">"Sem escore"</span>)),</span>
+<span id="cb19-11"><a href="#cb19-11"></a>    <span class="at">cor =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(nota <span class="sc">==</span> <span class="st">"A"</span> <span class="sc">~</span> <span class="st">"Colorido"</span>,</span>
+<span id="cb19-12"><a href="#cb19-12"></a>                           <span class="at">.default =</span> <span class="st">"Cinza"</span>)</span>
+<span id="cb19-13"><a href="#cb19-13"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb19-14"><a href="#cb19-14"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota, <span class="at">y =</span> n, <span class="at">fill =</span> cor) <span class="sc">|&gt;</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb19-17"><a href="#cb19-17"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray25"</span>, <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"A maioria dos filmes receberam nota A."</span>,</span>
+<span id="cb19-19"><a href="#cb19-19"></a>       <span class="at">x =</span> <span class="st">"Nota segundo CinemaScore"</span>,</span>
+<span id="cb19-20"><a href="#cb19-20"></a>       <span class="at">y =</span> <span class="st">"Número de filmes"</span>) <span class="sc">+</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/grafico-barras-cinema-score-ajustado-output-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="histograma" class="slide level2">
+<h2>Histograma</h2>
+<p>Histogramas são úteis para avaliarmos a distribuição de uma variável numérica.</p>
+<div class="fragment">
+<p>Para criar histogramas, usamos o <code>geom_histogram()</code>. Para isso, precisamos apenas do atributo <span class="math inline">\(x\)</span> (o eixo <span class="math inline">\(y\)</span> é construído de forma automática).</p>
+</div>
+<div class="fragment">
+<p>Na sequência, podemos observar um exemplo de histograma das notas dos filmes da Pixar no Rotten Tomatoes.</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota_rotten_tomatoes) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/histograma-simples-rotten-tomatoes-1.png" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exemplo-de-histograma-mais-bonito" class="slide level2">
+<h2>Exemplo de histograma “mais bonito”</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota_rotten_tomatoes) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Nota segundo críticos do Rotten Tomatoes"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6"></a>       <span class="at">y =</span> <span class="st">"Contagem"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7"></a>       <span class="at">title =</span> <span class="st">"Como se distribuem as notas segundo os críticos do Rotten Tomatoes?"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8"></a>       <span class="at">subtitle =</span> <span class="st">"Dados de 24 filmes da Pixar"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Wikipedia"</span>) <span class="sc">+</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_visualizacao_files/figure-revealjs/histograma-rotten-tomatoes-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="box-plot" class="slide level2">
+<h2>Box plot</h2>
+<p>Os box plots são úteis para estudar a distribuição de uma variável, especialmente ao comparar várias distribuições.</p>
+<div class="fragment">
+<p>Para construir um box plot, usamos o <code>geom_boxplot()</code>. Para tal, usamos atributos <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, mapeando uma variável categórica para o atributo <span class="math inline">\(x\)</span>.</p>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continente, <span class="at">y =</span> expectativa_de_vida) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/boxplot-gapminder-1.png" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="box-plot-após-ajustes" class="slide level2">
+<h2>Box plot após ajustes</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continente, <span class="at">y =</span> expectativa_de_vida, <span class="at">color =</span> continente) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="sc">+</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Continente"</span>, <span class="at">y =</span> <span class="st">"Expectativa de vida (em anos)"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8"></a>       <span class="at">title =</span> <span class="st">"Como se distribuía a expectativa de vida em cada continente em 1952?"</span>,</span>
+<span id="cb23-9"><a href="#cb23-9"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Gapminder"</span>) <span class="sc">+</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">65</span>,</span>
+<span id="cb23-11"><a href="#cb23-11"></a>           <span class="at">label =</span> <span class="st">"Em 1952,</span><span class="sc">\n</span><span class="st">a África tinha</span><span class="sc">\n</span><span class="st">uma expectativa</span><span class="sc">\n</span><span class="st">de vida</span><span class="sc">\n</span><span class="st">de 38,8 anos."</span>,</span>
+<span id="cb23-12"><a href="#cb23-12"></a>           <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_visualizacao_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="títulos-labels-e-escalas" class="slide level2">
+<h2>Títulos, labels e escalas</h2>
+<p>Para colocar títulos ou trocar os labels (rótulos) dos atributos, utilizamos a função <code>labs()</code>.</p>
+<div class="fragment">
+<p>Para mudar as escalas (textos e quebras), usamos as funções da família <code>scale_[estética]_[opção]()</code>.</p>
+</div>
+<div class="fragment">
+<p>Para definir qual porção do gráfico deve ser mostrada (limites), podemos usar as funções <code>xlim()</code> e <code>ylim()</code>.</p>
+</div>
+</section>
+<section id="cores" class="slide level2">
+<h2>Cores</h2>
+<p>Para escolher manualmente as cores que coloriram ou preencheram um plot, use as funções <code>scale_color_manual()</code> ou <code>scale_fill_manual()</code>.</p>
+<div class="fragment">
+<p>Para trocar o nome das legendas geradas por atributos de cor, use as funções <code>scale_color_discrete()</code> ou <code>scale_fill_discrete()</code>.</p>
+</div>
+</section>
+<section id="temas" class="slide level2">
+<h2>Temas</h2>
+<p>Como vocês devem ter percebido, o <code>ggplot2</code> traz consigo alguns temas prontos a partir de funções da família <code>theme_[estilo_do_tema]</code>.</p>
+<div class="fragment">
+<p>Você também pode criar o seu próprio tema usando a função <code>theme()</code>. Não teremos como ver durante as aulas, pois requer um pouco mais de conhecimento técnico, mas é um processo divertido de aprender!</p>
+</div>
+</section>
+<section id="dica-extensões-do-ggplot2" class="slide level2">
+<h2>Dica: Extensões do <code>ggplot2</code></h2>
+<ul>
+<li class="fragment"><p>O <code>ggplot2</code> é muito potente, mas não possui todos os gráficos possíveis</p></li>
+<li class="fragment"><p>Por conta disso, a comunidade desenvolve extensões que vão desde pacotes com novos temas ou cores, geometrias, eixos ou até a <a href="https://r-coder.com/calendar-plot-r/">possibilidade de criar calendários customizados</a> 😂</p></li>
+<li class="fragment"><p>A equipe do Tidyverse mantém uma <a href="https://exts.ggplot2.tidyverse.org/gallery/">lista curada de extensões do <code>ggplot2</code></a></p></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/calendario-mes-abril-1.png" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tarefa-de-casa" class="slide level2">
+<h2>Tarefa de casa</h2>
+<ul>
+<li class="fragment">A partir dos dados <code>pinguins</code> do pacote <code>dados</code>, crie:
+<ul>
+<li class="fragment">Um gráfico de pontos (dispersão)</li>
+<li class="fragment">Um box plot (variável numérica estratificada por uma variável categórica)</li>
+<li class="fragment">Um histograma</li>
+</ul></li>
+<li class="fragment">Escolha um dos seus gráficos para ajustá-lo e deixá-lo visualmente mais agradável!
+<ul>
+<li class="fragment">Ajustar rótulos, tamanho da fonte, cores, adicionar título, e o que mais você achar importante</li>
+<li class="fragment">Lembre-se da função <code>labs()</code> e família <code>theme_[estilo_do_tema]()</code></li>
+</ul></li>
+</ul>
 </section>
 <section id="referências" class="slide level2 smaller scrollable">
 <h2>Referências</h2>
