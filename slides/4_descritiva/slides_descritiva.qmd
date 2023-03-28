@@ -24,3 +24,285 @@ format:
 - Testes de normalidade
 - Transformação de dados
 - Tabelas de frequência
+
+## Dados dos `pinguins`
+
+::: columns
+::: {.column width="70%"}
+Hoje nós usaremos os dados dos `pinguins` do pacote `dados`.
+
+Este conjunto de dados contém 14 variáveis de 344 observações de pinguins adultos
+perto da Estação Palmer na Antártida.
+
+Os dados incluem a espécies de pinguins e ilhas do Arquipélago Palmer,
+medidas de cada espécie, sexo do pinguim e ano de documentação.
+:::
+
+::: {.column width="30%"}
+![](../assets/logo_penguins.png)
+:::
+:::
+
+## Olhadinha nos `pinguins`
+
+```{r}
+library(dados)
+library(tidyverse)
+
+glimpse(pinguins)
+```
+
+## Revisão de conceitos matemáticos
+
+![](../assets/meme_revisao_matematica.jpg){fig-align="center" width=45%}
+
+## Variáveis
+
+
+**Variáveis** são símbolos que representam conjuntos de um ou mais **elementos**
+que podem assumir qualquer quantidade de valores.
+
+::: {.nonincremental}
+- Letras como $x$, $y$ e $z$ são comumente usadas para indicar variáveis
+  - Por exemplo: $x = 3$
+:::
+
+. . .
+
+::: {.nonincremental}
+- Letras maiúsculas ($X$) ou letras com um índice ($x_i$) referem-se a variáveis
+com múltiplos valores — ou seja, com dimensões
+  - Por exemplo: $X = x_i = (15, 16, 32)$
+  - Variáveis com uma dimensão (comprimento) são chamadas de **vetor**
+:::
+
+. . .
+
+::: {.nonincremental}
+- Variáveis como $x_i$ são usadas para **indexar** elementos de vetores
+  - $i$ é uma variável que indica a posição indexada
+  - Por exemplo: $x_1 = 15, x_2 = 16, x_3 = 32$
+:::
+
+## Somatório
+
+$$\sum_{i=1}^{n}x_i$$
+
+<center>"Soma de todos os valores de $x$ do primeiro ($i = 1$) até o último ($n$)"</center>
+
+. . .
+
+&nbsp;
+
+Dado $x = [9, 12, 12, 14, 27]$:
+
+$$\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74$$
+
+. . .
+
+```{r soma-x}
+x <- c(9, 12, 12, 14, 27)
+sum(x)
+```
+
+É comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos,
+por exemplo: $\sum{x_i} = \sum_{i=1}^{n}x_i$
+
+## Medidas de tendência central
+
+![](../assets/meme_medidas_tendencia_central.jpg){fig-align="center" width=85%}
+
+## Média
+
+A média (aritmética) é o *valor esperado* de uma variável.
+
+$$\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_{i}$$
+
+. . .
+
+Se você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado
+que você poderia fazer sobre esse valor^[Tecnicamente, a média
+minimiza o *erro quadrático*.].
+
+Dito de outra forma, as diferenças positivas e negativas entre todos os valores e a média 
+equivalem entre si.
+
+. . .
+
+```{r calcular-media-massa-corporal}
+pinguins |> 
+  summarise(media_massa = mean(massa_corporal, na.rm = TRUE),
+            media_comprimento_bico = mean(comprimento_bico, na.rm = TRUE))
+```
+
+## Mediana
+
+O valor para o qual não mais da metade dos
+valores é superior ou inferior^[Tecnicamente, a mediana minimiza o erro absoluto].
+
+. . .
+
+A **mediana** tem essa fórmula esquisita:
+
+$$m(x_i) = \begin{cases} x_{\frac{n+1}{2}},& \text{se } n \text{ ímpar}\\ \frac{1}{2}(x_{\frac{n}{2}} + x_{\frac{n}{2} + 1}), &\text{se } n \text{ par}\end{cases}$$
+
+<center>"Se $x$ tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se $x$ tem um número par de elementos, a mediana é a média dos dois valores do meio".</center>
+
+. . .
+
+```{r calcular-mediana-massa-corporal}
+pinguins |> 
+  summarise(mediana_massa = median(massa_corporal, na.rm = TRUE),
+            mediana_comprimento_bico = median(comprimento_bico, na.rm = TRUE))
+```
+
+&nbsp;
+
+## Moda
+
+A **moda** é o valor mais **frequente** na variável.
+
+. . .
+
+Existem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda
+ser a medida de tendência central mais intuitiva.
+
+. . .
+
+Vocês podem usar `table()` para ver a frequência de valores:
+
+```{r funcao-table-especie}
+table(pinguins$especie) # Criar tabela de frequência com a variável `especie`
+```
+
+. . .
+
+E vocês podem achar a moda diretamente:
+
+```{r achar-moda-especie}
+table(pinguins$especie)[table(pinguins$especie) == max(table(pinguins$especie))]
+```
+
+O código acima se traduz como: "Crie um subconjunto da tabela para quando a contagem for igual ao maior valor."
+
+## Valores extremos
+
+A média é sensível a valores extremos:
+
+```{r outliers}
+z <- c(2, 5, 3, 5, 105)
+mean(z)
+```
+
+. . .
+
+A mediana não é:
+
+```{r mediana-outlier}
+median(z)
+```
+
+. . .
+
+Isso significa que a mediana pode ser uma "média" mais útil quando os dados
+têm valores extremos.
+
+
+Isto é comum com variáveis como renda e números de episódios auto-relatados.
+
+## Medidas de dispersão
+
+![](../assets/meme_variancia.jpg){fig-align="center" width=65%}
+
+## Variância
+
+A variância mede como os dados estão dispersos em torno da média.
+Normalmente usamos a variância *amostral*:
+
+$$
+s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
+$$
+
+. . .
+
+```{r variancia-massa-corporal}
+pinguins |> 
+  filter(!is.na(massa_corporal)) |> 
+  summarise(variancia_na_mao_massa = sum(
+    (massa_corporal - mean(massa_corporal))^2 /
+      (length(massa_corporal) - 1)),
+    variancia_massa = var(massa_corporal)
+    )
+```
+
+. . .
+
+Se todos os valores são iguais, a variância é *zero*.
+
+## Desvio padrão
+
+O desvio padrão ($s$ ou $sd$, ou $dp$ em português) é simplesmente a raíz quadrada
+da variância:
+
+$$s = sd = dp = \sqrt{s^2}$$
+
+. . .
+
+Você pode interpretar como a distância "típica" dos valores em relação à média.
+
+. . .
+
+```{r desvio-padrao-massa-corporal}
+pinguins |> 
+  filter(!is.na(massa_corporal)) |> 
+  summarise(desvio_padrao_na_mao_massa = sqrt(var(massa_corporal)),
+    desvio_padrao_massa = sd(massa_corporal)
+    )
+```
+
+. . .
+
+O desvio padrão se apresenta na mesma unidade de medida da variável.
+
+## Amplitude
+
+A amplitude ($R$) é a medida de dispersão mais fácil de calcular. Nós subtraímos
+o menor valor ($L$) do maior valor ($H$) da variável.
+
+$$R = H - L$$
+
+. . .
+
+```{r amplitude-massa}
+pinguins |>
+  filter(!is.na(massa_corporal)) |>
+  summarise(
+    massa_max = max(massa_corporal),
+    massa_min = min(massa_corporal),
+    massa_amplitude = max(massa_corporal) - min(massa_corporal)
+  )
+```
+
+## Intervalo interquartil
+
+O intervalo interquartil representa a diferença entre o primeiro quartil (o 25º
+percentil) e o terceiro quartil (o 75º percentil) de um conjunto de dados.
+
+$$IQR = Q_3 - Q_1$$
+
+. . .
+
+Em termos simples, o quão distantes estão os 50% valores do meio da variável.
+
+. . .
+
+```{r intervalo-interquartil-massa}
+pinguins |>
+  filter(!is.na(massa_corporal)) |>
+  summarise(
+    intervalo_interquartil_massa = IQR(massa_corporal),
+    primeiro_quartil = quantile(massa_corporal)["25%"],
+    terceiro_quartil = quantile(massa_corporal)["75%"]
+  )
+```
+

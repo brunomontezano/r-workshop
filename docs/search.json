@@ -560,6 +560,111 @@
     "text": "Conteúdo de hoje\n\nMedidas de tendência central\nMedidas de dispersão\nMedidas de assimetria e curtose\nTestes de normalidade\nTransformação de dados\nTabelas de frequência"
   },
   {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#dados-dos-pinguins",
+    "href": "slides/4_descritiva/slides_descritiva.html#dados-dos-pinguins",
+    "title": "Análise descritiva",
+    "section": "Dados dos pinguins",
+    "text": "Dados dos pinguins\n\n\nHoje nós usaremos os dados dos pinguins do pacote dados.\nEste conjunto de dados contém 14 variáveis de 344 observações de pinguins adultos perto da Estação Palmer na Antártida.\nOs dados incluem a espécies de pinguins e ilhas do Arquipélago Palmer, medidas de cada espécie, sexo do pinguim e ano de documentação."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#olhadinha-nos-pinguins",
+    "href": "slides/4_descritiva/slides_descritiva.html#olhadinha-nos-pinguins",
+    "title": "Análise descritiva",
+    "section": "Olhadinha nos pinguins",
+    "text": "Olhadinha nos pinguins\n\nlibrary(dados)\nlibrary(tidyverse)\n\nglimpse(pinguins)\n\nRows: 344\nColumns: 8\n$ especie               <fct> Pinguim-de-adélia, Pinguim-de-adélia, Pinguim-de…\n$ ilha                  <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torg…\n$ comprimento_bico      <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34…\n$ profundidade_bico     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18…\n$ comprimento_nadadeira <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190,…\n$ massa_corporal        <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 34…\n$ sexo                  <fct> macho, fêmea, fêmea, NA, fêmea, macho, fêmea, ma…\n$ ano                   <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, …"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#revisão-de-conceitos-matemáticos",
+    "href": "slides/4_descritiva/slides_descritiva.html#revisão-de-conceitos-matemáticos",
+    "title": "Análise descritiva",
+    "section": "Revisão de conceitos matemáticos",
+    "text": "Revisão de conceitos matemáticos"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#variáveis",
+    "href": "slides/4_descritiva/slides_descritiva.html#variáveis",
+    "title": "Análise descritiva",
+    "section": "Variáveis",
+    "text": "Variáveis\nVariáveis são símbolos que representam conjuntos de um ou mais elementos que podem assumir qualquer quantidade de valores.\n\n\nLetras como \\(x\\), \\(y\\) e \\(z\\) são comumente usadas para indicar variáveis\n\nPor exemplo: \\(x = 3\\)\n\n\n\n\n\n\nLetras maiúsculas (\\(X\\)) ou letras com um índice (\\(x_i\\)) referem-se a variáveis com múltiplos valores — ou seja, com dimensões\n\nPor exemplo: \\(X = x_i = (15, 16, 32)\\)\nVariáveis com uma dimensão (comprimento) são chamadas de vetor\n\n\n\n\n\n\n\nVariáveis como \\(x_i\\) são usadas para indexar elementos de vetores\n\n\\(i\\) é uma variável que indica a posição indexada\nPor exemplo: \\(x_1 = 15, x_2 = 16, x_3 = 32\\)"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#somatório",
+    "href": "slides/4_descritiva/slides_descritiva.html#somatório",
+    "title": "Análise descritiva",
+    "section": "Somatório",
+    "text": "Somatório\n\\[\\sum_{i=1}^{n}x_i\\]\n\n“Soma de todos os valores de \\(x\\) do primeiro (\\(i = 1\\)) até o último (\\(n\\))”\n\n\n \nDado \\(x = [9, 12, 12, 14, 27]\\):\n\\[\\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74\\]\n\n\n\nx <- c(9, 12, 12, 14, 27)\nsum(x)\n\n[1] 74\n\n\nÉ comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos, por exemplo: \\(\\sum{x_i} = \\sum_{i=1}^{n}x_i\\)"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#medidas-de-tendência-central",
+    "href": "slides/4_descritiva/slides_descritiva.html#medidas-de-tendência-central",
+    "title": "Análise descritiva",
+    "section": "Medidas de tendência central",
+    "text": "Medidas de tendência central"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#média",
+    "href": "slides/4_descritiva/slides_descritiva.html#média",
+    "title": "Análise descritiva",
+    "section": "Média",
+    "text": "Média\nA média (aritmética) é o valor esperado de uma variável.\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\n\nSe você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor1.\nDito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.\n\n\n\npinguins |> \n  summarise(media_massa = mean(massa_corporal, na.rm = TRUE),\n            media_comprimento_bico = mean(comprimento_bico, na.rm = TRUE))\n\n# A tibble: 1 × 2\n  media_massa media_comprimento_bico\n        <dbl>                  <dbl>\n1       4202.                   43.9\n\n\n\nTecnicamente, a média minimiza o erro quadrático."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#mediana",
+    "href": "slides/4_descritiva/slides_descritiva.html#mediana",
+    "title": "Análise descritiva",
+    "section": "Mediana",
+    "text": "Mediana\nO valor para o qual não mais da metade dos valores é superior ou inferior1.\n\nA mediana tem essa fórmula esquisita:\n\\[m(x_i) = \\begin{cases} x_{\\frac{n+1}{2}},& \\text{se } n \\text{ ímpar}\\\\ \\frac{1}{2}(x_{\\frac{n}{2}} + x_{\\frac{n}{2} + 1}), &\\text{se } n \\text{ par}\\end{cases}\\]\n\n“Se \\(x\\) tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se \\(x\\) tem um número par de elementos, a mediana é a média dos dois valores do meio”.\n\n\n\n\npinguins |> \n  summarise(mediana_massa = median(massa_corporal, na.rm = TRUE),\n            mediana_comprimento_bico = median(comprimento_bico, na.rm = TRUE))\n\n# A tibble: 1 × 2\n  mediana_massa mediana_comprimento_bico\n          <dbl>                    <dbl>\n1          4050                     44.4\n\n\n \n\nTecnicamente, a mediana minimiza o erro absoluto"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#moda",
+    "href": "slides/4_descritiva/slides_descritiva.html#moda",
+    "title": "Análise descritiva",
+    "section": "Moda",
+    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\ntable(pinguins$especie) # Criar tabela de frequência com a variável `especie`\n\n\n  Pinguim-de-adélia Pinguim-de-barbicha      Pinguim-gentoo \n                152                  68                 124 \n\n\n\n\nE vocês podem achar a moda diretamente:\n\ntable(pinguins$especie)[table(pinguins$especie) == max(table(pinguins$especie))]\n\nPinguim-de-adélia \n              152 \n\n\nO código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#valores-extremos",
+    "href": "slides/4_descritiva/slides_descritiva.html#valores-extremos",
+    "title": "Análise descritiva",
+    "section": "Valores extremos",
+    "text": "Valores extremos\nA média é sensível a valores extremos:\n\nz <- c(2, 5, 3, 5, 105)\nmean(z)\n\n[1] 24\n\n\n\nA mediana não é:\n\nmedian(z)\n\n[1] 5\n\n\n\n\nIsso significa que a mediana pode ser uma “média” mais útil quando os dados têm valores extremos.\nIsto é comum com variáveis como renda e números de episódios auto-relatados."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#medidas-de-dispersão",
+    "href": "slides/4_descritiva/slides_descritiva.html#medidas-de-dispersão",
+    "title": "Análise descritiva",
+    "section": "Medidas de dispersão",
+    "text": "Medidas de dispersão"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#variância",
+    "href": "slides/4_descritiva/slides_descritiva.html#variância",
+    "title": "Análise descritiva",
+    "section": "Variância",
+    "text": "Variância\nA variância mede como os dados estão dispersos em torno da média. Normalmente usamos a variância amostral:\n\\[\ns^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}\n\\]\n\n\npinguins |> \n  filter(!is.na(massa_corporal)) |> \n  summarise(variancia_na_mao_massa = sum(\n    (massa_corporal - mean(massa_corporal))^2 /\n      (length(massa_corporal) - 1)),\n    variancia_massa = var(massa_corporal)\n    )\n\n# A tibble: 1 × 2\n  variancia_na_mao_massa variancia_massa\n                   <dbl>           <dbl>\n1                643131.         643131.\n\n\n\n\nSe todos os valores são iguais, a variância é zero."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#desvio-padrão",
+    "href": "slides/4_descritiva/slides_descritiva.html#desvio-padrão",
+    "title": "Análise descritiva",
+    "section": "Desvio padrão",
+    "text": "Desvio padrão\nO desvio padrão (\\(s\\) ou \\(sd\\), ou \\(dp\\) em português) é simplesmente a raíz quadrada da variância:\n\\[s = sd = dp = \\sqrt{s^2}\\]\n\nVocê pode interpretar como a distância “típica” dos valores em relação à média.\n\n\n\npinguins |> \n  filter(!is.na(massa_corporal)) |> \n  summarise(desvio_padrao_na_mao_massa = sqrt(var(massa_corporal)),\n    desvio_padrao_massa = sd(massa_corporal)\n    )\n\n# A tibble: 1 × 2\n  desvio_padrao_na_mao_massa desvio_padrao_massa\n                       <dbl>               <dbl>\n1                       802.                802.\n\n\n\n\nO desvio padrão se apresenta na mesma unidade de medida da variável."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#amplitude",
+    "href": "slides/4_descritiva/slides_descritiva.html#amplitude",
+    "title": "Análise descritiva",
+    "section": "Amplitude",
+    "text": "Amplitude\nA amplitude (\\(R\\)) é a medida de dispersão mais fácil de calcular. Nós subtraímos o menor valor (\\(L\\)) do maior valor (\\(H\\)) da variável.\n\\[R = H - L\\]\n\n\npinguins |>\n  filter(!is.na(massa_corporal)) |>\n  summarise(\n    massa_max = max(massa_corporal),\n    massa_min = min(massa_corporal),\n    massa_amplitude = max(massa_corporal) - min(massa_corporal)\n  )\n\n# A tibble: 1 × 3\n  massa_max massa_min massa_amplitude\n      <int>     <int>           <int>\n1      6300      2700            3600"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#intervalo-interquartil",
+    "href": "slides/4_descritiva/slides_descritiva.html#intervalo-interquartil",
+    "title": "Análise descritiva",
+    "section": "Intervalo interquartil",
+    "text": "Intervalo interquartil\nO intervalo interquartil representa a diferença entre o primeiro quartil (o 25º percentil) e o terceiro quartil (o 75º percentil) de um conjunto de dados.\n\\[IQR = Q_3 - Q_1\\]\n\nEm termos simples, o quão distantes estão os 50% valores do meio da variável.\n\n\n\npinguins |>\n  filter(!is.na(massa_corporal)) |>\n  summarise(\n    intervalo_interquartil_massa = IQR(massa_corporal),\n    primeiro_quartil = quantile(massa_corporal)[\"25%\"],\n    terceiro_quartil = quantile(massa_corporal)[\"75%\"]\n  )\n\n# A tibble: 1 × 3\n  intervalo_interquartil_massa primeiro_quartil terceiro_quartil\n                         <dbl>            <dbl>            <dbl>\n1                         1200             3550             4750"
+  },
+  {
     "objectID": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "title": "Inferência estatística",
