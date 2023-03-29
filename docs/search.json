@@ -728,6 +728,27 @@
     "text": "Transformando a massa_corporal\n\n\n\npinguins |>\n  ggplot(aes(x = massa_corporal)) +\n  geom_histogram(fill = \"coral2\") +\n  labs(x = \"Massa corporal (em gramas)\",\n       y = \"Frequência\") +\n  theme_bw(base_size = 16,\n           base_family = \"Charter\")\n\n\n\n\n\n\n\n\n\n\npinguins |>\n  mutate(massa_log = log10(massa_corporal)) |>\n  ggplot(aes(x = massa_log)) +\n  geom_histogram(fill = \"deepskyblue4\") +\n  labs(x = \"Log da massa corporal\",\n       y = \"Frequência\") +\n  theme_bw(base_size = 16,\n           base_family = \"Charter\")"
   },
   {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#tabelas-de-frequência",
+    "href": "slides/4_descritiva/slides_descritiva.html#tabelas-de-frequência",
+    "title": "Análise descritiva",
+    "section": "Tabelas de frequência",
+    "text": "Tabelas de frequência\nO pacote janitor oferece uma função tabyl() para produzir tabulações e tabulações cruzadas, que podem ser modificadas para exibir porcentagens, proporções, etc.\n\n\nlibrary(janitor)\n\npinguins |> \n  tabyl(especie)\n\n             especie   n   percent\n   Pinguim-de-adélia 152 0.4418605\n Pinguim-de-barbicha  68 0.1976744\n      Pinguim-gentoo 124 0.3604651\n\n\n\n\n\npinguins |> \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#funções-de-enfeite-do-janitor",
+    "href": "slides/4_descritiva/slides_descritiva.html#funções-de-enfeite-do-janitor",
+    "title": "Análise descritiva",
+    "section": "Funções de enfeite do janitor",
+    "text": "Funções de enfeite do janitor\n\n\n\n\n\n\n\nFunção\nDesfecho\n\n\n\n\nadorn_totals()\nAdicionar totais.\n\n\nadorn_percentages()\nConverter contagens para proporções.\n\n\nadorn_pct_formatting()\nConverte proporções para porcentagens.\n\n\nadorn_rounding()\nArredondar proporções com digits =.\n\n\nadorn_ns()\nAdicionar contagens a uma tabela de proporções ou porcentagens.\n\n\nadorn_title()\nAdicionar título da linha e coluna."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#exemplos-de-tabela-cruzada",
+    "href": "slides/4_descritiva/slides_descritiva.html#exemplos-de-tabela-cruzada",
+    "title": "Análise descritiva",
+    "section": "Exemplos de tabela cruzada",
+    "text": "Exemplos de tabela cruzada\n\nBásicaTotais e porcentagensCompletaSalvando em Word\n\n\n\npinguins |> \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0\n\n\n\n\n\npinguins |>\n  tabyl(especie, ilha) |>\n  adorn_totals(where = \"row\") |>\n  adorn_percentages(denominator = \"row\") |>\n  adorn_pct_formatting(digits = 1)   \n\n             especie Biscoe  Dream Torgersen\n   Pinguim-de-adélia  28.9%  36.8%     34.2%\n Pinguim-de-barbicha   0.0% 100.0%      0.0%\n      Pinguim-gentoo 100.0%   0.0%      0.0%\n               Total  48.8%  36.0%     15.1%\n\n\n\n\n\npinguins |> \n  tabyl(especie, ilha) |> \n  adorn_totals(where = \"row\") |> \n  adorn_percentages(denominator = \"col\") |> \n  adorn_pct_formatting() |> \n  adorn_ns(position = \"front\") |> \n  adorn_title(\n    row_name = \"Espécie\",\n    col_name = \"Ilha\")\n\n                             Ilha                         \n             Espécie       Biscoe        Dream   Torgersen\n   Pinguim-de-adélia  44  (26.2%)  56  (45.2%) 52 (100.0%)\n Pinguim-de-barbicha   0   (0.0%)  68  (54.8%)  0   (0.0%)\n      Pinguim-gentoo 124  (73.8%)   0   (0.0%)  0   (0.0%)\n               Total 168 (100.0%) 124 (100.0%) 52 (100.0%)\n\n\n\n\n\npinguins |> \n  tabyl(especie, ilha) |> \n  adorn_totals(where = \"row\") |> \n  adorn_percentages(denominator = \"col\") |> \n  adorn_pct_formatting() |> \n  adorn_ns(position = \"front\") |> \n  adorn_title(\n    row_name = \"Espécie\",\n    col_name = \"Ilha\",\n    placement = \"combined\") |> \n  flextable::flextable() |> \n  flextable::save_as_docx(path = \"tabela_especie_ilha.docx\")"
+  },
+  {
     "objectID": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "title": "Inferência estatística",

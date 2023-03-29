@@ -559,3 +559,93 @@ pinguins |>
 ```
 :::
 :::
+
+## Tabelas de frequência
+
+O pacote `janitor` oferece uma função `tabyl()` para produzir tabulações e
+tabulações cruzadas, que podem ser modificadas para exibir porcentagens,
+proporções, etc.
+
+. . .
+
+```{r exemplo-basico-tabyl}
+library(janitor)
+
+pinguins |> 
+  tabyl(especie)
+```
+
+. . .
+
+```{r tabulacao-cruzada-tabyl}
+pinguins |> 
+  tabyl(especie, ilha)
+```
+
+## Funções de enfeite do `janitor`
+
+Função|Desfecho
+-----|-----:
+`adorn_totals()`|Adicionar totais.
+`adorn_percentages()`|Converter contagens para proporções.
+`adorn_pct_formatting()`|Converte proporções para porcentagens.
+`adorn_rounding()`|Arredondar proporções com `digits =`.
+`adorn_ns()`|Adicionar contagens a uma tabela de proporções ou porcentagens.
+`adorn_title()`|Adicionar título da linha e coluna.
+
+## Exemplos de tabela cruzada
+
+::: {.panel-tabset}
+
+## Básica
+
+```{r tabyl-simples}
+pinguins |> 
+  tabyl(especie, ilha)
+```
+
+## Totais e porcentagens
+
+```{r totais-porcentagens}
+pinguins |>
+  tabyl(especie, ilha) |>
+  adorn_totals(where = "row") |>
+  adorn_percentages(denominator = "row") |>
+  adorn_pct_formatting(digits = 1)   
+```
+
+## Completa
+
+```{r tabyl-completa}
+pinguins |> 
+  tabyl(especie, ilha) |> 
+  adorn_totals(where = "row") |> 
+  adorn_percentages(denominator = "col") |> 
+  adorn_pct_formatting() |> 
+  adorn_ns(position = "front") |> 
+  adorn_title(
+    row_name = "Espécie",
+    col_name = "Ilha")
+```
+
+## Salvando em Word
+
+```{r tabyl-em-word}
+#| eval: false
+pinguins |> 
+  tabyl(especie, ilha) |> 
+  adorn_totals(where = "row") |> 
+  adorn_percentages(denominator = "col") |> 
+  adorn_pct_formatting() |> 
+  adorn_ns(position = "front") |> 
+  adorn_title(
+    row_name = "Espécie",
+    col_name = "Ilha",
+    placement = "combined") |> 
+  flextable::flextable() |> 
+  flextable::save_as_docx(path = "tabela_especie_ilha.docx")
+```
+
+![](../assets/tabyl_exportada.png){fig-align="center" width=50%}
+
+:::
