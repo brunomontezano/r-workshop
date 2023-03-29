@@ -1,5 +1,15 @@
 # Introdução ao R para ciências da saúde
 
+**Abril de 2023**
+
+**Bruno Montezano**
+
+Grupo de Pesquisa Alliance
+
+Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento
+
+Universidade Federal do Rio Grande do Sul
+
 Este curso foi criado por mim, Bruno Montezano, inicialmente para contribuir com
 o conhecimento de análise de dados
 dos integrantes do grupo de pesquisa Alliance, coordenado pelo Prof. Dr. Ives
