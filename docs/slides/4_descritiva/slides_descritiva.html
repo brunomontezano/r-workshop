@@ -736,7 +736,7 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 <span id="cb25-6"><a href="#cb25-6"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_clean</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="slides_descritiva_files/figure-revealjs/unnamed-chunk-2-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="slides_descritiva_files/figure-revealjs/histograma-distribuicao-assimetrica-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
 <section id="curtose" class="slide level2">
 <h2>Curtose</h2>
 <p>Curtose é a medida da forma da distribuição em relação à sua média.</p>
@@ -751,12 +751,98 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 </section>
 <section id="visualizando-a-curtose" class="slide level2">
 <h2>Visualizando a curtose</h2>
+
+<img data-src="slides_descritiva_files/figure-revealjs/exemplo-curtose-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="medidas-de-assimetria-e-curtose" class="slide level2">
+<h2>Medidas de assimetria e curtose</h2>
+<p>Tanto a assimetria quanto a curtose podem ser calculados com funções do pacote <code>moments</code>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">library</span>(moments)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">skewness</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.468264</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">kurtosis</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.273757</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_descritiva_files/figure-revealjs/exemplo-curtose-1.png" style="width:100.0%"></p>
+<p><img data-src="slides_descritiva_files/figure-revealjs/histograma-massa-corporal-1.png" style="width:75.0%"></p>
 </figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="distribuição-normal" class="slide level2">
+<h2>Distribuição normal</h2>
+<p>A distribuição normal é uma das distribuições mais importantes em estatística.</p>
+<ul>
+<li class="fragment">Também conhecida como distribuição de Gauss, é frequentemente usada para modelar fenômenos naturais</li>
+<li class="fragment">Muitos testes estatísticos assumem que os dados seguem uma distribuição normal</li>
+<li class="fragment">68% dos dados estão dentro de um desvio padrão da média (roxo), 95% estão dentro de dois desvios padrão (verde) e 99,7% estão dentro de três desvios padrão (laranja)</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_descritiva_files/figure-revealjs/plot-distribuicao-normal-1.png" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="testes-de-normalidade" class="slide level2">
+<h2>Testes de normalidade</h2>
+<p>Em muitos casos, é necessário verificar se uma amostra segue uma distribuição normal antes de aplicar determinados testes estatísticos.</p>
+<ul>
+<li class="fragment">O teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal</li>
+<li class="fragment">A hipótese nula (<span class="math inline">\(H_0\)</span>) do teste é que a amostra segue uma distribuição normal</li>
+<li class="fragment">Se o <span class="math inline">\(p\)</span>-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal</li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">shapiro.test</span>(amostra) <span class="co"># Normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  amostra
+W = 0.99838, p-value = 0.4765</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span> </span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">shapiro.test</span>() <span class="co"># Não-normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  pull(pinguins, massa_corporal)
+W = 0.95921, p-value = 0.00000003679</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -764,6 +850,7 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 <p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
 

@@ -693,6 +693,27 @@
     "text": "Visualizando a curtose"
   },
   {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#medidas-de-assimetria-e-curtose",
+    "href": "slides/4_descritiva/slides_descritiva.html#medidas-de-assimetria-e-curtose",
+    "title": "Análise descritiva",
+    "section": "Medidas de assimetria e curtose",
+    "text": "Medidas de assimetria e curtose\nTanto a assimetria quanto a curtose podem ser calculados com funções do pacote moments.\n\n\n\nlibrary(moments)\npinguins |>\n  pull(massa_corporal) |>\n  skewness(na.rm = TRUE)\n\n[1] 0.468264\n\n\n\n\npinguins |>\n  pull(massa_corporal) |>\n  kurtosis(na.rm = TRUE)\n\n[1] 2.273757"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#distribuição-normal",
+    "href": "slides/4_descritiva/slides_descritiva.html#distribuição-normal",
+    "title": "Análise descritiva",
+    "section": "Distribuição normal",
+    "text": "Distribuição normal\nA distribuição normal é uma das distribuições mais importantes em estatística.\n\nTambém conhecida como distribuição de Gauss, é frequentemente usada para modelar fenômenos naturais\nMuitos testes estatísticos assumem que os dados seguem uma distribuição normal\n68% dos dados estão dentro de um desvio padrão da média (roxo), 95% estão dentro de dois desvios padrão (verde) e 99,7% estão dentro de três desvios padrão (laranja)"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva.html#testes-de-normalidade",
+    "href": "slides/4_descritiva/slides_descritiva.html#testes-de-normalidade",
+    "title": "Análise descritiva",
+    "section": "Testes de normalidade",
+    "text": "Testes de normalidade\nEm muitos casos, é necessário verificar se uma amostra segue uma distribuição normal antes de aplicar determinados testes estatísticos.\n\nO teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal\nA hipótese nula (\\(H_0\\)) do teste é que a amostra segue uma distribuição normal\nSe o \\(p\\)-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal\n\n\n\n\n\nshapiro.test(amostra) # Normal\n\n\n    Shapiro-Wilk normality test\n\ndata:  amostra\nW = 0.99838, p-value = 0.4765\n\n\n\n\npinguins |> \n  pull(massa_corporal) |> \n  shapiro.test() # Não-normal\n\n\n    Shapiro-Wilk normality test\n\ndata:  pull(pinguins, massa_corporal)\nW = 0.95921, p-value = 0.00000003679"
+  },
+  {
     "objectID": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "title": "Inferência estatística",

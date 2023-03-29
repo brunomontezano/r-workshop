@@ -321,7 +321,7 @@ distribuição
 
 ## Exemplo de distribuição assimétrica
 
-```{r}
+```{r histograma-distribuicao-assimetrica}
 #| fig-align: "center"
 #| out.width: "65%"
 tibble(x = rchisq(1000, 10)) |> 
@@ -363,5 +363,118 @@ ggplot() +
   geom_histogram(aes(x = valores, fill = curtose), alpha = 0.5) +
   labs(title = "Comparação de alta e baixa curtose", x = "Valores",
        y = "Frequência", fill = "Curtose") +
+  ggsci::scale_fill_lancet() +
   theme_bw(base_size = 16, base_family = "Charter")
 ```
+
+## Medidas de assimetria e curtose
+
+Tanto a assimetria quanto a curtose podem ser calculados com funções do
+pacote `moments`.
+
+
+::: columns
+
+::: {.column width="50%"}
+```{r calcular-assimetria-massa}
+library(moments)
+pinguins |>
+  pull(massa_corporal) |>
+  skewness(na.rm = TRUE)
+```
+:::
+
+::: {.column width="50%"}
+```{r calcular-curtose-massa}
+pinguins |>
+  pull(massa_corporal) |>
+  kurtosis(na.rm = TRUE)
+```
+:::
+
+:::
+
+. . .
+
+```{r histograma-massa-corporal}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "75%"
+pinguins |> 
+  filter(!is.na(massa_corporal)) |> 
+  ggplot(aes(x = massa_corporal)) + geom_histogram(fill = "#ad002aff") +
+  labs(x = "Massa corporal (em gramas)", y = "Frequência") +
+  ggthemes::theme_clean(base_size = 16, base_family = "Charter")
+```
+
+## Distribuição normal
+
+A distribuição normal é uma das distribuições mais importantes em
+estatística.
+
+* Também conhecida como distribuição de Gauss, é frequentemente
+usada para modelar fenômenos naturais
+* Muitos testes estatísticos assumem
+que os dados seguem uma distribuição normal
+* 68% dos dados estão dentro de um desvio padrão da média (roxo), 95% estão dentro de
+dois desvios padrão (verde) e 99,7% estão dentro de três desvios padrão (laranja)
+
+. . .
+
+```{r plot-distribuicao-normal}
+#| fig-align: "center"
+#| out.width: "60%"
+#| echo: false
+# Gerando uma amostra aleatória de uma distribuição normal padrão
+set.seed(123)
+amostra <- rnorm(1000)
+
+# Calculando a média e o desvio padrão da amostra
+media <- mean(amostra)
+desvio_padrao <- sd(amostra)
+
+# Criando um data frame com os limites das proporções 68-95-99
+proporcoes <- data.frame(
+  limite_inf = c(media - desvio_padrao, media - 2*desvio_padrao, media - 3*desvio_padrao),
+  limite_sup = c(media + desvio_padrao, media + 2*desvio_padrao, media + 3*desvio_padrao),
+  proporcao = c(0.68, 0.95, 0.99)
+)
+
+# Criando o histograma
+ggplot(data.frame(x = amostra), aes(x)) +
+  geom_histogram(bins = 20, color = "black", fill = "lightblue") +
+  geom_vline(xintercept = c(media, proporcoes$limite_inf, proporcoes$limite_sup),
+             color = c("#00468bff", "#925e9fff", "#42b540ff", "#ed0000ff", "#925e9fff", "#42b540ff", "#ed0000ff"),
+             linetype = c("solid", "dashed", "dashed", "dashed", "dashed", "dashed", "dashed"),
+             size = c(1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5),
+             alpha = c(1, 1, 1, 1, 1, 1, 1)) +
+  theme_bw(base_size = 16, base_family = "Charter") +
+  labs(x = "Valores da amostra", y = "Frequência")
+```
+
+## Testes de normalidade
+
+Em muitos casos, é necessário verificar se uma amostra segue uma distribuição
+normal antes de aplicar determinados testes estatísticos.
+
+* O teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal
+* A hipótese nula ($H_0$) do teste é que a amostra segue uma distribuição normal
+* Se o $p$-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r shapiro-amostra-simulada}
+shapiro.test(amostra) # Normal
+```
+:::
+
+::: {.column width="50%"}
+```{r shapiro-massa-pinguins}
+pinguins |> 
+  pull(massa_corporal) |> 
+  shapiro.test() # Não-normal
+```
+:::
+:::
