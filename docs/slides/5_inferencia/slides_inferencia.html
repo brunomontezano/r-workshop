@@ -28,6 +28,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -338,14 +402,13 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">24 de março de 2023</p>
+  <p class="date">3 de abril de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
 <ul>
 <li class="fragment">Introdução</li>
 <li class="fragment">População e amostra</li>
-<li class="fragment">Intervalos de confiança</li>
 <li class="fragment">Testes de hipótese
 <ul>
 <li class="fragment">Hipótese nula e alternativa</li>
@@ -353,9 +416,109 @@ Bruno Montezano
 <li class="fragment">Interpretação de resultados</li>
 </ul></li>
 </ul>
+</section>
+<section id="o-que-é-estatística-inferencial" class="slide level2">
+<h2>O que é estatística inferencial?</h2>
+<ul>
+<li class="fragment">Um dos principais objetivos ao fazer pesquisa é <em>generalizar as descobertas</em> para toda a população
+<ul>
+<li class="fragment">Amostra <span class="math inline">\(\rightarrow\)</span> População</li>
+</ul></li>
+<li class="fragment">Um <strong>modelo estatístico</strong> é uma <em>representação</em> de um fenômeno complexo que gerou os dados
+<ul>
+<li class="fragment">Por vezes, assume pressupostos sobre as variáveis</li>
+</ul></li>
+<li class="fragment">Quando pesquisamos, estamos interessados em testar hipóteses
+<ul>
+<li class="fragment">Suposição sobre o estado das coisas</li>
+<li class="fragment">Podem ser substantivas (formulação textual ou semântica) ou estatísticas (operacionalização da hipótese substantiva)</li>
+</ul></li>
+</ul>
+</section>
+<section id="hipóteses-estatísticas" class="slide level2">
+<h2>Hipóteses estatísticas</h2>
+<ul>
+<li class="fragment"><p>Hipótese nula (<span class="math inline">\(H_0\)</span>): a mais conservadora, advoga pela ausência de padrões ou associações, em geral o pesquisador não acredita</p></li>
+<li class="fragment"><p>Hipótese alternativa (<span class="math inline">\(H_a\)</span>): apoia relação ou diferença entre as variáveis, comumente a hipótese que motivou o pesquisador a coletar seus dados</p></li>
+<li class="fragment"><p>Em estatística frequentista, os testes testarão a adequação dos dados à hipótese nula</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\underbrace{O \,grupo \,que \,tomou \,antidepressivo \,apresenta \,menos \,sintomas \,depressivos}_\text{Hipótese  substantiva}\]</span></p>
+<p><span class="math display">\[H_0: \mu_{tomou} = \mu_{não \,tomou}\]</span> <span class="math display">\[\underbrace{H_a: \mu_{tomou} &lt; \mu_{não \,tomou}}_\text{Hipóteses estatísticas}\]</span></p>
+</div>
+</section>
+<section id="vamos-ver-alguns-testes-estatísticos" class="slide level2">
+<h2>Vamos ver alguns testes estatísticos!</h2>
 
+<img data-src="../assets/meme_hipotese.jpg" style="width:75.0%" class="r-stretch quarto-figure-center"></section>
+<section id="teste-qui-quadrado-de-independência" class="slide level2">
+<h2>Teste qui-quadrado de independência</h2>
+<ul>
+<li class="fragment"><p>Usado para verificar se duas variáveis categóricas são independentes</p></li>
+<li class="fragment"><p>Assume alguns pressupostos:</p>
+<ul>
+<li class="fragment">Os dados são aleatórios e representativos da população</li>
+<li class="fragment">As variáveis analisadas são categóricas</li>
+</ul></li>
+<li class="fragment"><p>Algumas hipóteses de pesquisa a serem respondidas pelo teste <span class="math inline">\(\chi^2\)</span>:</p>
+<ul>
+<li class="fragment">Verificar se sexo e escolha do curso de graduação são independentes</li>
+<li class="fragment">Testar se classe social e reprovação na escola são independentes</li>
+<li class="fragment">Avaliar se obesidade e morte por COVID-19 são independentes</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-de-teste-chi2-no-r" class="slide level2">
+<h2>Exemplo de teste <span class="math inline">\(\chi^2\)</span> no R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(dados)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Criar uma tabulação cruzada</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># entre espécie e ilha</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             especie Biscoe Dream Torgersen
+   Pinguim-de-adélia     44    56        52
+ Pinguim-de-barbicha      0    68         0
+      Pinguim-gentoo    124     0         0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Rodar um teste qui-quadrado de independência</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">chisq.test</span>(pinguins<span class="sc">$</span>especie, pinguins<span class="sc">$</span>ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
 
-<img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
+data:  pinguins$especie and pinguins$ilha
+X-squared = 299.55, df = 4, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">ggplot</span>(pinguins,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>       <span class="fu">aes</span>(<span class="at">x =</span> especie, <span class="at">fill =</span> ilha)) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7"></a>       <span class="at">y =</span> <span class="st">"Proporção"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8"></a>       <span class="at">fill =</span> <span class="st">"Ilha"</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>  ghibli<span class="sc">::</span><span class="fu">scale_fill_ghibli_d</span>(<span class="st">"PonyoMedium"</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">21</span>,</span>
+<span id="cb5-12"><a href="#cb5-12"></a>                <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="slides_inferencia_files/figure-revealjs/grafico-ilha-especie-1.png" width="960"></p>
+</div>
+</div>
+</div>
+</div>
+
+<p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
 </div>
 </section>
@@ -570,6 +733,44 @@ Bruno Montezano
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

@@ -20,8 +20,93 @@ format:
 
 - Introdução
 - População e amostra
-- Intervalos de confiança
 - Testes de hipótese
   - Hipótese nula e alternativa
   - Tipos de erro
   - Interpretação de resultados
+
+## O que é estatística inferencial?
+
+* Um dos principais objetivos ao fazer pesquisa é *generalizar as descobertas* para
+toda a população
+  - Amostra $\rightarrow$ População
+  
+* Um **modelo estatístico** é uma *representação* de um fenômeno complexo que gerou
+os dados
+  - Por vezes, assume pressupostos sobre as variáveis
+
+* Quando pesquisamos, estamos interessados em testar hipóteses
+  - Suposição sobre o estado das coisas
+  - Podem ser substantivas (formulação textual ou semântica)
+  ou estatísticas (operacionalização da hipótese substantiva)
+
+## Hipóteses estatísticas
+
+* Hipótese nula ($H_0$): a mais conservadora, advoga pela ausência de padrões ou associações, em geral o pesquisador não acredita
+
+* Hipótese alternativa ($H_a$): apoia relação ou diferença entre as variáveis,
+comumente a hipótese que motivou o pesquisador a coletar seus dados
+
+* Em estatística frequentista, os testes testarão a adequação dos dados à
+hipótese nula
+
+. . .
+
+$$\underbrace{O \,grupo \,que \,tomou \,antidepressivo \,apresenta \,menos \,sintomas \,depressivos}_\text{Hipótese  substantiva}$$
+
+$$H_0: \mu_{tomou} = \mu_{não \,tomou}$$
+$$\underbrace{H_a: \mu_{tomou} < \mu_{não \,tomou}}_\text{Hipóteses estatísticas}$$
+
+## Vamos ver alguns testes estatísticos!
+
+![](../assets/meme_hipotese.jpg){fig-align="center" width=75%}
+
+## Teste qui-quadrado de independência
+
+* Usado para verificar se duas variáveis categóricas são independentes 
+
+* Assume alguns pressupostos:
+  - Os dados são aleatórios e representativos da população
+  - As variáveis analisadas são categóricas
+
+* Algumas hipóteses de pesquisa a serem respondidas pelo teste $\chi^2$:
+  - Verificar se sexo e escolha do curso de graduação são independentes
+  - Testar se classe social e reprovação na escola são independentes
+  - Avaliar se obesidade e morte por COVID-19 são independentes
+  
+## Exemplo de teste $\chi^2$ no R
+
+::: columns
+::: {.column width="50%"}
+```{r qui-quadrado-especie-ilha}
+library(dados)
+library(janitor)
+
+# Criar uma tabulação cruzada
+# entre espécie e ilha
+pinguins |> 
+  tabyl(especie, ilha)
+
+# Rodar um teste qui-quadrado de independência
+chisq.test(pinguins$especie, pinguins$ilha)
+```
+:::
+
+::: {.column width="50%"}
+```{r grafico-ilha-especie}
+library(ggplot2)
+
+ggplot(pinguins,
+       aes(x = especie, fill = ilha)) +
+  geom_bar(position = "fill") +
+  labs(x = "Espécie",
+       y = "Proporção",
+       fill = "Ilha") +
+  ghibli::scale_fill_ghibli_d("PonyoMedium") +
+  scale_y_continuous(labels = scales::percent) +
+  theme_minimal(base_size = 21,
+                base_family = "Charter")
+```
+
+:::
+:::

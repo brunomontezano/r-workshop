@@ -402,7 +402,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">29 de março de 2023</p>
+  <p class="date">3 de abril de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -996,14 +996,14 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>pinguins <span class="sc">|&gt;</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">tabyl</span>(especie, ilha) <span class="sc">|&gt;</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"col"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb42-5"><a href="#cb42-5"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             especie Biscoe  Dream Torgersen
-   Pinguim-de-adélia  28.9%  36.8%     34.2%
- Pinguim-de-barbicha   0.0% 100.0%      0.0%
-      Pinguim-gentoo 100.0%   0.0%      0.0%
-               Total  48.8%  36.0%     15.1%</code></pre>
+   Pinguim-de-adélia  26.2%  45.2%    100.0%
+ Pinguim-de-barbicha   0.0%  54.8%      0.0%
+      Pinguim-gentoo  73.8%   0.0%      0.0%
+               Total 100.0% 100.0%    100.0%</code></pre>
 </div>
 </div>
 </div>
@@ -1051,9 +1051,23 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="tarefa-de-casa" class="slide level2">
+<h2>Tarefa de casa</h2>
+<ul>
+<li class="fragment">Para a tarefa de casa, vamos seguir usando a base <code>pinguins</code> do pacote <code>dados</code>.</li>
+</ul>
+<ol type="1">
+<li class="fragment">Filtre a base para manter apenas as observações do ano de 2009.</li>
+<li class="fragment">Escolha uma variável contínua da base de dados e verifique se ela segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.</li>
+<li class="fragment">Independentemente da distribuição, crie uma variável transformada (a partir da que você escolheu) através do método da raíz quadrada (função <code>sqrt()</code>), da raíz cúbica (lembre-se do operador <code>^</code>) ou do log (função <code>log10()</code>). Você também pode criar um histograma da variável transformada.</li>
+</ol>
+<ul>
+<li class="fragment">Lembre-se da função <code>mutate()</code> para criar ou modificar colunas.</li>
+</ul>
 
-<p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
-<div class="footer footer-default">
+
+<img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
