@@ -760,7 +760,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "title": "Inferência estatística",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nIntrodução\nPopulação e amostra\nTestes de hipótese\n\nHipótese nula e alternativa\nTipos de erro\nInterpretação de resultados"
+    "text": "Conteúdo de hoje\n\nIntrodução\nPopulação e amostra\nTestes de hipótese\n\nHipótese nula e alternativa\nInterpretação de resultados\n\nTeste \\(chi^2\\)\nTeste t\nANOVA de uma via e Tukey HSD (Honest Significant Differences)\nCorrelação"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#o-que-é-estatística-inferencial",
@@ -844,14 +844,49 @@
     "href": "slides/5_inferencia/slides_inferencia.html#exemplo-de-anova-no-r",
     "title": "Inferência estatística",
     "section": "Exemplo de ANOVA no R",
-    "text": "Exemplo de ANOVA no R\nVamos novamente verificar a diferença na massa corporal, porém agora entre as ilhas do Arquipélago Palmer."
+    "text": "Exemplo de ANOVA no R\nVamos novamente verificar a diferença na massa corporal, porém agora entre as ilhas do Arquipélago Palmer.\n\n\n\npinguins |>\n  ggplot(aes(x = ilha,\n             y = massa_corporal,\n             fill = ilha)) +\n  geom_boxplot() +\n  labs(y = \"Massa corporal\",\n       x = \"Ilha\") +\n  ghibli::scale_fill_ghibli_d(name = \"MononokeLight\") +\n  scale_y_continuous(labels = \\(x) paste0(as.character(x), \"g\")) +\n  theme_minimal(base_size = 18,\n                base_family = \"Charter\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nanova_massa_ilha <- aov(massa_corporal ~ ilha,\n                        data = pinguins)\n\nsummary(anova_massa_ilha)\n\n             Df    Sum Sq  Mean Sq F value Pr(>F)    \nilha          2  86314512 43157256     110 <2e-16 ***\nResiduals   339 132993186   392310                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n2 observations deleted due to missingness\n\nTukeyHSD(anova_massa_ilha)\n\n  Tukey multiple comparisons of means\n    95% family-wise confidence level\n\nFit: aov(formula = massa_corporal ~ ilha, data = pinguins)\n\n$ilha\n                         diff        lwr       upr     p adj\nDream-Biscoe     -1003.114738 -1177.9016 -828.3279 0.0000000\nTorgersen-Biscoe -1009.645415 -1245.5391 -773.7518 0.0000000\nTorgersen-Dream     -6.530677  -251.8063  238.7450 0.9978364"
+  },
+  {
+    "objectID": "slides/5_inferencia/slides_inferencia.html#correlação",
+    "href": "slides/5_inferencia/slides_inferencia.html#correlação",
+    "title": "Inferência estatística",
+    "section": "Correlação",
+    "text": "Correlação\n\nProcedimento usado para verificar relação entre duas variáveis\nQual coeficiente escolher? Dica de leitura: Khamis (2008)\n\n\n\n\n\n\n\n\n\nNível de medida\nCorrelação\n\n\n\n\nAmbas variáveis são intervalares\nProduto momento de Pearson\n\n\nAmbas variáveis são ordinais\n\\(\\rho\\) de Spearman ou \\(\\tau\\) de Kendall\n\n\n\n\nNa psicometria, correlações tetracóricas ou policóricas são muito comuns\nComo interpretar?\n\nVaria de -1 a 1\n\n\n\n\n\n\n\nValor\nSinal positivo (+)\nSinal negativo (-)\n\n\n\n\n0,1\nFraca positiva\nFraca negativa\n\n\n0,3\nModerada positiva\nModerada negativa\n\n\n0,5\nForte positiva\nForte negativa"
+  },
+  {
+    "objectID": "slides/5_inferencia/slides_inferencia.html#propriedades-da-correlação-de-pearson",
+    "href": "slides/5_inferencia/slides_inferencia.html#propriedades-da-correlação-de-pearson",
+    "title": "Inferência estatística",
+    "section": "Propriedades da correlação de Pearson",
+    "text": "Propriedades da correlação de Pearson\n\nLimitado entre -1 e 1, com 0 sendo a ausência de correlação\nO sinal indica a natureza, e o número, a força\nA correlação de uma variável com ela mesma é 1\nÉ simétrica, ou seja, \\(r(x, y) = r(y, x)\\)\nAdimensional e invariante em transformações lineares\nSensível aos outliers\nNão indica causalidade"
+  },
+  {
+    "objectID": "slides/5_inferencia/slides_inferencia.html#exemplo-de-correlação-em-r",
+    "href": "slides/5_inferencia/slides_inferencia.html#exemplo-de-correlação-em-r",
+    "title": "Inferência estatística",
+    "section": "Exemplo de correlação em R",
+    "text": "Exemplo de correlação em R\n\n\n\n\n\n\n\n\n\n\n\n\n\ncor.test(pinguins$massa_corporal,\n         pinguins$comprimento_bico,\n         method = \"pearson\",\n         conf.level = 0.95)\n\n\n    Pearson's product-moment correlation\n\ndata:  pinguins$massa_corporal and pinguins$comprimento_bico\nt = 13.654, df = 340, p-value < 2.2e-16\nalternative hypothesis: true correlation is not equal to 0\n95 percent confidence interval:\n 0.5220040 0.6595358\nsample estimates:\n      cor \n0.5951098 \n\n\n\n\n\nParece que nós temos uma correlação forte e positiva entre massa corporal e comprimento do bico nos pinguins (r = 0,59; p<0,001).\n\n\nDica de um site divertido: Guess the Correlation"
+  },
+  {
+    "objectID": "slides/5_inferencia/slides_inferencia.html#alternativas-não-paramétricas",
+    "href": "slides/5_inferencia/slides_inferencia.html#alternativas-não-paramétricas",
+    "title": "Inferência estatística",
+    "section": "Alternativas não-paramétricas",
+    "text": "Alternativas não-paramétricas\n\nEventualmente, quando os pressupostos do modelo são violados, a literatura tradicional indica o uso de testes não-paramétricos com propostas semelhantes\nOutros autores sugerem que sempre testes não-paramétricos sejam usados em resultados obtidos por processo de avaliação psicológica, com argumento de que os dados têm nível de medida ordinal\n\n\n\n\n\nTeste paramétrico\nTeste não-paramétrico\n\n\n\n\nTeste t de duas amostras\nTeste U de Mann-Whitney\n\n\nANOVA de uma via\nTeste de Kruskal-Wallis"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#referências",
     "href": "slides/5_inferencia/slides_inferencia.html#referências",
     "title": "Inferência estatística",
     "section": "Referências",
-    "text": "Referências\n\n\nChartier, Sylvain, e Andrew Faulkner. 2008. \"General Linear Models: An Integrated Approach to Statistics\". Tutorials in Quantitative Methods for Psychology 4 (2): 65–78. https://doi.org/10.20982/tqmp.04.2.p065."
+    "text": "Referências\n\n\nChartier, Sylvain, e Andrew Faulkner. 2008. \"General Linear Models: An Integrated Approach to Statistics\". Tutorials in Quantitative Methods for Psychology 4 (2): 65–78. https://doi.org/10.20982/tqmp.04.2.p065.\n\n\nKhamis, Harry. 2008. \"Measures of Association: How to Choose?\" Journal of Diagnostic Medical Sonography 24 (3): 155–62. https://doi.org/10.1177/8756479308317006."
+  },
+  {
+    "objectID": "slides/5_inferencia/slides_inferencia.html#tarefa-de-casa",
+    "href": "slides/5_inferencia/slides_inferencia.html#tarefa-de-casa",
+    "title": "Inferência estatística",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\nA partir da base dos pinguins do pacote dados:\n\nCalcule a correlação produto momento de Pearson entre o comprimento do bico e a profundidade do bico dos pinguins. Crie um gráfico de pontos (dispersão) com ggplot2 para acompanhar sua análise exploratória.\nRode um teste t para verificar a diferença na média do comprimento da nadadeira entre os pinguins macho e fêmea. Usando as funções group_by() e summarise() do pacote dplyr, faça um resumo da média e da mediana dos comprimentos das nadadeiras estratificando pelos grupos.\n\nLembre-se que a base pinguins possui dois valores ausentes (NA) na coluna do sexo.\n\nCrie um modelo de ANOVA de uma via para verificar se há diferenças na massa corporal dos pinguins baseado em sua espécie. Caso sim, rode um teste de Tukey para analisar quais grupos diferenciam entre si."
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#conteúdo-de-hoje",

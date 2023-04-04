@@ -431,9 +431,12 @@ Bruno Montezano
 <li class="fragment">Testes de hipótese
 <ul>
 <li class="fragment">Hipótese nula e alternativa</li>
-<li class="fragment">Tipos de erro</li>
 <li class="fragment">Interpretação de resultados</li>
 </ul></li>
+<li class="fragment">Teste <span class="math inline">\(chi^2\)</span></li>
+<li class="fragment">Teste t</li>
+<li class="fragment">ANOVA de uma via e Tukey HSD (<em>Honest Significant Differences</em>)</li>
+<li class="fragment">Correlação</li>
 </ul>
 </section>
 <section id="o-que-é-estatística-inferencial" class="slide level2">
@@ -746,6 +749,206 @@ mean in group fêmea mean in group macho
 <section id="exemplo-de-anova-no-r" class="slide level2">
 <h2>Exemplo de ANOVA no R</h2>
 <p>Vamos novamente verificar a diferença na massa corporal, porém agora entre as ilhas do Arquipélago Palmer.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ilha,</span>
+<span id="cb14-3"><a href="#cb14-3"></a>             <span class="at">y =</span> massa_corporal,</span>
+<span id="cb14-4"><a href="#cb14-4"></a>             <span class="at">fill =</span> ilha)) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Massa corporal"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>       <span class="at">x =</span> <span class="st">"Ilha"</span>) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>  ghibli<span class="sc">::</span><span class="fu">scale_fill_ghibli_d</span>(<span class="at">name =</span> <span class="st">"MononokeLight"</span>) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> \(x) <span class="fu">paste0</span>(<span class="fu">as.character</span>(x), <span class="st">"g"</span>)) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>,</span>
+<span id="cb14-11"><a href="#cb14-11"></a>                <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_inferencia_files/figure-revealjs/bar-plot-ilha-massa-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>anova_massa_ilha <span class="ot">&lt;-</span> <span class="fu">aov</span>(massa_corporal <span class="sc">~</span> ilha,</span>
+<span id="cb15-2"><a href="#cb15-2"></a>                        <span class="at">data =</span> pinguins)</span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="fu">summary</span>(anova_massa_ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df    Sum Sq  Mean Sq F value Pr(&gt;F)    
+ilha          2  86314512 43157256     110 &lt;2e-16 ***
+Residuals   339 132993186   392310                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+2 observations deleted due to missingness</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">TukeyHSD</span>(anova_massa_ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = massa_corporal ~ ilha, data = pinguins)
+
+$ilha
+                         diff        lwr       upr     p adj
+Dream-Biscoe     -1003.114738 -1177.9016 -828.3279 0.0000000
+Torgersen-Biscoe -1009.645415 -1245.5391 -773.7518 0.0000000
+Torgersen-Dream     -6.530677  -251.8063  238.7450 0.9978364</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlação" class="slide level2">
+<h2>Correlação</h2>
+<ul>
+<li class="fragment"><p>Procedimento usado para verificar relação entre duas variáveis</p></li>
+<li class="fragment"><p>Qual coeficiente escolher? Dica de leitura: <span class="citation" data-cites="khamis_2008">Khamis (<a href="#/referências" role="doc-biblioref" onclick="">2008</a>)</span></p></li>
+</ul>
+<div class="fragment">
+<table>
+<colgroup>
+<col style="width: 51%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nível de medida</th>
+<th>Correlação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ambas variáveis são intervalares</td>
+<td>Produto momento de Pearson</td>
+</tr>
+<tr class="even">
+<td>Ambas variáveis são ordinais</td>
+<td><span class="math inline">\(\rho\)</span> de Spearman ou <span class="math inline">\(\tau\)</span> de Kendall</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment"><p>Na psicometria, correlações tetracóricas ou policóricas são muito comuns</p></li>
+<li class="fragment"><p>Como interpretar?</p>
+<ul>
+<li class="fragment">Varia de -1 a 1</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<table>
+<thead>
+<tr class="header">
+<th>Valor</th>
+<th>Sinal positivo (+)</th>
+<th>Sinal negativo (-)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0,1</td>
+<td>Fraca positiva</td>
+<td>Fraca negativa</td>
+</tr>
+<tr class="even">
+<td>0,3</td>
+<td>Moderada positiva</td>
+<td>Moderada negativa</td>
+</tr>
+<tr class="odd">
+<td>0,5</td>
+<td>Forte positiva</td>
+<td>Forte negativa</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="propriedades-da-correlação-de-pearson" class="slide level2">
+<h2>Propriedades da correlação de Pearson</h2>
+<ol type="1">
+<li class="fragment">Limitado entre -1 e 1, com 0 sendo a ausência de correlação</li>
+<li class="fragment">O sinal indica a natureza, e o número, a força</li>
+<li class="fragment">A correlação de uma variável com ela mesma é 1</li>
+<li class="fragment">É simétrica, ou seja, <span class="math inline">\(r(x, y) = r(y, x)\)</span></li>
+<li class="fragment">Adimensional e invariante em transformações lineares</li>
+<li class="fragment">Sensível aos <em>outliers</em></li>
+<li class="fragment">Não indica causalidade</li>
+</ol>
+</section>
+<section id="exemplo-de-correlação-em-r" class="slide level2">
+<h2>Exemplo de correlação em R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_inferencia_files/figure-revealjs/dispersao-massa-comprimento-bico-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">cor.test</span>(pinguins<span class="sc">$</span>massa_corporal,</span>
+<span id="cb19-2"><a href="#cb19-2"></a>         pinguins<span class="sc">$</span>comprimento_bico,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  pinguins$massa_corporal and pinguins$comprimento_bico
+t = 13.654, df = 340, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.5220040 0.6595358
+sample estimates:
+      cor 
+0.5951098 </code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Parece que nós temos uma correlação forte e positiva entre massa corporal e comprimento do bico nos pinguins (<em>r</em> = 0,59; <em>p</em>&lt;0,001).</p>
+</div>
+<div class="fragment">
+<p>Dica de um site divertido: <a href="https://www.guessthecorrelation.com/">Guess the Correlation</a></p>
+</div>
+</section>
+<section id="alternativas-não-paramétricas" class="slide level2">
+<h2>Alternativas não-paramétricas</h2>
+<ul>
+<li class="fragment"><p>Eventualmente, quando os pressupostos do modelo são violados, a literatura tradicional indica o uso de testes não-paramétricos com propostas semelhantes</p></li>
+<li class="fragment"><p>Outros autores sugerem que sempre testes não-paramétricos sejam usados em resultados obtidos por processo de avaliação psicológica, com argumento de que os dados têm nível de medida ordinal</p></li>
+</ul>
+<div class="fragment">
+<table>
+<thead>
+<tr class="header">
+<th>Teste paramétrico</th>
+<th>Teste não-paramétrico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Teste t de duas amostras</td>
+<td>Teste U de Mann-Whitney</td>
+</tr>
+<tr class="even">
+<td>ANOVA de uma via</td>
+<td>Teste de Kruskal-Wallis</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="referências" class="slide level2 smaller scrollable">
 <h2>Referências</h2>
@@ -753,7 +956,22 @@ mean in group fêmea mean in group macho
 <div id="ref-chartier_2008" class="csl-entry" role="doc-biblioentry">
 Chartier, Sylvain, e Andrew Faulkner. 2008. <span>"General Linear Models: An Integrated Approach to Statistics"</span>. <em>Tutorials in Quantitative Methods for Psychology</em> 4 (2): 65–78. <a href="https://doi.org/10.20982/tqmp.04.2.p065">https://doi.org/10.20982/tqmp.04.2.p065</a>.
 </div>
+<div id="ref-khamis_2008" class="csl-entry" role="doc-biblioentry">
+Khamis, Harry. 2008. <span>"<span>Measures of Association: How to Choose?</span>"</span> <em>Journal of Diagnostic Medical Sonography</em> 24 (3): 155–62. <a href="https://doi.org/10.1177/8756479308317006">https://doi.org/10.1177/8756479308317006</a>.
 </div>
+</div>
+</section>
+<section id="tarefa-de-casa" class="slide level2">
+<h2>Tarefa de casa</h2>
+<p>A partir da base dos <code>pinguins</code> do pacote <code>dados</code>:</p>
+<ol type="1">
+<li class="fragment"><p>Calcule a correlação produto momento de Pearson entre o comprimento do bico e a profundidade do bico dos pinguins. Crie um gráfico de pontos (dispersão) com <code>ggplot2</code> para acompanhar sua análise exploratória.</p></li>
+<li class="fragment"><p>Rode um teste t para verificar a diferença na média do comprimento da nadadeira entre os pinguins macho e fêmea. Usando as funções <code>group_by()</code> e <code>summarise()</code> do pacote <code>dplyr</code>, faça um resumo da média e da mediana dos comprimentos das nadadeiras estratificando pelos grupos.</p>
+<ul>
+<li class="fragment">Lembre-se que a base <code>pinguins</code> possui dois valores ausentes (<code>NA</code>) na coluna do <code>sexo</code>.</li>
+</ul></li>
+<li class="fragment"><p>Crie um modelo de ANOVA de uma via para verificar se há diferenças na massa corporal dos pinguins baseado em sua espécie. Caso sim, rode um teste de Tukey para analisar quais grupos diferenciam entre si.</p></li>
+</ol>
 
 
 <img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">

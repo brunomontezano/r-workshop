@@ -23,8 +23,11 @@ bibliography: references.bib
 - População e amostra
 - Testes de hipótese
   - Hipótese nula e alternativa
-  - Tipos de erro
   - Interpretação de resultados
+- Teste $chi^2$
+- Teste t
+- ANOVA de uma via e Tukey HSD (*Honest Significant Differences*)
+- Correlação
 
 ## O que é estatística inferencial?
 
@@ -278,8 +281,154 @@ diferenças médias entre vários grupos
 
 Vamos novamente verificar a diferença na massa corporal, porém agora
 entre as ilhas do Arquipélago Palmer.
+
+::: columns
+::: {.column width="40%"}
+```{r bar-plot-ilha-massa}
+#| out-width: 100%
+#| fig-align: "center"
+pinguins |>
+  ggplot(aes(x = ilha,
+             y = massa_corporal,
+             fill = ilha)) +
+  geom_boxplot() +
+  labs(y = "Massa corporal",
+       x = "Ilha") +
+  ghibli::scale_fill_ghibli_d(name = "MononokeLight") +
+  scale_y_continuous(labels = \(x) paste0(as.character(x), "g")) +
+  theme_minimal(base_size = 18,
+                base_family = "Charter") +
+  theme(legend.position = "none")
+```
+:::
+
+::: {.column width="60%"}
+```{r anova-uma-via-ilha-massa}
+anova_massa_ilha <- aov(massa_corporal ~ ilha,
+                        data = pinguins)
+
+summary(anova_massa_ilha)
+
+TukeyHSD(anova_massa_ilha)
+```
+
+:::
+
+:::
+
+## Correlação
+
+* Procedimento usado para verificar relação entre duas variáveis
+
+* Qual coeficiente escolher? Dica de leitura: @khamis_2008
+
+. . .
+
+| Nível de medida | Correlação |
+|--------------|-------------|
+| Ambas variáveis são intervalares  |   Produto momento de Pearson   |
+| Ambas variáveis são ordinais  |   $\rho$ de Spearman ou $\tau$ de Kendall  |
+
+* Na psicometria, correlações tetracóricas ou policóricas são muito comuns
+
+* Como interpretar?
+  - Varia de -1 a 1
   
+. . .
+  
+| Valor | Sinal positivo (+) | Sinal negativo (-) |
+|-------|--------------------|--------------------|
+| 0,1   | Fraca positiva     | Fraca negativa     |
+| 0,3   | Moderada positiva  | Moderada negativa  |
+| 0,5   | Forte positiva     | Forte negativa     |
+
+## Propriedades da correlação de Pearson
+
+1. Limitado entre -1 e 1, com 0 sendo a ausência de correlação
+2. O sinal indica a natureza, e o número, a força
+3. A correlação de uma variável com ela mesma é 1
+4. É simétrica, ou seja, $r(x, y) = r(y, x)$
+5. Adimensional e invariante em transformações lineares
+6. Sensível aos *outliers*
+7. Não indica causalidade
+
+## Exemplo de correlação em R
+
+::: columns
+::: {.column width="50%"}
+```{r dispersao-massa-comprimento-bico}
+#| echo: false
+#| out-width: 100%
+#| fig-align: "center"
+pinguins |> 
+  ggplot(aes(x = massa_corporal,
+             y = comprimento_bico)) +
+  geom_point(color = "#00468b99", alpha = 0.8) +
+  labs(x = "Massa corporal (em gramas)",
+       y = "Comprimento do bico (em mm)") +
+  theme_minimal(base_size = 16,
+                base_family = "Charter")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r correlacao-massa-comprimento-bico}
+cor.test(pinguins$massa_corporal,
+         pinguins$comprimento_bico,
+         method = "pearson",
+         conf.level = 0.95)
+```
+
+:::
+
+:::
+
+. . .
+
+Parece que nós temos uma correlação forte e positiva entre massa corporal e
+comprimento do bico nos pinguins (*r* = 0,59; *p*<0,001).
+
+. . .
+
+Dica de um site divertido: [Guess the Correlation](https://www.guessthecorrelation.com/)
+
+## Alternativas não-paramétricas
+
+* Eventualmente, quando os pressupostos do modelo são violados, a literatura tradicional
+indica o uso de testes não-paramétricos com propostas semelhantes
+
+* Outros autores sugerem que sempre testes não-paramétricos sejam usados em resultados
+obtidos por processo de avaliação psicológica, com argumento de que os dados têm
+nível de medida ordinal
+
+. . .
+
+| Teste paramétrico        | Teste não-paramétrico   |
+|--------------------------|-------------------------|
+| Teste t de duas amostras | Teste U de Mann-Whitney |
+| ANOVA de uma via         | Teste de Kruskal-Wallis |
+
 ## Referências
 
 ::: {#refs}
 :::
+
+## Tarefa de casa
+
+A partir da base dos `pinguins` do pacote `dados`:
+
+1. Calcule a correlação produto momento de Pearson entre o comprimento
+do bico e a profundidade do bico dos pinguins. Crie um gráfico de pontos
+(dispersão) com `ggplot2` para acompanhar sua análise exploratória.
+
+2. Rode um teste t para verificar a diferença na média do comprimento da
+nadadeira entre os pinguins macho e fêmea. Usando as funções `group_by()` e
+`summarise()` do pacote `dplyr`, faça um resumo da média e da mediana dos
+comprimentos das nadadeiras estratificando pelos grupos.
+    - Lembre-se que a base `pinguins` possui dois valores ausentes (`NA`) na coluna
+  do `sexo`.
+
+3. Crie um modelo de ANOVA de uma via para verificar se há diferenças na massa
+corporal dos pinguins baseado em sua espécie. Caso sim, rode um teste de Tukey
+para analisar quais grupos diferenciam entre si.
