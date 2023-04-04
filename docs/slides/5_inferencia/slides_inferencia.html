@@ -92,6 +92,25 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -402,7 +421,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">3 de abril de 2023</p>
+  <p class="date">4 de abril de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -455,7 +474,7 @@ Bruno Montezano
 <h2>Teste qui-quadrado de independência</h2>
 <ul>
 <li class="fragment"><p>Usado para verificar se duas variáveis categóricas são independentes</p></li>
-<li class="fragment"><p>Assume alguns pressupostos:</p>
+<li class="fragment"><p>Pressupostos:</p>
 <ul>
 <li class="fragment">Os dados são aleatórios e representativos da população</li>
 <li class="fragment">As variáveis analisadas são categóricas</li>
@@ -516,9 +535,228 @@ X-squared = 299.55, df = 4, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="v-de-cramer" class="slide level2">
+<h2><span class="math inline">\(V\)</span> de Cramer</h2>
+<ul>
+<li class="fragment"><p>Os <span class="math inline">\(p\)</span>-valores quase nunca são informativos sobre a relevância dos resultados</p></li>
+<li class="fragment"><p>O <strong>tamanho do efeito</strong> é uma medida objetiva e padronizada sobre um efeito observado</p></li>
+<li class="fragment"><p>O tamanho do efeito mais utilizado no teste <span class="math inline">\(\chi^2\)</span> é o <span class="math inline">\(V\)</span> de Cramer</p>
+<ul>
+<li class="fragment">Esta estatística gera valores entre 0 e 1</li>
+<li class="fragment">A interpretação se baseia nos graus de liberdade</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th>Graus de liberdade</th>
+<th>Pequeno</th>
+<th>Médio</th>
+<th>Grande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0,1</td>
+<td>0,3</td>
+<td>0,5</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>0,07</td>
+<td>0,21</td>
+<td>0,35</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>0,06</td>
+<td>0,17</td>
+<td>0,29</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>0,05</td>
+<td>0,15</td>
+<td>0,25</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>effectsize<span class="sc">::</span><span class="fu">cramers_v</span>(pinguins<span class="sc">$</span>especie,</span>
+<span id="cb6-2"><a href="#cb6-2"></a>                      pinguins<span class="sc">$</span>ilha,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>                      <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4"></a>                      <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cramer's V (adj.) |       95% CI
+--------------------------------
+0.66              | [0.58, 0.73]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="teste-t" class="slide level2">
+<h2>Teste t</h2>
+<ul>
+<li class="fragment"><p>Frequentemente usado para testar hipóteses sobre diferenças entre até duas médias</p></li>
+<li class="fragment"><p>Pressupostos:</p>
+<ul>
+<li class="fragment">Dados aleatórios e representativos da população</li>
+<li class="fragment">Variável dependente contínua</li>
+<li class="fragment">Resíduos do modelo são normalmente distribuídos</li>
+</ul></li>
+<li class="fragment"><p>Exemplos de uso do teste t:</p>
+<ul>
+<li class="fragment">Verificar se o peso médio dos bebês da maternidade do HCPA é similar ao esperado na população</li>
+<li class="fragment">Verificar se as notas do ENEM diferem em estudantes da rede pública e privada de ensino</li>
+<li class="fragment">Verificar se o uso de uma medicação diminuiu os sintomas ansiosos dos pacientes psiquiátricos após um mês</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-de-teste-t-de-duas-amostras" class="slide level2">
+<h2>Exemplo de teste t de duas amostras</h2>
+<p>Vamos supor que queremos verificar se há diferença na massa corporal dos pinguins machos e fêmeas nos dados <code>pinguins</code> do pacote <code>dados</code>.</p>
+<p><span class="math display">\[
+H_0: \mu_{machos} - \mu_{fêmeas} = 0
+\]</span></p>
+<p><span class="math display">\[
+H_a: \mu_{machos} - \mu_{fêmeas} \ne 0
+\]</span></p>
+<p><span class="math display">\[
+\alpha = 0,05
+\]</span></p>
 
-<p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
-<div class="footer footer-default">
+<img data-src="slides_inferencia_files/figure-revealjs/histograma-massa-sexo-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="teste-t-no-r" class="slide level2">
+<h2>Teste t no R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexo)) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">group_by</span>(sexo) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="at">media_massa =</span> <span class="fu">mean</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="at">dp_massa =</span> <span class="fu">sd</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-7"><a href="#cb8-7"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  sexo  media_massa dp_massa
+  &lt;fct&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+1 fêmea       3862.     666.
+2 macho       4546.     788.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> massa_corporal <span class="sc">~</span> sexo,</span>
+<span id="cb10-2"><a href="#cb10-2"></a>       <span class="at">data =</span> pinguins,</span>
+<span id="cb10-3"><a href="#cb10-3"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-4"><a href="#cb10-4"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  massa_corporal by sexo
+t = -8.5545, df = 323.9, p-value = 4.794e-16
+alternative hypothesis: true difference in means between group fêmea and group macho is not equal to 0
+95 percent confidence interval:
+ -840.5783 -526.2453
+sample estimates:
+mean in group fêmea mean in group macho 
+           3862.273            4545.685 </code></pre>
+</div>
+</div>
+</section>
+<section id="d-de-cohen" class="slide level2">
+<h2><span class="math inline">\(d\)</span> de Cohen</h2>
+<ul>
+<li class="fragment"><p>O tamanho do efeito pode ser considerado um indicador da relevância clínica dos grupos</p></li>
+<li class="fragment"><p>O <span class="math inline">\(d\)</span> de Cohen é usado para calcular a distância entre as médias das distribuições sobrepostas</p></li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(d\)</span> de Cohen</th>
+<th>Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(d &lt; 0,2\)</span></td>
+<td>Irrelevante</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d \ge 0,2\)</span></td>
+<td>Pequeno</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(d \ge 0,5\)</span></td>
+<td>Moderado</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(d \ge 0,8\)</span></td>
+<td>Grande</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(massa_corporal <span class="sc">~</span> sexo,</span>
+<span id="cb12-2"><a href="#cb12-2"></a>                     <span class="at">data =</span> pinguins,</span>
+<span id="cb12-3"><a href="#cb12-3"></a>                     <span class="at">pooled_sd =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-4"><a href="#cb12-4"></a>                     <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb12-5"><a href="#cb12-5"></a>                     <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cohen's d |         95% CI
+--------------------------
+-0.94     | [-1.16, -0.71]
+
+- Estimated using un-pooled SD.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="anova-de-uma-via" class="slide level2">
+<h2>ANOVA de uma via</h2>
+<ul>
+<li class="fragment">A ANOVA (análise da variância) representa um conjunto de procedimentos para verificar diferenças médias entre vários grupos
+<ul>
+<li class="fragment">Basicamente um super teste t</li>
+<li class="fragment">Também pode ser entendido como um caso especial de um modelo de regressão</li>
+<li class="fragment">Uma das análises mais usadas em Psicologia <span class="citation" data-cites="chartier_2008">(<a href="#/referências" role="doc-biblioref" onclick="">Chartier e Faulkner 2008</a>)</span></li>
+</ul></li>
+<li class="fragment">Pressupostos:
+<ul>
+<li class="fragment">Dados aleatórios e representativos da população</li>
+<li class="fragment">Variável dependente é contínua</li>
+<li class="fragment">Resíduos normalmente distribuídos</li>
+<li class="fragment">Resíduos independentes</li>
+<li class="fragment">Variância dos resíduos é constante</li>
+</ul></li>
+</ul>
+</section>
+<section id="exemplo-de-anova-no-r" class="slide level2">
+<h2>Exemplo de ANOVA no R</h2>
+<p>Vamos novamente verificar a diferença na massa corporal, porém agora entre as ilhas do Arquipélago Palmer.</p>
+</section>
+<section id="referências" class="slide level2 smaller scrollable">
+<h2>Referências</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-chartier_2008" class="csl-entry" role="doc-biblioentry">
+Chartier, Sylvain, e Andrew Faulkner. 2008. <span>"General Linear Models: An Integrated Approach to Statistics"</span>. <em>Tutorials in Quantitative Methods for Psychology</em> 4 (2): 65–78. <a href="https://doi.org/10.20982/tqmp.04.2.p065">https://doi.org/10.20982/tqmp.04.2.p065</a>.
+</div>
+</div>
+
+
+<img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>

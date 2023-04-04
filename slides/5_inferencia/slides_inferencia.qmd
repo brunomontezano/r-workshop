@@ -14,6 +14,7 @@ format:
     smaller: true
     theme: [default, ../assets/custom.scss]
     logo: "../assets/logo_ufrgs.png"
+bibliography: references.bib
 ---
 
 ## Conteúdo de hoje
@@ -65,7 +66,7 @@ $$\underbrace{H_a: \mu_{tomou} < \mu_{não \,tomou}}_\text{Hipóteses estatísti
 
 * Usado para verificar se duas variáveis categóricas são independentes 
 
-* Assume alguns pressupostos:
+* Pressupostos:
   - Os dados são aleatórios e representativos da população
   - As variáveis analisadas são categóricas
 
@@ -109,4 +110,176 @@ ggplot(pinguins,
 ```
 
 :::
+:::
+
+## $V$ de Cramer
+
+* Os $p$-valores quase nunca são informativos sobre a relevância dos resultados
+
+* O **tamanho do efeito** é uma medida objetiva e padronizada sobre um efeito
+observado
+
+* O tamanho do efeito mais utilizado no teste $\chi^2$ é
+o $V$ de Cramer
+  - Esta estatística gera valores entre 0 e 1
+  - A interpretação se baseia nos graus de liberdade
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+| Graus de liberdade | Pequeno | Médio | Grande |
+|--------------------|---------|-------|--------|
+| 1                  | 0,1     | 0,3   | 0,5    |
+| 2                  | 0,07    | 0,21  | 0,35   |
+| 3                  | 0,06    | 0,17  | 0,29   |
+| 4                  | 0,05    | 0,15  | 0,25   |
+:::
+
+::: {.column width="50%"}
+```{r v-de-cramer-pinguins}
+effectsize::cramers_v(pinguins$especie,
+                      pinguins$ilha,
+                      alternative = "two.sided",
+                      ci = 0.95)
+```
+:::
+
+:::
+  
+
+## Teste t
+
+* Frequentemente usado para testar hipóteses sobre diferenças entre até duas médias
+
+* Pressupostos:
+  - Dados aleatórios e representativos da população
+  - Variável dependente contínua
+  - Resíduos do modelo são normalmente distribuídos
+  
+* Exemplos de uso do teste t:
+  - Verificar se o peso médio dos bebês da maternidade do HCPA é similar ao
+  esperado na população
+  - Verificar se as notas do ENEM diferem em estudantes da rede pública e privada
+  de ensino
+  - Verificar se o uso de uma medicação diminuiu os sintomas ansiosos dos pacientes
+  psiquiátricos após um mês
+  
+## Exemplo de teste t de duas amostras
+
+Vamos supor que queremos verificar se há diferença na massa corporal dos pinguins
+machos e fêmeas nos dados `pinguins` do pacote `dados`.
+
+$$
+H_0: \mu_{machos} - \mu_{fêmeas} = 0
+$$
+
+$$
+H_a: \mu_{machos} - \mu_{fêmeas} \ne 0
+$$
+
+$$
+\alpha = 0,05
+$$
+
+```{r histograma-massa-sexo}
+#| echo: false
+#| out-width: 100%
+#| fig-align: "center"
+library(dplyr)
+pinguins |>
+  filter(!is.na(sexo)) |>
+  group_by(sexo) |> 
+  mutate(sexo = if_else(sexo == "macho", "Macho", "Fêmea"),
+         media_massa = mean(massa_corporal)) |>
+  ggplot(
+    aes(
+      x = massa_corporal,
+      fill = sexo
+    )) +
+      geom_histogram(alpha = 0.65) +
+      labs(x = "Massa corporal",
+           y = "# de pinguins",
+           fill = "Sexo") +
+      ghibli::scale_fill_ghibli_d("YesterdayMedium", -1) +
+      theme_minimal(base_size = 16,
+                    base_family = "Charter") +
+      geom_vline(aes(xintercept = media_massa, color = sexo), size = 2,
+                 show.legend = FALSE) +
+      ghibli::scale_colour_ghibli_d("YesterdayMedium", -1)
+```
+
+
+## Teste t no R
+
+```{r teste-t-massa-pinguins}
+pinguins |>
+  filter(!is.na(sexo)) |>
+  group_by(sexo) |>
+  summarise(
+    media_massa = mean(massa_corporal, na.rm = TRUE),
+    dp_massa = sd(massa_corporal, na.rm = TRUE)
+  )
+
+t.test(formula = massa_corporal ~ sexo,
+       data = pinguins,
+       paired = FALSE,
+       conf.level = 0.95)
+```
+
+## $d$ de Cohen
+
+* O tamanho do efeito pode ser considerado um indicador da
+relevância clínica dos grupos
+
+* O $d$ de Cohen é usado para calcular a distância entre as médias das
+distribuições sobrepostas
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+| $d$ de Cohen | Interpretação |
+|--------------|-------------|
+| $d < 0,2$    | Irrelevante |
+| $d \ge 0,2$  |   Pequeno   |
+| $d \ge 0,5$  |   Moderado  |
+| $d \ge 0,8$  |    Grande   |
+:::
+
+::: {.column width="50%"}
+```{r d-cohen-pinguins}
+effectsize::cohens_d(massa_corporal ~ sexo,
+                     data = pinguins,
+                     pooled_sd = FALSE,
+                     paired = FALSE,
+                     ci = 0.95)
+```
+:::
+
+:::
+
+## ANOVA de uma via
+
+* A ANOVA (análise da variância) representa um conjunto de procedimentos para verificar
+diferenças médias entre vários grupos
+  - Basicamente um super teste t
+  - Também pode ser entendido como um caso especial de um modelo de regressão
+  - Uma das análises mais usadas em Psicologia [@chartier_2008]
+  
+* Pressupostos:
+  - Dados aleatórios e representativos da população
+  - Variável dependente é contínua
+  - Resíduos normalmente distribuídos
+  - Resíduos independentes
+  - Variância dos resíduos é constante
+  
+## Exemplo de ANOVA no R
+
+Vamos novamente verificar a diferença na massa corporal, porém agora
+entre as ilhas do Arquipélago Palmer.
+  
+## Referências
+
+::: {#refs}
 :::
