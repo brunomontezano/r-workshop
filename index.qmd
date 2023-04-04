@@ -92,6 +92,9 @@ introdução ao aprendizado estatístico com exemplos em R em todos os capítulo
 * [Aprendizado de máquina: uma abordagem estatística](http://www.rizbicki.ufscar.br/ame/):
 livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com
 o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatísticos.
+* [Deep Learning and Scientific Computing with R torch](https://skeydan.github.io/Deep-Learning-and-Scientific-Computing-with-R-torch/):
+Livro sobre o `torch`, um *framework* em R para criar modelos de deep learning, além
+de possibilitar rotinas complexas de computação científica. Publicado em abril de 2023.
 
 ## Slides
 
