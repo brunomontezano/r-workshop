@@ -73,6 +73,10 @@ exemplos em R no decorrer do texto.
 * [Learning Statistics with R](https://learningstatisticswithr.com/book/): escrito
 por Danielle Navarro, trata-se de um livro voltado para introdução de conceitos
 de estatística e probabilidade através de aplicações em R.
+* [Playlist de Statistics Fundamentals do canal StatQuest](https://youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9):
+criado por Josh Starmer, trata-se de uma playlist no YouTube que dá uma visão geral
+de conceitos fundamentais de estatística. A [playlist sobre regressão linear e modelos
+lineares](https://youtube.com/playlist?list=PLblh5JKOoLUIzaEkCLIUxQFjPIlapw8nU) também vale muito a pena assistir.
 
 ### Reprodutibilidade e Comunicação
 

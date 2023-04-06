@@ -46,19 +46,27 @@ format:
 :::
 
 ::: {.column width="50%"}
-```{r idade-capacidade-pulmao}
-#| echo: false
-#| fig-align: "center"
-#| out.width: "100%"
-set.seed(1)
 
-library(ggplot2)
+```{r tabela-frequencia-cardiaca}
+#| echo: false
+set.seed(1)
 
 intensidade_exercicio <- 1:10
 frequencia_cardiaca <- 80 + 10 * intensidade_exercicio + rnorm(length(intensidade_exercicio), 0, 5)
 
-# Create a data frame with the simulated data
 dados_cardiacos <- data.frame(intensidade_exercicio, frequencia_cardiaca)
+
+dados_cardiacos |> 
+  dplyr::select(pse = intensidade_exercicio,
+                bpm = frequencia_cardiaca)
+```
+
+```{r idade-capacidade-pulmao}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "100%"
+
+library(ggplot2)
 
 modelo_freq <- lm(frequencia_cardiaca ~ intensidade_exercicio,
                   data = dados_cardiacos)
@@ -107,6 +115,20 @@ library(dplyr)
 neg <- openintro::simulated_scatter |> filter(group == 1)
 pos <- openintro::simulated_scatter |> filter(group == 2)
 ran <- openintro::simulated_scatter |> filter(group == 3)
+bad <- openintro::simulated_scatter |> filter(group == 5)
+
+bad_reg <- bad |> 
+  mutate(y = max(y) + min(y) - y) |> 
+  ggplot(aes(x = x, y = y)) +
+  geom_point(size = 2,
+             alpha = 0.8,
+             color = "aquamarine4") +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = "gray20") +
+  labs(x = NULL,
+       y = NULL) +
+  theme_minimal(base_size = 16, base_family = "Charter")
 
 p_neg <- ggplot(neg, aes(x = x, y = y)) +
   geom_point(size = 2, alpha = 0.8, color = "aquamarine4") +
@@ -126,12 +148,248 @@ p_ran <- ggplot(ran, aes(x = x, y = y)) +
   labs(x = NULL, y = NULL) +
   theme_minimal(base_size = 16, base_family = "Charter")
 
-p_neg + p_pos + p_ran +
+p_neg + p_pos + p_ran + bad_reg +
   plot_annotation(title = "Um modelo linear pode ser útil mesmo quando os pontos não passam diretamente pela reta.",
+                  subtitle = "Em alguns casos, não será o método mais adequado.",
                   caption = "Adaptado do livro Introduction to Modern Statistics (Çetinkaya-Rundel e Hardin, 2023).",
                   theme = theme(text = element_text(family = "Charter")))
 ```
 
+## Definições e nomenclaturas
+
+* $x_1, x_2, \ldots, x_p$: variáveis explicativas (variáveis independentes ou
+*features* ou preditores)
+
+* $X = x_1, x_2, \ldots, x_p$: conjunto de todos os preditores
+
+* $Y$: variável resposta (ou variável dependente ou *target*)
+
+* $\hat{Y}$: valor esperado (ou predição ou valor estimado ou *fitted*)
+
+* $f(X)$ pode ser entendida como "modelo" ou "hipótese"
+
 . . .
 
-Como sabemos qual a melhor reta?
+No primeiro exemplo:
+
+* $x_1$: `pse` --- Percepção subjetiva de esforço
+
+* $Y$: `bpm` --- Frequência cardíaca (em batimentos por minuto)
+
+## Observado *vs.* Esperado
+
+* $Y$ é um valor observado (ou verdade) a partir dos dados
+
+* $\hat{Y}$ é um valor esperado (predição, ou valor estimado, ou *fitted*)
+
+* $Y - \hat{Y}$ é o resíduo (ou erro)
+
+. . .
+
+Por definição, $\hat{Y} = f(X)$ que é o valor que a função $f$ retorna.
+Em suma, nosso modelo.
+
+```{r idade-capacidade-pulmao-com-erro}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "70%"
+
+library(ggplot2)
+
+modelo_freq <- lm(frequencia_cardiaca ~ intensidade_exercicio,
+                  data = dados_cardiacos)
+
+dados_cardiacos$predito <- predict(modelo_freq)
+dados_cardiacos$residuos <- dados_cardiacos$frequencia_cardiaca - dados_cardiacos$predito
+
+ggplot(dados_cardiacos,
+       aes(x = intensidade_exercicio, y = frequencia_cardiaca)) +
+  geom_segment(
+    aes(
+      x = intensidade_exercicio,
+      y = frequencia_cardiaca,
+      xend = intensidade_exercicio,
+      yend = predito
+    ),
+    color = "darkorchid1",
+    linewidth = 1.5,
+    alpha = 0.8,
+    data = dados_cardiacos
+  ) +
+  geom_point(size = 3, color = "aquamarine4") +
+  geom_smooth(method = "lm",
+              color = "grey20",
+              se = FALSE,
+              fullrange = TRUE) +
+  scale_x_continuous(breaks = 0:10,
+                     limits = c(0, 10)) +
+  labs(x = "Intensidade do exercício (PSE)",
+       y = "Frequência cardíaca (bpm)") +
+  theme_minimal(base_size = 16,
+                base_family = "Charter")
+```
+
+## Por que ajustar uma $f$?
+
+::: columns
+::: {.column width="50%"}
+### Predição
+
+* Em muitas situações, $X$ está disponível facilmente mas $Y$ não é fácil de
+descobrir (ou mesmo não é possível descobrí-lo).
+
+* Queremos que $\hat{Y}=f(X)$ seja uma
+boa estimativa (preveja bem o futuro).
+
+. . .
+
+Exemplo: Com quantos gramas irá nascer um bebê na maternidade do HCPA?
+:::
+
+::: {.column width="50%"}
+### Inferência
+
+* Em inferência estamos mais interessados em entender a relação entre as variáveis explicativas $X$ e a variável resposta $Y$.
+
+* Exemplos:
+  - Qual o efeito da idade na função cognitiva dos pacientes bipolares?
+  - Os níveis de estresse podem explicar a severidade de sintomas depressivos?
+  
+. . .
+  
+Nessa aula, nosso foco é **inferência**.
+:::
+:::
+
+## Vamos trabalhar com `gambás`
+
+
+::: columns
+::: {.column width="65%"}
+Os dados apresentam informações de gambás da Austrália e Nova Guiné.
+
+```{r ler-e-mostrar-gambas}
+library(readr)
+
+gambas <- read_csv("../dados/gambas.csv")
+
+glimpse(gambas)
+```
+:::
+
+::: {.column width="35%"}
+![O gambá brushtail da Austrália. Foto de Greg Schecter. Licença CC BY 2.0.](../assets/gamba.jpg){fig-align="center" width=85%}
+:::
+:::
+
+## Exemplo com `gambás`
+
+::: columns
+::: {.column width="50%"}
+#### Regressão linear simples
+
+<center>
+$y = \beta_0 + \beta_1x$
+</center>
+
+<br>
+
+#### Exemplo
+
+<center>
+$cabeça = \beta_0 + \beta_1total$
+</center>
+
+<br>
+:::
+
+::: {.column width="50%"}
+::: {.panel-tabset}
+## Gráfico
+
+```{r scatterplot-gambas}
+#| echo: false
+ggplot(gambas) + 
+  geom_point(aes(x = comprimento_total, y = comprimento_cabeca),
+             size = 4,
+             alpha = 0.7)  +
+  labs(x = "Comprimento total (em cm)",
+       y = "Comprimento da cabeça (em mm)") +
+  theme_minimal(18, "Charter")
+```
+
+## Reta na mão
+
+```{r reta-na-mao-gambas}
+#| echo: false
+ggplot(gambas, aes(x = comprimento_total, y = comprimento_cabeca)) +
+  geom_point(size = 4,
+             alpha = 0.7)  +
+  #geom_smooth(method = "lm",
+  #            se = FALSE,
+  #            color = "firebrick1",
+  #            size = 2) +
+  geom_abline(intercept = 36,
+              slope = 0.7,
+              color = "dodgerblue4",
+              size = 2) +
+  labs(x = "Comprimento total (em cm)",
+       y = "Comprimento da cabeça (em mm)") +
+  theme_minimal(18, "Charter")
+```
+
+## Melhor reta
+
+```{r melhor-reta-gambas}
+#| echo: false
+ggplot(gambas, aes(x = comprimento_total, y = comprimento_cabeca)) +
+  geom_point(size = 4,
+             alpha = 0.7)  +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              color = "firebrick1",
+              size = 2) +
+  geom_abline(intercept = 36,
+              slope = 0.7,
+              color = "dodgerblue4",
+              alpha = 0.6,
+              size = 2) +
+  labs(x = "Comprimento total (em cm)",
+       y = "Comprimento da cabeça (em mm)") +
+  theme_minimal(18, "Charter")
+```
+:::
+:::
+:::
+
+## Melhor reta no R
+
+<center>
+$comprimento \,da \,cabeça = \beta_0 + \beta_1comprimento \,total$
+</center>
+
+<br>
+
+. . .
+
+```{r regressao-linear-gamba}
+melhor_reta <- lm(comprimento_cabeca ~ comprimento_total, data = gambas)
+
+melhor_reta
+```
+
+<br>
+
+. . .
+
+<center>
+$comprimento \,da \,cabeça = 42.7 + 0.57 \times comprimento \,total$
+</center>
+
+<br>
+
+. . .
+
+<center>
+Como a melhor reta é escolhida?
+</center>
