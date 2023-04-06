@@ -928,7 +928,7 @@
     "href": "slides/6_regressao/slides_regressao.html#definições-e-nomenclaturas",
     "title": "Modelos de regressão",
     "section": "Definições e nomenclaturas",
-    "text": "Definições e nomenclaturas\n\n\\(x_1, x_2, \\ldots, x_p\\): variáveis explicativas (variáveis independentes ou features ou preditores)\n\\(X = x_1, x_2, \\ldots, x_p\\): conjunto de todos os preditores\n\\(Y\\): variável resposta (ou variável dependente ou target)\n\\(\\hat{Y}\\): valor esperado (ou predição ou valor estimado ou fitted)\n\\(f(X)\\) pode ser entendida como “modelo” ou “hipótese”\n\n\nNo primeiro exemplo:\n\n\\(x_1\\): pse — Percepção subjetiva de esforço\n\\(Y\\): bpm — Frequência cardíaca (em batimentos por minuto)"
+    "text": "Definições e nomenclaturas\n\n\\(x_1, x_2, \\cdots, x_p\\): variáveis explicativas (variáveis independentes ou features ou preditores)\n\\(X = x_1, x_2, \\cdots, x_p\\): conjunto de todos os preditores\n\\(Y\\): variável resposta (ou variável dependente ou target)\n\\(\\hat{Y}\\): valor esperado (ou predição ou valor estimado ou fitted)\n\\(f(X)\\) pode ser entendida como “modelo” ou “hipótese”\n\n\nNo primeiro exemplo:\n\n\\(x_1\\): pse — Percepção subjetiva de esforço\n\\(Y\\): bpm — Frequência cardíaca (em batimentos por minuto)"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#observado-vs.-esperado",
@@ -956,7 +956,7 @@
     "href": "slides/6_regressao/slides_regressao.html#exemplo-com-gambás",
     "title": "Modelos de regressão",
     "section": "Exemplo com gambás",
-    "text": "Exemplo com gambás\n\n\nRegressão linear simples\n\n\\(y = \\beta_0 + \\beta_1x\\)\n\n\nExemplo\n\n\\(cabeça = \\beta_0 + \\beta_1total\\)\n\n\n\n\nGráficoReta na mãoMelhor reta"
+    "text": "Exemplo com gambás\n\n\nRegressão linear simples\n\n\\(y = \\beta_0 + \\beta_1x\\)\n\n\nExemplo\n\n\\(cabeça = \\beta_0 + \\beta_1total\\)\n\n\n\n# No R\nlm(comprimento_cabeca ~ comprimento_total,\n   data = gambas)\n\n\n\nGráficoReta na mãoMelhor reta"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#melhor-reta-no-r",
@@ -964,6 +964,34 @@
     "title": "Modelos de regressão",
     "section": "Melhor reta no R",
     "text": "Melhor reta no R\n\n\\(comprimento \\,da \\,cabeça = \\beta_0 + \\beta_1comprimento \\,total\\)\n\n\n\n\nmelhor_reta <- lm(comprimento_cabeca ~ comprimento_total, data = gambas)\n\nmelhor_reta\n\n\nCall:\nlm(formula = comprimento_cabeca ~ comprimento_total, data = gambas)\n\nCoefficients:\n      (Intercept)  comprimento_total  \n          42.7098             0.5729  \n\n\n\n\n\n\n\\(comprimento \\,da \\,cabeça = 42.7 + 0.57 \\times comprimento \\,total\\)\n\n\n\n\n\nComo a melhor reta é escolhida?"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#melhor-reta-baseado-em-que",
+    "href": "slides/6_regressao/slides_regressao.html#melhor-reta-baseado-em-que",
+    "title": "Modelos de regressão",
+    "section": "“Melhor reta” baseado em que?",
+    "text": "“Melhor reta” baseado em que?\nA gente quer a reta que erre menos.\n\nExemplo de medida de erro: Erro Quadrático Médio.\n\n\\[\nEQM = \\sqrt{\\frac{1}{N}\\sum(y_i - \\hat{y_i})^2}\n\\]"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#e-se-quisermos-usar-mais-preditores",
+    "href": "slides/6_regressao/slides_regressao.html#e-se-quisermos-usar-mais-preditores",
+    "title": "Modelos de regressão",
+    "section": "E se quisermos usar mais preditores?",
+    "text": "E se quisermos usar mais preditores?\n\n\nRegressão linear múltipla\n\n\\(y = \\beta_0 + \\beta_1x_1 + \\cdots + \\beta_px_p\\)\n\n\nExemplo\n\n\\(cabeça = \\beta_0 + \\beta_1total + \\beta_2cauda\\)\n\n\n\n# No R\nlm(comprimento_cabeca ~ comprimento_total + comprimento_cauda,\n   data = gambas)"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#o-que-o-r-nos-diz",
+    "href": "slides/6_regressao/slides_regressao.html#o-que-o-r-nos-diz",
+    "title": "Modelos de regressão",
+    "section": "O que o R nos diz?",
+    "text": "O que o R nos diz?\n\nmodelo_linear_multiplo <-\n  lm(comprimento_cabeca ~ comprimento_total + comprimento_cauda,\n     data = gambas)\n\nsummary(modelo_linear_multiplo)\n\n\nCall:\nlm(formula = comprimento_cabeca ~ comprimento_total + comprimento_cauda, \n    data = gambas)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-6.9660 -1.6217 -0.3254  1.2406  7.2855 \n\nCoefficients:\n                  Estimate Std. Error t value           Pr(>|t|)    \n(Intercept)        46.7658     5.6079   8.339 0.0000000000003964 ***\ncomprimento_total   0.6443     0.0712   9.049 0.0000000000000111 ***\ncomprimento_cauda  -0.2775     0.1566  -1.772             0.0794 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.569 on 101 degrees of freedom\nMultiple R-squared:  0.4934,    Adjusted R-squared:  0.4833 \nF-statistic: 49.18 on 2 and 101 DF,  p-value: 1.223e-15\n\n\n\n\n\\[\ncabeça = 46.8 + 0.64total - 0.28cauda\n\\]"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#preditores-categóricos",
+    "href": "slides/6_regressao/slides_regressao.html#preditores-categóricos",
+    "title": "Modelos de regressão",
+    "section": "Preditores categóricos",
+    "text": "Preditores categóricos\nPreditores com apenas duas categorias\nPergunta de pesquisa: O tamanho das nadadeiras dos pinguins são diferentes entre os sexos?"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
