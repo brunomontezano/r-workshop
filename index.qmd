@@ -42,6 +42,10 @@ aplicações.
 * [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/): livro
 breve escrito por Ewen Harrison e Riinu Pius sobre aplicação de programação em R
 na manipulação, análise e interpretação de dados em saúde.
+* [Hands-On Programming with R](https://rstudio-education.github.io/hopr/):
+escrito por Garrett Grolemund, trata-se de um livro breve de introdução a
+programação em R com aplicações e exemplos práticos que pode ser utilizado
+como material auxiliar.
 
 ### Visualização de dados
 
@@ -83,6 +87,19 @@ sintaxe unificada do RMarkdown.
 * [Mastering Shiny](https://mastering-shiny.org/): escrito por Hadley Wickham,
 trata-se de um livro para criação de aplicativos web em R a partir do framework
 `shiny`.
+* [Happy Git and GitHub for the useR](https://happygitwithr.com//): escrito por
+Jennifer Bryan, é um livro guia
+de como instalar `git`, trabalhar com GitHub e integrar seus projetos do R com
+estas ferramentas. Material para quem busca desenvolver fluxos de trabalho
+de colaboração ou reprodutibilidade.
+* [blogdown: Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/):
+livro por Yihui Xie, Amber Thomas e Alison Presmanes Hill, é um guia para o pacote
+`blogdown`, usado para criar websites e blogs com a sintaxe do R Markdown.
+* [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/):
+do autor Yihui Xie, é um livro guia para o pacote `bookdown`, que facilita o
+processo de criação de livros e relatórios técnicos em R com R Markdown.
+Suporta saídas em PDF, Word, HTML, etc, e apresenta diversas outras
+funcionalidades.
 
 ### Machine Learning
 
