@@ -24,3 +24,115 @@ format:
 - Pressupostos
 - Regressão linear múltipla
 - Comparação de modelos
+
+## Ciclo da ciência de dados
+
+![](../assets/ciclo_data_science.png){fig-align="center" width=85%}
+
+## Regressão linear
+
+
+::: columns
+::: {.column width="50%"}
+* Associação linear é aquela que podemos representar através de uma reta
+
+* Pensamos em "ajustar uma reta": $bpm = 80 + 10 \times PSE$
+
+* Exemplo: renda familiar ($Y$) e anos de estudo ($X$)
+
+* Equação da regressão linear: $y = b_0 + b_1x + e$
+  - $b_0$: intercepto
+  - $b_1$: coeficiente angular (*slope*)
+  - $e$: Erro do modelo
+:::
+
+::: {.column width="50%"}
+```{r idade-capacidade-pulmao}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "100%"
+set.seed(1)
+
+library(ggplot2)
+
+intensidade_exercicio <- 1:10
+frequencia_cardiaca <- 80 + 10 * intensidade_exercicio + rnorm(length(intensidade_exercicio), 0, 5)
+
+# Create a data frame with the simulated data
+dados_cardiacos <- data.frame(intensidade_exercicio, frequencia_cardiaca)
+
+modelo_freq <- lm(frequencia_cardiaca ~ intensidade_exercicio,
+                  data = dados_cardiacos)
+
+dados_cardiacos$predito <- predict(modelo_freq)
+dados_cardiacos$residuos <- dados_cardiacos$frequencia_cardiaca - dados_cardiacos$predito
+
+ggplot(dados_cardiacos,
+       aes(x = intensidade_exercicio, y = frequencia_cardiaca)) +
+#  geom_segment(
+#    aes(
+#      x = intensidade_exercicio,
+#      y = frequencia_cardiaca,
+#      xend = intensidade_exercicio,
+#      yend = predito
+#    ),
+#    color = "red",
+#    linewidth = 1.5,
+#    alpha = 0.8,
+#    data = dados_cardiacos
+#  ) +
+  geom_point(size = 3, color = "aquamarine4") +
+  geom_smooth(method = "lm",
+              color = "grey20",
+              se = FALSE,
+              fullrange = TRUE) +
+  scale_x_continuous(breaks = 0:10,
+                     limits = c(0, 10)) +
+  labs(x = "Intensidade do exercício (PSE)",
+       y = "Frequência cardíaca (bpm)") +
+  theme_minimal(base_size = 16,
+                base_family = "Charter")
+```
+:::
+:::
+
+## Retas
+
+```{r exemplos-retas}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "100%"
+library(patchwork)
+library(dplyr)
+
+neg <- openintro::simulated_scatter |> filter(group == 1)
+pos <- openintro::simulated_scatter |> filter(group == 2)
+ran <- openintro::simulated_scatter |> filter(group == 3)
+
+p_neg <- ggplot(neg, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8, color = "aquamarine4") +
+  geom_smooth(method = "lm", se = FALSE, color = "gray20") +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 16, base_family = "Charter")
+
+p_pos <- ggplot(pos, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8, color = "aquamarine4") +
+  geom_smooth(method = "lm", se = FALSE, color = "gray20") +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 16, base_family = "Charter")
+
+p_ran <- ggplot(ran, aes(x = x, y = y)) +
+  geom_point(size = 2, alpha = 0.8, color = "aquamarine4") +
+  geom_smooth(method = "lm", se = FALSE, color = "gray20") +
+  labs(x = NULL, y = NULL) +
+  theme_minimal(base_size = 16, base_family = "Charter")
+
+p_neg + p_pos + p_ran +
+  plot_annotation(title = "Um modelo linear pode ser útil mesmo quando os pontos não passam diretamente pela reta.",
+                  caption = "Adaptado do livro Introduction to Modern Statistics (Çetinkaya-Rundel e Hardin, 2023).",
+                  theme = theme(text = element_text(family = "Charter")))
+```
+
+. . .
+
+Como sabemos qual a melhor reta?

@@ -338,7 +338,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">24 de março de 2023</p>
+  <p class="date">5 de abril de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -350,10 +350,57 @@ Bruno Montezano
 <li class="fragment">Regressão linear múltipla</li>
 <li class="fragment">Comparação de modelos</li>
 </ul>
+</section>
+<section id="ciclo-da-ciência-de-dados" class="slide level2">
+<h2>Ciclo da ciência de dados</h2>
 
+<img data-src="../assets/ciclo_data_science.png" style="width:85.0%" class="r-stretch quarto-figure-center"></section>
+<section id="regressão-linear" class="slide level2">
+<h2>Regressão linear</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p>Associação linear é aquela que podemos representar através de uma reta</p></li>
+<li class="fragment"><p>Pensamos em “ajustar uma reta”: <span class="math inline">\(bpm = 80 + 10 \times PSE\)</span></p></li>
+<li class="fragment"><p>Exemplo: renda familiar (<span class="math inline">\(Y\)</span>) e anos de estudo (<span class="math inline">\(X\)</span>)</p></li>
+<li class="fragment"><p>Equação da regressão linear: <span class="math inline">\(y = b_0 + b_1x + e\)</span></p>
+<ul>
+<li class="fragment"><span class="math inline">\(b_0\)</span>: intercepto</li>
+<li class="fragment"><span class="math inline">\(b_1\)</span>: coeficiente angular (<em>slope</em>)</li>
+<li class="fragment"><span class="math inline">\(e\)</span>: Erro do modelo</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_regressao_files/figure-revealjs/idade-capacidade-pulmao-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="retas" class="slide level2">
+<h2>Retas</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_regressao_files/figure-revealjs/exemplos-retas-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Como sabemos qual a melhor reta?</p>
 
-<img src="../assets/logo_ufrgs.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><img src="../assets/logo_ufrgs.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -567,6 +614,44 @@ Bruno Montezano
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

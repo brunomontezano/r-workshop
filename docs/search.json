@@ -896,6 +896,27 @@
     "text": "Conteúdo de hoje\n\nConceito\nVariável dependente e independente\nRegressão linear simples\nPressupostos\nRegressão linear múltipla\nComparação de modelos"
   },
   {
+    "objectID": "slides/6_regressao/slides_regressao.html#ciclo-da-ciência-de-dados",
+    "href": "slides/6_regressao/slides_regressao.html#ciclo-da-ciência-de-dados",
+    "title": "Modelos de regressão",
+    "section": "Ciclo da ciência de dados",
+    "text": "Ciclo da ciência de dados"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#regressão-linear",
+    "href": "slides/6_regressao/slides_regressao.html#regressão-linear",
+    "title": "Modelos de regressão",
+    "section": "Regressão linear",
+    "text": "Regressão linear\n\n\n\nAssociação linear é aquela que podemos representar através de uma reta\nPensamos em “ajustar uma reta”: \\(bpm = 80 + 10 \\times PSE\\)\nExemplo: renda familiar (\\(Y\\)) e anos de estudo (\\(X\\))\nEquação da regressão linear: \\(y = b_0 + b_1x + e\\)\n\n\\(b_0\\): intercepto\n\\(b_1\\): coeficiente angular (slope)\n\\(e\\): Erro do modelo"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#retas",
+    "href": "slides/6_regressao/slides_regressao.html#retas",
+    "title": "Modelos de regressão",
+    "section": "Retas",
+    "text": "Retas\n\n\n\n\n\n\n\n\n\n\nComo sabemos qual a melhor reta?"
+  },
+  {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
     "title": "R e RStudio",
