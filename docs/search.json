@@ -770,6 +770,13 @@
     "text": "O que é estatística inferencial?\n\nUm dos principais objetivos ao fazer pesquisa é generalizar as descobertas para toda a população\n\nAmostra \\(\\rightarrow\\) População\n\nUm modelo estatístico é uma representação de um fenômeno complexo que gerou os dados\n\nPor vezes, assume pressupostos sobre as variáveis\n\nQuando pesquisamos, estamos interessados em testar hipóteses\n\nSuposição sobre o estado das coisas\nPodem ser substantivas (formulação textual ou semântica) ou estatísticas (operacionalização da hipótese substantiva)"
   },
   {
+    "objectID": "slides/5_inferencia/slides_inferencia.html#george-box-sobre-os-modelos-estatísticos",
+    "href": "slides/5_inferencia/slides_inferencia.html#george-box-sobre-os-modelos-estatísticos",
+    "title": "Inferência estatística",
+    "section": "George Box sobre os modelos estatísticos",
+    "text": "George Box sobre os modelos estatísticos\n\n\n“All models are wrong, but some are useful” (Box 1976)."
+  },
+  {
     "objectID": "slides/5_inferencia/slides_inferencia.html#hipóteses-estatísticas",
     "href": "slides/5_inferencia/slides_inferencia.html#hipóteses-estatísticas",
     "title": "Inferência estatística",
@@ -879,7 +886,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#referências",
     "title": "Inferência estatística",
     "section": "Referências",
-    "text": "Referências\n\n\nChartier, Sylvain, e Andrew Faulkner. 2008. \"General Linear Models: An Integrated Approach to Statistics\". Tutorials in Quantitative Methods for Psychology 4 (2): 65–78. https://doi.org/10.20982/tqmp.04.2.p065.\n\n\nKhamis, Harry. 2008. \"Measures of Association: How to Choose?\" Journal of Diagnostic Medical Sonography 24 (3): 155–62. https://doi.org/10.1177/8756479308317006."
+    "text": "Referências\n\n\nBox, George E. P. 1976. \"Science and Statistics\". J. Am. Stat. Assoc. 71 (356): 791–99. https://doi.org/10.1080/01621459.1976.10480949.\n\n\nChartier, Sylvain, e Andrew Faulkner. 2008. \"General Linear Models: An Integrated Approach to Statistics\". Tutorials in Quantitative Methods for Psychology 4 (2): 65–78. https://doi.org/10.20982/tqmp.04.2.p065.\n\n\nKhamis, Harry. 2008. \"Measures of Association: How to Choose?\" Journal of Diagnostic Medical Sonography 24 (3): 155–62. https://doi.org/10.1177/8756479308317006."
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#tarefa-de-casa",

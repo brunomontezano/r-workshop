@@ -31,7 +31,6 @@ format:
 
 ## Regressão linear
 
-
 ::: columns
 ::: {.column width="50%"}
 * Associação linear é aquela que podemos representar através de uma reta

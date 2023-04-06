@@ -43,6 +43,14 @@ os dados
   - Suposição sobre o estado das coisas
   - Podem ser substantivas (formulação textual ou semântica)
   ou estatísticas (operacionalização da hipótese substantiva)
+  
+## George Box sobre os modelos estatísticos
+
+<center>
+<font size="6">  
+*"All models are wrong, but some are useful"* [@box_1976].
+</font>
+</center>
 
 ## Hipóteses estatísticas
 
