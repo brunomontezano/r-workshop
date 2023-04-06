@@ -994,6 +994,13 @@
     "text": "Preditores categóricos\nPreditores com apenas duas categorias\nPergunta de pesquisa: O tamanho das nadadeiras dos pinguins são diferentes entre os sexos?"
   },
   {
+    "objectID": "slides/6_regressao/slides_regressao.html#correlação-vs.-regressão-linear",
+    "href": "slides/6_regressao/slides_regressao.html#correlação-vs.-regressão-linear",
+    "title": "Modelos de regressão",
+    "section": "Correlação vs. Regressão linear",
+    "text": "Correlação vs. Regressão linear\n\n\nSimilaridades\n\nCoeficiente de regressão padronizado é o mesmo que o coeficiente de correlação de Pearson\nO quadrado do coeficiente de correlação de Pearson é o mesmo que o \\(R^2\\) na regressão linear simples\nO sinal do coeficiente não-padronizado da regressão será o mesmo do coeficiente de correlação\nNenhum dos métodos respondem perguntas de causalidade\n\n\nDiferenças\n\nA equação da regressão (\\(\\beta_0 + \\beta_1x_1\\)) pode ser usada para fazer predições de \\(Y\\) baseado em \\(X\\)\nApesar da correlação se referir comumente a relações lineares, o conceito pode estar associado a outros tipos de associação\nCorrelação entre \\(X\\) e \\(Y\\) é a mesma correlação de \\(Y\\) e \\(X\\). Já na regressão linear, o coeficiente muda quando comparamos um modelo que prediz \\(Y\\) a partir de \\(X\\) e um modelo que prediz \\(X\\) a partir de \\(Y\\)"
+  },
+  {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
     "title": "R e RStudio",

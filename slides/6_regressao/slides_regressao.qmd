@@ -192,7 +192,7 @@ Em suma, nosso modelo.
 ```{r idade-capacidade-pulmao-com-erro}
 #| echo: false
 #| fig-align: "center"
-#| out.width: "70%"
+#| out.width: "60%"
 
 library(ggplot2)
 
@@ -571,3 +571,36 @@ $$
 Pergunta de pesquisa: O tamanho das nadadeiras dos pinguins são diferentes
 entre os sexos?
 
+## Correlação *vs.* Regressão linear
+
+::: columns
+::: {.column width="50%"}
+#### Similaridades
+
+* Coeficiente de regressão padronizado é o mesmo que o coeficiente de
+correlação de Pearson
+
+* O quadrado do coeficiente de correlação de Pearson é o mesmo que o
+$R^2$ na regressão linear simples
+
+* O sinal do coeficiente não-padronizado da regressão será o mesmo do
+coeficiente de correlação
+
+* Nenhum dos métodos respondem perguntas de causalidade
+:::
+
+::: {.column width="50%"}
+#### Diferenças
+
+* A equação da regressão ($\beta_0 + \beta_1x_1$) pode ser usada para
+fazer predições de $Y$ baseado em $X$
+
+* Apesar da correlação se referir comumente a relações lineares, o
+conceito pode estar associado a outros tipos de associação
+
+* Correlação entre $X$ e $Y$ é a mesma correlação de $Y$ e $X$.
+Já na regressão linear, o coeficiente muda
+quando comparamos um modelo que prediz $Y$ a partir de $X$ e um modelo
+que prediz $X$ a partir de $Y$
+:::
+:::
