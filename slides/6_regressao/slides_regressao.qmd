@@ -37,7 +37,7 @@ format:
 
 * Pensamos em "ajustar uma reta": $bpm = 80 + 10 \times PSE$
 
-* Exemplo: renda familiar ($Y$) e anos de estudo ($X$)
+* Exemplo: salário ($Y$) e anos de estudo ($X$)
 
 * Equação da regressão linear: $y = b_0 + b_1x + e$
   - $b_0$: intercepto
@@ -566,10 +566,102 @@ $$
 
 ## Preditores categóricos
 
-### Preditores com apenas duas categorias
+#### Preditores com apenas duas categorias
 
-Pergunta de pesquisa: O tamanho das nadadeiras dos pinguins são diferentes
-entre os sexos?
+Pergunta de pesquisa: O tamanho das nadadeiras dos pinguins variam conforme
+o sexo?
+
+::: columns
+::: {.column width="50%"}
+```{r boxplot-nadadeira-sexo}
+#| echo: false
+#| out.width: "100%"
+#| fig-align: "center"
+dados::pinguins |> 
+  filter(!is.na(sexo)) |> 
+  mutate(
+    sexo = if_else(sexo == "macho", "Macho", "Fêmea")
+  ) |> 
+  ggplot(aes(y = comprimento_nadadeira, x = sexo, fill = sexo)) +
+  geom_boxplot(show.legend = FALSE) +
+  ghibli::scale_fill_ghibli_d("MarnieLight1") +
+  labs(y = "Comprimento da nadadeira (mm)",
+       x = "Sexo") +
+  theme_minimal(20, "Charter")
+```
+:::
+
+::: {.column width="50%"}
+```{r scatterplot-nadadeira-sexo}
+#| echo: false
+#| out.width: "100%"
+#| fig-align: "center"
+set.seed(1)
+
+dados::pinguins |> 
+  filter(!is.na(sexo)) |> 
+  mutate(
+    sexo_macho = if_else(sexo == "macho", 1, 0)
+  ) |> 
+  ggplot(aes(y = comprimento_nadadeira, x = sexo_macho)) +
+  geom_jitter(width = 0.05, height = 0,
+              alpha = 0.7, size = 2) +
+  geom_smooth(method = "lm", se = FALSE,
+              color = "#0E84B4FF", linewidth = 1.5) +
+  labs(y = "Comprimento da nadadeira (mm)",
+       x = "Sexo (macho)") +
+  scale_x_continuous(breaks = 0:1) +
+  theme_minimal(20, "Charter")
+```
+:::
+:::
+
+```{r regressao-nadadeira-sexo}
+lm(comprimento_nadadeira ~ sexo, data = dados::pinguins)
+```
+
+## Preditores categóricos
+
+#### Preditores com 3 ou mais categorias
+
+::: columns
+::: {.column width="50%"}
+```{r boxplot-nadadeira-especie}
+#| echo: false
+#| out.width: "100%"
+#| fig-align: "center"
+dados::pinguins |> 
+  ggplot(aes(y = comprimento_nadadeira, x = especie, fill = especie)) +
+  geom_boxplot(show.legend = FALSE) +
+  ghibli::scale_fill_ghibli_d("MononokeMedium", direction = -1) +
+  labs(y = "Comprimento da nadadeira (mm)",
+       x = "Sexo") +
+  theme_minimal(20, "Charter")
+```
+
+```{r linear-nadadeira-especie}
+lm(comprimento_nadadeira ~ especie, data = dados::pinguins)
+```
+:::
+
+::: {.column width="50%"}
+Modelo:
+
+$$
+y_i = \beta_0 + \beta_1x_{1i} + \beta_2x_{2i}
+$$
+
+Em que:
+
+$$
+x_{1i} = \Bigg \{ \begin{array}{ll} 1 & \text{se for }\texttt{Pinguim-de-barbicha}\\0&\text{caso contrário}\end{array}
+$$
+
+$$
+x_{2i} = \Bigg \{ \begin{array}{ll} 1 & \text{se for }\texttt{Pinguim-gentoo}\\0&\text{caso contrário}\end{array}
+$$
+:::
+:::
 
 ## Correlação *vs.* Regressão linear
 

@@ -914,7 +914,7 @@
     "href": "slides/6_regressao/slides_regressao.html#regressão-linear",
     "title": "Modelos de regressão",
     "section": "Regressão linear",
-    "text": "Regressão linear\n\n\n\nAssociação linear é aquela que podemos representar através de uma reta\nPensamos em “ajustar uma reta”: \\(bpm = 80 + 10 \\times PSE\\)\nExemplo: renda familiar (\\(Y\\)) e anos de estudo (\\(X\\))\nEquação da regressão linear: \\(y = b_0 + b_1x + e\\)\n\n\\(b_0\\): intercepto\n\\(b_1\\): coeficiente angular (slope)\n\\(e\\): Erro do modelo\n\n\n\n\n\n   pse       bpm\n1    1  86.86773\n2    2 100.91822\n3    3 105.82186\n4    4 127.97640\n5    5 131.64754\n6    6 135.89766\n7    7 152.43715\n8    8 163.69162\n9    9 172.87891\n10  10 178.47306"
+    "text": "Regressão linear\n\n\n\nAssociação linear é aquela que podemos representar através de uma reta\nPensamos em “ajustar uma reta”: \\(bpm = 80 + 10 \\times PSE\\)\nExemplo: salário (\\(Y\\)) e anos de estudo (\\(X\\))\nEquação da regressão linear: \\(y = b_0 + b_1x + e\\)\n\n\\(b_0\\): intercepto\n\\(b_1\\): coeficiente angular (slope)\n\\(e\\): Erro do modelo\n\n\n\n\n\n   pse       bpm\n1    1  86.86773\n2    2 100.91822\n3    3 105.82186\n4    4 127.97640\n5    5 131.64754\n6    6 135.89766\n7    7 152.43715\n8    8 163.69162\n9    9 172.87891\n10  10 178.47306"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#retas",
@@ -991,7 +991,14 @@
     "href": "slides/6_regressao/slides_regressao.html#preditores-categóricos",
     "title": "Modelos de regressão",
     "section": "Preditores categóricos",
-    "text": "Preditores categóricos\nPreditores com apenas duas categorias\nPergunta de pesquisa: O tamanho das nadadeiras dos pinguins são diferentes entre os sexos?"
+    "text": "Preditores categóricos\nPreditores com apenas duas categorias\nPergunta de pesquisa: O tamanho das nadadeiras dos pinguins variam conforme o sexo?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlm(comprimento_nadadeira ~ sexo, data = dados::pinguins)\n\n\nCall:\nlm(formula = comprimento_nadadeira ~ sexo, data = dados::pinguins)\n\nCoefficients:\n(Intercept)    sexomacho  \n    197.364        7.142"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#preditores-categóricos-1",
+    "href": "slides/6_regressao/slides_regressao.html#preditores-categóricos-1",
+    "title": "Modelos de regressão",
+    "section": "Preditores categóricos",
+    "text": "Preditores categóricos\nPreditores com 3 ou mais categorias\n\n\n\n\n\n\n\n\n\n\n\n\nlm(comprimento_nadadeira ~ especie, data = dados::pinguins)\n\n\nCall:\nlm(formula = comprimento_nadadeira ~ especie, data = dados::pinguins)\n\nCoefficients:\n               (Intercept)  especiePinguim-de-barbicha  \n                    189.95                        5.87  \n     especiePinguim-gentoo  \n                     27.23  \n\n\n\nModelo:\n\\[\ny_i = \\beta_0 + \\beta_1x_{1i} + \\beta_2x_{2i}\n\\]\nEm que:\n\\[\nx_{1i} = \\Bigg \\{ \\begin{array}{ll} 1 & \\text{se for }\\texttt{Pinguim-de-barbicha}\\\\0&\\text{caso contrário}\\end{array}\n\\]\n\\[\nx_{2i} = \\Bigg \\{ \\begin{array}{ll} 1 & \\text{se for }\\texttt{Pinguim-gentoo}\\\\0&\\text{caso contrário}\\end{array}\n\\]"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#correlação-vs.-regressão-linear",
