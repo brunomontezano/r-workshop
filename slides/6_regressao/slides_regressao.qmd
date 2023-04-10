@@ -31,79 +31,53 @@ format:
 
 ## Regressão linear
 
-::: columns
-::: {.column width="50%"}
-* Associação linear é aquela que podemos representar através de uma reta
+* Método estatístico para sumarizar e estudar relações entre duas variáveis
+contínuas
 
-* Pensamos em "ajustar uma reta": $bpm = 80 + 10 \times PSE$
+* $X$: preditor ou variável explicativa ou variável independente
+
+* $Y$: desfecho ou variável resposta ou variável dependente
 
 * Exemplo: salário ($Y$) e anos de estudo ($X$)
 
-* Equação da regressão linear: $y = b_0 + b_1x + e$
-  - $b_0$: intercepto
-  - $b_1$: coeficiente angular (*slope*)
-  - $e$: Erro do modelo
-:::
+. . .
 
-::: {.column width="50%"}
-
-```{r tabela-frequencia-cardiaca}
-#| echo: false
-set.seed(1)
-
-intensidade_exercicio <- 1:10
-frequencia_cardiaca <- 80 + 10 * intensidade_exercicio + rnorm(length(intensidade_exercicio), 0, 5)
-
-dados_cardiacos <- data.frame(intensidade_exercicio, frequencia_cardiaca)
-
-dados_cardiacos |> 
-  dplyr::select(pse = intensidade_exercicio,
-                bpm = frequencia_cardiaca)
-```
-
-```{r idade-capacidade-pulmao}
+```{r altura-peso-scatter}
 #| echo: false
 #| fig-align: "center"
-#| out.width: "100%"
+#| out.width: "70%"
+set.seed(1)
 
 library(ggplot2)
 
-modelo_freq <- lm(frequencia_cardiaca ~ intensidade_exercicio,
-                  data = dados_cardiacos)
+altura <- round(runif(10, 150, 195), 1)
 
-dados_cardiacos$predito <- predict(modelo_freq)
-dados_cardiacos$residuos <- dados_cardiacos$frequencia_cardiaca - dados_cardiacos$predito
+peso <- 0.5 * altura + rnorm(10, mean = 0, sd = 3)
 
-ggplot(dados_cardiacos,
-       aes(x = intensidade_exercicio, y = frequencia_cardiaca)) +
-#  geom_segment(
-#    aes(
-#      x = intensidade_exercicio,
-#      y = frequencia_cardiaca,
-#      xend = intensidade_exercicio,
-#      yend = predito
-#    ),
-#    color = "red",
-#    linewidth = 1.5,
-#    alpha = 0.8,
-#    data = dados_cardiacos
-#  ) +
-  geom_point(size = 3, color = "aquamarine4") +
+medidas <- data.frame(altura, peso)
+
+modelo <- lm(peso ~ altura,
+                  data = medidas)
+
+medidas$predito <- predict(modelo)
+medidas$residuos <- medidas$peso - medidas$predito
+
+ggplot(medidas,
+       aes(x = altura, y = peso)) +
+  geom_point(size = 4, color = "slateblue4") +
+  scale_x_continuous(labels = \(x) paste0(as.character(x), " cm")) +
+  scale_y_continuous(labels = \(x) paste0(as.character(x), " kg")) +
   geom_smooth(method = "lm",
               color = "grey20",
               se = FALSE,
               fullrange = TRUE) +
-  scale_x_continuous(breaks = 0:10,
-                     limits = c(0, 10)) +
-  labs(x = "Intensidade do exercício (PSE)",
-       y = "Frequência cardíaca (bpm)") +
+  labs(x = "Altura",
+       y = "Peso") +
   theme_minimal(base_size = 16,
                 base_family = "Charter")
 ```
-:::
-:::
 
-## Retas
+## Qual a utilidade das retas?
 
 ```{r exemplos-retas}
 #| echo: false
@@ -122,7 +96,7 @@ bad_reg <- bad |>
   ggplot(aes(x = x, y = y)) +
   geom_point(size = 2,
              alpha = 0.8,
-             color = "aquamarine4") +
+             color = "slateblue4") +
   geom_smooth(method = "lm",
               se = FALSE,
               color = "gray20") +
@@ -131,19 +105,19 @@ bad_reg <- bad |>
   theme_minimal(base_size = 16, base_family = "Charter")
 
 p_neg <- ggplot(neg, aes(x = x, y = y)) +
-  geom_point(size = 2, alpha = 0.8, color = "aquamarine4") +
+  geom_point(size = 2, alpha = 0.8, color = "slateblue4") +
   geom_smooth(method = "lm", se = FALSE, color = "gray20") +
   labs(x = NULL, y = NULL) +
   theme_minimal(base_size = 16, base_family = "Charter")
 
 p_pos <- ggplot(pos, aes(x = x, y = y)) +
-  geom_point(size = 2, alpha = 0.8, color = "aquamarine4") +
+  geom_point(size = 2, alpha = 0.8, color = "slateblue4") +
   geom_smooth(method = "lm", se = FALSE, color = "gray20") +
   labs(x = NULL, y = NULL) +
   theme_minimal(base_size = 16, base_family = "Charter")
 
 p_ran <- ggplot(ran, aes(x = x, y = y)) +
-  geom_point(size = 2, alpha = 0.8, color = "aquamarine4") +
+  geom_point(size = 2, alpha = 0.8, color = "slateblue4") +
   geom_smooth(method = "lm", se = FALSE, color = "gray20") +
   labs(x = NULL, y = NULL) +
   theme_minimal(base_size = 16, base_family = "Charter")
@@ -153,6 +127,56 @@ p_neg + p_pos + p_ran + bad_reg +
                   subtitle = "Em alguns casos, não será o método mais adequado.",
                   caption = "Adaptado do livro Introduction to Modern Statistics (Çetinkaya-Rundel e Hardin, 2023).",
                   theme = theme(text = element_text(family = "Charter")))
+```
+
+## Como a reta é construída?
+
+Construída a partir da fórmula:
+
+<center>
+$Y = \beta_0 + \beta_1x_1 + e$ $\color{red}\longrightarrow$ $peso = -4.47 + 0.527 \times altura$
+</center>
+
+* $\beta_0$: intercepto, ou valor de $Y$ quando $X = 0$
+
+* $\beta_1$: coeficiente angular (*slope*)
+  - Entendido como a mudança no $Y$ a partir do aumento de 1 unidade
+  no $x_1$
+  
+. . .
+  
+```{r altura-peso-ilustracao-equacao}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "70%"
+ggplot(medidas,
+       aes(x = altura, y = peso)) +
+  geom_point(size = 2.5, color = "slateblue4",
+             alpha = 0.9) +
+  scale_x_continuous(labels = \(x) paste0(as.character(x), " cm"),
+                     limits = c(0, 195)) +
+  scale_y_continuous(labels = \(x) paste0(as.character(x), " kg")) +
+  geom_smooth(method = "lm",
+              color = "grey20",
+              se = FALSE,
+              fullrange = TRUE) +
+  geom_point(aes(x = x, y = y),
+             data.frame(x = 0, y = -4.47),
+             size = 5,
+             color = "indianred1") +
+  labs(x = "Altura",
+       y = "Peso") +
+  geom_segment(x = 150, xend = 150, y = 75, yend = 0,
+               color = "tan1",
+               linewidth = 1.5) +
+  geom_segment(x = 150, xend = 0, y = 75, yend = 75,
+               color = "tan1",
+               linewidth = 1.5) +
+  geom_point(x = 150, y = 74.58,
+             size = 5,
+             color = "maroon1") +
+  theme_minimal(base_size = 16,
+                base_family = "Charter")
 ```
 
 ## Definições e nomenclaturas
@@ -172,9 +196,9 @@ p_neg + p_pos + p_ran + bad_reg +
 
 No primeiro exemplo:
 
-* $x_1$: `pse` --- Percepção subjetiva de esforço
+* $x_1$: `altura` --- Altura em centímetros
 
-* $Y$: `bpm` --- Frequência cardíaca (em batimentos por minuto)
+* $Y$: `peso` --- Peso em quilogramas
 
 ## Observado *vs.* Esperado
 
@@ -189,42 +213,34 @@ No primeiro exemplo:
 Por definição, $\hat{Y} = f(X)$ que é o valor que a função $f$ retorna.
 Em suma, nosso modelo.
 
-```{r idade-capacidade-pulmao-com-erro}
+```{r altura-peso-erro}
 #| echo: false
 #| fig-align: "center"
 #| out.width: "60%"
 
-library(ggplot2)
-
-modelo_freq <- lm(frequencia_cardiaca ~ intensidade_exercicio,
-                  data = dados_cardiacos)
-
-dados_cardiacos$predito <- predict(modelo_freq)
-dados_cardiacos$residuos <- dados_cardiacos$frequencia_cardiaca - dados_cardiacos$predito
-
-ggplot(dados_cardiacos,
-       aes(x = intensidade_exercicio, y = frequencia_cardiaca)) +
+ggplot(medidas,
+       aes(x = altura, y = peso)) +
   geom_segment(
     aes(
-      x = intensidade_exercicio,
-      y = frequencia_cardiaca,
-      xend = intensidade_exercicio,
+      x = altura,
+      y = peso,
+      xend = altura,
       yend = predito
     ),
-    color = "darkorchid1",
+    color = "chocolate1",
     linewidth = 1.5,
     alpha = 0.8,
-    data = dados_cardiacos
+    data = medidas
   ) +
-  geom_point(size = 3, color = "aquamarine4") +
+  geom_point(size = 3.5, color = "slateblue4") +
+  scale_x_continuous(labels = \(x) paste0(as.character(x), " cm")) +
+  scale_y_continuous(labels = \(x) paste0(as.character(x), " kg")) +
   geom_smooth(method = "lm",
               color = "grey20",
               se = FALSE,
               fullrange = TRUE) +
-  scale_x_continuous(breaks = 0:10,
-                     limits = c(0, 10)) +
-  labs(x = "Intensidade do exercício (PSE)",
-       y = "Frequência cardíaca (bpm)") +
+  labs(x = "Altura",
+       y = "Peso") +
   theme_minimal(base_size = 16,
                 base_family = "Charter")
 ```

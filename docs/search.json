@@ -914,21 +914,28 @@
     "href": "slides/6_regressao/slides_regressao.html#regressão-linear",
     "title": "Modelos de regressão",
     "section": "Regressão linear",
-    "text": "Regressão linear\n\n\n\nAssociação linear é aquela que podemos representar através de uma reta\nPensamos em “ajustar uma reta”: \\(bpm = 80 + 10 \\times PSE\\)\nExemplo: salário (\\(Y\\)) e anos de estudo (\\(X\\))\nEquação da regressão linear: \\(y = b_0 + b_1x + e\\)\n\n\\(b_0\\): intercepto\n\\(b_1\\): coeficiente angular (slope)\n\\(e\\): Erro do modelo\n\n\n\n\n\n   pse       bpm\n1    1  86.86773\n2    2 100.91822\n3    3 105.82186\n4    4 127.97640\n5    5 131.64754\n6    6 135.89766\n7    7 152.43715\n8    8 163.69162\n9    9 172.87891\n10  10 178.47306"
+    "text": "Regressão linear\n\nMétodo estatístico para sumarizar e estudar relações entre duas variáveis contínuas\n\\(X\\): preditor ou variável explicativa ou variável independente\n\\(Y\\): desfecho ou variável resposta ou variável dependente\nExemplo: salário (\\(Y\\)) e anos de estudo (\\(X\\))"
   },
   {
-    "objectID": "slides/6_regressao/slides_regressao.html#retas",
-    "href": "slides/6_regressao/slides_regressao.html#retas",
+    "objectID": "slides/6_regressao/slides_regressao.html#qual-a-utilidade-das-retas",
+    "href": "slides/6_regressao/slides_regressao.html#qual-a-utilidade-das-retas",
     "title": "Modelos de regressão",
-    "section": "Retas",
-    "text": "Retas"
+    "section": "Qual a utilidade das retas?",
+    "text": "Qual a utilidade das retas?"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#como-a-reta-é-construída",
+    "href": "slides/6_regressao/slides_regressao.html#como-a-reta-é-construída",
+    "title": "Modelos de regressão",
+    "section": "Como a reta é construída?",
+    "text": "Como a reta é construída?\nConstruída a partir da fórmula:\n\n\\(Y = \\beta_0 + \\beta_1x_1 + e\\) \\(\\color{red}\\longrightarrow\\) \\(peso = -4.47 + 0.527 \\times altura\\)\n\n\n\\(\\beta_0\\): intercepto, ou valor de \\(Y\\) quando \\(X = 0\\)\n\\(\\beta_1\\): coeficiente angular (slope)\n\nEntendido como a mudança no \\(Y\\) a partir do aumento de 1 unidade no \\(x_1\\)"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#definições-e-nomenclaturas",
     "href": "slides/6_regressao/slides_regressao.html#definições-e-nomenclaturas",
     "title": "Modelos de regressão",
     "section": "Definições e nomenclaturas",
-    "text": "Definições e nomenclaturas\n\n\\(x_1, x_2, \\cdots, x_p\\): variáveis explicativas (variáveis independentes ou features ou preditores)\n\\(X = x_1, x_2, \\cdots, x_p\\): conjunto de todos os preditores\n\\(Y\\): variável resposta (ou variável dependente ou target)\n\\(\\hat{Y}\\): valor esperado (ou predição ou valor estimado ou fitted)\n\\(f(X)\\) pode ser entendida como “modelo” ou “hipótese”\n\n\nNo primeiro exemplo:\n\n\\(x_1\\): pse — Percepção subjetiva de esforço\n\\(Y\\): bpm — Frequência cardíaca (em batimentos por minuto)"
+    "text": "Definições e nomenclaturas\n\n\\(x_1, x_2, \\cdots, x_p\\): variáveis explicativas (variáveis independentes ou features ou preditores)\n\\(X = x_1, x_2, \\cdots, x_p\\): conjunto de todos os preditores\n\\(Y\\): variável resposta (ou variável dependente ou target)\n\\(\\hat{Y}\\): valor esperado (ou predição ou valor estimado ou fitted)\n\\(f(X)\\) pode ser entendida como “modelo” ou “hipótese”\n\n\nNo primeiro exemplo:\n\n\\(x_1\\): altura — Altura em centímetros\n\\(Y\\): peso — Peso em quilogramas"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#observado-vs.-esperado",
