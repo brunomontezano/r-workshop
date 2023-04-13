@@ -50,7 +50,7 @@ Como será realizado?
 
 ::: {.nonincremental}
 - Sete aulas virtuais
-- Plataforma Google Meet ou Zoom
+- Plataforma Google Meet
 - Segunda às 19h
 - Duração média: 45min
 :::
@@ -86,20 +86,21 @@ Se algo não estiver funcionado no site, [me enviem um email](mailto:bmontezano@
 
 ## Cronograma de aulas
 
-1. R e RStudio (10/04/2023)
-2. Manipulação de dados (17/04/2023)
-3. Visualização de dados (24/04/2023)
-4. Análise descritiva (01/05/2023)
-5. Inferência estatística (08/05/2023)
-6. Modelos de regressão (15/05/2023)
-7. Tópicos avançados (22/05/2023)
+1. R e RStudio (17/04/2023)
+2. Manipulação de dados (24/04/2023)
+3. Visualização de dados (01/05/2023)
+4. Análise descritiva (08/05/2023)
+5. Inferência estatística (15/05/2023)
+6. Modelos de regressão (22/05/2023)
+7. Tópicos avançados (29/05/2023)
 
 . . .
 
 Lembrando que todas as aulas serão realizadas às 19h do horário de Brasília.
 
-
 ## Por que aprender análise quantitativa de dados?
+
+. . .
 
 *Vocês vão ler pesquisa quantitativa*
 
@@ -114,6 +115,8 @@ Lembrando que todas as aulas serão realizadas às 19h do horário de Brasília.
 - Comunicação
 
 ## Formatação dos slides
+
+. . .
 
 **Negrito** indica um termo importante.
 
@@ -263,7 +266,7 @@ Nós fazemos contas matemáticas com operadores, por exemplo, `x + y`.
 - `*`: multiplicação
 - `/`: divisão
 - `^`: potenciação
-- `%%` módulo (resto da divisão)
+- `%%`: módulo (resto da divisão)
 
 ## Chamando objetos
 
@@ -421,7 +424,7 @@ condição, na forma de **expressões lógicas**.
 . . .
 
 ```{r extrair-maior-que-cinco}
-vetor_exemplo[vetor_exemplo > 15] # Extrair apenas os elementos de valor maior que 5
+vetor_exemplo[vetor_exemplo > 15] # Extrair apenas os elementos de valor maior que 15
 ```
 
 ```{r extrair-menores-ou-iguais-13}
@@ -434,7 +437,7 @@ Existem vários outros **operadores lógicos**:
 
 - `==`: igual a
 - `!=`: não é igual a
-- `>`, `>=`, `<`, `>=`: menor que, menor que ou igual a, etc
+- `>`, `>=`, `<`, `<=`: menor que, menor que ou igual a, etc
 - `%in%`: usado para checar igual a um entre vários valores
 
 ## Combinando expressões lógicas
