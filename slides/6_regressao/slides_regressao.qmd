@@ -716,3 +716,127 @@ quando comparamos um modelo que prediz $Y$ a partir de $X$ e um modelo
 que prediz $X$ a partir de $Y$
 :::
 :::
+
+## Heteroscedasticidade
+
+* Inconstância da variabilidade dos erros
+
+. . .
+  
+```{r plot-heteroscedasticidade}
+#| out.width: "100%"
+#| echo: false
+#| fig-align: "center"
+set.seed(1)
+
+hetero_df <- tibble(
+  x = runif(50),
+  y = rnorm(50, mean = x, sd = x * 0.5)
+)
+
+cru <- ggplot(hetero_df, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal(20, "Charter") +
+  labs(x = unname(latex2exp::TeX("$x_1$")), y = "Y",
+       title = unname(latex2exp::TeX("$Y = \\beta_0 + \\beta_1x_1$")))
+
+cru
+```
+
+## Lidando com a heteroscedasticidade
+
+* Como diagnosticar?
+  - Visualização dos resíduos (`gglm::gglm()`)
+  - Testes (Breuch-Pagan através da função `lmtest::bptest()`)
+  
+* Como tratar?
+  - Transformações na variável resposta ($log(Y)$, $\sqrt{Y}$, $\frac{1}{Y}$)
+  - Regressão com pesos
+  
+. . .
+
+```{r plot-heteroscedasticidade-contornada}
+#| out.width: "50%"
+#| echo: false
+#| fig-align: "center"
+raiz <- ggplot(hetero_df, aes(x = x, y = sqrt(y))) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal(20, "Charter") +
+  labs(x = unname(latex2exp::TeX("$x_1$")),
+       y = unname(latex2exp::TeX("$\\sqrt{Y}")),
+       title = unname(latex2exp::TeX("$\\sqrt{Y} = \\beta_0 + \\beta_1x_1$")))
+
+cru + raiz
+```
+
+## Multicolinearidade
+
+* Ocorre quando duas ou mais variáveis preditoras são altamente correlacionadas umas com as outras
+
+* Não fornecem informações exclusivas
+
+* Exemplo: preço de um imóvel ($Y$) explicado pela área ($x_1$) e número de cômodos ($x_2$)
+
+. . .
+
+```{r exemplo-multicolinearidade-preco-area-quartos}
+#| echo: false
+#| out.width: "80%"
+#| fig-align: "center"
+set.seed(1)
+area <- rnorm(100, mean = 1500, sd = 500)
+comodos <- round(rnorm(100, mean = 3 + 0.5 * area/100, sd = 1), 0)
+preco <- rnorm(100, mean = 200000 + 100 * area + 50000 * comodos, sd = 50000)
+
+dados <- data.frame(area, comodos, preco)
+                     
+
+ggplot(dados, aes(x = area/10, y = preco, color = comodos)) +
+  geom_point() +
+  scale_color_viridis_c(name = "Cômodos") +
+  scale_y_continuous(labels = scales::dollar_format(prefix = "R$ ",
+                                                    big.mark = ".")) +
+  scale_x_continuous(labels = \(x) unname(latex2exp::TeX(paste0(as.character(x), "$m^2$")))) +
+  theme_minimal(20, "Charter") +
+  labs(x = "Área",
+       y = "Preço do imóvel")
+```
+
+## Lidando com a multicolinearidade
+
+::: columns
+::: {.column width="50%"}
+* Problemas
+  - Instabilidade numérica
+  - Desvios padrão inflados
+  - Interpretação comprometida
+  
+* Soluções
+  - Eliminar uma das variáveis muito correlacionadas
+  - Consultar o *variance inflation factor* (VIF)
+:::
+
+::: {.column width="50%"}
+
+```{r calcular-vif-preco-imovel}
+library(car)
+
+regressao_linear <- lm(preco ~ area + comodos,
+                       data = dados)
+
+vif(regressao_linear)
+```
+
+* Regra geral
+  - Valor 1: sem correlação entre o preditor e os demais preditores
+  - Valor entre 1 e 5: Correlação moderada entre o preditor e demais preditores
+  - Valor maior que 5: Correlação severa que pode afetar $p$-valores e coeficientes
+  da regressão, sendo potencialmente não confiáveis
+:::
+:::
+
+
+  
+  

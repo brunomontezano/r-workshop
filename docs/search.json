@@ -1015,6 +1015,34 @@
     "text": "Correlação vs. Regressão linear\n\n\nSimilaridades\n\nCoeficiente de regressão padronizado é o mesmo que o coeficiente de correlação de Pearson\nO quadrado do coeficiente de correlação de Pearson é o mesmo que o \\(R^2\\) na regressão linear simples\nO sinal do coeficiente não-padronizado da regressão será o mesmo do coeficiente de correlação\nNenhum dos métodos respondem perguntas de causalidade\n\n\nDiferenças\n\nA equação da regressão (\\(\\beta_0 + \\beta_1x_1\\)) pode ser usada para fazer predições de \\(Y\\) baseado em \\(X\\)\nApesar da correlação se referir comumente a relações lineares, o conceito pode estar associado a outros tipos de associação\nCorrelação entre \\(X\\) e \\(Y\\) é a mesma correlação de \\(Y\\) e \\(X\\). Já na regressão linear, o coeficiente muda quando comparamos um modelo que prediz \\(Y\\) a partir de \\(X\\) e um modelo que prediz \\(X\\) a partir de \\(Y\\)"
   },
   {
+    "objectID": "slides/6_regressao/slides_regressao.html#heteroscedasticidade",
+    "href": "slides/6_regressao/slides_regressao.html#heteroscedasticidade",
+    "title": "Modelos de regressão",
+    "section": "Heteroscedasticidade",
+    "text": "Heteroscedasticidade\n\nInconstância da variabilidade dos erros"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#lidando-com-a-heteroscedasticidade",
+    "href": "slides/6_regressao/slides_regressao.html#lidando-com-a-heteroscedasticidade",
+    "title": "Modelos de regressão",
+    "section": "Lidando com a heteroscedasticidade",
+    "text": "Lidando com a heteroscedasticidade\n\nComo diagnosticar?\n\nVisualização dos resíduos (gglm::gglm())\nTestes (Breuch-Pagan através da função lmtest::bptest())\n\nComo tratar?\n\nTransformações na variável resposta (\\(log(Y)\\), \\(\\sqrt{Y}\\), \\(\\frac{1}{Y}\\))\nRegressão com pesos"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#multicolinearidade",
+    "href": "slides/6_regressao/slides_regressao.html#multicolinearidade",
+    "title": "Modelos de regressão",
+    "section": "Multicolinearidade",
+    "text": "Multicolinearidade\n\nOcorre quando duas ou mais variáveis preditoras são altamente correlacionadas umas com as outras\nNão fornecem informações exclusivas\nExemplo: preço de um imóvel (\\(Y\\)) explicado pela área (\\(x_1\\)) e número de cômodos (\\(x_2\\))"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#lidando-com-a-multicolinearidade",
+    "href": "slides/6_regressao/slides_regressao.html#lidando-com-a-multicolinearidade",
+    "title": "Modelos de regressão",
+    "section": "Lidando com a multicolinearidade",
+    "text": "Lidando com a multicolinearidade\n\n\n\nProblemas\n\nInstabilidade numérica\nDesvios padrão inflados\nInterpretação comprometida\n\nSoluções\n\nEliminar uma das variáveis muito correlacionadas\nConsultar o variance inflation factor (VIF)\n\n\n\n\nlibrary(car)\n\nregressao_linear <- lm(preco ~ area + comodos,\n                       data = dados)\n\nvif(regressao_linear)\n\n    area  comodos \n6.818079 6.818079 \n\n\n\nRegra geral\n\nValor 1: sem correlação entre o preditor e os demais preditores\nValor entre 1 e 5: Correlação moderada entre o preditor e demais preditores\nValor maior que 5: Correlação severa que pode afetar \\(p\\)-valores e coeficientes da regressão, sendo potencialmente não confiáveis"
+  },
+  {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
     "title": "R e RStudio",
