@@ -1033,7 +1033,7 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#logística-do-curso",
     "title": "R e RStudio",
     "section": "Logística do curso",
-    "text": "Logística do curso\nComo será realizado?\n\n\n\nSete aulas virtuais\nPlataforma Google Meet ou Zoom\nSegunda às 19h\nDuração média: 45min\n\n\n\n\nMateriais: https://brunomontezano.github.io/r-workshop/"
+    "text": "Logística do curso\nComo será realizado?\n\n\n\nSete aulas virtuais\nPlataforma Google Meet\nSegunda às 19h\nDuração média: 45min\n\n\n\n\nMateriais: https://brunomontezano.github.io/r-workshop/"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#conteúdo-de-hoje",
@@ -1054,21 +1054,21 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#cronograma-de-aulas",
     "title": "R e RStudio",
     "section": "Cronograma de aulas",
-    "text": "Cronograma de aulas\n\nR e RStudio (10/04/2023)\nManipulação de dados (17/04/2023)\nVisualização de dados (24/04/2023)\nAnálise descritiva (01/05/2023)\nInferência estatística (08/05/2023)\nModelos de regressão (15/05/2023)\nTópicos avançados (22/05/2023)\n\n\nLembrando que todas as aulas serão realizadas às 19h do horário de Brasília."
+    "text": "Cronograma de aulas\n\nR e RStudio (17/04/2023)\nManipulação de dados (24/04/2023)\nVisualização de dados (01/05/2023)\nAnálise descritiva (08/05/2023)\nInferência estatística (15/05/2023)\nModelos de regressão (22/05/2023)\nTópicos avançados (29/05/2023)\n\n\nLembrando que todas as aulas serão realizadas às 19h do horário de Brasília."
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#por-que-aprender-análise-quantitativa-de-dados",
     "title": "R e RStudio",
     "section": "Por que aprender análise quantitativa de dados?",
-    "text": "Por que aprender análise quantitativa de dados?\nVocês vão ler pesquisa quantitativa\n\nInterpretação\nAvaliação\n\n\nVocês podem fazer pesquisa quantitativa\n\nAnálise\nComunicação"
+    "text": "Por que aprender análise quantitativa de dados?\n\nVocês vão ler pesquisa quantitativa\n\nInterpretação\nAvaliação\n\n\n\nVocês podem fazer pesquisa quantitativa\n\nAnálise\nComunicação"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#formatação-dos-slides",
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#formatação-dos-slides",
     "title": "R e RStudio",
     "section": "Formatação dos slides",
-    "text": "Formatação dos slides\nNegrito indica um termo importante.\n\nItálico indica ênfase ou instruções para clicar com o mouse.\n\n\nExemplo: “Clique em Arquivo > Salvar como…”.\n\n\n\n\nCódigo representa o código em R para ser digitado ou teclas para realizar ações.\n\n\nExemplo: “Pressione Ctrl-P para abrir a janela de impressão”.\n\n\n\n\nOs blocos de código são código de fato executado no R.\n\n# Quanto dá 25 vezes 11?\n25 * 11\n\n[1] 275"
+    "text": "Formatação dos slides\n\nNegrito indica um termo importante.\n\n\nItálico indica ênfase ou instruções para clicar com o mouse.\n\n\nExemplo: “Clique em Arquivo > Salvar como…”.\n\n\n\n\nCódigo representa o código em R para ser digitado ou teclas para realizar ações.\n\n\nExemplo: “Pressione Ctrl-P para abrir a janela de impressão”.\n\n\n\n\nOs blocos de código são código de fato executado no R.\n\n# Quanto dá 25 vezes 11?\n25 * 11\n\n[1] 275"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#por-que-usar-r",
@@ -1117,7 +1117,7 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#criando-objetos",
     "title": "R e RStudio",
     "section": "Criando objetos",
-    "text": "Criando objetos\nR armazena tudo como um objeto, incluindo dados, funções, modelos, e saídas.\nA criação de um objeto pode ser feita usando o operador de atribuição: <-\n\nnovo_objeto <- 144\n\n\nOperadores como o <- são funções que parecem símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre () como na função sqrt(x)\n\n\nNós fazemos contas matemáticas com operadores, por exemplo, x + y.\n+ é o operador de adição. Mas temos outros operadores matemáticos:\n\n-: subtração\n*: multiplicação\n/: divisão\n^: potenciação\n%% módulo (resto da divisão)"
+    "text": "Criando objetos\nR armazena tudo como um objeto, incluindo dados, funções, modelos, e saídas.\nA criação de um objeto pode ser feita usando o operador de atribuição: <-\n\nnovo_objeto <- 144\n\n\nOperadores como o <- são funções que parecem símbolos mas geralmente ficam entre argumentos (números ou objetos) ao invés de ter eles entre () como na função sqrt(x)\n\n\nNós fazemos contas matemáticas com operadores, por exemplo, x + y.\n+ é o operador de adição. Mas temos outros operadores matemáticos:\n\n-: subtração\n*: multiplicação\n/: divisão\n^: potenciação\n%%: módulo (resto da divisão)"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#chamando-objetos",
@@ -1159,7 +1159,7 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#indexando-vetores-por-expressões",
     "title": "R e RStudio",
     "section": "Indexando vetores por expressões",
-    "text": "Indexando vetores por expressões\nTemos nosso vetor de exemplo:\n\nvetor_exemplo\n\n[1]  2 13 22 95\n\n\nPodemos querer extrair elementos de um vetor a partir de alguma condição, na forma de expressões lógicas.\n\n\nvetor_exemplo[vetor_exemplo > 15] # Extrair apenas os elementos de valor maior que 5\n\n[1] 22 95\n\n\n\nvetor_exemplo[vetor_exemplo <= 13] # Extrair elementos de valor menor ou igual a 13\n\n[1]  2 13\n\n\n\n\nExistem vários outros operadores lógicos:\n\n==: igual a\n!=: não é igual a\n>, >=, <, >=: menor que, menor que ou igual a, etc\n%in%: usado para checar igual a um entre vários valores"
+    "text": "Indexando vetores por expressões\nTemos nosso vetor de exemplo:\n\nvetor_exemplo\n\n[1]  2 13 22 95\n\n\nPodemos querer extrair elementos de um vetor a partir de alguma condição, na forma de expressões lógicas.\n\n\nvetor_exemplo[vetor_exemplo > 15] # Extrair apenas os elementos de valor maior que 15\n\n[1] 22 95\n\n\n\nvetor_exemplo[vetor_exemplo <= 13] # Extrair elementos de valor menor ou igual a 13\n\n[1]  2 13\n\n\n\n\nExistem vários outros operadores lógicos:\n\n==: igual a\n!=: não é igual a\n>, >=, <, <=: menor que, menor que ou igual a, etc\n%in%: usado para checar igual a um entre vários valores"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#combinando-expressões-lógicas",

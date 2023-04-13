@@ -517,6 +517,8 @@ lm(comprimento_cabeca ~ comprimento_total + comprimento_cauda,
 #| echo: false
 #| fig-align: "center"
 #| out.width: "100%"
+set.seed(1)
+
 library(plotly)
 
 x <- gambas$comprimento_total
