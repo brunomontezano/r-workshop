@@ -584,6 +584,32 @@ cabeça = 46.8 + 0.64total - 0.28cauda
 $$
 </center>
 
+## Coeficiente de determinação
+
+* O $R^2$ (coeficiente de determinação) é a proporção da variância na variável
+resposta que pode ser explicada pelos preditores
+
+* Varia de 0 a 1
+
+. . .
+
+```{r r-quadrado-modelo-cabeca}
+# Extrair o R^2
+summary(modelo_linear_multiplo)$r.squared
+
+# Extrair o R^2 ajustado
+summary(modelo_linear_multiplo)$adj.r.squared
+```
+
+. . .
+
+<br>
+
+<center>
+"O modelo demonstra que `r paste0(format(round(summary(modelo_linear_multiplo)$adj.r.squared * 100, 1), decimal.mark = ","), "%")` da variação no comprimento da cabeça dos gambás pode ser explicado pelo
+comprimento total e comprimento da cauda dos gambás."
+</center>
+
 ## Preditores categóricos
 
 #### Preditores com apenas duas categorias
@@ -786,14 +812,15 @@ cru + raiz
 #| out.width: "80%"
 #| fig-align: "center"
 set.seed(1)
+
 area <- rnorm(100, mean = 1500, sd = 500)
 comodos <- round(rnorm(100, mean = 3 + 0.5 * area/100, sd = 1), 0)
 preco <- rnorm(100, mean = 200000 + 100 * area + 50000 * comodos, sd = 50000)
+area <- area / 10
 
 dados <- data.frame(area, comodos, preco)
-                     
 
-ggplot(dados, aes(x = area/10, y = preco, color = comodos)) +
+ggplot(dados, aes(x = area, y = preco, color = comodos)) +
   geom_point() +
   scale_color_viridis_c(name = "Cômodos") +
   scale_y_continuous(labels = scales::dollar_format(prefix = "R$ ",

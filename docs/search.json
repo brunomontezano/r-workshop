@@ -994,6 +994,13 @@
     "text": "O que o R nos diz?\n\nmodelo_linear_multiplo <-\n  lm(comprimento_cabeca ~ comprimento_total + comprimento_cauda,\n     data = gambas)\n\nsummary(modelo_linear_multiplo)\n\n\nCall:\nlm(formula = comprimento_cabeca ~ comprimento_total + comprimento_cauda, \n    data = gambas)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-6.9660 -1.6217 -0.3254  1.2406  7.2855 \n\nCoefficients:\n                  Estimate Std. Error t value           Pr(>|t|)    \n(Intercept)        46.7658     5.6079   8.339 0.0000000000003964 ***\ncomprimento_total   0.6443     0.0712   9.049 0.0000000000000111 ***\ncomprimento_cauda  -0.2775     0.1566  -1.772             0.0794 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.569 on 101 degrees of freedom\nMultiple R-squared:  0.4934,    Adjusted R-squared:  0.4833 \nF-statistic: 49.18 on 2 and 101 DF,  p-value: 1.223e-15\n\n\n\n\n\\[\ncabeça = 46.8 + 0.64total - 0.28cauda\n\\]"
   },
   {
+    "objectID": "slides/6_regressao/slides_regressao.html#coeficiente-de-determinação",
+    "href": "slides/6_regressao/slides_regressao.html#coeficiente-de-determinação",
+    "title": "Modelos de regressão",
+    "section": "Coeficiente de determinação",
+    "text": "Coeficiente de determinação\n\nO \\(R^2\\) (coeficiente de determinação) é a proporção da variância na variável resposta que pode ser explicada pelos preditores\nVaria de 0 a 1\n\n\n\n# Extrair o R^2\nsummary(modelo_linear_multiplo)$r.squared\n\n[1] 0.4933581\n\n# Extrair o R^2 ajustado\nsummary(modelo_linear_multiplo)$adj.r.squared\n\n[1] 0.4833256\n\n\n\n\n\n\n“O modelo demonstra que 48,3% da variação no comprimento da cabeça dos gambás pode ser explicado pelo comprimento total e comprimento da cauda dos gambás.”"
+  },
+  {
     "objectID": "slides/6_regressao/slides_regressao.html#preditores-categóricos",
     "href": "slides/6_regressao/slides_regressao.html#preditores-categóricos",
     "title": "Modelos de regressão",
