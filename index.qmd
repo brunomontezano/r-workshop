@@ -121,6 +121,7 @@ de possibilitar rotinas complexas de computação científica. Publicado em abri
 
 * [Slides da Aula 1: R e RStudio](slides/1_r_e_rstudio/slides_r_e_rstudio.html)
   - [Código para gerar os slides da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/1_r_rstudio/slides_r_e_rstudio.qmd)
+  - [R Script da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/1_r_e_rstudio/script_r_e_rstudio.R)
 
 * [Slides da Aula 2: Manipulação de dados](slides/2_manipulacao/slides_manipulacao.html)
   - [Código para gerar os slides da Aula 2: Manipulação de dados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/2_manipulacao/slides_manipulacao.qmd)

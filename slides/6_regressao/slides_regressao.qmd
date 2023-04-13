@@ -435,6 +435,8 @@ $$
 #| echo: false
 #| fign-align: "center"
 #| out.width: "70%"
+set.seed(1)
+
 melhor_reta <- lm(comprimento_cabeca ~ comprimento_total, data = gambas)
 
 gambas_com_preds <- melhor_reta |> 
