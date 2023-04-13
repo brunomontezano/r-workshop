@@ -676,7 +676,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#exemplo-de-distribuição-assimétrica",
     "title": "Análise descritiva",
     "section": "Exemplo de distribuição assimétrica",
-    "text": "Exemplo de distribuição assimétrica\n\ntibble(x = rchisq(1000, 10)) |> \n  ggplot() +\n  aes(x = x) +\n  geom_histogram() +\n  labs(x = \"Valores\", y = \"Frequência\") +\n  ggthemes::theme_clean(base_size = 16, base_family = \"Charter\")"
+    "text": "Exemplo de distribuição assimétrica\n\nset.seed(1)\n\ntibble(x = rchisq(1000, 10)) |> \n  ggplot() +\n  aes(x = x) +\n  geom_histogram() +\n  labs(x = \"Valores\", y = \"Frequência\") +\n  ggthemes::theme_clean(base_size = 16, base_family = \"Charter\")"
   },
   {
     "objectID": "slides/4_descritiva/slides_descritiva.html#curtose",
