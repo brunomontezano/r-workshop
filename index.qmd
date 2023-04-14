@@ -129,6 +129,7 @@ de possibilitar rotinas complexas de computação científica. Publicado em abri
   
 * [Slides da Aula 3: Visualização de dados](slides/3_visualizacao/slides_visualizacao.html)
   - [Código para gerar os slides da Aula 3: Visualização de dados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/slides_visualizacao.qmd)
+  - [R Script da Aula 3: Visualização de dados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/script_visualizacao.R)
   
 * [Slides da Aula 4: Análise descritiva](slides/4_descritiva/slides_descritiva.html)
   - [Código para gerar os slides da Aula 4: Análise descritiva](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/slides_descritiva.qmd)

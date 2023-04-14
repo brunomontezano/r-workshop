@@ -564,7 +564,7 @@ com novos temas ou cores, geometrias, eixos ou até a
 #| fig-align: "center"
 #| out.width: "60%"
 calendR::calendR(year = 2023, month = 04,
-        special.days = c(10, 17, 24),
+        special.days = c(17, 24),
         special.col = "#bfe2f2",
         low.col = "white",
         title = "Aulas de R no mês de abril de 2023",
