@@ -133,12 +133,16 @@ de possibilitar rotinas complexas de computação científica. Publicado em abri
   
 * [Slides da Aula 4: Análise descritiva](slides/4_descritiva/slides_descritiva.html)
   - [Código para gerar os slides da Aula 4: Análise descritiva](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/slides_descritiva.qmd)
+  - [R Script da Aula 4: Análise descritiva](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/script_descritiva.R)
   
 * [Slides da Aula 5: Inferência estatística](slides/5_inferencia/slides_inferencia.html)
   - [Código para gerar os slides da Aula 5: Inferência estatística](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/5_inferencia/slides_inferencia.qmd)
+  - [R Script da Aula 5: Inferência estatística](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/5_inferencia/script_inferencia.R)
   
 * [Slides da Aula 6: Modelos de regressão](slides/6_regressao/slides_regressao.html)
   - [Código para gerar os slides da Aula 6: Modelos de regressão](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/6_regressao/slides_regressao.qmd)
+  - [R Script da Aula 6: Modelos de regressão](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/6_regressao/script_regressao.R)
   
 * [Slides da Aula 7: Tópicos avançados](slides/7_topicos_avancados/slides_topicos_avancados.html)
   - [Código para gerar os slides da Aula 7: Tópicos avançados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/slides_topicos_avancados.qmd)
+  - [R Script da Aula 7: Tópicos avançados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/script_topicos_avancados.R)
