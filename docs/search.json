@@ -900,7 +900,7 @@
     "href": "slides/6_regressao/slides_regressao.html#conteúdo-de-hoje",
     "title": "Modelos de regressão",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nConceito\nVariável dependente e independente\nRegressão linear simples\nPressupostos\nRegressão linear múltipla\nComparação de modelos"
+    "text": "Conteúdo de hoje\n\nConceito\nRegressão linear simples\nRegressão linear múltipla\nCoeficiente de determinação\nPreditores categóricos\nDesafios"
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#ciclo-da-ciência-de-dados",

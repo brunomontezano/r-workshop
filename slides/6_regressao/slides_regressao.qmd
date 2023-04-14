@@ -19,11 +19,11 @@ format:
 ## Conteúdo de hoje
 
 - Conceito
-- Variável dependente e independente
 - Regressão linear simples
-- Pressupostos
 - Regressão linear múltipla
-- Comparação de modelos
+- Coeficiente de determinação
+- Preditores categóricos
+- Desafios
 
 ## Ciclo da ciência de dados
 
