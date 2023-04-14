@@ -709,40 +709,6 @@ $$
 :::
 :::
 
-## Correlação *vs.* Regressão linear
-
-::: columns
-::: {.column width="50%"}
-#### Similaridades
-
-* Coeficiente de regressão padronizado é o mesmo que o coeficiente de
-correlação de Pearson
-
-* O quadrado do coeficiente de correlação de Pearson é o mesmo que o
-$R^2$ na regressão linear simples
-
-* O sinal do coeficiente não-padronizado da regressão será o mesmo do
-coeficiente de correlação
-
-* Nenhum dos métodos respondem perguntas de causalidade
-:::
-
-::: {.column width="50%"}
-#### Diferenças
-
-* A equação da regressão ($\beta_0 + \beta_1x_1$) pode ser usada para
-fazer predições de $Y$ baseado em $X$
-
-* Apesar da correlação se referir comumente a relações lineares, o
-conceito pode estar associado a outros tipos de associação
-
-* Correlação entre $X$ e $Y$ é a mesma correlação de $Y$ e $X$.
-Já na regressão linear, o coeficiente muda
-quando comparamos um modelo que prediz $Y$ a partir de $X$ e um modelo
-que prediz $X$ a partir de $Y$
-:::
-:::
-
 ## Heteroscedasticidade
 
 * Inconstância da variabilidade dos erros
@@ -864,6 +830,141 @@ vif(regressao_linear)
 :::
 :::
 
+## Outliers
 
+* As observações distantes das outras do conjunto de dados são consideradas **outliers**
+
+. . .
+
+```{r ilustracao-influencia-outlier}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "90%"
+set.seed(1)
+
+x <- 1:10
+y <- 2*x + rnorm(10, mean = 0, sd = 1)
+df <- data.frame(x, y)
+
+# Criando o gráfico sem outlier
+p_sem_outlier <- ggplot(df, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_x_continuous(limits = c(0, 12.5)) +
+  scale_y_continuous(limits = c(0, 50)) +
+  theme_minimal(18, "Charter") +
+  labs(x = unname(latex2exp::TeX("$x_1$")),
+       y = unname(latex2exp::TeX("$Y$")))
+
+# Adicionando um outlier aos dados
+df[11, ] <- c(12, 50)
+
+# Criando o gráfico com outlier
+p_com_outlier <- ggplot(df, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  theme_minimal(18, "Charter") +
+  scale_x_continuous(limits = c(0, 12.5)) +
+  scale_y_continuous(limits = c(0, 50)) +
+  labs(x = unname(latex2exp::TeX("$x_1$ com \\textit{outlier}")),
+       y = NULL)
+
+p_sem_outlier + p_com_outlier
+```
+
+## Lidando com outliers
+
+::: columns
+::: {.column width="40%"}
+* Como diagnosticar?
+  - Visualização univariada (histograma, boxplot)
+  - Comparação do valor com o desvio padrão
+  - Distância de Cook
   
+* Como tratar?
+  - Transformações $log()$, etc
+  - Categorização
+  - Remover valores extremos (não recomendado)
+:::
+
+::: {.column width="60%"}
+
+```{r distancia-cook-codigo}
+modelo_com_outlier <- lm(y ~ x, data = df)
+
+cooks.distance(modelo_com_outlier)
+
+4 / nrow(df)
+```
+
+```{r distancia-cook-com-outlier-plot}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "100%"
+modelo_com_outlier <- lm(y ~ x, data = df)
+
+distancia_cook <- cooks.distance(modelo_com_outlier)
+
+df_cook <- data.frame(distancia_cook, row.names = NULL)
+
+ggplot(df_cook, aes(x = as.numeric(row.names(df_cook)), y = distancia_cook)) +
+  geom_point(size = 3) +
+  scale_x_continuous(breaks = 1:11) +
+  geom_hline(yintercept = 4/nrow(df_cook),
+             color = "darkred", size = 2) +
+  labs(x = "Observação", y = "Distância de Cook") +
+  theme_minimal(20, "Charter")
+```
+
+:::
+:::
+
+## Correlação *vs.* Regressão linear
+
+::: columns
+::: {.column width="50%"}
+#### Similaridades
+
+* Coeficiente de regressão padronizado é o mesmo que o coeficiente de
+correlação de Pearson
+
+* O quadrado do coeficiente de correlação de Pearson é o mesmo que o
+$R^2$ na regressão linear simples
+
+* O sinal do coeficiente não-padronizado da regressão será o mesmo do
+coeficiente de correlação
+
+* Nenhum dos métodos respondem perguntas de causalidade
+:::
+
+::: {.column width="50%"}
+#### Diferenças
+
+* A equação da regressão ($\beta_0 + \beta_1x_1$) pode ser usada para
+fazer predições de $Y$ baseado em $X$
+
+* Apesar da correlação se referir comumente a relações lineares, o
+conceito pode estar associado a outros tipos de associação
+
+* Correlação entre $X$ e $Y$ é a mesma correlação de $Y$ e $X$.
+Já na regressão linear, o coeficiente muda
+quando comparamos um modelo que prediz $Y$ a partir de $X$ e um modelo
+que prediz $X$ a partir de $Y$
+:::
+:::
+
+## Tarefa de casa
+
+* Ler Capítulo 8 do
+[livro OpenIntro Statistics](https://www.openintro.org/book/os/) sobre
+*Introduction to linear regression*
+  - Caso queira se aprofundar, ler Capítulo 9 sobre
+*Multiple and logistic regression*
+
+* A partir dos dados `iris` do pacote `dados`, crie um modelo de
+regressão linear simples e um modelo de regressão linear múltipla
+com as variáveis da sua escolha
+  - Lembre-se que o desfecho deve ser contínuo (numérico)
   
+* Crie um gráfico de dispersão/pontos (*scatterplot*) para acompanhar
+sua análise de regressão linear simples

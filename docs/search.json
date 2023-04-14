@@ -1015,13 +1015,6 @@
     "text": "Preditores categóricos\nPreditores com 3 ou mais categorias\n\n\n\n\n\n\n\n\n\n\n\n\nlm(comprimento_nadadeira ~ especie, data = dados::pinguins)\n\n\nCall:\nlm(formula = comprimento_nadadeira ~ especie, data = dados::pinguins)\n\nCoefficients:\n               (Intercept)  especiePinguim-de-barbicha  \n                    189.95                        5.87  \n     especiePinguim-gentoo  \n                     27.23  \n\n\n\nModelo:\n\\[\ny_i = \\beta_0 + \\beta_1x_{1i} + \\beta_2x_{2i}\n\\]\nEm que:\n\\[\nx_{1i} = \\Bigg \\{ \\begin{array}{ll} 1 & \\text{se for }\\texttt{Pinguim-de-barbicha}\\\\0&\\text{caso contrário}\\end{array}\n\\]\n\\[\nx_{2i} = \\Bigg \\{ \\begin{array}{ll} 1 & \\text{se for }\\texttt{Pinguim-gentoo}\\\\0&\\text{caso contrário}\\end{array}\n\\]"
   },
   {
-    "objectID": "slides/6_regressao/slides_regressao.html#correlação-vs.-regressão-linear",
-    "href": "slides/6_regressao/slides_regressao.html#correlação-vs.-regressão-linear",
-    "title": "Modelos de regressão",
-    "section": "Correlação vs. Regressão linear",
-    "text": "Correlação vs. Regressão linear\n\n\nSimilaridades\n\nCoeficiente de regressão padronizado é o mesmo que o coeficiente de correlação de Pearson\nO quadrado do coeficiente de correlação de Pearson é o mesmo que o \\(R^2\\) na regressão linear simples\nO sinal do coeficiente não-padronizado da regressão será o mesmo do coeficiente de correlação\nNenhum dos métodos respondem perguntas de causalidade\n\n\nDiferenças\n\nA equação da regressão (\\(\\beta_0 + \\beta_1x_1\\)) pode ser usada para fazer predições de \\(Y\\) baseado em \\(X\\)\nApesar da correlação se referir comumente a relações lineares, o conceito pode estar associado a outros tipos de associação\nCorrelação entre \\(X\\) e \\(Y\\) é a mesma correlação de \\(Y\\) e \\(X\\). Já na regressão linear, o coeficiente muda quando comparamos um modelo que prediz \\(Y\\) a partir de \\(X\\) e um modelo que prediz \\(X\\) a partir de \\(Y\\)"
-  },
-  {
     "objectID": "slides/6_regressao/slides_regressao.html#heteroscedasticidade",
     "href": "slides/6_regressao/slides_regressao.html#heteroscedasticidade",
     "title": "Modelos de regressão",
@@ -1048,6 +1041,34 @@
     "title": "Modelos de regressão",
     "section": "Lidando com a multicolinearidade",
     "text": "Lidando com a multicolinearidade\n\n\n\nProblemas\n\nInstabilidade numérica\nDesvios padrão inflados\nInterpretação comprometida\n\nSoluções\n\nEliminar uma das variáveis muito correlacionadas\nConsultar o variance inflation factor (VIF)\n\n\n\n\nlibrary(car)\n\nregressao_linear <- lm(preco ~ area + comodos,\n                       data = dados)\n\nvif(regressao_linear)\n\n    area  comodos \n6.818079 6.818079 \n\n\n\nRegra geral\n\nValor 1: sem correlação entre o preditor e os demais preditores\nValor entre 1 e 5: Correlação moderada entre o preditor e demais preditores\nValor maior que 5: Correlação severa que pode afetar \\(p\\)-valores e coeficientes da regressão, sendo potencialmente não confiáveis"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#outliers",
+    "href": "slides/6_regressao/slides_regressao.html#outliers",
+    "title": "Modelos de regressão",
+    "section": "Outliers",
+    "text": "Outliers\n\nAs observações distantes das outras do conjunto de dados são consideradas outliers"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#lidando-com-outliers",
+    "href": "slides/6_regressao/slides_regressao.html#lidando-com-outliers",
+    "title": "Modelos de regressão",
+    "section": "Lidando com outliers",
+    "text": "Lidando com outliers\n\n\n\nComo diagnosticar?\n\nVisualização univariada (histograma, boxplot)\nComparação do valor com o desvio padrão\nDistância de Cook\n\nComo tratar?\n\nTransformações \\(log()\\), etc\nCategorização\nRemover valores extremos (não recomendado)\n\n\n\n\nmodelo_com_outlier <- lm(y ~ x, data = df)\n\ncooks.distance(modelo_com_outlier)\n\n           1            2            3            4            5            6 \n0.0860237668 0.0388599682 0.0013432105 0.0061642069 0.0007394618 0.0122967257 \n           7            8            9           10           11 \n0.0133569827 0.0308540827 0.0815371907 0.2421625423 2.7192744749 \n\n4 / nrow(df)\n\n[1] 0.3636364"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#correlação-vs.-regressão-linear",
+    "href": "slides/6_regressao/slides_regressao.html#correlação-vs.-regressão-linear",
+    "title": "Modelos de regressão",
+    "section": "Correlação vs. Regressão linear",
+    "text": "Correlação vs. Regressão linear\n\n\nSimilaridades\n\nCoeficiente de regressão padronizado é o mesmo que o coeficiente de correlação de Pearson\nO quadrado do coeficiente de correlação de Pearson é o mesmo que o \\(R^2\\) na regressão linear simples\nO sinal do coeficiente não-padronizado da regressão será o mesmo do coeficiente de correlação\nNenhum dos métodos respondem perguntas de causalidade\n\n\nDiferenças\n\nA equação da regressão (\\(\\beta_0 + \\beta_1x_1\\)) pode ser usada para fazer predições de \\(Y\\) baseado em \\(X\\)\nApesar da correlação se referir comumente a relações lineares, o conceito pode estar associado a outros tipos de associação\nCorrelação entre \\(X\\) e \\(Y\\) é a mesma correlação de \\(Y\\) e \\(X\\). Já na regressão linear, o coeficiente muda quando comparamos um modelo que prediz \\(Y\\) a partir de \\(X\\) e um modelo que prediz \\(X\\) a partir de \\(Y\\)"
+  },
+  {
+    "objectID": "slides/6_regressao/slides_regressao.html#tarefa-de-casa",
+    "href": "slides/6_regressao/slides_regressao.html#tarefa-de-casa",
+    "title": "Modelos de regressão",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nLer Capítulo 8 do livro OpenIntro Statistics sobre Introduction to linear regression\n\nCaso queira se aprofundar, ler Capítulo 9 sobre Multiple and logistic regression\n\nA partir dos dados iris do pacote dados, crie um modelo de regressão linear simples e um modelo de regressão linear múltipla com as variáveis da sua escolha\n\nLembre-se que o desfecho deve ser contínuo (numérico)\n\nCrie um gráfico de dispersão/pontos (scatterplot) para acompanhar sua análise de regressão linear simples"
   },
   {
     "objectID": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#objetivos-do-curso",
