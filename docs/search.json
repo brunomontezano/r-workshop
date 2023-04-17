@@ -126,6 +126,13 @@
     "text": "Conteúdo de hoje\n\nO que é machine learning?\nAprendizado supervisionado e não-supervisionado\nMétricas de avaliação de modelos\nRegressão logística\nÁrvores de decisão\nRandom forests\nModelos não-supervisionados\nLimitações\nExemplo"
   },
   {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#machine-learning",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#machine-learning",
+    "title": "Tópicos avançados",
+    "section": "Machine learning",
+    "text": "Machine learning\n\nConjunto de técnicas que ensina um computador a reconhecer padrões e fazer previsões"
+  },
+  {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#conteúdo-de-hoje",
     "href": "slides/3_visualizacao/slides_visualizacao.html#conteúdo-de-hoje",
     "title": "Visualização de dados",

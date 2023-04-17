@@ -27,3 +27,50 @@ format:
 - Modelos não-supervisionados
 - Limitações
 - Exemplo
+
+## Machine learning
+
+* Conjunto de técnicas que ensina um computador a reconhecer padrões e fazer previsões
+
+. . .
+
+```{r}
+#| echo: false
+#| out.width: "90%"
+#| fig-align: "center"
+
+# Carregar pacotes para ajustar árvore de decisão e dados do Titanic
+library(rpart)
+library(rpart.plot)
+library(titanic)
+
+# Recodificar algumas variáveis
+titanic_treino <- titanic_train |> 
+  dplyr::mutate(
+    Survived = factor(
+      dplyr::case_when(
+        Survived == 1 ~ "Sobreviveu",
+        Survived == 0 ~ "Faleceu"
+      )
+    ),
+    Sex = dplyr::case_when(
+      Sex == "male" ~ "Masculino",
+      Sex == "female" ~ "Feminino"
+    )
+  ) |> 
+  dplyr::rename(Sexo = Sex,
+                Idade = Age)
+
+# Ajustar a árvore de decisão
+titanic_ajuste <- rpart(Survived ~ Sexo + Idade,
+                               data = titanic_treino)
+
+# Mostrar gráfico da árvore
+rpart.plot(titanic_ajuste,
+           extra = 6,
+           fallen.leaves = TRUE,
+           yes.text = "Sim",
+           no.text = "Não",
+           main = "Sobrevivência no desastre do Titanic")
+```
+
