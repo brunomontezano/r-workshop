@@ -10,6 +10,17 @@ website:
         text: Página inicial
       - href: sobre.qmd
         text: Sobre o curso
+  page-footer: 
+    left: "Copyright 2023, Bruno Montezano"
+    right: 
+      - icon: github
+        href: https://github.com/brunomontezano
+      - icon: house
+        href: https://brunomontezano.github.io/
+      - icon: envelope
+        href: mailto:bmontezano@hcpa.edu.br
+      - icon: newspaper
+        href: https://lattes.cnpq.br/5680118320056968
 
 format:
   html:
