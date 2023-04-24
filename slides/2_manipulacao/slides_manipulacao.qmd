@@ -19,13 +19,13 @@ format:
 ## Conteúdo de hoje
 
 - Importação de dados
+- Valores ausentes
 - Fatores
-- Indexação de data frames
 - Manipulação de dados
   - Selecionar colunas
   - Criar e modificar colunas
   - Filtragem de linhas
-  - Valores ausentes
+  - Ordenação de linhas
 - Sumarização de dados
   - Agrupar e resumir dados
   
@@ -43,7 +43,6 @@ No curso, vamos usar alguns pacotes do `tidyverse`, como:
 
 - `readr`, `readxl` e `haven`: importação de dados
 - `dplyr`: manipulação de dados
-- `tidyr`: reformatação de tabelas
 - `ggplot2`: visualização de dados
 
 . . .
@@ -156,7 +155,7 @@ qualquer computador!
 
 Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado,
 como por exemplo: valores separados por vírgula (**.csv**) ou valores separados
-por tabulação (**.csv**).
+por tabulação (**.tsv**).
 
 :::: {.columns}
 
@@ -472,8 +471,8 @@ questionario |>
 
 . . .
 
-Os dados foram ordenados pelo `ano` de forma ascendente e `idade`de forma
-descendente.
+Os dados foram ordenados pelo `ano` de forma ascendente e `idade`
+de forma descendente.
 
 ## Selecionando colunas com `select()`
 
@@ -657,4 +656,7 @@ as funções: `select()`, `mutate()`, `filter()`, `arrange()`, `summarise()` e
   - As bases disponíveis podem ser acessadas no [site de referência do pacote](https://cienciadedatos.github.io/dados/reference/index.html)
   
 - Nos dados `questionario` do pacote `dados`, crie um subconjunto apenas com
-as observações do ano de 2016 e armazene em um objeto chamado `dados_2016`
+as observações do ano de 2014 e armazene em um objeto chamado `dados_2014`
+
+- Dica de leitura: Capítulo 4 de *Data transformation* do livro
+[*R for Data Science (segunda edição)*](https://r4ds.hadley.nz/data-transform.html)

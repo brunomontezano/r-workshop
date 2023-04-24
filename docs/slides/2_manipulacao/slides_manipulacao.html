@@ -402,20 +402,20 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">27 de março de 2023</p>
+  <p class="date">24 de abril de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
 <ul>
 <li class="fragment">Importação de dados</li>
+<li class="fragment">Valores ausentes</li>
 <li class="fragment">Fatores</li>
-<li class="fragment">Indexação de data frames</li>
 <li class="fragment">Manipulação de dados
 <ul>
 <li class="fragment">Selecionar colunas</li>
 <li class="fragment">Criar e modificar colunas</li>
 <li class="fragment">Filtragem de linhas</li>
-<li class="fragment">Valores ausentes</li>
+<li class="fragment">Ordenação de linhas</li>
 </ul></li>
 <li class="fragment">Sumarização de dados
 <ul>
@@ -435,7 +435,6 @@ Bruno Montezano
 <ul>
 <li class="fragment"><code>readr</code>, <code>readxl</code> e <code>haven</code>: importação de dados</li>
 <li class="fragment"><code>dplyr</code>: manipulação de dados</li>
-<li class="fragment"><code>tidyr</code>: reformatação de tabelas</li>
 <li class="fragment"><code>ggplot2</code>: visualização de dados</li>
 </ul>
 </div>
@@ -513,7 +512,7 @@ Bruno Montezano
 </section>
 <section id="arquivos-de-texto-delimitados" class="slide level2">
 <h2>Arquivos de texto delimitados</h2>
-<p>Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (<strong>.csv</strong>) ou valores separados por tabulação (<strong>.csv</strong>).</p>
+<p>Uma das formas mais comuns de armazenar dados é em um arquivo de texto delimitado, como por exemplo: valores separados por vírgula (<strong>.csv</strong>) ou valores separados por tabulação (<strong>.tsv</strong>).</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Aqui estão dados em <strong>.csv</strong>:</p>
@@ -856,7 +855,7 @@ Levels: Feminino Masculino</code></pre>
 </div>
 </div>
 <div class="fragment">
-<p>Os dados foram ordenados pelo <code>ano</code> de forma ascendente e <code>idade</code>de forma descendente.</p>
+<p>Os dados foram ordenados pelo <code>ano</code> de forma ascendente e <code>idade</code> de forma descendente.</p>
 </div>
 </section>
 <section id="selecionando-colunas-com-select" class="slide level2">
@@ -1121,11 +1120,12 @@ Levels: Feminino Masculino</code></pre>
 <section id="tarefa-de-casa" class="slide level2">
 <h2>Tarefa de casa</h2>
 <ul>
-<li class="fragment">Escolha uma das bases de dados do pacote <code>dados</code> e utilize ao menos uma vez as funções: <code>select()</code>, <code>mutate()</code>, <code>filter()</code>, <code>arrange()</code>, <code>summarise()</code> e <code>group_by()</code>
+<li class="fragment"><p>Escolha uma das bases de dados do pacote <code>dados</code> e utilize ao menos uma vez as funções: <code>select()</code>, <code>mutate()</code>, <code>filter()</code>, <code>arrange()</code>, <code>summarise()</code> e <code>group_by()</code></p>
 <ul>
 <li class="fragment">As bases disponíveis podem ser acessadas no <a href="https://cienciadedatos.github.io/dados/reference/index.html">site de referência do pacote</a></li>
 </ul></li>
-<li class="fragment">Nos dados <code>questionario</code> do pacote <code>dados</code>, crie um subconjunto apenas com as observações do ano de 2016 e armazene em um objeto chamado <code>dados_2016</code></li>
+<li class="fragment"><p>Nos dados <code>questionario</code> do pacote <code>dados</code>, crie um subconjunto apenas com as observações do ano de 2014 e armazene em um objeto chamado <code>dados_2014</code></p></li>
+<li class="fragment"><p>Dica de leitura: Capítulo 4 de <em>Data transformation</em> do livro <a href="https://r4ds.hadley.nz/data-transform.html"><em>R for Data Science (segunda edição)</em></a></p></li>
 </ul>
 
 
