@@ -80,7 +80,7 @@ lineares](https://youtube.com/playlist?list=PLblh5JKOoLUIzaEkCLIUxQFjPIlapw8nU) 
 
 ### Reprodutibilidade e Comunicação
 
-* [Reproducible Analytical Pipelines](https://rap4mads.eu/): escrito por Bruno Rodrigues,
+* [Building reproducible analytical pipelines with R](https://raps-with-r.dev/): escrito por Bruno Rodrigues,
 é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um
 livro mais aprofundado do que o *Reproducible Medical Research with R*, e requer maior
 conhecimento em computação.
@@ -116,6 +116,17 @@ o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatí
 * [Deep Learning and Scientific Computing with R torch](https://skeydan.github.io/Deep-Learning-and-Scientific-Computing-with-R-torch/):
 Livro sobre o `torch`, um *framework* em R para criar modelos de deep learning, além
 de possibilitar rotinas complexas de computação científica. Publicado em abril de 2023.
+
+### Metanálise
+
+* [Doing Meta-Analysis with R: A Hands-On Guide](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/):
+livro escrito por Mathias Harrer, Pim Cuijpers, Toshi Furukawa e
+David Ebert que aborda uma breve introdução em como metanálises
+podem ser conduzidas no R, abordando métodos avançados.
+
+* [How to perform a meta-analysis with R: a practical tutorial](https://mentalhealth.bmj.com/content/22/4/153): artigo
+publicado em 2019 pela *BMJ Mental Health* sobre passos práticos para
+rodar uma metanálise com R.
 
 ## Slides
 
