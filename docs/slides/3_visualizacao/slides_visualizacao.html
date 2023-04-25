@@ -421,7 +421,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">14 de abril de 2023</p>
+  <p class="date">25 de abril de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -819,38 +819,42 @@ Bruno Montezano
 <img data-src="slides_visualizacao_files/figure-revealjs/grafico-barras-cinema-score-1.png" style="width:60.0%" class="r-stretch quarto-figure-center"></section>
 <section id="gráfico-de-barras-após-ajustes" class="slide level2">
 <h2>Gráfico de barras após ajustes</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Código</a></li><li><a href="#tabset-3-2">Gráfico</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">rename</span>(<span class="at">nota =</span> nota_cinema_score) <span class="sc">|&gt;</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">count</span>(nota) <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> <span class="co"># Pegar base da Pixar de avaliação do público</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">rename</span>(<span class="at">nota =</span> nota_cinema_score) <span class="sc">|&gt;</span> <span class="co"># Renomear variável nota_cinema_score</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">count</span>(nota) <span class="sc">|&gt;</span> <span class="co"># Contar o número de filmes com cada nota</span></span>
 <span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb19-5"><a href="#cb19-5"></a>    <span class="at">nota =</span> forcats<span class="sc">::</span><span class="fu">fct_na_value_to_level</span>(nota,</span>
-<span id="cb19-6"><a href="#cb19-6"></a>                                          <span class="st">"Sem escore"</span>),</span>
+<span id="cb19-6"><a href="#cb19-6"></a>                                          <span class="st">"Sem escore"</span>), <span class="co"># Transformar NA no valor "Sem escore"</span></span>
 <span id="cb19-7"><a href="#cb19-7"></a>    <span class="at">nota =</span> <span class="fu">factor</span>(nota,</span>
 <span id="cb19-8"><a href="#cb19-8"></a>                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A-"</span>, <span class="st">"A"</span>,</span>
 <span id="cb19-9"><a href="#cb19-9"></a>                             <span class="st">"A+"</span>,</span>
-<span id="cb19-10"><a href="#cb19-10"></a>                             <span class="st">"Sem escore"</span>)),</span>
+<span id="cb19-10"><a href="#cb19-10"></a>                             <span class="st">"Sem escore"</span>)), <span class="co"># Reordenar as notas da menor para a maior</span></span>
 <span id="cb19-11"><a href="#cb19-11"></a>    <span class="at">cor =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(nota <span class="sc">==</span> <span class="st">"A"</span> <span class="sc">~</span> <span class="st">"Colorido"</span>,</span>
-<span id="cb19-12"><a href="#cb19-12"></a>                           <span class="at">.default =</span> <span class="st">"Cinza"</span>)</span>
+<span id="cb19-12"><a href="#cb19-12"></a>                           <span class="at">.default =</span> <span class="st">"Cinza"</span>) <span class="co"># Criar variável para colorir barra principal</span></span>
 <span id="cb19-13"><a href="#cb19-13"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb19-14"><a href="#cb19-14"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb19-15"><a href="#cb19-15"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota, <span class="at">y =</span> n, <span class="at">fill =</span> cor) <span class="sc">|&gt;</span></span>
-<span id="cb19-16"><a href="#cb19-16"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb19-17"><a href="#cb19-17"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray25"</span>, <span class="st">"darkorange"</span>)) <span class="sc">+</span></span>
-<span id="cb19-18"><a href="#cb19-18"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"A maioria dos filmes receberam nota A."</span>,</span>
+<span id="cb19-14"><a href="#cb19-14"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="co"># Iniciar o canvas do ggplot2</span></span>
+<span id="cb19-15"><a href="#cb19-15"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota, <span class="at">y =</span> n, <span class="at">fill =</span> cor) <span class="sc">|&gt;</span> <span class="co"># Mapear variáveis do gráfico</span></span>
+<span id="cb19-16"><a href="#cb19-16"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="co"># Adicionar a geometria do gráfico de barras</span></span>
+<span id="cb19-17"><a href="#cb19-17"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray25"</span>, <span class="st">"darkorange"</span>)) <span class="sc">+</span> <span class="co"># Modificar as cores do preenchimento</span></span>
+<span id="cb19-18"><a href="#cb19-18"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"A maioria dos filmes (n = 13) receberam nota A."</span>,</span>
 <span id="cb19-19"><a href="#cb19-19"></a>       <span class="at">x =</span> <span class="st">"Nota segundo CinemaScore"</span>,</span>
-<span id="cb19-20"><a href="#cb19-20"></a>       <span class="at">y =</span> <span class="st">"Número de filmes"</span>) <span class="sc">+</span></span>
-<span id="cb19-21"><a href="#cb19-21"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-20"><a href="#cb19-20"></a>       <span class="at">y =</span> <span class="st">"Número de filmes"</span>) <span class="sc">+</span> <span class="co"># Adicionar rótulos</span></span>
+<span id="cb19-21"><a href="#cb19-21"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="co"># Modificar tema, tamanho e família da fonte</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div><div class="column" style="width:40%;">
+</div>
+<div id="tabset-3-2">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="slides_visualizacao_files/figure-revealjs/grafico-barras-cinema-score-ajustado-output-1.png" style="width:100.0%"></p>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -929,16 +933,17 @@ Bruno Montezano
 <span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continente, <span class="at">y =</span> expectativa_de_vida, <span class="at">color =</span> continente) <span class="sc">+</span></span>
 <span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="sc">+</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="sc">+</span></span>
 <span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Continente"</span>, <span class="at">y =</span> <span class="st">"Expectativa de vida (em anos)"</span>,</span>
 <span id="cb23-8"><a href="#cb23-8"></a>       <span class="at">title =</span> <span class="st">"Como se distribuía a expectativa de vida em cada continente em 1952?"</span>,</span>
 <span id="cb23-9"><a href="#cb23-9"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Gapminder"</span>) <span class="sc">+</span></span>
 <span id="cb23-10"><a href="#cb23-10"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">65</span>,</span>
 <span id="cb23-11"><a href="#cb23-11"></a>           <span class="at">label =</span> <span class="st">"Em 1952,</span><span class="sc">\n</span><span class="st">a África tinha</span><span class="sc">\n</span><span class="st">uma expectativa</span><span class="sc">\n</span><span class="st">de vida</span><span class="sc">\n</span><span class="st">de 38,8 anos."</span>,</span>
-<span id="cb23-12"><a href="#cb23-12"></a>           <span class="at">size =</span> <span class="dv">4</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-12"><a href="#cb23-12"></a>           <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb23-13"><a href="#cb23-13"></a>           <span class="at">family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="slides_visualizacao_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<img data-src="slides_visualizacao_files/figure-revealjs/boxplot-apos-ajustes-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section id="títulos-labels-e-escalas" class="slide level2">
 <h2>Títulos, labels e escalas</h2>
 <p>Para colocar títulos ou trocar os labels (rótulos) dos atributos, utilizamos a função <code>labs()</code>.</p>
@@ -997,6 +1002,28 @@ Bruno Montezano
 <li class="fragment">Lembre-se da função <code>labs()</code> e família <code>theme_[estilo_do_tema]()</code></li>
 </ul></li>
 </ul>
+</section>
+<section id="dica-de-leitura-sobre-visualização" class="slide level2">
+<h2>Dica de leitura sobre visualização</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><a href="https://socviz.co/">Data Visualization: A Practical Introduction</a>
+<ul>
+<li class="fragment">Como criar visualizações efetivas</li>
+<li class="fragment">Quais visualizações funcionam e quais não</li>
+<li class="fragment">Como criar vários tipos de gráficos em <code>ggplot2</code></li>
+<li class="fragment">Como refinar os gráficos para apresentação</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../assets/capa_data_visualization.jpg" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="referências" class="slide level2 smaller scrollable">
 <h2>Referências</h2>

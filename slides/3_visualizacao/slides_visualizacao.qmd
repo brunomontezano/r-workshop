@@ -368,37 +368,39 @@ pixar_avalicao_publico |>
 
 ## Gráfico de barras após ajustes
 
-::: columns
-::: {.column width="60%"}
+::: {.panel-tabset}
+
+## Código
+
 ```{r grafico-barras-cinema-score-ajustado}
 #| out-width: 60%
 #| fig-align: "center"
 #| eval: false
-pixar_avalicao_publico |>
-  rename(nota = nota_cinema_score) |>
-  count(nota) |>
+pixar_avalicao_publico |> # Pegar base da Pixar de avaliação do público
+  rename(nota = nota_cinema_score) |> # Renomear variável nota_cinema_score
+  count(nota) |> # Contar o número de filmes com cada nota
   mutate(
     nota = forcats::fct_na_value_to_level(nota,
-                                          "Sem escore"),
+                                          "Sem escore"), # Transformar NA no valor "Sem escore"
     nota = factor(nota,
                   levels = c("A-", "A",
                              "A+",
-                             "Sem escore")),
+                             "Sem escore")), # Reordenar as notas da menor para a maior
     cor = dplyr::case_when(nota == "A" ~ "Colorido",
-                           .default = "Cinza")
+                           .default = "Cinza") # Criar variável para colorir barra principal
   ) |>
-  ggplot() +
-  aes(x = nota, y = n, fill = cor) |>
-  geom_col(width = 0.5, show.legend = FALSE) +
-  scale_fill_manual(values = c("gray25", "darkorange")) +
-  labs(title = "A maioria dos filmes receberam nota A.",
+  ggplot() + # Iniciar o canvas do ggplot2
+  aes(x = nota, y = n, fill = cor) |> # Mapear variáveis do gráfico
+  geom_col(width = 0.5, show.legend = FALSE) + # Adicionar a geometria do gráfico de barras
+  scale_fill_manual(values = c("gray25", "darkorange")) + # Modificar as cores do preenchimento
+  labs(title = "A maioria dos filmes (n = 13) receberam nota A.",
        x = "Nota segundo CinemaScore",
-       y = "Número de filmes") +
-  theme_classic(base_size = 18, base_family = "Charter")
+       y = "Número de filmes") + # Adicionar rótulos
+  theme_classic(base_size = 18, base_family = "Charter") # Modificar tema, tamanho e família da fonte
 ```
-:::
 
-::: {.column width="40%"}
+## Gráfico
+
 ```{r grafico-barras-cinema-score-ajustado-output}
 #| out-width: 100%
 #| fig-align: "center"
@@ -424,7 +426,7 @@ pixar_avalicao_publico |>
        y = "Número de filmes") +
   theme_classic(base_size = 18, base_family = "Charter")
 ```
-:::
+
 :::
 
 ## Histograma
@@ -494,20 +496,21 @@ dados_gapminder |>
 
 ## Box plot após ajustes
 
-```{r}
+```{r boxplot-apos-ajustes}
 #| fig-align: "center"
 dados_gapminder |> 
   filter(ano == 1952) |> 
   ggplot() +
   aes(x = continente, y = expectativa_de_vida, color = continente) +
   geom_boxplot(show.legend = FALSE) +
-  theme_light(base_size = 16, base_family = "Charter") +
+  theme_classic(base_size = 16, base_family = "Charter") +
   labs(x = "Continente", y = "Expectativa de vida (em anos)",
        title = "Como se distribuía a expectativa de vida em cada continente em 1952?",
        caption = "Fonte: Gapminder") +
   annotate("text", x = 1, y = 65,
            label = "Em 1952,\na África tinha\numa expectativa\nde vida\nde 38,8 anos.",
-           size = 4)
+           size = 5,
+           family = "Charter")
 ```
 
 ## Títulos, labels e escalas
@@ -586,6 +589,22 @@ agradável!
   - Ajustar rótulos, tamanho da fonte, cores, adicionar título, e o que
   mais você achar importante
   - Lembre-se da função `labs()` e família `theme_[estilo_do_tema]()`
+  
+## Dica de leitura sobre visualização
+
+::: columns
+::: {.column width="50%"}
+* [Data Visualization: A Practical Introduction](https://socviz.co/)
+  - Como criar visualizações efetivas
+  - Quais visualizações funcionam e quais não
+  - Como criar vários tipos de gráficos em `ggplot2`
+  - Como refinar os gráficos para apresentação
+:::
+
+::: {.column width="50%"}
+![](../assets/capa_data_visualization.jpg){fig-align="center" width=90%}
+:::
+:::
 
 ## Referências
 
