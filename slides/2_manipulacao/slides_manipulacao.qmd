@@ -357,7 +357,7 @@ atribuição sempre no topo.
 
 `questionario` é uma base de dados disponibilizada no pacote `dados`.
 
-```{r}
+```{r carregar-questionario}
 # install.packages("dados")
 library(dados)
 
