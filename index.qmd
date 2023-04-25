@@ -54,6 +54,7 @@ completo escrito por Kieran Healy sobre visualização de dados com `ggplot2`. C
 por apenas uma referência em visualização, recomendo este livro.
 * [R Graphics Cookbook (segunda edição)](https://r-graphics.org/): escrito por Winston Chang,
 é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.
+* [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/): livro escrito por Hadley Wickham, trata-se da terceira edição da obra que explica a gramática dos gráficos por trás do `ggplot2`. Material para entender os detalhes que constituem o pacote.
 * [PDF com cores do R](https://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf):
 este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem
 ser utilizadas para personalizar seus gráficos.
