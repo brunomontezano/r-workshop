@@ -559,7 +559,7 @@ divorciados |>
 
 `summarise()` pega suas colunas de dados e computa algo usando todas as linhas.
 
-- Contar a quantidaade de linhas
+- Contar a quantidade de linhas
 - Calcular a média ou mediana
 - Computar a soma
 - Obter um valor mínimo ou máximo
@@ -572,9 +572,9 @@ Ou seja, qualquer função que agregue *múltiplos valores* em um *único valor*
 
 ## Exemplo com `summarise()`
 
-Para os divorciados do ano de 2000, vamos captar o número de observações, 
-a média da idade, a mediana das horas de TV assistidas diariamente e a
-amplitude de horas de TV assistidas por dia.
+Para os divorciados do ano de 2000, vamos captar o número de observações,
+a média da idade, a mediana das horas de TV assistidas diariamente e
+a amplitude de horas de TV assistidas por dia.
 
 . . .
 
