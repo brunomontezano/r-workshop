@@ -179,7 +179,9 @@ O `ggplot2`, diferentemente dos outros pacotes do Tidyverse, não usa o *pipe*
 (`|>`) porque o `ggplot2` surgiu [antes que o autor tomasse conhecimento do
 pipe](https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/comment/cvi19ly/?utm_source=share&utm_medium=web2x&context=3).
 
-<iframe id="reddit-embed" src="https://www.redditmedia.com/r/dataisbeautiful/comments/3mp9r7/im_hadley_wickham_chief_scientist_at_rstudio_and/cvi19ly/?depth=1&amp;showmore=false&amp;embed=true&amp;showmedia=false" sandbox="allow-scripts allow-same-origin allow-popups" style="border: none;" height="437" width="640" scrolling="no"></iframe>
+. . .
+
+![](../assets/hadley_sobre_pipe.png){fig-align="center"}
 
 ## Dica: Como escolher o gráfico mais adequado?
 
