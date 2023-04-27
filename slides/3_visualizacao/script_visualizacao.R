@@ -109,7 +109,7 @@ pixar_avalicao_publico |>
 pixar_avalicao_publico |> 
   count(nota_cinema_score) |> 
   ggplot() +
-  aes(x = nota_cinema_score, y = n) |> 
+  aes(x = nota_cinema_score, y = n) +
   geom_col()
 
 
@@ -129,7 +129,7 @@ pixar_avalicao_publico |>
                            .default = "Cinza")
   ) |>
   ggplot() +
-  aes(x = nota_cinema_score, y = n, fill = cor) |>
+  aes(x = nota_cinema_score, y = n, fill = cor) +
   geom_col(width = 0.5, show.legend = FALSE) +
   scale_fill_manual(values = c("gray25", "darkorange")) +
   labs(title = "A maioria dos filmes (n = 13) receberam nota A.",
