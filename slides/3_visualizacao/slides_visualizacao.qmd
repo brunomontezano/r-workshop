@@ -15,6 +15,7 @@ format:
     theme: [default, ../assets/custom.scss]
     logo: "../assets/logo_ufrgs.png"
 bibliography: references.bib
+code-annotations: select
 ---
 
 ## Conteúdo de hoje
@@ -196,7 +197,7 @@ Geralmente usado para visualizar a associação de duas variáveis contínuas.
 
 . . .
 
-Como por exemplo, verificar a associação entre altura e massa nos personagens
+Exemplo: verificar a associação entre altura e massa nos personagens
 do Star Wars.
 
 . . .
@@ -204,12 +205,19 @@ do Star Wars.
 ```{r scatterplot-altura-massa}
 #| fig-align: "center"
 #| out.width: "70%"
-dados_starwars |> # Usar os `dados_starwars`
-  filter(massa < 1000) |> # Manter apenas observações com menos de 1.000kg de massa
-  ggplot() + # Iniciar o canvas
-  aes(x = massa, y = altura) + # Mapear massa no eixo x e altura no eixo y
-  geom_point() # Usar a geometria de pontos para criar um gráfico de dispersão
+# O código abaixo gera a figura do slide
+dados_starwars |> # <1>
+  filter(massa < 1000) |> # <2>
+  ggplot() + # <3>
+  aes(x = massa, y = altura) + # <4>
+  geom_point() # <5>
 ```
+
+1. Usar os `dados_starwars`
+2. Manter apenas observações<br>com menos de<br>1.000kg de massa
+3. Iniciar o canvas do `ggplot2`
+4. Mapear massa no eixo `x`<br>e altura no eixo `y`
+4. Adicionar geometria de pontos<br>com `geom_point()`
 
 ## `ggplot2` é extremamente versátil
 
@@ -359,12 +367,19 @@ filmes da Pixar segundo o CinemaScore.
 ```{r grafico-barras-cinema-score}
 #| out-width: 60%
 #| fig-align: "center"
-pixar_avalicao_publico |> 
-  count(nota_cinema_score) |> 
-  ggplot() +
-  aes(x = nota_cinema_score, y = n) |> 
-  geom_col()
+# Este código gera o gráfico abaixo
+pixar_avalicao_publico |> # <1>
+  count(nota_cinema_score) |> # <2>
+  ggplot() + # <3>
+  aes(x = nota_cinema_score, y = n) + # <4>
+  geom_col() # <5>
 ```
+
+1. Usar a base `pixar_avalicao_publico`
+2. Contar número de filmes<br>em cada nota
+3. Iniciar o canvas do `ggplot2`
+4. Mapear os eixos `x` e `y`
+5. Adicionar a geometria do<br>gráfico de barras
 
 ## Gráfico de barras após ajustes
 
@@ -376,28 +391,42 @@ pixar_avalicao_publico |>
 #| out-width: 60%
 #| fig-align: "center"
 #| eval: false
-pixar_avalicao_publico |> # Pegar base da Pixar de avaliação do público
-  rename(nota = nota_cinema_score) |> # Renomear variável nota_cinema_score
-  count(nota) |> # Contar o número de filmes com cada nota
-  mutate(
-    nota = forcats::fct_na_value_to_level(nota,
-                                          "Sem escore"), # Transformar NA no valor "Sem escore"
-    nota = factor(nota,
-                  levels = c("A-", "A",
-                             "A+",
-                             "Sem escore")), # Reordenar as notas da menor para a maior
-    cor = dplyr::case_when(nota == "A" ~ "Colorido",
-                           .default = "Cinza") # Criar variável para colorir barra principal
+# O código abaixo gera o gráfico do painel ao lado
+pixar_avalicao_publico |> # <1>
+  rename(nota = nota_cinema_score) |> # <2> 
+  count(nota) |> # <3>
+  mutate( # <4>
+    nota = forcats::fct_na_value_to_level(nota, # <4>
+                                          "Sem escore"), # <4>
+    nota = factor(nota, # <5>
+                  levels = c("A-", "A", # <5>
+                             "A+", # <5>
+                             "Sem escore")), # <5>
+    cor = dplyr::case_when(nota == "A" ~ "Colorido", # <6>
+                           .default = "Cinza") # <6>
   ) |>
-  ggplot() + # Iniciar o canvas do ggplot2
-  aes(x = nota, y = n, fill = cor) |> # Mapear variáveis do gráfico
-  geom_col(width = 0.5, show.legend = FALSE) + # Adicionar a geometria do gráfico de barras
-  scale_fill_manual(values = c("gray25", "darkorange")) + # Modificar as cores do preenchimento
-  labs(title = "A maioria dos filmes (n = 13) receberam nota A.",
-       x = "Nota segundo CinemaScore",
-       y = "Número de filmes") + # Adicionar rótulos
-  theme_classic(base_size = 18, base_family = "Charter") # Modificar tema, tamanho e família da fonte
+  ggplot() + # <7>
+  aes(x = nota, y = n, fill = cor) + # <8>
+  geom_col(width = 0.5, show.legend = FALSE) + # <9> 
+  scale_fill_manual(values = c("gray25", "darkorange")) + # <10>
+  labs(title = "A maioria dos filmes (n = 13) receberam nota A.", # <11>
+       x = "Nota segundo CinemaScore", # <11>
+       y = "Número de filmes") + # <11>
+  theme_classic(base_size = 18, base_family = "Charter") # <12>
 ```
+
+1. Pegar base da Pixar de<br>avaliação do público
+2. Renomear variável<br>`nota_cinema_score`
+3. Contar o número de<br>filmes com cada nota
+4. Transformar `NA` no<br>valor "Sem escore"
+5. Reordenar as notas<br>da menor para a maior
+6. Criar variável para<br>colorir barra principal
+7. Iniciar o canvas do `ggplot2`
+8. Mapear variáveis do gráfico
+9. Adicionar a geometria<br>do gráfico de barras,<br>retirar legenda e<br>mudar largura das barras
+10. Modificar as cores<br>do preenchimento
+11. Adicionar título e rótulos
+12. Modificar tema,<br>tamanho e<br>família da fonte
 
 ## Gráfico
 
@@ -418,7 +447,7 @@ pixar_avalicao_publico |>
     .default = "Cinza"
   )) |> 
   ggplot() +
-  aes(x = nota_cinema_score, y = n, fill = cor) |> 
+  aes(x = nota_cinema_score, y = n, fill = cor) +
   geom_col(width = 0.5, show.legend = FALSE) +
   scale_fill_manual(values = c("gray25", "darkorange")) +
   labs(title = "A maioria dos filmes (n = 13) receberam nota A.",
