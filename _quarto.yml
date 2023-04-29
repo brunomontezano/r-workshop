@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Introdução ao R"
+  site-url: "https://brunomontezano.github.io/r-workshop/"
   navbar:
     left:
       - href: index.qmd

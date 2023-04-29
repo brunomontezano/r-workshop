@@ -1,0 +1,10 @@
+---
+title: Página não encontrada
+---
+
+A página solicitada não pôde ser encontrada (talvez tenha sido movida ou renomeada).
+
+Você pode tentar pesquisar para encontrar o novo local da página.
+
+Caso não consiga encontrar a página que está procurando, você pode me enviar um
+email em [bmontezano@hcpa.edu.br](mailto:bmontezano@hcpa.edu.br).
