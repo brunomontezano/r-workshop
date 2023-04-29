@@ -16,7 +16,7 @@ Recomendo reiniciar a máquina após estas etapas, mas não é obrigatório.
 Em um Mac, você só precisa instalar o *Xcode Command Line Tools*. É bem simpes:
 
 1. Abra um terminal.
-    - Vá na sua busca do Spotlight no canto superior direito e busque por "Terminal".
+    - Vá na sua busca do Spotlight (`⌘ + Espaço`) no canto superior direito e busque por "Terminal".
     
 2. Copie e cole o seguinte comando no terminal, e pressione `Enter`:
 
