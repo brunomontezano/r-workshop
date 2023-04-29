@@ -129,12 +129,13 @@ podem ser conduzidas no R, abordando métodos avançados.
 publicado em 2019 pela *BMJ Mental Health* sobre passos práticos para
 rodar uma metanálise com R.
 
-## Slides
+## Aulas e laboratórios
 
 * [Slides da Aula 1: R e RStudio](slides/1_r_e_rstudio/slides_r_e_rstudio.html)
   - [Código para gerar os slides da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/1_r_rstudio/slides_r_e_rstudio.qmd)
   - [R Script da Aula 1: R e RStudio](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/1_r_e_rstudio/script_r_e_rstudio.R)
   - [Gravação da Aula 1: R e RStudio](https://youtu.be/MhysI-QdtZY)
+  - [Gravação do Laboratório 1: R e RStudio](https://youtu.be/DhosKMrXevY)
 
 * [Slides da Aula 2: Manipulação de dados](slides/2_manipulacao/slides_manipulacao.html)
   - [Código para gerar os slides da Aula 2: Manipulação de dados](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/2_manipulacao/slides_manipulacao.qmd)
