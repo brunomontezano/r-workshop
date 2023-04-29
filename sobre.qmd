@@ -54,3 +54,19 @@ conhecer para buscar dúvidas ou solucionar problemas específicos são o
 Nestes fóruns, os usuários de R publicam dúvidas, perguntas, problemas e soluções
 para diferentes tipos de rotinas de análise e manipulação de dados. Você pode
 criar sua conta e fazer você mesmo suas perguntas também!
+
+## Qual o cronograma de aulas? O curso terá laboratórios?
+
+Segue abaixo o cronograma de aulas do curso:
+
+1. R e RStudio (17/04/2023)
+2. Manipulação de dados (24/04/2023)
+3. Visualização de dados (08/05/2023)
+4. Análise descritiva (15/05/2023)
+5. Inferência estatística (22/05/2023)
+6. Modelos de regressão (29/05/2023)
+7. Tópicos avançados (05/06/2023)
+
+Em relação aos laboratórios, eles acontecerão no sábado da semana
+da aula correspondente. Assim como as aulas, os laboratórios serão
+gravados e disponibilizados no site do curso.
