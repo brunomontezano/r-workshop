@@ -88,11 +88,11 @@ Se algo não estiver funcionado no site, [me enviem um email](mailto:bmontezano@
 
 1. R e RStudio (17/04/2023)
 2. Manipulação de dados (24/04/2023)
-3. Visualização de dados (01/05/2023)
-4. Análise descritiva (08/05/2023)
-5. Inferência estatística (15/05/2023)
-6. Modelos de regressão (22/05/2023)
-7. Tópicos avançados (29/05/2023)
+3. Visualização de dados (08/05/2023)
+4. Análise descritiva (15/05/2023)
+5. Inferência estatística (22/05/2023)
+6. Modelos de regressão (29/05/2023)
+7. Tópicos avançados (05/06/2023)
 
 . . .
 
