@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introdução ao R - Instalação do R e RStudio</title>
+<title>Introdução ao R - Materiais recomendados</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Página inicial</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./materiais.html" rel="" target="">
+    <a class="nav-link active" href="./materiais.html" rel="" target="" aria-current="page">
  <span class="menu-text">Materiais recomendados</span></a>
   </li>  
   <li class="nav-item">
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Instalação do R e RStudio</h1>
+<h1 class="title">Materiais recomendados</h1>
 </div>
 
 
@@ -128,116 +128,64 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Este guia vai te acompanhar na instalação do R e RStudio no seu computador.</p>
-<p>Nas instruções abaixo, em qualquer lugar que esteja escrito (versão), haverá uma série de números, como por exemplo <code>4.2.2</code>. A versão específica não importa, mas queremos usar sempre a mais recente.</p>
-<section id="instalando-o-r" class="level1">
-<h1>Instalando o R</h1>
-<section id="windows" class="level2">
-<h2 class="anchored" data-anchor-id="windows">Windows</h2>
-<ol type="1">
-<li>Vá até a <a href="https://cran.r-project.org/bin/windows/base/">página dos Instaladores para Windows</a>.
+<section id="gerais" class="level2">
+<h2 class="anchored" data-anchor-id="gerais">Gerais</h2>
 <ul>
-<li>Clique em <code>Download R-(versão) for Windows</code>. A versão listada será a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
-<ul>
-<li>Se o instalador solicitar, dê privilégios administrativos para instalar.</li>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o R estará instalado!
-<ul>
-<li>Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente.</li>
-</ul></li>
-</ol>
+<li><a href="https://r4ds.hadley.nz/">R for Data Science (segunda edição)</a>: trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (<code>tidyverse</code>) voltados para ciência de dados com R.</li>
+<li><a href="http://adv-r.had.co.nz/">Advanced R</a>: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.</li>
+<li><a href="https://www.bookdown.org/pdr_higgins/rmrwr/">Reproducible Medical Research with R</a>: Livro escrito por um médico sobre fluxos de trabalho em R para criação de <em>pipelines</em> reprodutíveis.</li>
+<li><a href="https://epirhandbook.com/en/">The Epidemiologist R Handbook</a>: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.</li>
+<li><a href="https://www.lampada.uerj.br/arquivosdb/_book2/">Introdução ao R</a>: em português, escrito por Sergio Miranda Freire, trata aspectos introdutórios da programação em R com aplicações.</li>
+<li><a href="https://argoshare.is.ed.ac.uk/healthyr_book/">R for Health Data Science</a>: livro breve escrito por Ewen Harrison e Riinu Pius sobre aplicação de programação em R na manipulação, análise e interpretação de dados em saúde.</li>
+<li><a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>: escrito por Garrett Grolemund, trata-se de um livro breve de introdução a programação em R com aplicações e exemplos práticos que pode ser utilizado como material auxiliar.</li>
+</ul>
 </section>
-<section id="macos" class="level2">
-<h2 class="anchored" data-anchor-id="macos">MacOS</h2>
-<ol type="1">
-<li>Vá até a <a href="https://cran.r-project.org/bin/macosx/">página dos Instaladores para MacOS</a>.
+<section id="visualização-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="visualização-de-dados">Visualização de dados</h2>
 <ul>
-<li>Role até “Latest release”.</li>
-<li>Clique em <code>R-(versão).pkg</code> para baixar: A versão listada será a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
-<ul>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o R estará instalado!
-<ul>
-<li>Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente.</li>
-</ul></li>
-<li>Vá até a <a href="https://www.xquartz.org/">página de download do XQuartz</a>
-<ul>
-<li>Clique em <code>XQuartz-(versão).dmg</code> para baixar.</li>
-</ul></li>
-<li>Rode o instalador do XQuartz.
-<ul>
-<li>XQuartz é necessário para criar janelas para exibir vários tipos de gráficos do R: ele era incluído no MacOS até a versão 10.8 mas agora precisa ser baixado separadamente.</li>
-</ul></li>
-</ol>
+<li><a href="https://socviz.co/">Data Visualization: A Practical Introduction</a>: um livro muito completo escrito por Kieran Healy sobre visualização de dados com <code>ggplot2</code>. Caso opte por apenas uma referência em visualização, recomendo este livro.</li>
+<li><a href="https://r-graphics.org/">R Graphics Cookbook (segunda edição)</a>: escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.</li>
+<li><a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis</a>: livro escrito por Hadley Wickham, trata-se da terceira edição da obra que explica a gramática dos gráficos por trás do <code>ggplot2</code>. Material para entender os detalhes que constituem o pacote.</li>
+<li><a href="https://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">PDF com cores do R</a>: este documento criado pelo Dr.&nbsp;Ying Wei, lista a maioria das cores nomeadas do R que podem ser utilizadas para personalizar seus gráficos.</li>
+</ul>
 </section>
+<section id="estatística-básica" class="level2">
+<h2 class="anchored" data-anchor-id="estatística-básica">Estatística básica</h2>
+<ul>
+<li><a href="https://www.openintro.org/book/os/">OpenIntro Statistics</a>: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.</li>
+<li><a href="https://openintro-ims.netlify.app/">OpenIntro Introduction to Modern Statistics</a>: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos.</li>
+<li><a href="https://filipezabala.com/fdepcdd/">Fundamentos de Estatística para Ciência de Dados</a>: livro em português, escrito por Filipe Zabala, apresenta diversos capítulos desde análise descritiva até modelos de aprendizado de máquina não-supervisionado com exemplos em R no decorrer do texto.</li>
+<li><a href="https://learningstatisticswithr.com/book/">Learning Statistics with R</a>: escrito por Danielle Navarro, trata-se de um livro voltado para introdução de conceitos de estatística e probabilidade através de aplicações em R.</li>
+<li><a href="https://youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9">Playlist de Statistics Fundamentals do canal StatQuest</a>: criado por Josh Starmer, trata-se de uma playlist no YouTube que dá uma visão geral de conceitos fundamentais de estatística. A <a href="https://youtube.com/playlist?list=PLblh5JKOoLUIzaEkCLIUxQFjPIlapw8nU">playlist sobre regressão linear e modelos lineares</a> também vale muito a pena assistir.</li>
+</ul>
 </section>
-<section id="instalando-o-rstudio" class="level1">
-<h1>Instalando o RStudio</h1>
-<section id="windows-1" class="level2">
-<h2 class="anchored" data-anchor-id="windows-1">Windows</h2>
-<ol type="1">
-<li>Vá até a <a href="https://posit.co/download/rstudio-desktop/#download">página de download do RStudio</a>.
+<section id="reprodutibilidade-e-comunicação" class="level2">
+<h2 class="anchored" data-anchor-id="reprodutibilidade-e-comunicação">Reprodutibilidade e Comunicação</h2>
 <ul>
-<li>Desça até <code>All Installers and Tarballs</code> e clique no link de download ao lado de <code>Windows 10/11</code> para baixar: A versão listada é a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
-<ul>
-<li>Se o instalador solicitar, dê privilégios administrativos para instalar.</li>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o RStudio estará instalado!
-<ul>
-<li>Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.</li>
-</ul></li>
-<li>Abra o RStudio e verifique se ele carrega.
-<ul>
-<li>No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.</li>
-<li>Se você estiver com algum problema, enviem um email para <a href="mailto:bmontezano@hcpa.edu.br">bmontezano@hcpa.edu.br</a>.</li>
-</ul></li>
-</ol>
+<li><a href="https://raps-with-r.dev/">Building reproducible analytical pipelines with R</a>: escrito por Bruno Rodrigues, é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um livro mais aprofundado do que o <em>Reproducible Medical Research with R</em>, e requer maior conhecimento em computação.</li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a>: escrito por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma sintaxe unificada do RMarkdown.</li>
+<li><a href="https://mastering-shiny.org/">Mastering Shiny</a>: escrito por Hadley Wickham, trata-se de um livro para criação de aplicativos web em R a partir do framework <code>shiny</code>.</li>
+<li><a href="https://happygitwithr.com//">Happy Git and GitHub for the useR</a>: escrito por Jennifer Bryan, é um livro guia de como instalar <code>git</code>, trabalhar com GitHub e integrar seus projetos do R com estas ferramentas. Material para quem busca desenvolver fluxos de trabalho de colaboração ou reprodutibilidade.</li>
+<li><a href="https://bookdown.org/yihui/blogdown/">blogdown: Creating Websites with R Markdown</a>: livro por Yihui Xie, Amber Thomas e Alison Presmanes Hill, é um guia para o pacote <code>blogdown</code>, usado para criar websites e blogs com a sintaxe do R Markdown.</li>
+<li><a href="https://bookdown.org/yihui/bookdown/">bookdown: Authoring Books and Technical Documents with R Markdown</a>: do autor Yihui Xie, é um livro guia para o pacote <code>bookdown</code>, que facilita o processo de criação de livros e relatórios técnicos em R com R Markdown. Suporta saídas em PDF, Word, HTML, etc, e apresenta diversas outras funcionalidades.</li>
+</ul>
 </section>
-<section id="macos-1" class="level2">
-<h2 class="anchored" data-anchor-id="macos-1">MacOS</h2>
-<ol type="1">
-<li>Vá até a <a href="https://posit.co/download/rstudio-desktop/#download">página de download do RStudio</a>.
+<section id="machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning">Machine Learning</h2>
 <ul>
-<li>Desça até <code>All Installers and Tarballs</code> e clique no link de download ao lado de <code>macOS 11+</code> para baixar: A versão listada é a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
+<li><a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a>: livro escrito por Gareth James, Daniela Witten, Trevor Hastie e Rob Tibshirani sobre introdução ao aprendizado estatístico com exemplos em R em todos os capítulos.</li>
+<li><a href="http://www.rizbicki.ufscar.br/ame/">Aprendizado de máquina: uma abordagem estatística</a>: livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com o <em>An Introduction to Statistical Learning</em>, mas trabalha mais conceitos estatísticos.</li>
+<li><a href="https://skeydan.github.io/Deep-Learning-and-Scientific-Computing-with-R-torch/">Deep Learning and Scientific Computing with R torch</a>: Livro sobre o <code>torch</code>, um <em>framework</em> em R para criar modelos de deep learning, além de possibilitar rotinas complexas de computação científica. Publicado em abril de 2023.</li>
+</ul>
+</section>
+<section id="metanálise" class="level2">
+<h2 class="anchored" data-anchor-id="metanálise">Metanálise</h2>
 <ul>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o RStudio estará instalado!
-<ul>
-<li>Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.</li>
-</ul></li>
-<li>Abra o RStudio e verifique se ele carrega.
-<ul>
-<li>No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.</li>
-<li>Se você estiver com algum problema, enviem um email para <a href="mailto:bmontezano@hcpa.edu.br">bmontezano@hcpa.edu.br</a>.</li>
-</ul></li>
-</ol>
-<p>Quando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta na parte inferior esquerda da tela de vocês:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/console_rstudio.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Console ao abrir RStudio pela primeira vez.</figcaption>
-</figure>
-</div>
-<p>Se sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email.</p>
+<li><p><a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/">Doing Meta-Analysis with R: A Hands-On Guide</a>: livro escrito por Mathias Harrer, Pim Cuijpers, Toshi Furukawa e David Ebert que aborda uma breve introdução em como metanálises podem ser conduzidas no R, abordando métodos avançados.</p></li>
+<li><p><a href="https://mentalhealth.bmj.com/content/22/4/153">How to perform a meta-analysis with R: a practical tutorial</a>: artigo publicado em 2019 pela <em>BMJ Mental Health</em> sobre passos práticos para rodar uma metanálise com R.</p></li>
+</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

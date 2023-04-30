@@ -9,8 +9,12 @@ website:
     left:
       - href: index.qmd
         text: Página inicial
-      - href: sobre.qmd
-        text: Sobre o curso
+      - href: materiais.qmd
+        text: Materiais recomendados
+      - href: aulas_e_laboratorios.qmd
+        text: Aulas e laboratórios
+      - href: perguntas_frequentes.qmd
+        text: Perguntas frequentes
   page-footer: 
     left: "Copyright 2023, Bruno Montezano"
     right: 

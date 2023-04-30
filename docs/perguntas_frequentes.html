@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introdução ao R - Instalação do R e RStudio</title>
+<title>Introdução ao R - Perguntas frequentes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,6 +59,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -93,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Aulas e laboratórios</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./perguntas_frequentes.html" rel="" target="">
+    <a class="nav-link active" href="./perguntas_frequentes.html" rel="" target="" aria-current="page">
  <span class="menu-text">Perguntas frequentes</span></a>
   </li>  
 </ul>
@@ -113,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Instalação do R e RStudio</h1>
+<h1 class="title">Perguntas frequentes</h1>
 </div>
 
 
@@ -128,116 +130,56 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Este guia vai te acompanhar na instalação do R e RStudio no seu computador.</p>
-<p>Nas instruções abaixo, em qualquer lugar que esteja escrito (versão), haverá uma série de números, como por exemplo <code>4.2.2</code>. A versão específica não importa, mas queremos usar sempre a mais recente.</p>
-<section id="instalando-o-r" class="level1">
-<h1>Instalando o R</h1>
-<section id="windows" class="level2">
-<h2 class="anchored" data-anchor-id="windows">Windows</h2>
-<ol type="1">
-<li>Vá até a <a href="https://cran.r-project.org/bin/windows/base/">página dos Instaladores para Windows</a>.
-<ul>
-<li>Clique em <code>Download R-(versão) for Windows</code>. A versão listada será a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
-<ul>
-<li>Se o instalador solicitar, dê privilégios administrativos para instalar.</li>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o R estará instalado!
-<ul>
-<li>Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente.</li>
-</ul></li>
-</ol>
+<section id="quem-é-o-público-alvo" class="level2">
+<h2 class="anchored" data-anchor-id="quem-é-o-público-alvo">Quem é o público alvo?</h2>
+<p>O público-alvo deste curso de introdução ao R para análises nas ciências da saúde é composto principalmente por psiquiatras, psicólogos e outros profissionais de saúde que desejam aprender a utilizar ferramentas de análise de dados para suas pesquisas e práticas clínicas. O curso é voltado tanto para iniciantes em programação quanto para aqueles que já possuem algum conhecimento prévio em R, mas desejam aprimorar suas habilidades e aprender novas técnicas para análise de dados.</p>
 </section>
-<section id="macos" class="level2">
-<h2 class="anchored" data-anchor-id="macos">MacOS</h2>
-<ol type="1">
-<li>Vá até a <a href="https://cran.r-project.org/bin/macosx/">página dos Instaladores para MacOS</a>.
-<ul>
-<li>Role até “Latest release”.</li>
-<li>Clique em <code>R-(versão).pkg</code> para baixar: A versão listada será a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
-<ul>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o R estará instalado!
-<ul>
-<li>Talvez agora existam ícones do R no seu desktop ou menu Iniciar, mas em geral, não usamos o R diretamente.</li>
-</ul></li>
-<li>Vá até a <a href="https://www.xquartz.org/">página de download do XQuartz</a>
-<ul>
-<li>Clique em <code>XQuartz-(versão).dmg</code> para baixar.</li>
-</ul></li>
-<li>Rode o instalador do XQuartz.
-<ul>
-<li>XQuartz é necessário para criar janelas para exibir vários tipos de gráficos do R: ele era incluído no MacOS até a versão 10.8 mas agora precisa ser baixado separadamente.</li>
-</ul></li>
-</ol>
+<section id="onde-serão-as-aulas" class="level2">
+<h2 class="anchored" data-anchor-id="onde-serão-as-aulas">Onde serão as aulas?</h2>
+<p>As aulas se darão em formato virtual. As aulas serão serão realizadas através de videoconferências na plataformas Google Meet para os integrantes do grupo de pesquisa Alliance, ministradas pelo psicólogo e mestrando Bruno Montezano.</p>
 </section>
-</section>
-<section id="instalando-o-rstudio" class="level1">
-<h1>Instalando o RStudio</h1>
-<section id="windows-1" class="level2">
-<h2 class="anchored" data-anchor-id="windows-1">Windows</h2>
+<section id="quantas-aulas-serão-realizadas" class="level2">
+<h2 class="anchored" data-anchor-id="quantas-aulas-serão-realizadas">Quantas aulas serão realizadas?</h2>
+<p>O plano de aulas seguirá as seguintes aulas:</p>
 <ol type="1">
-<li>Vá até a <a href="https://posit.co/download/rstudio-desktop/#download">página de download do RStudio</a>.
-<ul>
-<li>Desça até <code>All Installers and Tarballs</code> e clique no link de download ao lado de <code>Windows 10/11</code> para baixar: A versão listada é a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
-<ul>
-<li>Se o instalador solicitar, dê privilégios administrativos para instalar.</li>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o RStudio estará instalado!
-<ul>
-<li>Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.</li>
-</ul></li>
-<li>Abra o RStudio e verifique se ele carrega.
-<ul>
-<li>No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.</li>
-<li>Se você estiver com algum problema, enviem um email para <a href="mailto:bmontezano@hcpa.edu.br">bmontezano@hcpa.edu.br</a>.</li>
-</ul></li>
+<li>R e RStudio</li>
+<li>Manipulação de dados</li>
+<li>Visualização de dados</li>
+<li>Análise descritiva</li>
+<li>Análise inferencial</li>
+<li>Modelos de regressão</li>
+<li>Tópicos avançados</li>
 </ol>
+<p>Ou seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora.</p>
 </section>
-<section id="macos-1" class="level2">
-<h2 class="anchored" data-anchor-id="macos-1">MacOS</h2>
+<section id="o-código-fonte-do-site-do-curso-é-disponibilizado" class="level2">
+<h2 class="anchored" data-anchor-id="o-código-fonte-do-site-do-curso-é-disponibilizado">O código-fonte do site do curso é disponibilizado?</h2>
+<p>Sim, você pode acessar o <a href="https://github.com/brunomontezano/r-workshop">repositório do curso no GitHub</a>, onde estão contidos todos os códigos, dados e slides do curso.</p>
+</section>
+<section id="que-não-consegui-completar-o-exercício-x-isso-não-é-para-mim" class="level2">
+<h2 class="anchored" data-anchor-id="que-não-consegui-completar-o-exercício-x-isso-não-é-para-mim">Que %#$&amp;! Não consegui completar o exercício <span class="math inline">\(x\)</span>! Isso não é para mim!</h2>
+<p>O aprendizado de programação e análise de dadosé uma jornada árdua porque muitas vezes nos deparamos com conceitos e conteúdos que nunca estudamos antes. O fator mais importante no êxito nessa caminhada é persistir e saber como buscar ajuda.</p>
+<p>No contexto do curso, vocês podem enviar um email para solicitar ajuda, serão muito bem-vindos! O endereço é <a href="mailto:bmontezano@hcpa.edu.br">bmontezano@hcpa.edu.br</a>. Alguns sites bons de conhecer para buscar dúvidas ou solucionar problemas específicos são o <a href="https://stackoverflow.com/questions/tagged/r">Stack Overflow</a> e a <a href="https://community.rstudio.com/">Posit Community</a> (antiga RStudio Community). Nestes fóruns, os usuários de R publicam dúvidas, perguntas, problemas e soluções para diferentes tipos de rotinas de análise e manipulação de dados. Você pode criar sua conta e fazer você mesmo suas perguntas também!</p>
+</section>
+<section id="qual-o-cronograma-de-aulas-o-curso-terá-laboratórios" class="level2">
+<h2 class="anchored" data-anchor-id="qual-o-cronograma-de-aulas-o-curso-terá-laboratórios">Qual o cronograma de aulas? O curso terá laboratórios?</h2>
+<p>Segue abaixo o cronograma de aulas do curso:</p>
 <ol type="1">
-<li>Vá até a <a href="https://posit.co/download/rstudio-desktop/#download">página de download do RStudio</a>.
-<ul>
-<li>Desça até <code>All Installers and Tarballs</code> e clique no link de download ao lado de <code>macOS 11+</code> para baixar: A versão listada é a mais recente.</li>
-</ul></li>
-<li>Rode o instalador.
-<ul>
-<li>Siga as instruções na tela.</li>
-<li>Não há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.</li>
-</ul></li>
-<li>Ao finalizar, o RStudio estará instalado!
-<ul>
-<li>Nós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.</li>
-</ul></li>
-<li>Abra o RStudio e verifique se ele carrega.
-<ul>
-<li>No painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.</li>
-<li>Se você estiver com algum problema, enviem um email para <a href="mailto:bmontezano@hcpa.edu.br">bmontezano@hcpa.edu.br</a>.</li>
-</ul></li>
+<li>R e RStudio (17/04/2023)</li>
+<li>Manipulação de dados (24/04/2023)</li>
+<li>Visualização de dados (08/05/2023)</li>
+<li>Análise descritiva (15/05/2023)</li>
+<li>Inferência estatística (22/05/2023)</li>
+<li>Modelos de regressão (29/05/2023)</li>
+<li>Tópicos avançados (05/06/2023)</li>
 </ol>
-<p>Quando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta na parte inferior esquerda da tela de vocês:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/console_rstudio.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Console ao abrir RStudio pela primeira vez.</figcaption>
-</figure>
-</div>
-<p>Se sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email.</p>
+<p>Em relação aos laboratórios, eles acontecerão no sábado da semana da aula correspondente. Assim como as aulas, os laboratórios serão gravados e disponibilizados no site do curso.</p>
+</section>
+<section id="o-curso-possui-algum-pré-requisito" class="level2">
+<h2 class="anchored" data-anchor-id="o-curso-possui-algum-pré-requisito">O curso possui algum pré-requisito?</h2>
+<p>O curso não possui pré-requisitos obrigatórios. No entanto, é recomendável que os participantes tenham conhecimento básico em estatística e experiência prévia em análise de dados. Além disso, é importante que os participantes possuam conhecimento básico em informática.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

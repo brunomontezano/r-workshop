@@ -1,0 +1,49 @@
+---
+title: "Aulas e laboratórios"
+lang: pt-br
+---
+
+## Aula 1: R e RStudio
+
+* [Slides](slides/1_r_e_rstudio/slides_r_e_rstudio.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/1_r_rstudio/slides_r_e_rstudio.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/1_r_e_rstudio/script_r_e_rstudio.R)
+* [Gravação da aula](https://youtu.be/MhysI-QdtZY)
+* [Gravação do laboratório](https://youtu.be/DhosKMrXevY)
+  
+## Aula 2: Manipulação de dados
+
+* [Slides](slides/2_manipulacao/slides_manipulacao.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/2_manipulacao/slides_manipulacao.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/2_manipulacao/script_manipulacao.R)
+* [Gravação da aula](https://youtu.be/EpWgpzLWxJ8)
+  
+## Aula 3: Visualização de dados
+  
+* [Slides](slides/3_visualizacao/slides_visualizacao.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/slides_visualizacao.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/script_visualizacao.R)
+  
+## Aula 4: Análise descritiva
+  
+* [Slides](slides/4_descritiva/slides_descritiva.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/slides_descritiva.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/script_descritiva.R)
+  
+## Aula 5: Inferência estatística
+  
+* [Slides](slides/5_inferencia/slides_inferencia.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/5_inferencia/slides_inferencia.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/5_inferencia/script_inferencia.R)
+  
+## Aula 6: Modelos de regressão
+  
+* [Slides](slides/6_regressao/slides_regressao.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/6_regressao/slides_regressao.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/6_regressao/script_regressao.R)
+  
+## Aula 7: Tópicos avançados
+  
+* [Slides](slides/7_topicos_avancados/slides_topicos_avancados.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/slides_topicos_avancados.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/script_topicos_avancados.R)

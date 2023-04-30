@@ -1,0 +1,111 @@
+---
+title: "Materiais recomendados"
+lang: pt-br
+---
+
+## Gerais
+
+* [R for Data Science (segunda edição)](https://r4ds.hadley.nz/): trata-se de um
+livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund
+que foca em uma coleção de pacotes (`tidyverse`) voltados para ciência de dados
+com R.
+* [Advanced R](http://adv-r.had.co.nz/): escrito por Hadley Wickham, aborda aspectos
+mais avançados referentes à programação em R de forma mais aprofundada.
+* [Reproducible Medical Research with R](https://www.bookdown.org/pdr_higgins/rmrwr/):
+Livro escrito por um médico sobre fluxos de trabalho em R para criação de *pipelines*
+reprodutíveis.
+* [The Epidemiologist R Handbook](https://epirhandbook.com/en/): Livro de referência para
+códigos em R que facilitam rotinas de análise de dados para epidemiologia.
+* [Introdução ao R](https://www.lampada.uerj.br/arquivosdb/_book2/): em português,
+escrito por
+Sergio Miranda Freire, trata aspectos introdutórios da programação em R com
+aplicações.
+* [R for Health Data Science](https://argoshare.is.ed.ac.uk/healthyr_book/): livro
+breve escrito por Ewen Harrison e Riinu Pius sobre aplicação de programação em R
+na manipulação, análise e interpretação de dados em saúde.
+* [Hands-On Programming with R](https://rstudio-education.github.io/hopr/):
+escrito por Garrett Grolemund, trata-se de um livro breve de introdução a
+programação em R com aplicações e exemplos práticos que pode ser utilizado
+como material auxiliar.
+
+## Visualização de dados
+
+* [Data Visualization: A Practical Introduction](https://socviz.co/): um livro muito
+completo escrito por Kieran Healy sobre visualização de dados com `ggplot2`. Caso opte
+por apenas uma referência em visualização, recomendo este livro.
+* [R Graphics Cookbook (segunda edição)](https://r-graphics.org/): escrito por Winston Chang,
+é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.
+* [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/): livro escrito por Hadley Wickham, trata-se da terceira edição da obra que explica a gramática dos gráficos por trás do `ggplot2`. Material para entender os detalhes que constituem o pacote.
+* [PDF com cores do R](https://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf):
+este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem
+ser utilizadas para personalizar seus gráficos.
+
+## Estatística básica
+
+* [OpenIntro Statistics](https://www.openintro.org/book/os/): escrito por Diez et al.,
+um livro livre e de código aberto para introdução à estatística.
+* [OpenIntro Introduction to Modern Statistics](https://openintro-ims.netlify.app/):
+escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta
+conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui
+tutoriais interativos em R ao final dos capítulos.
+* [Fundamentos de Estatística para Ciência de Dados](https://filipezabala.com/fdepcdd/):
+livro em português, escrito por Filipe Zabala, apresenta diversos capítulos desde
+análise descritiva até modelos de aprendizado de máquina não-supervisionado com
+exemplos em R no decorrer do texto.
+* [Learning Statistics with R](https://learningstatisticswithr.com/book/): escrito
+por Danielle Navarro, trata-se de um livro voltado para introdução de conceitos
+de estatística e probabilidade através de aplicações em R.
+* [Playlist de Statistics Fundamentals do canal StatQuest](https://youtube.com/playlist?list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9):
+criado por Josh Starmer, trata-se de uma playlist no YouTube que dá uma visão geral
+de conceitos fundamentais de estatística. A [playlist sobre regressão linear e modelos
+lineares](https://youtube.com/playlist?list=PLblh5JKOoLUIzaEkCLIUxQFjPIlapw8nU) também vale muito a pena assistir.
+
+## Reprodutibilidade e Comunicação
+
+* [Building reproducible analytical pipelines with R](https://raps-with-r.dev/): escrito por Bruno Rodrigues,
+é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um
+livro mais aprofundado do que o *Reproducible Medical Research with R*, e requer maior
+conhecimento em computação.
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/): escrito
+por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para
+criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma
+sintaxe unificada do RMarkdown.
+* [Mastering Shiny](https://mastering-shiny.org/): escrito por Hadley Wickham,
+trata-se de um livro para criação de aplicativos web em R a partir do framework
+`shiny`.
+* [Happy Git and GitHub for the useR](https://happygitwithr.com//): escrito por
+Jennifer Bryan, é um livro guia
+de como instalar `git`, trabalhar com GitHub e integrar seus projetos do R com
+estas ferramentas. Material para quem busca desenvolver fluxos de trabalho
+de colaboração ou reprodutibilidade.
+* [blogdown: Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/):
+livro por Yihui Xie, Amber Thomas e Alison Presmanes Hill, é um guia para o pacote
+`blogdown`, usado para criar websites e blogs com a sintaxe do R Markdown.
+* [bookdown: Authoring Books and Technical Documents with R Markdown](https://bookdown.org/yihui/bookdown/):
+do autor Yihui Xie, é um livro guia para o pacote `bookdown`, que facilita o
+processo de criação de livros e relatórios técnicos em R com R Markdown.
+Suporta saídas em PDF, Word, HTML, etc, e apresenta diversas outras
+funcionalidades.
+
+## Machine Learning
+
+* [An Introduction to Statistical Learning](https://www.statlearning.com/): livro
+escrito por Gareth James, Daniela Witten, Trevor Hastie e Rob Tibshirani sobre
+introdução ao aprendizado estatístico com exemplos em R em todos os capítulos.
+* [Aprendizado de máquina: uma abordagem estatística](http://www.rizbicki.ufscar.br/ame/):
+livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com
+o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatísticos.
+* [Deep Learning and Scientific Computing with R torch](https://skeydan.github.io/Deep-Learning-and-Scientific-Computing-with-R-torch/):
+Livro sobre o `torch`, um *framework* em R para criar modelos de deep learning, além
+de possibilitar rotinas complexas de computação científica. Publicado em abril de 2023.
+
+## Metanálise
+
+* [Doing Meta-Analysis with R: A Hands-On Guide](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/):
+livro escrito por Mathias Harrer, Pim Cuijpers, Toshi Furukawa e
+David Ebert que aborda uma breve introdução em como metanálises
+podem ser conduzidas no R, abordando métodos avançados.
+
+* [How to perform a meta-analysis with R: a practical tutorial](https://mentalhealth.bmj.com/content/22/4/153): artigo
+publicado em 2019 pela *BMJ Mental Health* sobre passos práticos para
+rodar uma metanálise com R.

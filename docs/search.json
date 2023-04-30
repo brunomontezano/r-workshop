@@ -35,32 +35,74 @@
     "text": "MacOS\n\nVá até a página de download do RStudio.\n\nDesça até All Installers and Tarballs e clique no link de download ao lado de macOS 11+ para baixar: A versão listada é a mais recente.\n\nRode o instalador.\n\nSiga as instruções na tela.\nNão há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.\n\nAo finalizar, o RStudio estará instalado!\n\nNós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.\n\nAbra o RStudio e verifique se ele carrega.\n\nNo painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.\nSe você estiver com algum problema, enviem um email para bmontezano@hcpa.edu.br.\n\n\nQuando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta na parte inferior esquerda da tela de vocês:\n\n\n\nConsole ao abrir RStudio pela primeira vez.\n\n\nSe sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email."
   },
   {
+    "objectID": "perguntas_frequentes.html",
+    "href": "perguntas_frequentes.html",
+    "title": "Perguntas frequentes",
+    "section": "",
+    "text": "O público-alvo deste curso de introdução ao R para análises nas ciências da saúde é composto principalmente por psiquiatras, psicólogos e outros profissionais de saúde que desejam aprender a utilizar ferramentas de análise de dados para suas pesquisas e práticas clínicas. O curso é voltado tanto para iniciantes em programação quanto para aqueles que já possuem algum conhecimento prévio em R, mas desejam aprimorar suas habilidades e aprender novas técnicas para análise de dados."
+  },
+  {
+    "objectID": "perguntas_frequentes.html#quem-é-o-público-alvo",
+    "href": "perguntas_frequentes.html#quem-é-o-público-alvo",
+    "title": "Perguntas frequentes",
+    "section": "",
+    "text": "O público-alvo deste curso de introdução ao R para análises nas ciências da saúde é composto principalmente por psiquiatras, psicólogos e outros profissionais de saúde que desejam aprender a utilizar ferramentas de análise de dados para suas pesquisas e práticas clínicas. O curso é voltado tanto para iniciantes em programação quanto para aqueles que já possuem algum conhecimento prévio em R, mas desejam aprimorar suas habilidades e aprender novas técnicas para análise de dados."
+  },
+  {
+    "objectID": "perguntas_frequentes.html#onde-serão-as-aulas",
+    "href": "perguntas_frequentes.html#onde-serão-as-aulas",
+    "title": "Perguntas frequentes",
+    "section": "Onde serão as aulas?",
+    "text": "Onde serão as aulas?\nAs aulas se darão em formato virtual. As aulas serão serão realizadas através de videoconferências na plataformas Google Meet para os integrantes do grupo de pesquisa Alliance, ministradas pelo psicólogo e mestrando Bruno Montezano."
+  },
+  {
+    "objectID": "perguntas_frequentes.html#quantas-aulas-serão-realizadas",
+    "href": "perguntas_frequentes.html#quantas-aulas-serão-realizadas",
+    "title": "Perguntas frequentes",
+    "section": "Quantas aulas serão realizadas?",
+    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nManipulação de dados\nVisualização de dados\nAnálise descritiva\nAnálise inferencial\nModelos de regressão\nTópicos avançados\n\nOu seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora."
+  },
+  {
+    "objectID": "perguntas_frequentes.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
+    "href": "perguntas_frequentes.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
+    "title": "Perguntas frequentes",
+    "section": "O código-fonte do site do curso é disponibilizado?",
+    "text": "O código-fonte do site do curso é disponibilizado?\nSim, você pode acessar o repositório do curso no GitHub, onde estão contidos todos os códigos, dados e slides do curso."
+  },
+  {
+    "objectID": "perguntas_frequentes.html#que-não-consegui-completar-o-exercício-x-isso-não-é-para-mim",
+    "href": "perguntas_frequentes.html#que-não-consegui-completar-o-exercício-x-isso-não-é-para-mim",
+    "title": "Perguntas frequentes",
+    "section": "Que %#$&! Não consegui completar o exercício \\(x\\)! Isso não é para mim!",
+    "text": "Que %#$&! Não consegui completar o exercício \\(x\\)! Isso não é para mim!\nO aprendizado de programação e análise de dadosé uma jornada árdua porque muitas vezes nos deparamos com conceitos e conteúdos que nunca estudamos antes. O fator mais importante no êxito nessa caminhada é persistir e saber como buscar ajuda.\nNo contexto do curso, vocês podem enviar um email para solicitar ajuda, serão muito bem-vindos! O endereço é bmontezano@hcpa.edu.br. Alguns sites bons de conhecer para buscar dúvidas ou solucionar problemas específicos são o Stack Overflow e a Posit Community (antiga RStudio Community). Nestes fóruns, os usuários de R publicam dúvidas, perguntas, problemas e soluções para diferentes tipos de rotinas de análise e manipulação de dados. Você pode criar sua conta e fazer você mesmo suas perguntas também!"
+  },
+  {
+    "objectID": "perguntas_frequentes.html#qual-o-cronograma-de-aulas-o-curso-terá-laboratórios",
+    "href": "perguntas_frequentes.html#qual-o-cronograma-de-aulas-o-curso-terá-laboratórios",
+    "title": "Perguntas frequentes",
+    "section": "Qual o cronograma de aulas? O curso terá laboratórios?",
+    "text": "Qual o cronograma de aulas? O curso terá laboratórios?\nSegue abaixo o cronograma de aulas do curso:\n\nR e RStudio (17/04/2023)\nManipulação de dados (24/04/2023)\nVisualização de dados (08/05/2023)\nAnálise descritiva (15/05/2023)\nInferência estatística (22/05/2023)\nModelos de regressão (29/05/2023)\nTópicos avançados (05/06/2023)\n\nEm relação aos laboratórios, eles acontecerão no sábado da semana da aula correspondente. Assim como as aulas, os laboratórios serão gravados e disponibilizados no site do curso."
+  },
+  {
+    "objectID": "perguntas_frequentes.html#o-curso-possui-algum-pré-requisito",
+    "href": "perguntas_frequentes.html#o-curso-possui-algum-pré-requisito",
+    "title": "Perguntas frequentes",
+    "section": "O curso possui algum pré-requisito?",
+    "text": "O curso possui algum pré-requisito?\nO curso não possui pré-requisitos obrigatórios. No entanto, é recomendável que os participantes tenham conhecimento básico em estatística e experiência prévia em análise de dados. Além disso, é importante que os participantes possuam conhecimento básico em informática."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introdução ao R",
     "section": "",
-    "text": "Email para dúvidas\nInstalação do R e RStudio\nComo habilitar compilação de pacotes"
+    "text": "Bem-vindos ao Curso de Introdução ao R do grupo de pesquisa AlliaNCE (Artificial Intelligence in Neuroscience) da UFRGS. Neste curso, você irá aprender conceitos que permeiam a manipulação e análise de dados com uso da linguagem de programação de código aberto R. O curso irá fazer uso de aulas expositivas, juntamente de exercícios práticos e laboratórios semanais para revisão e exemplificação dos conceitos estudados em aula. No site, você poderá acessar materiais complementares recomendados pelo professor, perguntas frequentes sobre o curso, além dos slides, códigos e gravações das aulas."
   },
   {
-    "objectID": "index.html#links-importantes",
-    "href": "index.html#links-importantes",
+    "objectID": "index.html#links-relevantes",
+    "href": "index.html#links-relevantes",
     "title": "Introdução ao R",
-    "section": "",
-    "text": "Email para dúvidas\nInstalação do R e RStudio\nComo habilitar compilação de pacotes"
-  },
-  {
-    "objectID": "index.html#materiais-recomendados",
-    "href": "index.html#materiais-recomendados",
-    "title": "Introdução ao R",
-    "section": "Materiais recomendados",
-    "text": "Materiais recomendados\n\nGerais\n\nR for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\nIntrodução ao R: em português, escrito por Sergio Miranda Freire, trata aspectos introdutórios da programação em R com aplicações.\nR for Health Data Science: livro breve escrito por Ewen Harrison e Riinu Pius sobre aplicação de programação em R na manipulação, análise e interpretação de dados em saúde.\nHands-On Programming with R: escrito por Garrett Grolemund, trata-se de um livro breve de introdução a programação em R com aplicações e exemplos práticos que pode ser utilizado como material auxiliar.\n\n\n\nVisualização de dados\n\nData Visualization: A Practical Introduction: um livro muito completo escrito por Kieran Healy sobre visualização de dados com ggplot2. Caso opte por apenas uma referência em visualização, recomendo este livro.\nR Graphics Cookbook (segunda edição): escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.\nggplot2: Elegant Graphics for Data Analysis: livro escrito por Hadley Wickham, trata-se da terceira edição da obra que explica a gramática dos gráficos por trás do ggplot2. Material para entender os detalhes que constituem o pacote.\nPDF com cores do R: este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem ser utilizadas para personalizar seus gráficos.\n\n\n\nEstatística básica\n\nOpenIntro Statistics: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.\nOpenIntro Introduction to Modern Statistics: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos.\nFundamentos de Estatística para Ciência de Dados: livro em português, escrito por Filipe Zabala, apresenta diversos capítulos desde análise descritiva até modelos de aprendizado de máquina não-supervisionado com exemplos em R no decorrer do texto.\nLearning Statistics with R: escrito por Danielle Navarro, trata-se de um livro voltado para introdução de conceitos de estatística e probabilidade através de aplicações em R.\nPlaylist de Statistics Fundamentals do canal StatQuest: criado por Josh Starmer, trata-se de uma playlist no YouTube que dá uma visão geral de conceitos fundamentais de estatística. A playlist sobre regressão linear e modelos lineares também vale muito a pena assistir.\n\n\n\nReprodutibilidade e Comunicação\n\nBuilding reproducible analytical pipelines with R: escrito por Bruno Rodrigues, é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um livro mais aprofundado do que o Reproducible Medical Research with R, e requer maior conhecimento em computação.\nR Markdown: The Definitive Guide: escrito por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma sintaxe unificada do RMarkdown.\nMastering Shiny: escrito por Hadley Wickham, trata-se de um livro para criação de aplicativos web em R a partir do framework shiny.\nHappy Git and GitHub for the useR: escrito por Jennifer Bryan, é um livro guia de como instalar git, trabalhar com GitHub e integrar seus projetos do R com estas ferramentas. Material para quem busca desenvolver fluxos de trabalho de colaboração ou reprodutibilidade.\nblogdown: Creating Websites with R Markdown: livro por Yihui Xie, Amber Thomas e Alison Presmanes Hill, é um guia para o pacote blogdown, usado para criar websites e blogs com a sintaxe do R Markdown.\nbookdown: Authoring Books and Technical Documents with R Markdown: do autor Yihui Xie, é um livro guia para o pacote bookdown, que facilita o processo de criação de livros e relatórios técnicos em R com R Markdown. Suporta saídas em PDF, Word, HTML, etc, e apresenta diversas outras funcionalidades.\n\n\n\nMachine Learning\n\nAn Introduction to Statistical Learning: livro escrito por Gareth James, Daniela Witten, Trevor Hastie e Rob Tibshirani sobre introdução ao aprendizado estatístico com exemplos em R em todos os capítulos.\nAprendizado de máquina: uma abordagem estatística: livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com o An Introduction to Statistical Learning, mas trabalha mais conceitos estatísticos.\nDeep Learning and Scientific Computing with R torch: Livro sobre o torch, um framework em R para criar modelos de deep learning, além de possibilitar rotinas complexas de computação científica. Publicado em abril de 2023.\n\n\n\nMetanálise\n\nDoing Meta-Analysis with R: A Hands-On Guide: livro escrito por Mathias Harrer, Pim Cuijpers, Toshi Furukawa e David Ebert que aborda uma breve introdução em como metanálises podem ser conduzidas no R, abordando métodos avançados.\nHow to perform a meta-analysis with R: a practical tutorial: artigo publicado em 2019 pela BMJ Mental Health sobre passos práticos para rodar uma metanálise com R."
-  },
-  {
-    "objectID": "index.html#aulas-e-laboratórios",
-    "href": "index.html#aulas-e-laboratórios",
-    "title": "Introdução ao R",
-    "section": "Aulas e laboratórios",
-    "text": "Aulas e laboratórios\n\nSlides da Aula 1: R e RStudio\n\nCódigo para gerar os slides da Aula 1: R e RStudio\nR Script da Aula 1: R e RStudio\nGravação da Aula 1: R e RStudio\nGravação do Laboratório 1: R e RStudio\n\nSlides da Aula 2: Manipulação de dados\n\nCódigo para gerar os slides da Aula 2: Manipulação de dados\nR Script da Aula 2: Manipulação de dados\nGravação da Aula 2: Manipulação de dados\n\nSlides da Aula 3: Visualização de dados\n\nCódigo para gerar os slides da Aula 3: Visualização de dados\nR Script da Aula 3: Visualização de dados\n\nSlides da Aula 4: Análise descritiva\n\nCódigo para gerar os slides da Aula 4: Análise descritiva\nR Script da Aula 4: Análise descritiva\n\nSlides da Aula 5: Inferência estatística\n\nCódigo para gerar os slides da Aula 5: Inferência estatística\nR Script da Aula 5: Inferência estatística\n\nSlides da Aula 6: Modelos de regressão\n\nCódigo para gerar os slides da Aula 6: Modelos de regressão\nR Script da Aula 6: Modelos de regressão\n\nSlides da Aula 7: Tópicos avançados\n\nCódigo para gerar os slides da Aula 7: Tópicos avançados\nR Script da Aula 7: Tópicos avançados"
+    "section": "Links relevantes",
+    "text": "Links relevantes\n\nEmail para dúvidas\nInstalação do R e RStudio\nComo habilitar compilação de pacotes"
   },
   {
     "objectID": "compilacao.html",
@@ -91,53 +133,109 @@
     "text": "Solução de problemas\nCompilar código é complicado e, às vezes, erros específicos de cada máquina podem surgir mesmo que você tenha seguido tudo acima corretamente. Se você tiver algum problema, entre em contato!"
   },
   {
-    "objectID": "sobre.html",
-    "href": "sobre.html",
-    "title": "Sobre o curso",
+    "objectID": "aulas_e_laboratorios.html",
+    "href": "aulas_e_laboratorios.html",
+    "title": "Aulas e laboratórios",
     "section": "",
-    "text": "O público-alvo deste curso de introdução ao R para análises nas ciências da saúde é composto principalmente por psiquiatras, psicólogos e outros profissionais de saúde que desejam aprender a utilizar ferramentas de análise de dados para suas pesquisas e práticas clínicas. O curso é voltado tanto para iniciantes em programação quanto para aqueles que já possuem algum conhecimento prévio em R, mas desejam aprimorar suas habilidades e aprender novas técnicas para análise de dados."
+    "text": "Slides\nCódigo dos slides\nScript em R\nGravação da aula\nGravação do laboratório"
   },
   {
-    "objectID": "sobre.html#quem-é-o-público-alvo",
-    "href": "sobre.html#quem-é-o-público-alvo",
-    "title": "Sobre o curso",
+    "objectID": "aulas_e_laboratorios.html#aula-1-r-e-rstudio",
+    "href": "aulas_e_laboratorios.html#aula-1-r-e-rstudio",
+    "title": "Aulas e laboratórios",
     "section": "",
-    "text": "O público-alvo deste curso de introdução ao R para análises nas ciências da saúde é composto principalmente por psiquiatras, psicólogos e outros profissionais de saúde que desejam aprender a utilizar ferramentas de análise de dados para suas pesquisas e práticas clínicas. O curso é voltado tanto para iniciantes em programação quanto para aqueles que já possuem algum conhecimento prévio em R, mas desejam aprimorar suas habilidades e aprender novas técnicas para análise de dados."
+    "text": "Slides\nCódigo dos slides\nScript em R\nGravação da aula\nGravação do laboratório"
   },
   {
-    "objectID": "sobre.html#onde-serão-as-aulas",
-    "href": "sobre.html#onde-serão-as-aulas",
-    "title": "Sobre o curso",
-    "section": "Onde serão as aulas?",
-    "text": "Onde serão as aulas?\nAs aulas se darão em formato virtual. As aulas serão serão realizadas através de videoconferências na plataformas Google Meet para os integrantes do grupo de pesquisa Alliance, ministradas pelo psicólogo e mestrando Bruno Montezano."
+    "objectID": "aulas_e_laboratorios.html#aula-2-manipulação-de-dados",
+    "href": "aulas_e_laboratorios.html#aula-2-manipulação-de-dados",
+    "title": "Aulas e laboratórios",
+    "section": "Aula 2: Manipulação de dados",
+    "text": "Aula 2: Manipulação de dados\n\nSlides\nCódigo dos slides\nScript em R\nGravação da aula"
   },
   {
-    "objectID": "sobre.html#quantas-aulas-serão-realizadas",
-    "href": "sobre.html#quantas-aulas-serão-realizadas",
-    "title": "Sobre o curso",
-    "section": "Quantas aulas serão realizadas?",
-    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nManipulação de dados\nVisualização de dados\nAnálise descritiva\nAnálise inferencial\nModelos de regressão\nTópicos avançados\n\nOu seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora."
+    "objectID": "aulas_e_laboratorios.html#aula-3-visualização-de-dados",
+    "href": "aulas_e_laboratorios.html#aula-3-visualização-de-dados",
+    "title": "Aulas e laboratórios",
+    "section": "Aula 3: Visualização de dados",
+    "text": "Aula 3: Visualização de dados\n\nSlides\nCódigo dos slides\nScript em R"
   },
   {
-    "objectID": "sobre.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
-    "href": "sobre.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
-    "title": "Sobre o curso",
-    "section": "O código-fonte do site do curso é disponibilizado?",
-    "text": "O código-fonte do site do curso é disponibilizado?\nSim, você pode acessar o repositório do curso no GitHub, onde estão contidos todos os códigos, dados e slides do curso."
+    "objectID": "aulas_e_laboratorios.html#aula-4-análise-descritiva",
+    "href": "aulas_e_laboratorios.html#aula-4-análise-descritiva",
+    "title": "Aulas e laboratórios",
+    "section": "Aula 4: Análise descritiva",
+    "text": "Aula 4: Análise descritiva\n\nSlides\nCódigo dos slides\nScript em R"
   },
   {
-    "objectID": "sobre.html#que-não-consegui-completar-o-exercício-x-isso-não-é-para-mim",
-    "href": "sobre.html#que-não-consegui-completar-o-exercício-x-isso-não-é-para-mim",
-    "title": "Sobre o curso",
-    "section": "Que %#$&! Não consegui completar o exercício \\(x\\)! Isso não é para mim!",
-    "text": "Que %#$&! Não consegui completar o exercício \\(x\\)! Isso não é para mim!\nO aprendizado de programação e análise de dadosé uma jornada árdua porque muitas vezes nos deparamos com conceitos e conteúdos que nunca estudamos antes. O fator mais importante no êxito nessa caminhada é persistir e saber como buscar ajuda.\nNo contexto do curso, vocês podem enviar um email para solicitar ajuda, serão muito bem-vindos! O endereço é bmontezano@hcpa.edu.br. Alguns sites bons de conhecer para buscar dúvidas ou solucionar problemas específicos são o Stack Overflow e a Posit Community (antiga RStudio Community). Nestes fóruns, os usuários de R publicam dúvidas, perguntas, problemas e soluções para diferentes tipos de rotinas de análise e manipulação de dados. Você pode criar sua conta e fazer você mesmo suas perguntas também!"
+    "objectID": "aulas_e_laboratorios.html#aula-5-inferência-estatística",
+    "href": "aulas_e_laboratorios.html#aula-5-inferência-estatística",
+    "title": "Aulas e laboratórios",
+    "section": "Aula 5: Inferência estatística",
+    "text": "Aula 5: Inferência estatística\n\nSlides\nCódigo dos slides\nScript em R"
   },
   {
-    "objectID": "sobre.html#qual-o-cronograma-de-aulas-o-curso-terá-laboratórios",
-    "href": "sobre.html#qual-o-cronograma-de-aulas-o-curso-terá-laboratórios",
-    "title": "Sobre o curso",
-    "section": "Qual o cronograma de aulas? O curso terá laboratórios?",
-    "text": "Qual o cronograma de aulas? O curso terá laboratórios?\nSegue abaixo o cronograma de aulas do curso:\n\nR e RStudio (17/04/2023)\nManipulação de dados (24/04/2023)\nVisualização de dados (08/05/2023)\nAnálise descritiva (15/05/2023)\nInferência estatística (22/05/2023)\nModelos de regressão (29/05/2023)\nTópicos avançados (05/06/2023)\n\nEm relação aos laboratórios, eles acontecerão no sábado da semana da aula correspondente. Assim como as aulas, os laboratórios serão gravados e disponibilizados no site do curso."
+    "objectID": "aulas_e_laboratorios.html#aula-6-modelos-de-regressão",
+    "href": "aulas_e_laboratorios.html#aula-6-modelos-de-regressão",
+    "title": "Aulas e laboratórios",
+    "section": "Aula 6: Modelos de regressão",
+    "text": "Aula 6: Modelos de regressão\n\nSlides\nCódigo dos slides\nScript em R"
+  },
+  {
+    "objectID": "aulas_e_laboratorios.html#aula-7-tópicos-avançados",
+    "href": "aulas_e_laboratorios.html#aula-7-tópicos-avançados",
+    "title": "Aulas e laboratórios",
+    "section": "Aula 7: Tópicos avançados",
+    "text": "Aula 7: Tópicos avançados\n\nSlides\nCódigo dos slides\nScript em R"
+  },
+  {
+    "objectID": "materiais.html",
+    "href": "materiais.html",
+    "title": "Materiais recomendados",
+    "section": "",
+    "text": "R for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\nIntrodução ao R: em português, escrito por Sergio Miranda Freire, trata aspectos introdutórios da programação em R com aplicações.\nR for Health Data Science: livro breve escrito por Ewen Harrison e Riinu Pius sobre aplicação de programação em R na manipulação, análise e interpretação de dados em saúde.\nHands-On Programming with R: escrito por Garrett Grolemund, trata-se de um livro breve de introdução a programação em R com aplicações e exemplos práticos que pode ser utilizado como material auxiliar."
+  },
+  {
+    "objectID": "materiais.html#gerais",
+    "href": "materiais.html#gerais",
+    "title": "Materiais recomendados",
+    "section": "",
+    "text": "R for Data Science (segunda edição): trata-se de um livro escrito por Hadley Wickham, Mine Çetinkaya-Rundel e Garrett Grolemund que foca em uma coleção de pacotes (tidyverse) voltados para ciência de dados com R.\nAdvanced R: escrito por Hadley Wickham, aborda aspectos mais avançados referentes à programação em R de forma mais aprofundada.\nReproducible Medical Research with R: Livro escrito por um médico sobre fluxos de trabalho em R para criação de pipelines reprodutíveis.\nThe Epidemiologist R Handbook: Livro de referência para códigos em R que facilitam rotinas de análise de dados para epidemiologia.\nIntrodução ao R: em português, escrito por Sergio Miranda Freire, trata aspectos introdutórios da programação em R com aplicações.\nR for Health Data Science: livro breve escrito por Ewen Harrison e Riinu Pius sobre aplicação de programação em R na manipulação, análise e interpretação de dados em saúde.\nHands-On Programming with R: escrito por Garrett Grolemund, trata-se de um livro breve de introdução a programação em R com aplicações e exemplos práticos que pode ser utilizado como material auxiliar."
+  },
+  {
+    "objectID": "materiais.html#visualização-de-dados",
+    "href": "materiais.html#visualização-de-dados",
+    "title": "Materiais recomendados",
+    "section": "Visualização de dados",
+    "text": "Visualização de dados\n\nData Visualization: A Practical Introduction: um livro muito completo escrito por Kieran Healy sobre visualização de dados com ggplot2. Caso opte por apenas uma referência em visualização, recomendo este livro.\nR Graphics Cookbook (segunda edição): escrito por Winston Chang, é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.\nggplot2: Elegant Graphics for Data Analysis: livro escrito por Hadley Wickham, trata-se da terceira edição da obra que explica a gramática dos gráficos por trás do ggplot2. Material para entender os detalhes que constituem o pacote.\nPDF com cores do R: este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem ser utilizadas para personalizar seus gráficos."
+  },
+  {
+    "objectID": "materiais.html#estatística-básica",
+    "href": "materiais.html#estatística-básica",
+    "title": "Materiais recomendados",
+    "section": "Estatística básica",
+    "text": "Estatística básica\n\nOpenIntro Statistics: escrito por Diez et al., um livro livre e de código aberto para introdução à estatística.\nOpenIntro Introduction to Modern Statistics: escrito por Cetinkaya-Rundel et al., também livre e de código aberto, também apresenta conceitos introdutórios enfatizando exemplos com programação em R. Esse livro possui tutoriais interativos em R ao final dos capítulos.\nFundamentos de Estatística para Ciência de Dados: livro em português, escrito por Filipe Zabala, apresenta diversos capítulos desde análise descritiva até modelos de aprendizado de máquina não-supervisionado com exemplos em R no decorrer do texto.\nLearning Statistics with R: escrito por Danielle Navarro, trata-se de um livro voltado para introdução de conceitos de estatística e probabilidade através de aplicações em R.\nPlaylist de Statistics Fundamentals do canal StatQuest: criado por Josh Starmer, trata-se de uma playlist no YouTube que dá uma visão geral de conceitos fundamentais de estatística. A playlist sobre regressão linear e modelos lineares também vale muito a pena assistir."
+  },
+  {
+    "objectID": "materiais.html#reprodutibilidade-e-comunicação",
+    "href": "materiais.html#reprodutibilidade-e-comunicação",
+    "title": "Materiais recomendados",
+    "section": "Reprodutibilidade e Comunicação",
+    "text": "Reprodutibilidade e Comunicação\n\nBuilding reproducible analytical pipelines with R: escrito por Bruno Rodrigues, é um ótimo material para criar fluxos de trabalho reprodutíveis de maneira robusta. É um livro mais aprofundado do que o Reproducible Medical Research with R, e requer maior conhecimento em computação.\nR Markdown: The Definitive Guide: escrito por Yihui Xie, J. J. Allaire e Garrett Grolemund, trata-se de um guia completo para criar relatórios, artigos, livros, websites, blogs, dashboards em R através de uma sintaxe unificada do RMarkdown.\nMastering Shiny: escrito por Hadley Wickham, trata-se de um livro para criação de aplicativos web em R a partir do framework shiny.\nHappy Git and GitHub for the useR: escrito por Jennifer Bryan, é um livro guia de como instalar git, trabalhar com GitHub e integrar seus projetos do R com estas ferramentas. Material para quem busca desenvolver fluxos de trabalho de colaboração ou reprodutibilidade.\nblogdown: Creating Websites with R Markdown: livro por Yihui Xie, Amber Thomas e Alison Presmanes Hill, é um guia para o pacote blogdown, usado para criar websites e blogs com a sintaxe do R Markdown.\nbookdown: Authoring Books and Technical Documents with R Markdown: do autor Yihui Xie, é um livro guia para o pacote bookdown, que facilita o processo de criação de livros e relatórios técnicos em R com R Markdown. Suporta saídas em PDF, Word, HTML, etc, e apresenta diversas outras funcionalidades."
+  },
+  {
+    "objectID": "materiais.html#machine-learning",
+    "href": "materiais.html#machine-learning",
+    "title": "Materiais recomendados",
+    "section": "Machine Learning",
+    "text": "Machine Learning\n\nAn Introduction to Statistical Learning: livro escrito por Gareth James, Daniela Witten, Trevor Hastie e Rob Tibshirani sobre introdução ao aprendizado estatístico com exemplos em R em todos os capítulos.\nAprendizado de máquina: uma abordagem estatística: livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com o An Introduction to Statistical Learning, mas trabalha mais conceitos estatísticos.\nDeep Learning and Scientific Computing with R torch: Livro sobre o torch, um framework em R para criar modelos de deep learning, além de possibilitar rotinas complexas de computação científica. Publicado em abril de 2023."
+  },
+  {
+    "objectID": "materiais.html#metanálise",
+    "href": "materiais.html#metanálise",
+    "title": "Materiais recomendados",
+    "section": "Metanálise",
+    "text": "Metanálise\n\nDoing Meta-Analysis with R: A Hands-On Guide: livro escrito por Mathias Harrer, Pim Cuijpers, Toshi Furukawa e David Ebert que aborda uma breve introdução em como metanálises podem ser conduzidas no R, abordando métodos avançados.\nHow to perform a meta-analysis with R: a practical tutorial: artigo publicado em 2019 pela BMJ Mental Health sobre passos práticos para rodar uma metanálise com R."
   },
   {
     "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#conteúdo-de-hoje",
