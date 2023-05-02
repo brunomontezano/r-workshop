@@ -13,6 +13,8 @@ website:
         text: Materiais recomendados
       - href: aulas_e_laboratorios.qmd
         text: Aulas e laboratórios
+      - href: tarefas_de_casa.qmd
+        text: Tarefas de casa
       - href: perguntas_frequentes.qmd
         text: Perguntas frequentes
   page-footer: 

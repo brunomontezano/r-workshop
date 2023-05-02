@@ -35,6 +35,97 @@
     "text": "MacOS\n\nVá até a página de download do RStudio.\n\nDesça até All Installers and Tarballs e clique no link de download ao lado de macOS 11+ para baixar: A versão listada é a mais recente.\n\nRode o instalador.\n\nSiga as instruções na tela.\nNão há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.\n\nAo finalizar, o RStudio estará instalado!\n\nNós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.\n\nAbra o RStudio e verifique se ele carrega.\n\nNo painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.\nSe você estiver com algum problema, enviem um email para bmontezano@hcpa.edu.br.\n\n\nQuando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta na parte inferior esquerda da tela de vocês:\n\n\n\nConsole ao abrir RStudio pela primeira vez.\n\n\nSe sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email."
   },
   {
+    "objectID": "gabaritos/1_r_e_rstudio/gabarito.html",
+    "href": "gabaritos/1_r_e_rstudio/gabarito.html",
+    "title": "Gabarito da Aula 1: R e RStudio",
+    "section": "",
+    "text": "Para este exercício, basta acessar o site através do link https://brunomontezano.github.io/r-workshop/ e checar cada uma das páginas para se apropriar do conteúdo presente nelas. No site, é possível acessar materiais recomendados, as aulas e laboratórios, as tarefas de casa e algumas possíveis perguntas frequentes que possam surgir a partir da leitura do website."
+  },
+  {
+    "objectID": "gabaritos/1_r_e_rstudio/gabarito.html#dê-uma-olhada-no-site-do-curso.",
+    "href": "gabaritos/1_r_e_rstudio/gabarito.html#dê-uma-olhada-no-site-do-curso.",
+    "title": "Gabarito da Aula 1: R e RStudio",
+    "section": "",
+    "text": "Para este exercício, basta acessar o site através do link https://brunomontezano.github.io/r-workshop/ e checar cada uma das páginas para se apropriar do conteúdo presente nelas. No site, é possível acessar materiais recomendados, as aulas e laboratórios, as tarefas de casa e algumas possíveis perguntas frequentes que possam surgir a partir da leitura do website."
+  },
+  {
+    "objectID": "gabaritos/1_r_e_rstudio/gabarito.html#crie-um-vetor-de-1-a-25-e-armazene-em-uma-variável-de-nome-sequencia-lembre-se-do-operador-.",
+    "href": "gabaritos/1_r_e_rstudio/gabarito.html#crie-um-vetor-de-1-a-25-e-armazene-em-uma-variável-de-nome-sequencia-lembre-se-do-operador-.",
+    "title": "Gabarito da Aula 1: R e RStudio",
+    "section": "2. Crie um vetor de 1 a 25 e armazene em uma variável de nome sequencia (lembre-se do operador :).",
+    "text": "2. Crie um vetor de 1 a 25 e armazene em uma variável de nome sequencia (lembre-se do operador :).\nPara esse exercício, devemos conseguir resgatar alguns conceitos da aula passada: como criar objetos, o que são vetores e como criamos uma sequência de números através do operador :.\nVetores são uma série de elementos (seja de texto, seja de números). Objetos no R podem ser criados a partir do operador de atribuição, representado pelo símbolo &lt;-. Ao usar o operador :, nós somos capazes de criar sequências de números que vão do número à esquerda até o número à direita dos dois pontos.\nLogo, a solução do exercício é a seguinte:\n\n# Exercício 2\n1sequencia &lt;- 1:25\n\n2sequencia\n\n\n1\n\nCriar vetor com números de 1 a 25.\n\n2\n\nMostrar o vetor criado.\n\n\n\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25"
+  },
+  {
+    "objectID": "gabaritos/1_r_e_rstudio/gabarito.html#crie-um-vetor-de-caractere-de-dois-elementos-com-seu-nome-e-último-nome-chamado-nome_completo-e-extraia-seu-sobrenome-usando-.",
+    "href": "gabaritos/1_r_e_rstudio/gabarito.html#crie-um-vetor-de-caractere-de-dois-elementos-com-seu-nome-e-último-nome-chamado-nome_completo-e-extraia-seu-sobrenome-usando-.",
+    "title": "Gabarito da Aula 1: R e RStudio",
+    "section": "3. Crie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando [].",
+    "text": "3. Crie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando [].\nSegue abaixo a resolução do exercício:\n\n1nome_completo &lt;- c(\"Bruno\", \"Montezano\")\n\n2nome_completo[2]\n\n\n1\n\nCriar vetor de dois elementos com nome e sobrenome.\n\n2\n\nExtrair apenas o segundo elemento (sobrenome).\n\n\n\n\n[1] \"Montezano\""
+  },
+  {
+    "objectID": "gabaritos/1_r_e_rstudio/gabarito.html#filtre-a-base-pixar_bilheteria-do-pacote-dados-e-extraia-apenas-os-filmes-que-tiveram-orçamento-menor-que-100-milhões-de-dólares-lembre-se-do-do-do-e-da-função-library.",
+    "href": "gabaritos/1_r_e_rstudio/gabarito.html#filtre-a-base-pixar_bilheteria-do-pacote-dados-e-extraia-apenas-os-filmes-que-tiveram-orçamento-menor-que-100-milhões-de-dólares-lembre-se-do-do-do-e-da-função-library.",
+    "title": "Gabarito da Aula 1: R e RStudio",
+    "section": "4. Filtre a base pixar_bilheteria do pacote dados e extraia apenas os filmes que tiveram orçamento menor que 100 milhões de dólares (lembre-se do $, do <, do [] e da função library()).",
+    "text": "4. Filtre a base pixar_bilheteria do pacote dados e extraia apenas os filmes que tiveram orçamento menor que 100 milhões de dólares (lembre-se do $, do &lt;, do [] e da função library()).\nSegue a solução abaixo:\n\n1library(dados)\n\n2pixar_bilheteria[pixar_bilheteria$orcamento &lt; 100000000, ]\n\n\n1\n\nCarregar o pacote dados para acessar os dados.\n\n2\n\nFiltrar a base apenas com os filmes com orçamento menor que 100 milhões.\n\n\n\n\n# A tibble: 5 × 5\n  filme                   orcamento bilheteria_eua_canada bilheteria_outros_pa…¹\n  &lt;chr&gt;                       &lt;dbl&gt;                 &lt;dbl&gt;                  &lt;dbl&gt;\n1 Toy Story - Um Mundo d…  30000000             191796233              181757800\n2 Toy Story 2              90000000             245852179              251522597\n3 Procurando Nemo          94000000             339714978              531300000\n4 Os Incríveis             92000000             261441092              370165621\n5 &lt;NA&gt;                           NA                    NA                     NA\n# ℹ abbreviated name: ¹​bilheteria_outros_paises\n# ℹ 1 more variable: bilheteria_mundial &lt;dbl&gt;\n\n\nNotem que o código onde colocamos a condição de pixar_bilheteria$orcamento &lt; 100000000 é antes da vírgula, pois refere-se a dimensão das linhas (observações). Além disso, mantemos a dimensão das colunas (direita da vírgula) em branco, informando ao R que queremos retornar todas as colunas da base de dados em nosso subconjunto."
+  },
+  {
+    "objectID": "tarefas_de_casa.html",
+    "href": "tarefas_de_casa.html",
+    "title": "Tarefas de casa",
+    "section": "",
+    "text": "Bem-vindo à página de tarefas de casa do curso! Aqui você encontrará as tarefas de casa referentes a cada aula do curso, juntamente com um link para o gabarito ao final. As tarefas foram cuidadosamente selecionadas para ajudar você a praticar e aplicar o conhecimento adquirido em cada aula, e são uma parte importante do processo de aprendizado. Certifique-se de completar todas as tarefas e utilizar o gabarito para verificar suas respostas e entender qualquer dúvida que possa ter. Espero que você aproveite este recurso e aprimore suas habilidades em R!"
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-1-r-e-rstudio",
+    "href": "tarefas_de_casa.html#aula-1-r-e-rstudio",
+    "title": "Tarefas de casa",
+    "section": "Aula 1: R e RStudio",
+    "text": "Aula 1: R e RStudio\n\nDê uma olhada no site do curso.\nCrie um vetor de 1 a 25 e armazene em uma variável de nome sequencia (lembre-se do operador :).\nCrie um vetor de caractere de dois elementos com seu nome e último nome (chamado nome_completo) e extraia seu sobrenome usando [].\nFiltre a base pixar_bilheteria do pacote dados e extraia apenas os filmes que tiveram orçamento menor que 100 milhões de dólares (lembre-se do $, do &lt;, do [] e da função library()).\n\nAcessar o gabarito."
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-2-manipulação-de-dados",
+    "href": "tarefas_de_casa.html#aula-2-manipulação-de-dados",
+    "title": "Tarefas de casa",
+    "section": "Aula 2: Manipulação de dados",
+    "text": "Aula 2: Manipulação de dados\nEm construção."
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-3-visualização-de-dados",
+    "href": "tarefas_de_casa.html#aula-3-visualização-de-dados",
+    "title": "Tarefas de casa",
+    "section": "Aula 3: Visualização de dados",
+    "text": "Aula 3: Visualização de dados\nEm construção."
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-4-análise-descritiva",
+    "href": "tarefas_de_casa.html#aula-4-análise-descritiva",
+    "title": "Tarefas de casa",
+    "section": "Aula 4: Análise descritiva",
+    "text": "Aula 4: Análise descritiva\nEm construção."
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-5-inferência-estatística",
+    "href": "tarefas_de_casa.html#aula-5-inferência-estatística",
+    "title": "Tarefas de casa",
+    "section": "Aula 5: Inferência estatística",
+    "text": "Aula 5: Inferência estatística\nEm construção."
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-6-modelos-de-regressão",
+    "href": "tarefas_de_casa.html#aula-6-modelos-de-regressão",
+    "title": "Tarefas de casa",
+    "section": "Aula 6: Modelos de regressão",
+    "text": "Aula 6: Modelos de regressão\nEm construção."
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-7-tópicos-avançados",
+    "href": "tarefas_de_casa.html#aula-7-tópicos-avançados",
+    "title": "Tarefas de casa",
+    "section": "Aula 7: Tópicos avançados",
+    "text": "Aula 7: Tópicos avançados\nEm construção."
+  },
+  {
     "objectID": "perguntas_frequentes.html",
     "href": "perguntas_frequentes.html",
     "title": "Perguntas frequentes",
@@ -95,7 +186,7 @@
     "href": "index.html",
     "title": "Introdução ao R",
     "section": "",
-    "text": "Bem-vindos ao Curso de Introdução ao R do grupo de pesquisa AlliaNCE (Artificial Intelligence in Neuroscience) da UFRGS. Neste curso, você irá aprender conceitos que permeiam a manipulação e análise de dados com uso da linguagem de programação de código aberto R. O curso irá fazer uso de aulas expositivas, juntamente de exercícios práticos e laboratórios semanais para revisão e exemplificação dos conceitos estudados em aula. No site, você poderá acessar materiais complementares recomendados pelo professor, perguntas frequentes sobre o curso, além dos slides, códigos e gravações das aulas."
+    "text": "Bem-vindos ao Curso de Introdução ao R do grupo de pesquisa AlliaNCE (Artificial Intelligence in Neuroscience) da UFRGS. Neste curso, você irá aprender conceitos que permeiam a manipulação e análise de dados com uso da linguagem de programação de código aberto R. O curso irá fazer uso de aulas expositivas, juntamente de exercícios práticos e laboratórios semanais para revisão e exemplificação dos conceitos estudados em aula. No site, você poderá acessar materiais complementares recomendados pelo professor, perguntas frequentes sobre o curso, além dos slides, códigos e gravações das aulas. Aqui no site, você também poderá acessar as tarefas de casa e os gabaritos correspondentes."
   },
   {
     "objectID": "index.html#links-relevantes",

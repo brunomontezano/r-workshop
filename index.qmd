@@ -23,7 +23,9 @@ expositivas, juntamente de exercícios práticos e laboratórios semanais para
 revisão e exemplificação dos conceitos estudados em aula. No site, você poderá
 acessar [materiais complementares](materiais.html) recomendados pelo professor,
 [perguntas frequentes](perguntas_frequentes.html) sobre o curso, além dos
-[slides, códigos e gravações](aulas_e_laboratorios.html) das aulas.
+[slides, códigos e gravações](aulas_e_laboratorios.html) das
+aulas. Aqui no site, você também poderá acessar as [tarefas
+de casa e os gabaritos](tarefas_de_casa.html) correspondentes.
 </div>
 
 ## Links relevantes

@@ -1,0 +1,78 @@
+---
+title: "Gabarito da Aula 1: R e RStudio"
+lang: pt-br
+code-annotations: select
+---
+
+
+## 1. [Dê uma olhada no site do curso](https://brunomontezano.github.io/r-workshop/).
+
+Para este exercício, basta acessar o site através do link
+[https://brunomontezano.github.io/r-workshop/](https://brunomontezano.github.io/r-workshop/) e checar cada uma das páginas
+para se apropriar do conteúdo presente nelas. No site, é
+possível acessar [materiais recomendados](materiais.html),
+as [aulas e laboratórios](aulas_e_laboratios.html),
+as [tarefas de casa](tarefas_de_casa.html) e algumas
+possíveis [perguntas frequentes](perguntas_frequentes.html)
+que possam surgir a partir da leitura do website.
+
+## 2. Crie um vetor de 1 a 25 e armazene em uma variável de nome `sequencia` (lembre-se do operador `:`).
+
+Para esse exercício, devemos conseguir resgatar alguns
+conceitos da aula passada: como criar objetos, o que são
+vetores e como criamos uma sequência de números através
+do operador `:`.
+
+Vetores são uma série de elementos (seja de texto, seja
+de números).
+Objetos no R podem ser criados a partir do operador de
+atribuição, representado pelo símbolo `<-`. Ao usar o
+operador `:`, nós somos capazes de criar sequências de
+números que vão do número à esquerda até o número à direita
+dos dois pontos.
+
+Logo, a solução do exercício é a seguinte:
+
+```{r vetor-sequencia}
+# Exercício 2
+sequencia <- 1:25 # <1>
+
+sequencia # <2>
+```
+
+1. Criar vetor com números de 1 a 25.
+2. Mostrar o vetor criado.
+  
+## 3. Crie um vetor de caractere de dois elementos com seu nome e último nome (chamado `nome_completo`) e extraia seu sobrenome usando `[]`.
+
+Segue abaixo a resolução do exercício:
+
+```{r nome-sobrenome}
+nome_completo <- c("Bruno", "Montezano") # <1>
+
+nome_completo[2] # <2>
+```
+
+1. Criar vetor de dois elementos com nome e sobrenome.
+
+2. Extrair apenas o segundo elemento (sobrenome).
+
+## 4. Filtre a base `pixar_bilheteria` do pacote `dados`  e extraia apenas os filmes que tiveram orçamento menor que 100 milhões de dólares (lembre-se do `$`, do `<`, do `[]` e da função `library()`).
+
+Segue a solução abaixo:
+
+```{r filtrar-orcamento-filmes}
+library(dados) # <1>
+
+pixar_bilheteria[pixar_bilheteria$orcamento < 100000000, ] # <2>
+```
+
+1. Carregar o pacote `dados` para acessar os dados.
+2. Filtrar a base apenas com os filmes com orçamento menor que 100 milhões.
+
+Notem que o código onde colocamos a condição de
+`pixar_bilheteria$orcamento < 100000000` é antes da vírgula,
+pois refere-se a dimensão das linhas (observações). Além disso,
+mantemos a dimensão das colunas (direita da vírgula) em branco,
+informando ao R que queremos retornar todas as colunas da base
+de dados em nosso subconjunto.

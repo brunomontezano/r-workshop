@@ -1,0 +1,58 @@
+---
+title: "Tarefas de casa"
+lang: pt-br
+---
+
+Bem-vindo à página de tarefas de casa do curso! Aqui você
+encontrará as tarefas de casa referentes a cada aula do curso,
+juntamente com um link para o gabarito ao final.
+As tarefas foram cuidadosamente selecionadas para ajudar você
+a praticar e aplicar o conhecimento adquirido em cada aula,
+e são uma parte importante do processo de aprendizado.
+Certifique-se de completar todas as tarefas e utilizar o
+gabarito para verificar suas respostas e entender qualquer
+dúvida que possa ter.
+Espero que você aproveite este recurso e
+aprimore suas habilidades em R!
+
+## Aula 1: R e RStudio
+
+1. [Dê uma olhada no site do curso](https://brunomontezano.github.io/r-workshop/).
+
+2. Crie um vetor de 1 a 25 e armazene em uma variável de nome
+`sequencia` (lembre-se do operador `:`).
+  
+3. Crie um vetor de caractere de dois elementos com seu nome
+e último nome (chamado `nome_completo`) e extraia seu
+sobrenome usando `[]`.
+
+4. Filtre a base `pixar_bilheteria` do pacote `dados` 
+e extraia apenas os filmes que tiveram orçamento menor que
+100 milhões de dólares (lembre-se do `$`, do `<`, do `[]`
+e da função `library()`).
+
+[Acessar o gabarito](gabaritos/1_r_e_rstudio/gabarito.html).
+  
+## Aula 2: Manipulação de dados
+
+Em construção.
+  
+## Aula 3: Visualização de dados
+  
+Em construção.  
+
+## Aula 4: Análise descritiva
+
+Em construção.
+  
+## Aula 5: Inferência estatística
+  
+Em construção.
+  
+## Aula 6: Modelos de regressão
+  
+Em construção.
+  
+## Aula 7: Tópicos avançados
+  
+Em construção.
