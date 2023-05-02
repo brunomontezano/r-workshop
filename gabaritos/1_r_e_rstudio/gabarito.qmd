@@ -4,7 +4,6 @@ lang: pt-br
 code-annotations: select
 ---
 
-
 ## 1. [Dê uma olhada no site do curso](https://brunomontezano.github.io/r-workshop/).
 
 Para este exercício, basta acessar o site através do link

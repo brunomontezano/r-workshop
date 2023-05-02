@@ -2,62 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/instalacao.html</loc>
-    <lastmod>2023-05-02T13:54:11.079Z</lastmod>
+    <lastmod>2023-05-02T15:27:54.009Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brunomontezano.github.io/r-workshop/gabaritos/2_manipulacao/gabarito.html</loc>
+    <lastmod>2023-05-02T15:27:56.229Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/gabaritos/1_r_e_rstudio/gabarito.html</loc>
-    <lastmod>2023-05-02T13:54:12.709Z</lastmod>
+    <lastmod>2023-05-02T15:27:57.819Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/tarefas_de_casa.html</loc>
-    <lastmod>2023-05-02T13:54:12.989Z</lastmod>
+    <lastmod>2023-05-02T15:27:58.109Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/perguntas_frequentes.html</loc>
-    <lastmod>2023-05-02T13:54:13.323Z</lastmod>
+    <lastmod>2023-05-02T15:27:58.449Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/index.html</loc>
-    <lastmod>2023-05-02T13:54:13.653Z</lastmod>
+    <lastmod>2023-05-02T15:27:58.805Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/compilacao.html</loc>
-    <lastmod>2023-05-02T13:54:13.993Z</lastmod>
+    <lastmod>2023-05-02T15:27:59.115Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/aulas_e_laboratorios.html</loc>
-    <lastmod>2023-05-02T13:54:14.286Z</lastmod>
+    <lastmod>2023-05-02T15:27:59.412Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/materiais.html</loc>
-    <lastmod>2023-05-02T13:54:15.006Z</lastmod>
+    <lastmod>2023-05-02T15:28:00.152Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/7_topicos_avancados/slides_topicos_avancados.html</loc>
-    <lastmod>2023-05-02T13:54:16.363Z</lastmod>
+    <lastmod>2023-05-02T15:28:01.582Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/3_visualizacao/slides_visualizacao.html</loc>
-    <lastmod>2023-05-02T13:54:23.296Z</lastmod>
+    <lastmod>2023-05-02T15:28:08.552Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/2_manipulacao/slides_manipulacao.html</loc>
-    <lastmod>2023-05-02T13:54:25.759Z</lastmod>
+    <lastmod>2023-05-02T15:28:11.012Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/4_descritiva/slides_descritiva.html</loc>
-    <lastmod>2023-05-02T13:54:31.063Z</lastmod>
+    <lastmod>2023-05-02T15:28:16.488Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/5_inferencia/slides_inferencia.html</loc>
-    <lastmod>2023-05-02T13:54:35.793Z</lastmod>
+    <lastmod>2023-05-02T15:28:21.265Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/6_regressao/slides_regressao.html</loc>
-    <lastmod>2023-05-02T13:54:44.636Z</lastmod>
+    <lastmod>2023-05-02T15:28:30.215Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/1_r_e_rstudio/slides_r_e_rstudio.html</loc>
-    <lastmod>2023-05-02T13:54:47.213Z</lastmod>
+    <lastmod>2023-05-02T15:28:32.808Z</lastmod>
   </url>
 </urlset>

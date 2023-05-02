@@ -31,11 +31,19 @@ e extraia apenas os filmes que tiveram orçamento menor que
 100 milhões de dólares (lembre-se do `$`, do `<`, do `[]`
 e da função `library()`).
 
-[Acessar o gabarito](gabaritos/1_r_e_rstudio/gabarito.html).
+[Acessar o gabarito.](gabaritos/1_r_e_rstudio/gabarito.html)
   
 ## Aula 2: Manipulação de dados
 
-Em construção.
+1. Escolha uma das bases de dados do pacote `dados` e utilize
+ao menos uma vez as funções: `select()`, `mutate()`,
+`filter()`, `arrange()`, `summarise()` e `group_by()` (as bases disponíveis podem ser acessadas no [site de referência do pacote](https://cienciadedatos.github.io/dados/reference/index.html)).
+  
+2. Nos dados `questionario` do pacote `dados`, crie um
+subconjunto apenas com as observações do ano de 2014 e
+armazene em um objeto chamado `dados_2014`.
+
+[Acessar o gabarito.](gabaritos/2_manipulacao/gabarito.html)
   
 ## Aula 3: Visualização de dados
   
