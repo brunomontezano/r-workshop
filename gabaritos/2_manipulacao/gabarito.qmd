@@ -49,10 +49,12 @@ pinguins |> # <2>
 ```{r exercicio-select-remover}
 # Solução 2 para `select()`
 pinguins |>
-  select(-comprimento_nadadeira,
-         -profundidade_bico,-ilha,
-         -massa_corporal)
+  select(-comprimento_nadadeira, # <1>
+         -profundidade_bico,-ilha, # <1>
+         -massa_corporal) # <1>
 ```
+
+1. Remover as colunas adicionando um `-` antes do nome da variável.
 
 ### 1.2. Função `mutate()`
 
@@ -72,9 +74,12 @@ para quilogramas. Podemos fazer o seguinte:
 ```{r modificando-variavel}
 # Solução 1 para `mutate()`
 pinguins |> 
-  mutate(massa_corporal = massa_corporal / 1000) |> 
-  relocate(massa_corporal, .before = everything())
+  mutate(massa_corporal = massa_corporal / 1000) |> # <1>
+  relocate(massa_corporal, .before = everything()) # <2>
 ```
+
+1. Transformando variável da massa corporal para unidade kg.
+2. Posicionando coluna da `massa_corporal` antes de todas as outras.
 
 A função `relocate()` do `dplyr` foi usada apenas para
 colocar a variável `massa_corporal` (então modificada)
@@ -112,15 +117,22 @@ e mais de 5.000g, grande.
 # Solução 3 para `mutate()`
 pinguins |>
   mutate(
-    categoria_massa = case_when(
-      massa_corporal < 3000 ~ "Pequeno",
-      massa_corporal >= 3000 & massa_corporal < 5000 ~ "Médio",
-      massa_corporal >= 5000 ~ "Grande"
+    categoria_massa = case_when( # <1>
+      massa_corporal < 3000 ~ "Pequeno", # <2>
+      massa_corporal >= 3000 & massa_corporal < 5000 ~ "Médio", # <3>
+      massa_corporal >= 5000 ~ "Grande" # <4>
     )
-  ) |>
+  ) |> # <5>
   relocate(c(categoria_massa, massa_corporal),
            .before = everything())
 ```
+
+1. Inicia a função `case_when()`.
+2. Caso `massa_corporal` seja menor que 3 mil gramas, é um penguim pequeno.
+3. Caso `massa_corporal` seja maior ou igual que 3 mil gramas, e também menor que 5 mil gramas, é um penguim médio.
+4. Caso `massa_corporal` seja maior ou igual que 5 mil gramas,
+é um penguim grande.
+5. Finalizar função `mutate()`.
 
 ### 1.3. Função `filter()`
 
@@ -131,8 +143,12 @@ massa corporal menor que 3.500g.
 ```{r manter-pinguins-de-barbicha}
 # Solução para `filter()`
 pinguins |> 
-  filter(especie == "Pinguim-de-barbicha" & massa_corporal > 3500)
+  filter(especie == "Pinguim-de-barbicha" & massa_corporal > 3500) # <1>
 ```
+
+1. Notem que o `&` indica que todas as expressões lógicas
+devem ser respeitadas. O pinguim deve ser `Pinguim-de-barbicha`
+**e também** deve ter a `massa_corporal` maior que 3.500 gramas.
 
 ### 1.4. Função `arrange()`
 
@@ -144,8 +160,10 @@ de dados.
 ```{r ordenar-massa-decrescente}
 # Solução para `arrange()`
 pinguins |> 
-  arrange(desc(comprimento_bico))
+  arrange(desc(comprimento_bico)) # <1>
 ```
+
+1. Percebam que os pinguins com os maiores bicos estão ao topo da tabela retornada pelo R.
 
 ### 1.5. Função `summarise()`
 
@@ -156,12 +174,15 @@ da massa corporal dos pinguins-gentoo da base de dados
 ```{r summarise-media-dp-massa-gentoo}
 # Solução para `summarise()`
 pinguins |>
-  filter(especie == "Pinguim-gentoo") |>
-  summarise(
-    media_massa = mean(massa_corporal, na.rm = TRUE),
-    dp_massa = sd(massa_corporal, na.rm = TRUE)
-  )
+  filter(especie == "Pinguim-gentoo") |> # <1>
+  summarise( # <2>
+    media_massa = mean(massa_corporal, na.rm = TRUE), # <2>
+    dp_massa = sd(massa_corporal, na.rm = TRUE) # <2>
+  ) # <2>
 ```
+
+1. Primeiro, os dados foram filtrados para manter apenas os pinguins de espécie `Pinguim-gentoo`.
+2. E então calculamos a média e desvio padrão. Notem o uso do argumento `na.rm = TRUE` para ignorar os `NA` nos cálculos.
 
 ### 1.6. Função `group_by()`
 
@@ -174,13 +195,33 @@ dos pinguins estratificado pela espécie deles.
 ```{r media-mediana-massa-especie}
 # Solução para `group_by()`
 pinguins |>
-  group_by(especie) |>
+  group_by(especie) |> # <1>
   summarise(
     mediana_massa = median(massa_corporal, na.rm = TRUE),
     media_massa = mean(massa_corporal, na.rm = TRUE)
   )
 ```
 
+1. Percebam que usamos o `group_by()` antes do `summarise()`,
+para que possamos receber os dados do `summarise()` de forma
+agrupada.
+
+Para fins de curiosidade, exponho também um argumento chamado
+`.by =` da função `summarise()` que tem o mesmo propósito da
+função `group_by()`. A solução acima ficaria da seguinte forma
+com esta adaptação:
+
+```{r solucao-group-by-com-arg-by}
+pinguins |>
+  summarise(
+    mediana_massa = median(massa_corporal, na.rm = TRUE),
+    media_massa = mean(massa_corporal, na.rm = TRUE),
+    .by = especie # <1>
+  )
+```
+
+1. Notem que com o uso deste argumento `.by =`, o resultado
+é o mesmo.
   
 ## 2. Nos dados `questionario` do pacote `dados`, crie um subconjunto apenas com as observações do ano de 2014 e armazene em um objeto chamado `dados_2014`.
 
@@ -188,9 +229,15 @@ Segue solução abaixo:
 
 ```{r questionario-2014}
 # Solução para Exercício 2
-dados_2014 <- questionario |> 
-  filter(ano == 2014)
+dados_2014 <- questionario |> # <1>
+  filter(ano == 2014) # <2>
 
-dados_2014
+dados_2014 # <3>
 ```
 
+1. Primeiro, especificamos o nome do objeto a ser atribuído e
+quais dados estão sendo trabalhados.
+2. Então, filtramos os dados para manter apenas as observações
+coletadas no `ano` de 2014.
+3. Por fim, mostramos o resultado da criação do subconjunto
+escrevendo o nome do objeto e rodando.
