@@ -80,7 +80,7 @@ método da raíz quadrada (função `sqrt()`), da raíz cúbica
 Você também pode criar um histograma da variável
 transformada (lembre-se da função `mutate()` para criar ou modificar colunas).
 
-<u>Gabarito em construção.</u>
+[Acessar o gabarito.](gabaritos/4_descritiva/gabarito.html)
   
 ## Aula 5: Inferência estatística
 
@@ -97,7 +97,7 @@ pinguins macho e fêmea.
 Usando as funções `group_by()` e `summarise()` do pacote
 `dplyr`, faça um resumo da média e da mediana dos
 comprimentos das nadadeiras estratificando pelos grupos
-(lembre-se que a base `pinguins` possui dois valores ausentes,
+(lembre-se que a base `pinguins` possui onze valores ausentes,
 os conhecidos `NA`, na coluna do `sexo`).
 
 3. Crie um modelo de ANOVA de uma via para verificar se
@@ -106,7 +106,7 @@ sua espécie.
 Caso sim, rode um teste de Tukey para analisar quais
 grupos diferenciam entre si.
   
-<u>Gabarito em construção.</u>
+[Acessar o gabarito.](gabaritos/5_inferencia/gabarito.html)
   
 ## Aula 6: Modelos de regressão
 
@@ -116,7 +116,7 @@ sobre *Introduction to linear regression* (caso queira se
 aprofundar, ler Capítulo 9 sobre
 *Multiple and logistic regression*).
 
-2. A partir dos dados `iris` do pacote `dados`,
+2. A partir dos dados `dados_iris` do pacote `dados`,
 crie um modelo de regressão linear simples e um
 modelo de regressão linear múltipla com as variáveis da
 sua escolha (lembre-se que o desfecho deve ser contínuo,
@@ -125,7 +125,7 @@ ou seja, numérico).
 3. Crie um gráfico de dispersão/pontos (*scatterplot*)
 para acompanhar sua análise de regressão linear simples.
   
-<u>Gabarito em construção.</u>
+[Acessar o gabarito.](gabaritos/6_regressao/gabarito.html)
   
 ## Aula 7: Tópicos avançados
   

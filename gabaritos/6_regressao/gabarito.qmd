@@ -1,0 +1,61 @@
+---
+title: "Gabarito da Aula 6: Modelos de regressão"
+lang: pt-br
+code-annotations: select
+---
+
+## 1. Ler Capítulo 8 do [livro OpenIntro Statistics](https://www.openintro.org/book/os/) sobre *Introduction to linear regression* (caso queira se aprofundar, ler Capítulo 9 sobre *Multiple and logistic regression*).
+
+Para concluir esse exercício, você necessita apenas ler o
+capítulo 8 indicado no enunciado. Caso você tenha ficado com
+alguma dúvida, fique a vontade de enviar um email para
+[bmontezano@hcpa.edu.br](mailto:bmontezano@hcpa.edu.br) com
+seus questionamentos.
+
+Caso você tenha lido o capítulo 9 do livro também e queira
+tirar alguma dúvida, fique a vontade para enviar um email.
+
+## 2. A partir dos dados `dados_iris` do pacote `dados`, crie um modelo de regressão linear simples e um modelo de regressão linear múltipla com as variáveis da sua escolha (lembre-se que o desfecho deve ser contínuo, ou seja, numérico).
+
+```{r regressao-simples-iris}
+library(dados)
+
+regressao_simples <- lm(Comprimento.Petala ~ Comprimento.Sepala,
+                        data = dados_iris)
+
+summary(regressao_simples)
+```
+
+```{r regressao-multipla-iris}
+regressao_multipla <-
+  lm(Comprimento.Petala ~ Comprimento.Sepala + Largura.Sepala + Especies,
+     data = dados_iris)
+
+summary(regressao_multipla)
+```
+
+  
+## 3. Crie um gráfico de dispersão/pontos (*scatterplot*) para acompanhar sua análise de regressão linear simples.
+
+```{r scatterplot-regressao-simples}
+#| fig-align: "center"
+#| message: false
+library(ggplot2)
+
+dados_iris |> 
+  ggplot(aes(y = Comprimento.Petala,
+             x = Comprimento.Sepala)) +
+  geom_point(fill = "grey20",
+             size = 2,
+             alpha = 0.7) +
+  geom_smooth(method = "lm",
+              linewidth = 1.5,
+              color = "steelblue3",
+              se = FALSE) +
+  labs(x = "Comprimento da sépala (em cm)",
+       y = "Comprimento da pétala (em cm)",
+       title = "Como explicar o comprimento da pétala a partir do tamanho da sépala?",
+       subtitle = "Um modelo de regressão linear simples") +
+  theme_classic(12, "Arial")
+```
+

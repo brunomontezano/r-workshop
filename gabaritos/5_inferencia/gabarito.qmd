@@ -1,0 +1,105 @@
+---
+title: "Gabarito da Aula 5: Inferência estatística"
+lang: pt-br
+code-annotations: select
+---
+
+A partir da base dos `pinguins` do pacote `dados`:
+
+## 1. Calcule a correlação produto momento de Pearson entre o comprimento do bico e a profundidade do bico dos pinguins. Crie um gráfico de pontos (dispersão) com `ggplot2` para acompanhar sua análise exploratória.
+
+```{r correlacao-comprimento-profundidade-bico}
+library(dados)
+
+cor.test(x = pinguins$comprimento_bico,
+         y = pinguins$profundidade_bico,
+         method = "pearson")
+```
+
+Os resultados nos indicam que as duas variáveis apresentam
+uma correlação negativa (ou seja, quando o valor de uma
+variável sobe, o valor da outra desce). A correlação parece
+estar entre uma correlação fraca e moderada (*r* = 0,235).
+
+
+```{r scatterplot-correlacao}
+#| warning: false
+#| fig-align: "center"
+library(ggplot2)
+
+pinguins |> 
+  ggplot(aes(x = comprimento_bico,
+             y = profundidade_bico)) +
+  geom_point(fill = "tan4",
+             size = 1.5,
+             alpha = 0.8) +
+  geom_smooth(method = "lm", # <1>
+              se = FALSE) + # <1>
+  theme_classic(16, "Arial") +
+  labs(x = "Comprimento do bico (em mm)",
+       y = "Profundidade do bico (em mm)")
+```
+
+1. A função `geom_smooth()` com o argumento `method = "lm"`
+adiciona uma reta de regressão linear para observar qual
+a tendência de associação entre as duas variáveis plotadas
+no gráfico. Pode servir como dica de qual a possível
+correlação entre as características.
+
+## 2. Rode um teste *t* de duas amostras para verificar a diferença na média do comprimento da nadadeira entre os pinguins macho e fêmea. Usando as funções `group_by()` e `summarise()` do pacote `dplyr`, faça um resumo da média e da mediana dos comprimentos das nadadeiras estratificando pelos grupos (lembre-se que a base `pinguins` possui onze valores ausentes, os conhecidos `NA`, na coluna do `sexo`).
+
+```{r resumo-nadadeira-sexo}
+#| message: false
+library(dplyr)
+
+pinguins |> 
+  group_by(sexo) |> 
+  summarise(
+    media_nadadeira = mean(comprimento_nadadeira),
+    mediana_nadadeira = median(comprimento_nadadeira),
+    n_pinguins = n()
+  )
+```
+
+```{r teste-t-nadadeira-sexo}
+t.test(comprimento_nadadeira ~ sexo,
+       data = pinguins,
+       paired = FALSE,
+       alternative = "two.sided")
+```
+
+Parece que nosso teste *t* foi significativo ($p<0,001$) e
+através dos valores das médias vemos que, em geral,
+o comprimento das nadadeiras dos pinguins macho são maiores
+que o comprimento das nadadeiras dos pinguins fêmea
+($\mu_{macho} = 204,5$; $\mu_{fêmea} = 197,4$).
+
+## 3. Crie um modelo de ANOVA de uma via para verificar se há diferenças na massa corporal dos pinguins baseado em sua espécie. Caso sim, rode um teste de Tukey para analisar quais grupos diferenciam entre si.
+
+```{r anova-massa-especie}
+anova_massa_especie <- aov(massa_corporal ~ especie,
+                        data = pinguins)
+
+summary(anova_massa_especie)
+```
+
+A partir dos resultados do modelo de ANOVA de uma via,
+parece que existem diferenças significativas de massa
+corporal entre as espécies ($p<0,001$). Podemos encontrar
+o *p*-valor observando a coluna `Pr(>F)` na saída acima.
+
+Portanto, se faz interessante rodar um teste post-hoc como
+o teste de Tukey para checar a diferença entre cada par de
+espécies e ver onde essas diferenças de fato se apresentam.
+
+```{r tukey-massa-especie}
+TukeyHSD(anova_massa_especie)
+```
+
+Ao rodar o teste de Tukey, observamos que as diferenças
+na massa corporal dos pinguins se dá principalmente em uma
+grande diferença de peso entre os pinguins-gentoo quando
+comparados aos pinguins das outras espécies. Vocês podem
+observar os *p*-valores ao observar a coluna `p adj`. A
+diferença nas médias pode ser observada através da coluna
+`diff` na saída acima.

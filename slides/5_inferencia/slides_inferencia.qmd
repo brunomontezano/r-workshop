@@ -434,7 +434,7 @@ do bico e a profundidade do bico dos pinguins. Crie um gráfico de pontos
 nadadeira entre os pinguins macho e fêmea. Usando as funções `group_by()` e
 `summarise()` do pacote `dplyr`, faça um resumo da média e da mediana dos
 comprimentos das nadadeiras estratificando pelos grupos.
-    - Lembre-se que a base `pinguins` possui dois valores ausentes (`NA`) na coluna
+    - Lembre-se que a base `pinguins` possui onze valores ausentes (`NA`) na coluna
   do `sexo`.
 
 3. Crie um modelo de ANOVA de uma via para verificar se há diferenças na massa

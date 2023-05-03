@@ -961,8 +961,10 @@ que prediz $X$ a partir de $Y$
   - Caso queira se aprofundar, ler Capítulo 9 sobre
 *Multiple and logistic regression*
 
-* A partir dos dados `iris` do pacote `dados`, crie um modelo de
-regressão linear simples e um modelo de regressão linear múltipla
+* A partir dos dados `dados_iris` do pacote `dados`,
+crie um modelo de
+regressão linear simples e um modelo de regressão
+linear múltipla
 com as variáveis da sua escolha
   - Lembre-se que o desfecho deve ser contínuo (numérico)
   

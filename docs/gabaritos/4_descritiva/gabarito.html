@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introdução ao R - Gabarito da Aula 1: R e RStudio</title>
+<title>Introdução ao R - Gabarito da Aula 4: Análise descritiva</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,6 +93,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -151,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Gabarito da Aula 1: R e RStudio</h1>
+<h1 class="title">Gabarito da Aula 4: Análise descritiva</h1>
 </div>
 
 
@@ -166,94 +168,111 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="dê-uma-olhada-no-site-do-curso." class="level2">
-<h2 class="anchored" data-anchor-id="dê-uma-olhada-no-site-do-curso.">1. <a href="https://brunomontezano.github.io/r-workshop/">Dê uma olhada no site do curso</a>.</h2>
-<p>Para este exercício, basta acessar o site através do link <a href="https://brunomontezano.github.io/r-workshop/">https://brunomontezano.github.io/r-workshop/</a> e checar cada uma das páginas para se apropriar do conteúdo presente nelas. No site, é possível acessar <a href="materiais.html">materiais recomendados</a>, as <a href="aulas_e_laboratios.html">aulas e laboratórios</a>, as <a href="tarefas_de_casa.html">tarefas de casa</a> e algumas possíveis <a href="perguntas_frequentes.html">perguntas frequentes</a> que possam surgir a partir da leitura do website.</p>
-</section>
-<section id="crie-um-vetor-de-1-a-25-e-armazene-em-uma-variável-de-nome-sequencia-lembre-se-do-operador-." class="level2">
-<h2 class="anchored" data-anchor-id="crie-um-vetor-de-1-a-25-e-armazene-em-uma-variável-de-nome-sequencia-lembre-se-do-operador-.">2. Crie um vetor de 1 a 25 e armazene em uma variável de nome <code>sequencia</code> (lembre-se do operador <code>:</code>).</h2>
-<p>Para esse exercício, devemos conseguir resgatar alguns conceitos da aula passada: como criar objetos, o que são vetores e como criamos uma sequência de números através do operador <code>:</code>.</p>
-<p>Vetores são uma série de elementos (seja de texto, seja de números). Objetos no R podem ser criados a partir do operador de atribuição, representado pelo símbolo <code>&lt;-</code>. Ao usar o operador <code>:</code>, nós somos capazes de criar sequências de números que vão do número à esquerda até o número à direita dos dois pontos.</p>
-<p>Logo, a solução do exercício é a seguinte:</p>
+<p>Os exercícios da aula de análise descritiva foram propostos com o uso dos dados <code>pinguins</code> do pacote <code>dados</code> em mente. Segue abaixo a solução para cada um dos exercícios.</p>
+<section id="filtre-a-base-para-manter-apenas-as-observações-do-ano-de-2009." class="level2">
+<h2 class="anchored" data-anchor-id="filtre-a-base-para-manter-apenas-as-observações-do-ano-de-2009.">1. Filtre a base para manter apenas as observações do ano de 2009.</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercício 2</span></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a>sequencia <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">25</span></span>
-<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-4" class="code-annotation-target"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a>sequencia</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercício 1 da aula 4</span></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dados)</span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4" aria-hidden="true" tabindex="-1"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-5" class="code-annotation-target"><a href="#annotated-cell-1-5" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="ot">&lt;-</span> pinguins <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-1-6"><a href="#annotated-cell-1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">2009</span>)</span>
+<span id="annotated-cell-1-7"><a href="#annotated-cell-1-7" aria-hidden="true" tabindex="-1"></a></span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="3">3</button><span id="annotated-cell-1-8" class="code-annotation-target"><a href="#annotated-cell-1-8" aria-hidden="true" tabindex="-1"></a>pinguins_2009</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-lines="2" data-code-cell="annotated-cell-1">Criar vetor com números de 1 a 25.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="2,3" data-code-annotation="1">Carregar pacotes necessários.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-lines="4" data-code-cell="annotated-cell-1">Mostrar o vetor criado.</span>
+<span data-code-cell="annotated-cell-1" data-code-lines="5,6" data-code-annotation="2">Filtrar a base apenas com as documentações do ano de 2009. Atribuir o subconjunto no objeto <code>pinguins_2009</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="8" data-code-annotation="3">Por fim, mostrar o objeto criado.</span>
 </dd>
 </dl>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25</code></pre>
+<pre><code># A tibble: 120 × 8
+   especie        ilha  comprimento_bico profundidade_bico comprimento_nadadeira
+   &lt;fct&gt;          &lt;fct&gt;            &lt;dbl&gt;             &lt;dbl&gt;                 &lt;int&gt;
+ 1 Pinguim-de-ad… Bisc…             35                17.9                   192
+ 2 Pinguim-de-ad… Bisc…             41                20                     203
+ 3 Pinguim-de-ad… Bisc…             37.7              16                     183
+ 4 Pinguim-de-ad… Bisc…             37.8              20                     190
+ 5 Pinguim-de-ad… Bisc…             37.9              18.6                   193
+ 6 Pinguim-de-ad… Bisc…             39.7              18.9                   184
+ 7 Pinguim-de-ad… Bisc…             38.6              17.2                   199
+ 8 Pinguim-de-ad… Bisc…             38.2              20                     190
+ 9 Pinguim-de-ad… Bisc…             38.1              17                     181
+10 Pinguim-de-ad… Bisc…             43.2              19                     197
+# ℹ 110 more rows
+# ℹ 3 more variables: massa_corporal &lt;int&gt;, sexo &lt;fct&gt;, ano &lt;int&gt;</code></pre>
 </div>
 </div>
 </section>
-<section id="crie-um-vetor-de-caractere-de-dois-elementos-com-seu-nome-e-último-nome-chamado-nome_completo-e-extraia-seu-sobrenome-usando-." class="level2">
-<h2 class="anchored" data-anchor-id="crie-um-vetor-de-caractere-de-dois-elementos-com-seu-nome-e-último-nome-chamado-nome_completo-e-extraia-seu-sobrenome-usando-.">3. Crie um vetor de caractere de dois elementos com seu nome e último nome (chamado <code>nome_completo</code>) e extraia seu sobrenome usando <code>[]</code>.</h2>
-<p>Segue abaixo a resolução do exercício:</p>
+<section id="escolha-uma-variável-contínua-da-base-de-dados-e-verifique-se-ela-segue-uma-distribuição-normal-através-de-um-histograma-e-um-teste-de-normalidade-de-shapiro-wilk." class="level2">
+<h2 class="anchored" data-anchor-id="escolha-uma-variável-contínua-da-base-de-dados-e-verifique-se-ela-segue-uma-distribuição-normal-através-de-um-histograma-e-um-teste-de-normalidade-de-shapiro-wilk.">2. Escolha uma variável contínua da base de dados e verifique se ela segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercício 2 da aula 4</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> comprimento_bico)) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"lightcoral"</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="dv">16</span>, <span class="st">"Arial"</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Comprimento do bico (em mm)"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"# de pinguins"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gabarito_files/figure-html/histograma-massa-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ao observar o histograma, parece que estamos trabalhando com uma distribuição bimodal na variável <code>comprimento_bico</code>. Ou seja, observamos dois “picos” distintos que representariam duas modas presentes no vetor. Agora, seguimos para o teste de Shapiro-Wilk para verificar a normalidade dos dados:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1">1</button><span id="annotated-cell-2-1" class="code-annotation-target"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a>nome_completo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Bruno"</span>, <span class="st">"Montezano"</span>)</span>
-<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2">2</button><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a>nome_completo[<span class="dv">2</span>]</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-2">Criar vetor de dois elementos com nome e sobrenome.</span>
-</dd>
-<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-2">Extrair apenas o segundo elemento (sobrenome).</span>
-</dd>
-</dl>
-</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Continuação do exercício 2 da aula 4</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(comprimento_bico) <span class="sc">|&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro.test</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Montezano"</code></pre>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  pull(pinguins_2009, comprimento_bico)
+W = 0.9573, p-value = 0.0008205</code></pre>
 </div>
 </div>
+<p>Se nos recordamos da aula, vamos lembrar que a hipótese nula (<span class="math inline">\(H_0\)</span>) do teste de Shapiro-Wilk é de que os dados seguem uma distribuição normal, ou seja, esperamos um <em>p</em>-valor maior que 0,05 para não rejeitar a hipótese nula. No resultado acima, observamos que o <em>p</em>-valor foi de 0,0008. Logo, assumimos que provavelmente o vetor do <code>comprimento_bico</code> não segue uma distribuição normal, como consideramos a partir do histograma.</p>
 </section>
-<section id="filtre-a-base-pixar_bilheteria-do-pacote-dados-e-extraia-apenas-os-filmes-que-tiveram-orçamento-menor-que-100-milhões-de-dólares-lembre-se-do-do-do-e-da-função-library." class="level2">
-<h2 class="anchored" data-anchor-id="filtre-a-base-pixar_bilheteria-do-pacote-dados-e-extraia-apenas-os-filmes-que-tiveram-orçamento-menor-que-100-milhões-de-dólares-lembre-se-do-do-do-e-da-função-library.">4. Filtre a base <code>pixar_bilheteria</code> do pacote <code>dados</code> e extraia apenas os filmes que tiveram orçamento menor que 100 milhões de dólares (lembre-se do <code>$</code>, do <code>&lt;</code>, do <code>[]</code> e da função <code>library()</code>).</h2>
-<p>Segue a solução abaixo:</p>
+<section id="independentemente-da-distribuição-crie-uma-variável-transformada-a-partir-da-que-você-escolheu-através-do-método-da-raíz-quadrada-função-sqrt-da-raíz-cúbica-lembre-se-do-operador-ou-do-log-função-log10.-você-também-pode-criar-um-histograma-da-variável-transformada-lembre-se-da-função-mutate-para-criar-ou-modificar-colunas." class="level2">
+<h2 class="anchored" data-anchor-id="independentemente-da-distribuição-crie-uma-variável-transformada-a-partir-da-que-você-escolheu-através-do-método-da-raíz-quadrada-função-sqrt-da-raíz-cúbica-lembre-se-do-operador-ou-do-log-função-log10.-você-também-pode-criar-um-histograma-da-variável-transformada-lembre-se-da-função-mutate-para-criar-ou-modificar-colunas.">3. Independentemente da distribuição, crie uma variável transformada (a partir da que você escolheu) através do método da raíz quadrada (função <code>sqrt()</code>), da raíz cúbica (lembre-se do operador <code>^</code>) ou do log (função <code>log10()</code>). Você também pode criar um histograma da variável transformada (lembre-se da função <code>mutate()</code> para criar ou modificar colunas).</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1">1</button><span id="annotated-cell-3-1" class="code-annotation-target"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dados)</span>
-<span id="annotated-cell-3-2"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a></span>
-<button class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2">2</button><span id="annotated-cell-3-3" class="code-annotation-target"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a>pixar_bilheteria[pixar_bilheteria<span class="sc">$</span>orcamento <span class="sc">&lt;</span> <span class="dv">100000000</span>, ]</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-hidden code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-annotation="1" data-code-lines="1" data-code-cell="annotated-cell-3">Carregar o pacote <code>dados</code> para acessar os dados.</span>
-</dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-annotation="2" data-code-lines="3" data-code-cell="annotated-cell-3">Filtrar a base apenas com os filmes com orçamento menor que 100 milhões.</span>
-</dd>
-</dl>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 5
-  filme                   orcamento bilheteria_eua_canada bilheteria_outros_pa…¹
-  &lt;chr&gt;                       &lt;dbl&gt;                 &lt;dbl&gt;                  &lt;dbl&gt;
-1 Toy Story - Um Mundo d…  30000000             191796233              181757800
-2 Toy Story 2              90000000             245852179              251522597
-3 Procurando Nemo          94000000             339714978              531300000
-4 Os Incríveis             92000000             261441092              370165621
-5 &lt;NA&gt;                           NA                    NA                     NA
-# ℹ abbreviated name: ¹​bilheteria_outros_paises
-# ℹ 1 more variable: bilheteria_mundial &lt;dbl&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercício 3 da aula 4</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="ot">&lt;-</span> pinguins_2009 <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">comprimento_bico_raiz_quad =</span> <span class="fu">sqrt</span>(comprimento_bico),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comprimento_bico_log =</span> <span class="fu">log10</span>(comprimento_bico),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">comprimento_bico_raiz_cub =</span> comprimento_bico <span class="sc">^</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar um histograma com a variável transformada com log10()</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="sc">|&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> comprimento_bico_log)) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"limegreen"</span>) <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="dv">16</span>, <span class="st">"Arial"</span>) <span class="sc">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"log10(Comprimento do bico)"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"# de pinguins"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="gabarito_files/figure-html/transformar-comprimento-bico-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Notem que o código onde colocamos a condição de <code>pixar_bilheteria$orcamento &lt; 100000000</code> é antes da vírgula, pois refere-se a dimensão das linhas (observações). Além disso, mantemos a dimensão das colunas (direita da vírgula) em branco, informando ao R que queremos retornar todas as colunas da base de dados em nosso subconjunto.</p>
 
 
 </section>

@@ -2,70 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/instalacao.html</loc>
-    <lastmod>2023-05-03T02:58:26.399Z</lastmod>
+    <lastmod>2023-05-03T14:22:44.976Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/gabaritos/3_visualizacao/gabarito.html</loc>
-    <lastmod>2023-05-03T02:58:30.256Z</lastmod>
+    <lastmod>2023-05-03T14:22:48.623Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/gabaritos/2_manipulacao/gabarito.html</loc>
-    <lastmod>2023-05-03T02:58:33.022Z</lastmod>
+    <lastmod>2023-05-03T14:22:50.786Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brunomontezano.github.io/r-workshop/gabaritos/4_descritiva/gabarito.html</loc>
+    <lastmod>2023-05-03T14:22:53.046Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brunomontezano.github.io/r-workshop/gabaritos/5_inferencia/gabarito.html</loc>
+    <lastmod>2023-05-03T14:22:55.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brunomontezano.github.io/r-workshop/gabaritos/6_regressao/gabarito.html</loc>
+    <lastmod>2023-05-03T14:22:58.429Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/gabaritos/1_r_e_rstudio/gabarito.html</loc>
-    <lastmod>2023-05-03T02:58:35.089Z</lastmod>
+    <lastmod>2023-05-03T14:23:00.076Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/tarefas_de_casa.html</loc>
-    <lastmod>2023-05-03T02:58:35.636Z</lastmod>
+    <lastmod>2023-05-03T14:23:00.453Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/perguntas_frequentes.html</loc>
-    <lastmod>2023-05-03T02:58:36.079Z</lastmod>
+    <lastmod>2023-05-03T14:23:00.776Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/index.html</loc>
-    <lastmod>2023-05-03T02:58:36.519Z</lastmod>
+    <lastmod>2023-05-03T14:23:01.099Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/compilacao.html</loc>
-    <lastmod>2023-05-03T02:58:36.926Z</lastmod>
+    <lastmod>2023-05-03T14:23:01.403Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/aulas_e_laboratorios.html</loc>
-    <lastmod>2023-05-03T02:58:37.339Z</lastmod>
+    <lastmod>2023-05-03T14:23:01.686Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/materiais.html</loc>
-    <lastmod>2023-05-03T02:58:38.376Z</lastmod>
+    <lastmod>2023-05-03T14:23:02.446Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/7_topicos_avancados/slides_topicos_avancados.html</loc>
-    <lastmod>2023-05-03T02:58:40.056Z</lastmod>
+    <lastmod>2023-05-03T14:23:03.816Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/3_visualizacao/slides_visualizacao.html</loc>
-    <lastmod>2023-05-03T02:58:48.782Z</lastmod>
+    <lastmod>2023-05-03T14:23:10.716Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/2_manipulacao/slides_manipulacao.html</loc>
-    <lastmod>2023-05-03T02:58:51.919Z</lastmod>
+    <lastmod>2023-05-03T14:23:13.203Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/4_descritiva/slides_descritiva.html</loc>
-    <lastmod>2023-05-03T02:58:58.645Z</lastmod>
+    <lastmod>2023-05-03T14:23:18.523Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/5_inferencia/slides_inferencia.html</loc>
-    <lastmod>2023-05-03T02:59:04.405Z</lastmod>
+    <lastmod>2023-05-03T14:23:23.196Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/6_regressao/slides_regressao.html</loc>
-    <lastmod>2023-05-03T02:59:15.539Z</lastmod>
+    <lastmod>2023-05-03T14:23:32.083Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/1_r_e_rstudio/slides_r_e_rstudio.html</loc>
-    <lastmod>2023-05-03T02:59:18.402Z</lastmod>
+    <lastmod>2023-05-03T14:23:34.669Z</lastmod>
   </url>
 </urlset>
