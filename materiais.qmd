@@ -27,6 +27,10 @@ na manipulação, análise e interpretação de dados em saúde.
 escrito por Garrett Grolemund, trata-se de um livro breve de introdução a
 programação em R com aplicações e exemplos práticos que pode ser utilizado
 como material auxiliar.
+* [Materiais sobre R por Beatriz Milz](https://materiais-estudo-r.netlify.app/):
+criado pela professora e doutoranda Beatriz Milz e mantido pela comunidade,
+trata-se de uma página que armazena diversas fontes de informação sobre R
+nos idiomas português, inglês e espanhol.
 
 ## Visualização de dados
 
