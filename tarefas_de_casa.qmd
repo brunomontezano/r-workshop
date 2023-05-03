@@ -47,7 +47,19 @@ armazene em um objeto chamado `dados_2014`.
   
 ## Aula 3: Visualização de dados
   
-Em construção.  
+1. A partir dos dados `pinguins` do pacote `dados`, crie:
+    1. Um gráfico de pontos (dispersão)
+    2. Um box plot (variável numérica estratificada por
+    uma variável categórica)
+    3. Um histograma
+  
+2. Escolha um dos seus gráficos para ajustá-lo e deixá-lo
+visualmente mais agradável. Isso pode incluir ajustar os
+rótulos, tamanho da fonte, cores, adicionar título, e o
+que mais você achar importante (lembre-se da função `labs()`
+e família `theme_[estilo_do_tema]()`).
+
+[Acessar o gabarito.](gabaritos/3_visualizacao/gabarito.html)
 
 ## Aula 4: Análise descritiva
 

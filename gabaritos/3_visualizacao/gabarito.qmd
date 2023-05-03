@@ -1,0 +1,104 @@
+---
+title: "Gabarito da Aula 3: Visualização de dados"
+lang: pt-br
+code-annotations: select
+---
+
+## 1. A partir dos dados `pinguins` do pacote `dados`, crie:
+
+### 1.1. Um gráfico de pontos (dispersão)
+
+Segue uma possível solução abaixo:
+
+```{r grafico-pontos-pinguins}
+#| warning: false
+#| fig-align: "center"
+library(dados)
+library(ggplot2)
+
+pinguins |>
+  ggplot(aes(x = comprimento_bico,
+             y = massa_corporal,
+             color = especie)) +
+  geom_point()
+```
+
+
+### 1.2. Um box plot (variável numérica estratificada por uma variável categórica)
+
+```{r boxplot-pinguins}
+#| warning: false
+#| fig-align: "center"
+pinguins |> 
+  ggplot(aes(x = ilha, y = massa_corporal)) +
+  geom_boxplot()
+```
+    
+### 1.3. Um histograma
+
+```{r histograma-pinguins}
+#| warning: false
+#| fig-align: "center"
+pinguins |> 
+  ggplot(aes(x = comprimento_nadadeira)) +
+  geom_histogram()
+```
+  
+## 2. Escolha um dos seus gráficos para ajustá-lo e deixá-lo visualmente mais agradável. Isso pode incluir ajustar os rótulos, tamanho da fonte, cores, adicionar título, e o que mais você achar importante (lembre-se da função `labs()` e família `theme_[estilo_do_tema]()`).
+
+O segundo exercício solicitava que vocês escolhessem algum
+dos gráficos elaborados no exercício anterior e aplicasse
+alguns ajustes (do seu gosto) para deixá-lo mais visualmente
+atraente ou legível. Dentro do contexto do gabarito, tentarei
+explorar como podemos melhorar cada um dos gráficos elaborados
+nas etapas anteriores.
+
+```{r grafico-pontos-pinguins-bonito}
+#| warning: false
+#| fig-align: "center"
+library(dados)
+library(ggplot2)
+
+pinguins |>
+  ggplot(aes(x = comprimento_bico,
+             y = massa_corporal,
+             color = especie)) +
+  geom_point(size = 2.5,
+             alpha = 0.85) +
+  labs(x = "Comprimento do bico (em mm)",
+       y = "Massa corporal (em gramas)",
+       title = "Qual a relação entre o comprimento do bico dos\npinguins e sua massa corporal?",
+       subtitle = "Agrupado por espécie") +
+  theme_classic(16, "Arial") +
+  scale_y_continuous(labels = \(x) format(x, big.mark = ".")) +
+  ghibli::scale_color_ghibli_d("PonyoMedium", -1) +
+  theme(legend.position = "top",
+        legend.title = element_blank())
+```
+
+```{r boxplot-pinguins-bonito}
+#| warning: false
+#| fig-align: "center"
+pinguins |> 
+  ggplot(aes(x = ilha, y = massa_corporal, fill = ilha)) +
+  geom_boxplot() +
+  ghibli::scale_fill_ghibli_d("TotoroLight", -1) +
+  scale_y_continuous(labels = \(x) format(x, big.mark = ".")) +
+  theme_classic(16, "Arial") +
+  labs(x = "Ilha do Arquipélago Palmer",
+       y = "Massa corporal (em gramas)",
+       title = "A massa corporal dos pinguins é diferente\ndependendo da ilha?") +
+  theme(legend.position = "none")
+```
+
+```{r histograma-pinguins-bonito}
+#| warning: false
+#| fig-align: "center"
+pinguins |> 
+  ggplot(aes(x = comprimento_nadadeira)) +
+  geom_histogram(bins = 25, fill = "royalblue") +
+  labs(x = "Comprimento da nadadeira (em mm)",
+       y = "# de pinguins",
+       title = "Como se distribuem os comprimentos das nadadeiras?") +
+  theme_classic(14, "Arial")
+```

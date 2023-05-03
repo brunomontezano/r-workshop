@@ -35,6 +35,27 @@
     "text": "MacOS\n\nVá até a página de download do RStudio.\n\nDesça até All Installers and Tarballs e clique no link de download ao lado de macOS 11+ para baixar: A versão listada é a mais recente.\n\nRode o instalador.\n\nSiga as instruções na tela.\nNão há necessidade de modificar nenhuma configuração padrão a não ser que você tenha alguma razão específica.\n\nAo finalizar, o RStudio estará instalado!\n\nNós usaremos o ícone do RStudio para carregar o RStudio e utilizar o R.\n\nAbra o RStudio e verifique se ele carrega.\n\nNo painel inferior esquerdo do RStudio, você deve enxergar algo semelhante à imagem ao final deste guia.\nSe você estiver com algum problema, enviem um email para bmontezano@hcpa.edu.br.\n\n\nQuando vocês abrirem o RStudio, vocês devem visualizar uma tela parecida com esta na parte inferior esquerda da tela de vocês:\n\n\n\nConsole ao abrir RStudio pela primeira vez.\n\n\nSe sim, a instalação foi um sucesso! Se não, fique a vontade para me enviar um email."
   },
   {
+    "objectID": "gabaritos/3_visualizacao/gabarito.html",
+    "href": "gabaritos/3_visualizacao/gabarito.html",
+    "title": "Gabarito da Aula 3: Visualização de dados",
+    "section": "",
+    "text": "Segue uma possível solução abaixo:\n\nlibrary(dados)\nlibrary(ggplot2)\n\npinguins |&gt;\n  ggplot(aes(x = comprimento_bico,\n             y = massa_corporal,\n             color = especie)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\n\npinguins |&gt; \n  ggplot(aes(x = ilha, y = massa_corporal)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n\n\npinguins |&gt; \n  ggplot(aes(x = comprimento_nadadeira)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "gabaritos/3_visualizacao/gabarito.html#a-partir-dos-dados-pinguins-do-pacote-dados-crie",
+    "href": "gabaritos/3_visualizacao/gabarito.html#a-partir-dos-dados-pinguins-do-pacote-dados-crie",
+    "title": "Gabarito da Aula 3: Visualização de dados",
+    "section": "",
+    "text": "Segue uma possível solução abaixo:\n\nlibrary(dados)\nlibrary(ggplot2)\n\npinguins |&gt;\n  ggplot(aes(x = comprimento_bico,\n             y = massa_corporal,\n             color = especie)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\n\npinguins |&gt; \n  ggplot(aes(x = ilha, y = massa_corporal)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\n\n\npinguins |&gt; \n  ggplot(aes(x = comprimento_nadadeira)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "gabaritos/3_visualizacao/gabarito.html#escolha-um-dos-seus-gráficos-para-ajustá-lo-e-deixá-lo-visualmente-mais-agradável.-isso-pode-incluir-ajustar-os-rótulos-tamanho-da-fonte-cores-adicionar-título-e-o-que-mais-você-achar-importante-lembre-se-da-função-labs-e-família-theme_estilo_do_tema.",
+    "href": "gabaritos/3_visualizacao/gabarito.html#escolha-um-dos-seus-gráficos-para-ajustá-lo-e-deixá-lo-visualmente-mais-agradável.-isso-pode-incluir-ajustar-os-rótulos-tamanho-da-fonte-cores-adicionar-título-e-o-que-mais-você-achar-importante-lembre-se-da-função-labs-e-família-theme_estilo_do_tema.",
+    "title": "Gabarito da Aula 3: Visualização de dados",
+    "section": "2. Escolha um dos seus gráficos para ajustá-lo e deixá-lo visualmente mais agradável. Isso pode incluir ajustar os rótulos, tamanho da fonte, cores, adicionar título, e o que mais você achar importante (lembre-se da função labs() e família theme_[estilo_do_tema]()).",
+    "text": "2. Escolha um dos seus gráficos para ajustá-lo e deixá-lo visualmente mais agradável. Isso pode incluir ajustar os rótulos, tamanho da fonte, cores, adicionar título, e o que mais você achar importante (lembre-se da função labs() e família theme_[estilo_do_tema]()).\nO segundo exercício solicitava que vocês escolhessem algum dos gráficos elaborados no exercício anterior e aplicasse alguns ajustes (do seu gosto) para deixá-lo mais visualmente atraente ou legível. Dentro do contexto do gabarito, tentarei explorar como podemos melhorar cada um dos gráficos elaborados nas etapas anteriores.\n\nlibrary(dados)\nlibrary(ggplot2)\n\npinguins |&gt;\n  ggplot(aes(x = comprimento_bico,\n             y = massa_corporal,\n             color = especie)) +\n  geom_point(size = 2.5,\n             alpha = 0.85) +\n  labs(x = \"Comprimento do bico (em mm)\",\n       y = \"Massa corporal (em gramas)\",\n       title = \"Qual a relação entre o comprimento do bico dos\\npinguins e sua massa corporal?\",\n       subtitle = \"Agrupado por espécie\") +\n  theme_classic(16, \"Arial\") +\n  scale_y_continuous(labels = \\(x) format(x, big.mark = \".\")) +\n  ghibli::scale_color_ghibli_d(\"PonyoMedium\", -1) +\n  theme(legend.position = \"top\",\n        legend.title = element_blank())\n\n\n\n\n\n\n\n\n\npinguins |&gt; \n  ggplot(aes(x = ilha, y = massa_corporal, fill = ilha)) +\n  geom_boxplot() +\n  ghibli::scale_fill_ghibli_d(\"TotoroLight\", -1) +\n  scale_y_continuous(labels = \\(x) format(x, big.mark = \".\")) +\n  theme_classic(16, \"Arial\") +\n  labs(x = \"Ilha do Arquipélago Palmer\",\n       y = \"Massa corporal (em gramas)\",\n       title = \"A massa corporal dos pinguins é diferente\\ndependendo da ilha?\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\npinguins |&gt; \n  ggplot(aes(x = comprimento_nadadeira)) +\n  geom_histogram(bins = 25, fill = \"royalblue\") +\n  labs(x = \"Comprimento da nadadeira (em mm)\",\n       y = \"# de pinguins\",\n       title = \"Como se distribuem os comprimentos das nadadeiras?\") +\n  theme_classic(14, \"Arial\")"
+  },
+  {
     "objectID": "gabaritos/2_manipulacao/gabarito.html",
     "href": "gabaritos/2_manipulacao/gabarito.html",
     "title": "Gabarito da Aula 2: Manipulação de dados",
@@ -116,7 +137,7 @@
     "href": "tarefas_de_casa.html#aula-3-visualização-de-dados",
     "title": "Tarefas de casa",
     "section": "Aula 3: Visualização de dados",
-    "text": "Aula 3: Visualização de dados\nEm construção."
+    "text": "Aula 3: Visualização de dados\n\nA partir dos dados pinguins do pacote dados, crie:\n\nUm gráfico de pontos (dispersão)\nUm box plot (variável numérica estratificada por uma variável categórica)\nUm histograma\n\nEscolha um dos seus gráficos para ajustá-lo e deixá-lo visualmente mais agradável. Isso pode incluir ajustar os rótulos, tamanho da fonte, cores, adicionar título, e o que mais você achar importante (lembre-se da função labs() e família theme_[estilo_do_tema]()).\n\nAcessar o gabarito."
   },
   {
     "objectID": "tarefas_de_casa.html#aula-4-análise-descritiva",
