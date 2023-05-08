@@ -27,7 +27,7 @@ code-annotations: select
 -   Gráficos básicos
 -   Personalização de gráficos
 -   Exemplos práticos
--   Extensões de ggplot2
+-   Extensões de `ggplot2`
 
 ## Que a Força esteja com você!
 
@@ -411,7 +411,7 @@ pixar_avalicao_publico |> # <1>
   aes(x = nota, y = n, fill = cor) + # <8>
   geom_col(width = 0.5, show.legend = FALSE) + # <9> 
   scale_fill_manual(values = c("gray25", "darkorange")) + # <10>
-  labs(title = "A maioria dos filmes (n = 13) receberam nota A.", # <11>
+  labs(title = "A maioria dos filmes da Pixar (n = 13) receberam nota A.", # <11>
        x = "Nota segundo CinemaScore", # <11>
        y = "Número de filmes") + # <11>
   theme_classic(base_size = 18, base_family = "Charter") # <12>
@@ -452,7 +452,7 @@ pixar_avalicao_publico |>
   aes(x = nota_cinema_score, y = n, fill = cor) +
   geom_col(width = 0.5, show.legend = FALSE) +
   scale_fill_manual(values = c("gray25", "darkorange")) +
-  labs(title = "A maioria dos filmes (n = 13) receberam nota A.",
+  labs(title = "A maioria dos filmes da Pixar (n = 13) receberam nota A.",
        x = "Nota segundo CinemaScore",
        y = "Número de filmes") +
   theme_classic(base_size = 18, base_family = "Charter")
