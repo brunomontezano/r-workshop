@@ -546,7 +546,7 @@ Bruno Montezano
 <section id="camadas" class="slide level2">
 <h2>Camadas</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Canvas</a></li><li><a href="#tabset-1-2">Eixos</a></li><li><a href="#tabset-1-3">Geometria</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Canvas</a></li><li><a href="#tabset-1-2">Eixos</a></li><li><a href="#tabset-1-3">Geometria</a></li><li><a href="#tabset-1-4">Cor</a></li><li><a href="#tabset-1-5">Forma</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell" data-layout-align="center">
@@ -585,6 +585,36 @@ Bruno Montezano
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="slides_visualizacao_files/figure-revealjs/geometria-1.png" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>dados_starwars <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura, <span class="at">color =</span> genero) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/cor-1.png" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>dados_starwars <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> massa, <span class="at">y =</span> altura, <span class="at">shape =</span> sexo_biologico) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_visualizacao_files/figure-revealjs/forma-1.png" style="width:75.0%"></p>
 </figure>
 </div>
 </div>
@@ -630,23 +660,23 @@ Bruno Montezano
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt class="fragment" data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-2" data-code-annotation="1" data-code-lines="2">Usar os <code>dados_starwars</code></span>
+<span data-code-lines="2" data-code-cell="annotated-cell-2" data-code-annotation="1">Usar os <code>dados_starwars</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-2" data-code-annotation="2" data-code-lines="3">Manter apenas observações<br>com menos de<br>1.000kg de massa</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-2" data-code-annotation="2">Manter apenas observações<br>com menos de<br>1.000kg de massa</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-2" data-code-annotation="3" data-code-lines="4">Iniciar o canvas do <code>ggplot2</code></span>
+<span data-code-lines="4" data-code-cell="annotated-cell-2" data-code-annotation="3">Iniciar o canvas do <code>ggplot2</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-2" data-code-annotation="4" data-code-lines="5">Mapear massa no eixo <code>x</code><br>e altura no eixo <code>y</code></span>
+<span data-code-lines="5" data-code-cell="annotated-cell-2" data-code-annotation="4">Mapear massa no eixo <code>x</code><br>e altura no eixo <code>y</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-2" data-target-annotation="5">5</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-2" data-code-annotation="5" data-code-lines="6">Adicionar geometria de pontos<br>com <code>geom_point()</code></span>
+<span data-code-lines="6" data-code-cell="annotated-cell-2" data-code-annotation="5">Adicionar geometria de pontos<br>com <code>geom_point()</code></span>
 </dd>
 </dl>
 </div>
@@ -683,7 +713,7 @@ Bruno Montezano
 <section id="exibindo-dados_gapminder" class="slide level2">
 <h2>Exibindo <code>dados_gapminder</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>dados_gapminder</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>dados_gapminder</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
    pais        continente   ano expectativa_de_vida populacao pib_per_capita
@@ -719,11 +749,11 @@ Bruno Montezano
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -735,15 +765,15 @@ Bruno Montezano
 </div>
 <div id="tabset-2-2">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1952</span>, <span class="dv">2007</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>,</span>
-<span id="cb11-8"><a href="#cb11-8"></a>                                             <span class="at">decimal.mark =</span> <span class="st">","</span>,</span>
-<span id="cb11-9"><a href="#cb11-9"></a>                                             <span class="at">big.mark =</span> <span class="st">"."</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1952</span>, <span class="dv">2007</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>                                             <span class="at">decimal.mark =</span> <span class="st">","</span>,</span>
+<span id="cb13-9"><a href="#cb13-9"></a>                                             <span class="at">big.mark =</span> <span class="st">"."</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -755,20 +785,20 @@ Bruno Montezano
 </div>
 <div id="tabset-2-3">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkslateblue"</span>) <span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1952</span>, <span class="dv">2007</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>,</span>
-<span id="cb12-8"><a href="#cb12-8"></a>                                             <span class="at">decimal.mark =</span> <span class="st">","</span>,</span>
-<span id="cb12-9"><a href="#cb12-9"></a>                                             <span class="at">big.mark =</span> <span class="st">"."</span>)) <span class="sc">+</span></span>
-<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ano"</span>, <span class="at">y =</span> <span class="st">"PIB per capita"</span>,</span>
-<span id="cb12-11"><a href="#cb12-11"></a>       <span class="at">title =</span> <span class="st">"PIB per capita do Brasil ao passar dos anos"</span>,</span>
-<span id="cb12-12"><a href="#cb12-12"></a>       <span class="at">subtitle =</span> <span class="st">"De 1952 a 2007"</span>,</span>
-<span id="cb12-13"><a href="#cb12-13"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Gapminder"</span>) <span class="sc">+</span></span>
-<span id="cb12-14"><a href="#cb12-14"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">filter</span>(pais <span class="sc">==</span> <span class="st">"Brasil"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ano, <span class="at">y =</span> pib_per_capita) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"darkslateblue"</span>) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">1952</span>, <span class="dv">2007</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>(<span class="at">prefix =</span> <span class="st">"R$ "</span>,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>                                             <span class="at">decimal.mark =</span> <span class="st">","</span>,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>                                             <span class="at">big.mark =</span> <span class="st">"."</span>)) <span class="sc">+</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ano"</span>, <span class="at">y =</span> <span class="st">"PIB per capita"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11"></a>       <span class="at">title =</span> <span class="st">"PIB per capita do Brasil ao passar dos anos"</span>,</span>
+<span id="cb14-12"><a href="#cb14-12"></a>       <span class="at">subtitle =</span> <span class="st">"De 1952 a 2007"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Gapminder"</span>) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -796,7 +826,7 @@ Bruno Montezano
 <section id="pixar_avalicao_publico" class="slide level2">
 <h2><code>pixar_avalicao_publico</code></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>pixar_avalicao_publico</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>pixar_avalicao_publico</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 24 × 5
    filme                  nota_rotten_tomatoes nota_metacritic nota_cinema_score
@@ -817,8 +847,8 @@ Bruno Montezano
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">count</span>(nota_cinema_score) <span class="co"># A função count() serve para contar os valores únicos de uma variável</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">count</span>(nota_cinema_score) <span class="co"># A função count() serve para contar os valores únicos de uma variável</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
   nota_cinema_score     n
@@ -851,23 +881,23 @@ Bruno Montezano
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt class="fragment" data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-6" data-code-annotation="1" data-code-lines="2">Usar a base <code>pixar_avalicao_publico</code></span>
+<span data-code-lines="2" data-code-cell="annotated-cell-6" data-code-annotation="1">Usar a base <code>pixar_avalicao_publico</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-6" data-code-annotation="2" data-code-lines="3">Contar número de filmes<br>em cada nota</span>
+<span data-code-lines="3" data-code-cell="annotated-cell-6" data-code-annotation="2">Contar número de filmes<br>em cada nota</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-6" data-target-annotation="3">3</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-6" data-code-annotation="3" data-code-lines="4">Iniciar o canvas do <code>ggplot2</code></span>
+<span data-code-lines="4" data-code-cell="annotated-cell-6" data-code-annotation="3">Iniciar o canvas do <code>ggplot2</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-6" data-target-annotation="4">4</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-6" data-code-annotation="4" data-code-lines="5">Mapear os eixos <code>x</code> e <code>y</code></span>
+<span data-code-lines="5" data-code-cell="annotated-cell-6" data-code-annotation="4">Mapear os eixos <code>x</code> e <code>y</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-6" data-target-annotation="5">5</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-6" data-code-annotation="5" data-code-lines="6">Adicionar a geometria do<br>gráfico de barras</span>
+<span data-code-lines="6" data-code-cell="annotated-cell-6" data-code-annotation="5">Adicionar a geometria do<br>gráfico de barras</span>
 </dd>
 </dl>
 </div>
@@ -907,51 +937,51 @@ Bruno Montezano
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="2">Pegar base da Pixar de<br>avaliação do público</span>
+<span data-code-lines="2" data-code-cell="annotated-cell-1" data-code-annotation="1">Pegar base da Pixar de<br>avaliação do público</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="3">Renomear variável<br><code>nota_cinema_score</code></span>
+<span data-code-lines="3" data-code-cell="annotated-cell-1" data-code-annotation="2">Renomear variável<br><code>nota_cinema_score</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="4">Contar o número de<br>filmes com cada nota</span>
+<span data-code-lines="4" data-code-cell="annotated-cell-1" data-code-annotation="3">Contar o número de<br>filmes com cada nota</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="4">4</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="4" data-code-lines="5,6,7">Transformar <code>NA</code> no<br>valor “Sem escore”</span>
+<span data-code-lines="5,6,7" data-code-cell="annotated-cell-1" data-code-annotation="4">Transformar <code>NA</code> no<br>valor “Sem escore”</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="5">5</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="5" data-code-lines="8,9,10,11">Reordenar as notas<br>da menor para a maior</span>
+<span data-code-lines="8,9,10,11" data-code-cell="annotated-cell-1" data-code-annotation="5">Reordenar as notas<br>da menor para a maior</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="6">6</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="6" data-code-lines="12,13">Criar variável para<br>colorir barra principal</span>
+<span data-code-lines="12,13" data-code-cell="annotated-cell-1" data-code-annotation="6">Criar variável para<br>colorir barra principal</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="7">7</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="7" data-code-lines="15">Iniciar o canvas do <code>ggplot2</code></span>
+<span data-code-lines="15" data-code-cell="annotated-cell-1" data-code-annotation="7">Iniciar o canvas do <code>ggplot2</code></span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="8">8</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="8" data-code-lines="16">Mapear variáveis do gráfico</span>
+<span data-code-lines="16" data-code-cell="annotated-cell-1" data-code-annotation="8">Mapear variáveis do gráfico</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="9">9</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="9" data-code-lines="17">Adicionar a geometria<br>do gráfico de barras,<br>retirar legenda e<br>mudar largura das barras</span>
+<span data-code-lines="17" data-code-cell="annotated-cell-1" data-code-annotation="9">Adicionar a geometria<br>do gráfico de barras,<br>retirar legenda e<br>mudar largura das barras</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="10">10</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="10" data-code-lines="18">Modificar as cores<br>do preenchimento</span>
+<span data-code-lines="18" data-code-cell="annotated-cell-1" data-code-annotation="10">Modificar as cores<br>do preenchimento</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="11">11</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="11" data-code-lines="19,20,21">Adicionar título e rótulos</span>
+<span data-code-lines="19,20,21" data-code-cell="annotated-cell-1" data-code-annotation="11">Adicionar título e rótulos</span>
 </dd>
 <dt class="fragment" data-target-cell="annotated-cell-1" data-target-annotation="12">12</dt>
 <dd class="fragment">
-<span data-code-cell="annotated-cell-1" data-code-annotation="12" data-code-lines="22">Modificar tema,<br>tamanho e<br>família da fonte</span>
+<span data-code-lines="22" data-code-cell="annotated-cell-1" data-code-annotation="12">Modificar tema,<br>tamanho e<br>família da fonte</span>
 </dd>
 </dl>
 </div>
@@ -982,10 +1012,10 @@ Bruno Montezano
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota_rotten_tomatoes) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota_rotten_tomatoes) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -999,16 +1029,16 @@ Bruno Montezano
 <section id="exemplo-de-histograma-mais-bonito" class="slide level2">
 <h2>Exemplo de histograma “mais bonito”</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota_rotten_tomatoes) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Nota segundo críticos do Rotten Tomatoes"</span>,</span>
-<span id="cb18-6"><a href="#cb18-6"></a>       <span class="at">y =</span> <span class="st">"Contagem"</span>,</span>
-<span id="cb18-7"><a href="#cb18-7"></a>       <span class="at">title =</span> <span class="st">"Como se distribuem as notas segundo os críticos do Rotten Tomatoes?"</span>,</span>
-<span id="cb18-8"><a href="#cb18-8"></a>       <span class="at">subtitle =</span> <span class="st">"Dados de 24 filmes da Pixar"</span>,</span>
-<span id="cb18-9"><a href="#cb18-9"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Wikipedia"</span>) <span class="sc">+</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>pixar_avalicao_publico <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> nota_rotten_tomatoes) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"cyan4"</span>) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Nota segundo críticos do Rotten Tomatoes"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6"></a>       <span class="at">y =</span> <span class="st">"Contagem"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7"></a>       <span class="at">title =</span> <span class="st">"Como se distribuem as notas segundo os críticos do Rotten Tomatoes?"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8"></a>       <span class="at">subtitle =</span> <span class="st">"Dados de 24 filmes da Pixar"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Wikipedia"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides_visualizacao_files/figure-revealjs/histograma-rotten-tomatoes-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
@@ -1020,11 +1050,11 @@ Bruno Montezano
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continente, <span class="at">y =</span> expectativa_de_vida) <span class="sc">+</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continente, <span class="at">y =</span> expectativa_de_vida) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1038,19 +1068,19 @@ Bruno Montezano
 <section id="box-plot-após-ajustes" class="slide level2">
 <h2>Box plot após ajustes</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continente, <span class="at">y =</span> expectativa_de_vida, <span class="at">color =</span> continente) <span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="sc">+</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Continente"</span>, <span class="at">y =</span> <span class="st">"Expectativa de vida (em anos)"</span>,</span>
-<span id="cb20-8"><a href="#cb20-8"></a>       <span class="at">title =</span> <span class="st">"Como se distribuía a expectativa de vida em cada continente em 1952?"</span>,</span>
-<span id="cb20-9"><a href="#cb20-9"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Gapminder"</span>) <span class="sc">+</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">65</span>,</span>
-<span id="cb20-11"><a href="#cb20-11"></a>           <span class="at">label =</span> <span class="st">"Em 1952,</span><span class="sc">\n</span><span class="st">a África tinha</span><span class="sc">\n</span><span class="st">uma expectativa</span><span class="sc">\n</span><span class="st">de vida</span><span class="sc">\n</span><span class="st">de 38,8 anos."</span>,</span>
-<span id="cb20-12"><a href="#cb20-12"></a>           <span class="at">size =</span> <span class="dv">5</span>,</span>
-<span id="cb20-13"><a href="#cb20-13"></a>           <span class="at">family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>dados_gapminder <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">filter</span>(ano <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> continente, <span class="at">y =</span> expectativa_de_vida, <span class="at">color =</span> continente) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>  <span class="fu">geom_boxplot</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Continente"</span>, <span class="at">y =</span> <span class="st">"Expectativa de vida (em anos)"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8"></a>       <span class="at">title =</span> <span class="st">"Como se distribuía a expectativa de vida em cada continente em 1952?"</span>,</span>
+<span id="cb22-9"><a href="#cb22-9"></a>       <span class="at">caption =</span> <span class="st">"Fonte: Gapminder"</span>) <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">65</span>,</span>
+<span id="cb22-11"><a href="#cb22-11"></a>           <span class="at">label =</span> <span class="st">"Em 1952,</span><span class="sc">\n</span><span class="st">a África tinha</span><span class="sc">\n</span><span class="st">uma expectativa</span><span class="sc">\n</span><span class="st">de vida</span><span class="sc">\n</span><span class="st">de 38,8 anos."</span>,</span>
+<span id="cb22-12"><a href="#cb22-12"></a>           <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb22-13"><a href="#cb22-13"></a>           <span class="at">family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides_visualizacao_files/figure-revealjs/boxplot-apos-ajustes-1.png" width="960" class="r-stretch quarto-figure-center"></section>

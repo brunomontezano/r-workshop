@@ -515,7 +515,7 @@
     "href": "slides/3_visualizacao/slides_visualizacao.html#camadas",
     "title": "Visualização de dados",
     "section": "Camadas",
-    "text": "Camadas\n\nCanvasEixosGeometria\n\n\n\ndados_starwars |&gt; \n  ggplot()\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |&gt; \n  ggplot() +\n  aes(x = massa, y = altura)\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |&gt; \n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point()"
+    "text": "Camadas\n\nCanvasEixosGeometriaCorForma\n\n\n\ndados_starwars |&gt; \n  ggplot()\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |&gt; \n  ggplot() +\n  aes(x = massa, y = altura)\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |&gt; \n  ggplot() +\n  aes(x = massa, y = altura) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |&gt; \n  ggplot() +\n  aes(x = massa, y = altura, color = genero) +\n  geom_point()\n\n\n\n\n\n\n\n\n\n\n\ndados_starwars |&gt; \n  ggplot() +\n  aes(x = massa, y = altura, shape = sexo_biologico) +\n  geom_point()"
   },
   {
     "objectID": "slides/3_visualizacao/slides_visualizacao.html#por-que-o",

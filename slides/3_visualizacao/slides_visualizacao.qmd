@@ -170,6 +170,27 @@ dados_starwars |>
   geom_point()
 ```
 
+## Cor
+
+```{r cor}
+#| out-width: 75%
+#| fig-align: "center"
+dados_starwars |> 
+  ggplot() +
+  aes(x = massa, y = altura, color = genero) +
+  geom_point()
+```
+
+## Forma
+
+```{r forma}
+#| out-width: 75%
+#| fig-align: "center"
+dados_starwars |> 
+  ggplot() +
+  aes(x = massa, y = altura, shape = sexo_biologico) +
+  geom_point()
+```
 
 :::
 
