@@ -662,3 +662,9 @@ na aprendizagem de programação
 Você pode utilizar o pacote [`gptstudio`](https://github.com/MichelNivard/GPTstudio)
 para auxiliar nos códigos, gramática dos documentos,
 ou para comentar seu código no RStudio.
+
+. . .
+
+Ainda, o pacote [`askgpt`](https://github.com/JBGruber/askgpt)
+foi criado para auxiliar na interação direta com o ChatGPT
+dentro do R.

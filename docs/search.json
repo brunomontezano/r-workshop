@@ -1628,6 +1628,6 @@
     "href": "slides/1_r_e_rstudio/slides_r_e_rstudio.html#dica-chatgpt",
     "title": "R e RStudio",
     "section": "Dica: ChatGPT",
-    "text": "Dica: ChatGPT\n\nO ChatGPT é um chatbot que pode ajudar na aprendizagem de programação\nEle pode responder perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio."
+    "text": "Dica: ChatGPT\n\nO ChatGPT é um chatbot que pode ajudar na aprendizagem de programação\nEle pode responder perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio.\n\n\nAinda, o pacote askgpt foi criado para auxiliar na interação direta com o ChatGPT dentro do R."
   }
 ]
