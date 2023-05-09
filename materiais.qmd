@@ -3,6 +3,14 @@ title: "Materiais recomendados"
 lang: pt-br
 ---
 
+Nesta página, você encontra diversos materiais complementares
+que podem te auxiliar no processo de aprendizagem de R. Os temas
+estão divididos nas seguintes seções:
+gerais, visualização de dados, estatística básica,
+reprodutibilidade e comunicação, aprendizado de máquina e metanálise.
+Todos os materiais são de acesso aberto sem custo algum.
+A lista abaixo é mantida pelo autor Bruno Montezano.
+
 ## Gerais
 
 * [R for Data Science (segunda edição)](https://r4ds.hadley.nz/): trata-se de um
