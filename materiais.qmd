@@ -98,6 +98,11 @@ do autor Yihui Xie, é um livro guia para o pacote `bookdown`, que facilita o
 processo de criação de livros e relatórios técnicos em R com R Markdown.
 Suporta saídas em PDF, Word, HTML, etc, e apresenta diversas outras
 funcionalidades.
+* [Good enough practices in scientific computing](https://doi.org/10.1371/journal.pcbi.1005510): 
+escrito por Greg Wilson et al., o paper publicado em 2017 apresenta boas
+práticas de computação para pesquisadores, independentemente do nível de
+habilidade em computação, a fim de melhorar a efetividade em
+trabalhar com dados, software e projetos.
 
 ## Machine Learning
 
