@@ -23,6 +23,7 @@ lang: pt-br
 * [Slides](slides/3_visualizacao/slides_visualizacao.html)
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/slides_visualizacao.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/script_visualizacao.R)
+* [Gravação da aula](https://youtu.be/wMcOUMCv5NM)
   
 ## Aula 4: Análise descritiva
   
