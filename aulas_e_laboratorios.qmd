@@ -3,6 +3,12 @@ title: "Aulas e laboratórios"
 lang: pt-br
 ---
 
+Abaixo, estão listados os links de acesso aos slides, códigos dos
+slides, scripts em R e gravações das aulas e laboratórios
+relacionados a cada tópico do curso.
+Os materiais descritos nesta página são mantidos
+pelo autor Bruno Montezano.
+
 ## Aula 1: R e RStudio
 
 * [Slides](slides/1_r_e_rstudio/slides_r_e_rstudio.html)
@@ -48,3 +54,4 @@ lang: pt-br
 * [Slides](slides/7_topicos_avancados/slides_topicos_avancados.html)
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/slides_topicos_avancados.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/script_topicos_avancados.R)
+
