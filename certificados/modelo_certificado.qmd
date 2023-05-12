@@ -1,0 +1,39 @@
+---
+title: ''
+format: pdf
+classoption: landscape
+lang: pt-br
+---
+
+\pagenumbering{gobble}
+
+\begin{center}
+
+  \Huge{\textbf{Certificado de participação}}
+  
+  \vfill
+  
+  \Huge{Certifico que \textbf{NOMEALUNO}
+  participou do curso} \Huge{\textit{NOMEEVENTO}}.
+  
+  \vfill
+  
+  \Huge{\textit{DATAEVENTO}}
+  
+  \Huge{\textit{LOCALEVENTO}}
+  
+  \vfill
+  
+  \huge{\textbf{Professor:} Bruno Braga Montezano}
+  
+  \vfill
+  
+  \begin{center}
+  
+  \includegraphics[height=3cm]{../../assets/r_logo.png}
+  \includegraphics[height=4cm,angle=270]{../../assets/logo_alliance_branco.pdf}
+  \includegraphics[height=3cm]{../../slides/assets/logo_ufrgs.png}
+  
+  \end{center}
+  
+\end{center}
