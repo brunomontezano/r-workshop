@@ -71,6 +71,13 @@ de estatística e probabilidade através de aplicações em R.
 criado por Josh Starmer, trata-se de uma playlist no YouTube que dá uma visão geral
 de conceitos fundamentais de estatística. A [playlist sobre regressão linear e modelos
 lineares](https://youtube.com/playlist?list=PLblh5JKOoLUIzaEkCLIUxQFjPIlapw8nU) também vale muito a pena assistir.
+* [Statistical Inference via Data Science: A ModernDive into R and the Tidyverse](https://moderndive.com/index.html):
+livro escrito por Chester Ismay e Albert Y. Kim, demonstra vários
+exemplos de como usar ferramentas do `tidyverse` e do *framework*
+`moderndive` para criar rotinas completas de análise de dados englobando
+a visualização, manipulação, modelagem, inferência e apresentação dos dados. Não
+assume nenhum conhecimento matemático ou de programação
+prévio.
 
 ## Reprodutibilidade e Comunicação
 
@@ -112,9 +119,26 @@ introdução ao aprendizado estatístico com exemplos em R em todos os capítulo
 * [Aprendizado de máquina: uma abordagem estatística](http://www.rizbicki.ufscar.br/ame/):
 livro em português escrito pelo prof. Rafael Izbicki da UFSCAR. Segue moldes parecidos com
 o *An Introduction to Statistical Learning*, mas trabalha mais conceitos estatísticos.
+* [Feature Engineering and Selection: A Practical Approach for Predictive Models](https://bookdown.org/max/FES/):
+livro escrito por Max Kuhn e Kjell Johnson, trata de aspectos
+relacionados com a engenharia e seleção de variáveis, abordando temas
+como pré-processamento de dados, divisão dos dados, tunagem de
+hiperparâmetros, etc.
+* [Tidy Modeling with R](https://www.tmwr.org/): o melhor livro
+prático para aprendizado de máquina em R atualmente, escrito por
+Max Kuhn e Julia Silge, apresenta o *framework* `tidymodels` para
+criar modelos, aplicando boas práticas metodológicas e estatísticas.
+* [Supervised Machine Learning for Text Analysis in R](https://smltar.com/):
+se você tiver interesse em trabalhar com aprendizado de máquina
+supervisionado e análise de texto, esse livro escrito por Emil Hvitfeldt
+e Julia Silge é uma boa pedida.
 * [Deep Learning and Scientific Computing with R torch](https://skeydan.github.io/Deep-Learning-and-Scientific-Computing-with-R-torch/):
 Livro sobre o `torch`, um *framework* em R para criar modelos de deep learning, além
 de possibilitar rotinas complexas de computação científica. Publicado em abril de 2023.
+* [Text Mining with R: A Tidy Approach ](https://www.tidytextmining.com/):
+trata-se de um livro escrito por Julia Silge e David Robinson para
+introduzir a mineração de texto com R usando o pacote `tidytext`.
+Apresenta diversos exemplos de problemas reais.
 
 ## Metanálise
 
