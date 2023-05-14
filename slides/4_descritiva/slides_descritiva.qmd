@@ -502,13 +502,20 @@ distribuição
 ```{r histograma-distribuicao-assimetrica}
 #| fig-align: "center"
 #| out.width: "65%"
+#| echo: false
 set.seed(1)
 
 tibble(x = rchisq(1000, 10)) |> 
   ggplot() +
   aes(x = x) +
   geom_histogram() +
-  labs(x = "Valores", y = "Frequência") +
+  labs(x = "Valores", y = "Frequência",
+       title = "De que lado a cauda se encontra?",
+       subtitle = "Um exemplo de assimetria positiva.") +
+  geom_segment(x = 32, xend = 25, y = 75, yend = 40,
+               arrow = arrow(length = unit(0.5, "cm")),
+               color = "steelblue4",
+               size = 2) +
   ggthemes::theme_clean(base_size = 16, base_family = "Charter")
 ```
 
