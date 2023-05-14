@@ -6,7 +6,7 @@
 #' @param data_evento Data de finalização do evento (curso).
 #' @param local_evento Local (cidade e país) onde aconteceu o evento.
 #' @param saida_pdf Caminho de saída do PDF do certificado.
-#' @param diretorio_qmd Diretório para os arquivos .qmd temporários.
+#' @param diretorio_rmd Diretório para os arquivos .Rmd temporários.
 #'
 #' @return
 #' @export
@@ -17,29 +17,28 @@ gerar_certificado <-
            data_evento,
            local_evento,
            saida_pdf,
-           diretorio_qmd) {
-    cat("\n Iniciando:", saida_pdf, "\n")
+           diretorio_rmd) {
+    cat("\n Iniciando a compilação:", saida_pdf, "\n")
     
     # Criar um arquivo qmd temporário com aluno e informações do evento
     modelo_certificado <- readr::read_file(modelo)
     
-    qmd_temporario <- modelo_certificado |> 
-      stringr::str_replace("NOMEALUNO", nome_aluno) |> 
-      stringr::str_replace("NOMEEVENTO", nome_evento) |> 
-      stringr::str_replace("DATAEVENTO", data_evento) |> 
-      stringr::str_replace("LOCALEVENTO", local_evento)
+    # Modificar NOMEALUNO pelo nome do aluno para o modelo
+    # temporário de cada iteração
+    modelo_tmp <- modelo_certificado |> 
+      stringr::str_replace("NOMEALUNO", nome_aluno)
     
-    # O diretorio_knit tem que ser definido para o
-    # quarto::quarto_render() funcionar
-    arquivo_qmd <- tempfile(tmpdir = diretorio_qmd, fileext = ".qmd")
-    readr::write_file(qmd_temporario, arquivo_qmd)
+    # O diretorio_rmd tem que ser definido para o
+    # rmarkdown::render() saber onde salvar o arquivo temporário
+    arquivo_rmd <- tempfile(tmpdir = diretorio_rmd, fileext = ".Rmd")
+    readr::write_file(modelo_tmp, arquivo_rmd)
     
-    # Criar os certificados usando R Markdown/Quarto
-    rmarkdown::render(arquivo_qmd,
+    # Criar os certificados usando R Markdown
+    rmarkdown::render(arquivo_rmd,
                       output_file = saida_pdf,
                       quiet = TRUE)
     
-    # Arquivo .qmd temporário pode ser excluído
-    file.remove(arquivo_qmd)
+    # Arquivo .Rmd temporário pode ser excluído após cada iteração
+    file.remove(arquivo_rmd)
     cat("\n Finalizado:", saida_pdf, "\n")
   }

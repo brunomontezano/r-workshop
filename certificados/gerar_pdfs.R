@@ -8,7 +8,7 @@ source("certificados/gerar_certificado.R")
 alunos <- readr::read_csv("certificados/alunos.csv") |>
   # Criar variável do caminho do arquivo em PDF para o certificado
   dplyr::mutate(arquivo_pdf = stringr::str_c(
-    "certificados/PDF/",
+    "../PDF/",
     dplyr::row_number(),
     "_",
     stringr::str_replace_all(nome, stringr::fixed(" "), "_"),
@@ -19,8 +19,8 @@ alunos <- readr::read_csv("certificados/alunos.csv") |>
 for (i in seq_len(nrow(alunos))) {
   with(
     alunos,
-    certificado(modelo = "certificados/modelo_certificado.qmd",
-                nome[i], evento[i], data[i], local[i], arquivo_pdf[i], "./certificados/PDF")
+    gerar_certificado(modelo = "certificados/modelo_certificado.Rmd",
+                nome[i], evento[i], data[i], local[i], arquivo_pdf[i], "certificados/Rmd")
   )
 }
 

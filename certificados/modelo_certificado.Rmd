@@ -14,13 +14,14 @@ lang: pt-br
   \vfill
   
   \Huge{Certifico que \textbf{NOMEALUNO}
-  participou do curso} \Huge{\textit{NOMEEVENTO}}.
+  participou do curso}
+  \Huge{\textit{Introdução ao R: Aplicações em ciências da saúde}}.
   
   \vfill
   
-  \Huge{\textit{DATAEVENTO}}
+  \Huge{\textit{5 de junho de 2023}}
   
-  \Huge{\textit{LOCALEVENTO}}
+  \Huge{\textit{Porto Alegre, Brasil}}
   
   \vfill
   
