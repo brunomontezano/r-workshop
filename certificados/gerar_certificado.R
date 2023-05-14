@@ -16,10 +16,13 @@ gerar_certificado <-
            saida_pdf,
            caminho_pdf,
            diretorio_rmd) {
+    # Caso o arquivo final do certificado já exista, não rodar
     if (file.exists(caminho_pdf)) {
       cat("\n Pulando arquivo:", saida_pdf, "\n")
     }
+    # Senão, iniciar compilação do certificado normalmente
     else {
+      # Comunicar início do processo de compilação
       cat("\n Iniciando a compilação:", saida_pdf, "\n")
       
       # Criar um arquivo qmd temporário com aluno e informações do evento
@@ -43,6 +46,8 @@ gerar_certificado <-
       
       # Arquivo .Rmd temporário pode ser excluído após cada iteração
       file.remove(arquivo_rmd)
+      
+      # Comunicar finalização do processo de compilação do certificado
       cat("\n Finalizado:", saida_pdf, "\n")
     }
   }
