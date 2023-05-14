@@ -171,16 +171,19 @@ ser a medida de tendência central mais intuitiva.
 
 Vocês podem usar `table()` para ver a frequência de valores:
 
-```{r funcao-table-especie}
-table(pinguins$especie) # Criar tabela de frequência com a variável `especie`
+```{r funcao-count-especie}
+pinguins |> 
+  count(especie)
 ```
 
 . . .
 
-E vocês podem achar a moda diretamente:
+E vocês podem achar a moda diretamente com um `filter()`:
 
 ```{r achar-moda-especie}
-table(pinguins$especie)[table(pinguins$especie) == max(table(pinguins$especie))]
+pinguins |> 
+  count(especie) |> 
+  filter(n == max(n))
 ```
 
 O código acima se traduz como: "Crie um subconjunto da tabela para quando a contagem for igual ao maior valor."
@@ -244,7 +247,7 @@ Se todos os valores são iguais, a variância é *zero*.
 O desvio padrão ($s$ ou $sd$, ou $dp$ em português) é simplesmente a raíz quadrada
 da variância:
 
-$$s = sd = dp = \sqrt{s^2}$$
+$$s = \sqrt{s^2}$$
 
 . . .
 
@@ -305,6 +308,181 @@ pinguins |>
     terceiro_quartil = quantile(massa_corporal)["75%"]
   )
 ```
+
+## Distribuição normal
+
+A distribuição normal é uma das distribuições mais importantes em
+estatística.
+
+* Também conhecida como distribuição de Gauss, é frequentemente
+usada para modelar fenômenos naturais
+* Muitos testes estatísticos assumem
+que os dados seguem uma distribuição normal
+* 68% dos dados estão dentro de um desvio padrão da média,
+95% estão dentro de dois desvios padrão e 99,7% estão dentro de três
+desvios padrão
+
+. . .
+
+```{r plot-distribuicao-normal}
+#| fig-align: "center"
+#| out.width: "60%"
+#| echo: false
+# Gerando uma amostra aleatória de uma distribuição normal padrão
+set.seed(123)
+amostra <- rnorm(1000)
+
+# Calculando a média e o desvio padrão da amostra
+media <- mean(amostra)
+desvio_padrao <- sd(amostra)
+
+# Criando um data frame com os limites das proporções 68-95-99
+proporcoes <- data.frame(
+  limite_inf = c(
+    media - desvio_padrao,
+    media - 2 * desvio_padrao,
+    media - 3 * desvio_padrao,
+    media - 4 * desvio_padrao
+  ),
+  limite_sup = c(
+    media + desvio_padrao,
+    media + 2 * desvio_padrao,
+    media + 3 * desvio_padrao,
+    media + 4 * desvio_padrao
+  ),
+  proporcao = c(0.6826, 0.9544, 0.9972, 0.9998)
+)
+
+# Criando o histograma
+ggplot(data.frame(x = amostra), aes(x)) +
+  geom_rect(xmin = -1,
+            xmax = 1,
+            ymin = 0,
+            ymax = 250,
+            fill = "tan1",
+            alpha = 0.2) +
+  geom_rect(xmin = -1,
+            xmax = -2,
+            ymin = 0,
+            ymax = 250,
+            fill = "gold",
+            alpha = 0.2) +
+  geom_rect(xmin = 1,
+            xmax = 2,
+            ymin = 0,
+            ymax = 250,
+            fill = "gold",
+            alpha = 0.2) +
+  geom_rect(xmin = 2,
+            xmax = 3,
+            ymin = 0,
+            ymax = 250,
+            fill = "pink",
+            alpha = 0.2) +
+  geom_rect(xmin = -2,
+            xmax = -3,
+            ymin = 0,
+            ymax = 250,
+            fill = "pink",
+            alpha = 0.2) +
+  geom_rect(xmin = 3,
+            xmax = 4,
+            ymin = 0,
+            ymax = 250,
+            fill = "palegreen",
+            alpha = 0.2) +
+  geom_rect(xmin = -3,
+            xmax = -4,
+            ymin = 0,
+            ymax = 250,
+            fill = "palegreen",
+            alpha = 0.2) +
+  geom_vline(
+    xintercept = c(proporcoes$limite_inf, proporcoes$limite_sup),
+    color = rep("grey30", 8),
+    linetype = rep("dashed", 8),
+    size = rep(1, 8),
+    alpha = rep(1, 8)
+  ) +
+  geom_histogram(bins = 20,
+                 color = "black",
+                 fill = "lightblue") +
+  geom_vline(
+    xintercept = media,
+    color = "grey20",
+    linetype = "solid",
+    size = 1
+  ) +
+  annotate("text", label = "34,13%",
+           x = -0.5, y = 240,
+           size = 4.5, family = "Charter") +
+  annotate("text", label = "34,13%",
+           x = 0.5, y = 240,
+           size = 4.5, family = "Charter") +
+  annotate("text", label = "13,59%",
+           x = 1.5, y = 240,
+           size = 4.5, family = "Charter") +
+  annotate("text", label = "13,59%",
+           x = -1.5, y = 240,
+           size = 4.5, family = "Charter") +
+  annotate("text", label = "2,14%",
+           x = 2.5, y = 240,
+           size = 4.5, family = "Charter") +
+  annotate("text", label = "2,14%",
+           x = -2.5, y = 240,
+           size = 4.5, family = "Charter") +
+  annotate("text", label = "0,13%",
+           x = 3.5, y = 240,
+           size = 4.5, family = "Charter") +
+  annotate("text", label = "0,13%",
+           x = -3.5, y = 240,
+           size = 4.5, family = "Charter") +
+  scale_x_continuous(
+    breaks = -4:4,
+    limits = c(-4.5, 4.5),
+    labels = c(
+      latex2exp::TeX("$\\mu - 4\\sigma$"),
+      latex2exp::TeX("$\\mu - 3\\sigma$"),
+      latex2exp::TeX("$\\mu - 2\\sigma$"),
+      latex2exp::TeX("$\\mu - \\sigma$"),
+      latex2exp::TeX("$\\mu$"),
+      latex2exp::TeX("$\\mu + \\sigma$"),
+      latex2exp::TeX("$\\mu + 2\\sigma$"),
+      latex2exp::TeX("$\\mu + 3\\sigma$"),
+      latex2exp::TeX("$\\mu + 4\\sigma$")
+    )
+  ) +
+  scale_y_continuous(limits = c(0, 250)) +
+  theme_classic(base_size = 16, base_family = "Charter") +
+  labs(x = "Valores da amostra", y = "Frequência")
+```
+
+## Testes de normalidade
+
+Em muitos casos, é necessário verificar se uma amostra segue uma distribuição
+normal antes de aplicar determinados testes estatísticos.
+
+* O teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal
+* A hipótese nula ($H_0$) do teste é que a amostra segue uma distribuição normal
+* Se o $p$-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r shapiro-amostra-simulada}
+shapiro.test(amostra) # Normal
+```
+:::
+
+::: {.column width="50%"}
+```{r shapiro-massa-pinguins}
+pinguins |> 
+  pull(massa_corporal) |> 
+  shapiro.test() # Não-normal
+```
+:::
+:::
 
 ## Assimetria
 
@@ -376,7 +554,6 @@ ggplot() +
 Tanto a assimetria quanto a curtose podem ser calculados com funções do
 pacote `moments`.
 
-
 ::: columns
 
 ::: {.column width="50%"}
@@ -406,82 +583,10 @@ pinguins |>
 #| out.width: "75%"
 pinguins |> 
   filter(!is.na(massa_corporal)) |> 
-  ggplot(aes(x = massa_corporal)) + geom_histogram(fill = "#ad002aff") +
+  ggplot(aes(x = massa_corporal)) + geom_histogram(fill = "brown") +
   labs(x = "Massa corporal (em gramas)", y = "Frequência") +
   ggthemes::theme_clean(base_size = 16, base_family = "Charter")
 ```
-
-## Distribuição normal
-
-A distribuição normal é uma das distribuições mais importantes em
-estatística.
-
-* Também conhecida como distribuição de Gauss, é frequentemente
-usada para modelar fenômenos naturais
-* Muitos testes estatísticos assumem
-que os dados seguem uma distribuição normal
-* 68% dos dados estão dentro de um desvio padrão da média (roxo), 95% estão dentro de
-dois desvios padrão (verde) e 99,7% estão dentro de três desvios padrão (laranja)
-
-. . .
-
-```{r plot-distribuicao-normal}
-#| fig-align: "center"
-#| out.width: "60%"
-#| echo: false
-# Gerando uma amostra aleatória de uma distribuição normal padrão
-set.seed(123)
-amostra <- rnorm(1000)
-
-# Calculando a média e o desvio padrão da amostra
-media <- mean(amostra)
-desvio_padrao <- sd(amostra)
-
-# Criando um data frame com os limites das proporções 68-95-99
-proporcoes <- data.frame(
-  limite_inf = c(media - desvio_padrao, media - 2*desvio_padrao, media - 3*desvio_padrao),
-  limite_sup = c(media + desvio_padrao, media + 2*desvio_padrao, media + 3*desvio_padrao),
-  proporcao = c(0.68, 0.95, 0.99)
-)
-
-# Criando o histograma
-ggplot(data.frame(x = amostra), aes(x)) +
-  geom_histogram(bins = 20, color = "black", fill = "lightblue") +
-  geom_vline(xintercept = c(media, proporcoes$limite_inf, proporcoes$limite_sup),
-             color = c("#00468bff", "#925e9fff", "#42b540ff", "#ed0000ff", "#925e9fff", "#42b540ff", "#ed0000ff"),
-             linetype = c("solid", "dashed", "dashed", "dashed", "dashed", "dashed", "dashed"),
-             size = c(1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5),
-             alpha = c(1, 1, 1, 1, 1, 1, 1)) +
-  theme_bw(base_size = 16, base_family = "Charter") +
-  labs(x = "Valores da amostra", y = "Frequência")
-```
-
-## Testes de normalidade
-
-Em muitos casos, é necessário verificar se uma amostra segue uma distribuição
-normal antes de aplicar determinados testes estatísticos.
-
-* O teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal
-* A hipótese nula ($H_0$) do teste é que a amostra segue uma distribuição normal
-* Se o $p$-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal
-
-. . .
-
-::: columns
-::: {.column width="50%"}
-```{r shapiro-amostra-simulada}
-shapiro.test(amostra) # Normal
-```
-:::
-
-::: {.column width="50%"}
-```{r shapiro-massa-pinguins}
-pinguins |> 
-  pull(massa_corporal) |> 
-  shapiro.test() # Não-normal
-```
-:::
-:::
 
 ## Transformação de dados
 

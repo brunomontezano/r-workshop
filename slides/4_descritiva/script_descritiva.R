@@ -38,6 +38,19 @@ pinguins |>
 
 # Moda
 
+# Podemos ver a frequência de uma variável com a função count()
+# do pacote `dplyr`
+pinguins |> 
+  count(especie)
+
+# E podemos retornar a moda filtrando esse resultado com filter()
+# Mantemos observações onde `n` é igual ao valor máximo de `n`
+pinguins |> 
+  count(especie) |> 
+  filter(n == max(n))
+
+# Com o R base, podemos fazer esta operação de outra forma:
+
 # Criar tabela de frequência com a variável `especie`
 table(pinguins$especie)
 
@@ -101,6 +114,71 @@ pinguins |>
     primeiro_quartil = quantile(massa_corporal)["25%"],
     terceiro_quartil = quantile(massa_corporal)["75%"]
   )
+
+#### Distribuição normal ####
+
+# Gerando uma amostra aleatória de uma distribuição normal padrão
+set.seed(1)
+amostra <- rnorm(1000)
+
+# Calculando a média e o desvio padrão da amostra
+media <- mean(amostra)
+desvio_padrao <- sd(amostra)
+
+# Criando um data frame com os limites das proporções 68-95-99
+# 68% da população está dentro de 1 desvio padrão da média
+# 95% da população está dentro de 2 desvios padrão da média
+# 99,7% da população está dentro de 3 desvios padrão da média
+proporcoes <- data.frame(
+  limite_inf = c(media - desvio_padrao, media - 2*desvio_padrao, media - 3*desvio_padrao),
+  limite_sup = c(media + desvio_padrao, media + 2*desvio_padrao, media + 3*desvio_padrao),
+  proporcao = c(0.68, 0.95, 0.99)
+)
+
+# Criando o histograma com linhas indicativas
+ggplot(data.frame(x = amostra), aes(x)) +
+  geom_histogram(bins = 20,
+                 color = "black",
+                 fill = "lightblue") +
+  geom_vline(
+    xintercept = c(media, proporcoes$limite_inf, proporcoes$limite_sup),
+    color = c(
+      "#00468bff",
+      "#925e9fff",
+      "#42b540ff",
+      "#ed0000ff",
+      "#925e9fff",
+      "#42b540ff",
+      "#ed0000ff"
+    ),
+    linetype = c(
+      "solid",
+      "dashed",
+      "dashed",
+      "dashed",
+      "dashed",
+      "dashed",
+      "dashed"
+    ),
+    size = c(1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5),
+    alpha = c(1, 1, 1, 1, 1, 1, 1)
+  ) +
+  theme_bw(base_size = 16) +
+  labs(x = "Valores da amostra", y = "Frequência")
+
+# Testar normalidade através do teste de Shapiro-Wilk
+# Se o valor p for menor 0,05, há evidência suficiente para dizer que a
+# amostra não vem de uma população normalmente distribuída
+shapiro.test(amostra)
+
+# Nesse caso, parece que a amostra simulada segue uma distribuição normal
+
+# Testar a normalidade da distribuição da massa corporal dos pinguins
+pinguins |> 
+  pull(massa_corporal) |> 
+  shapiro.test()
+
+# Parece que a massa dos pinguins não segue uma distribuição normal
 
 #### Assimetria ####
 
@@ -166,72 +244,6 @@ pinguins |>
   geom_histogram(fill = "#ad002aff") +
   labs(x = "Massa corporal (em gramas)", y = "Frequência") +
   theme_classic(base_size = 16)
-
-#### Distribuição normal ####
-
-# Gerando uma amostra aleatória de uma distribuição normal padrão
-set.seed(1)
-amostra <- rnorm(1000)
-
-# Calculando a média e o desvio padrão da amostra
-media <- mean(amostra)
-desvio_padrao <- sd(amostra)
-
-# Criando um data frame com os limites das proporções 68-95-99
-# 68% da população está dentro de 1 desvio padrão da média
-# 95% da população está dentro de 2 desvios padrão da média
-# 99,7% da população está dentro de 3 desvios padrão da média
-proporcoes <- data.frame(
-  limite_inf = c(media - desvio_padrao, media - 2*desvio_padrao, media - 3*desvio_padrao),
-  limite_sup = c(media + desvio_padrao, media + 2*desvio_padrao, media + 3*desvio_padrao),
-  proporcao = c(0.68, 0.95, 0.99)
-)
-
-# Criando o histograma com linhas indicativas
-ggplot(data.frame(x = amostra), aes(x)) +
-  geom_histogram(bins = 20,
-                 color = "black",
-                 fill = "lightblue") +
-  geom_vline(
-    xintercept = c(media, proporcoes$limite_inf, proporcoes$limite_sup),
-    color = c(
-      "#00468bff",
-      "#925e9fff",
-      "#42b540ff",
-      "#ed0000ff",
-      "#925e9fff",
-      "#42b540ff",
-      "#ed0000ff"
-    ),
-    linetype = c(
-      "solid",
-      "dashed",
-      "dashed",
-      "dashed",
-      "dashed",
-      "dashed",
-      "dashed"
-    ),
-    size = c(1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5),
-    alpha = c(1, 1, 1, 1, 1, 1, 1)
-  ) +
-  theme_bw(base_size = 16) +
-  labs(x = "Valores da amostra", y = "Frequência")
-
-
-# Testar normalidade através do teste de Shapiro-Wilk
-# Se o valor p for menor 0,05, há evidência suficiente para dizer que a
-# amostra não vem de uma população normalmente distribuída
-shapiro.test(amostra)
-
-# Nesse caso, parece que a amostra simulada segue uma distribuição normal
-
-# Testar a normalidade da distribuição da massa corporal dos pinguins
-pinguins |> 
-  pull(massa_corporal) |> 
-  shapiro.test()
-
-# Parece que a massa dos pinguins não segue uma distribuição normal
 
 #### Transformação de dados ####
 

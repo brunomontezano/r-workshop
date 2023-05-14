@@ -970,7 +970,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#moda",
     "title": "Análise descritiva",
     "section": "Moda",
-    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\ntable(pinguins$especie) # Criar tabela de frequência com a variável `especie`\n\n\n  Pinguim-de-adélia Pinguim-de-barbicha      Pinguim-gentoo \n                152                  68                 124 \n\n\n\n\nE vocês podem achar a moda diretamente:\n\ntable(pinguins$especie)[table(pinguins$especie) == max(table(pinguins$especie))]\n\nPinguim-de-adélia \n              152 \n\n\nO código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”"
+    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\nE vocês podem achar a moda diretamente com um filter():\n\npinguins |&gt; \n  count(especie) |&gt; \n  filter(n == max(n))\n\n# A tibble: 1 × 2\n  especie               n\n  &lt;fct&gt;             &lt;int&gt;\n1 Pinguim-de-adélia   152\n\n\nO código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”"
   },
   {
     "objectID": "slides/4_descritiva/slides_descritiva.html#valores-extremos",
@@ -998,7 +998,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#desvio-padrão",
     "title": "Análise descritiva",
     "section": "Desvio padrão",
-    "text": "Desvio padrão\nO desvio padrão (\\(s\\) ou \\(sd\\), ou \\(dp\\) em português) é simplesmente a raíz quadrada da variância:\n\\[s = sd = dp = \\sqrt{s^2}\\]\n\nVocê pode interpretar como a distância “típica” dos valores em relação à média.\n\n\n\npinguins |&gt; \n  filter(!is.na(massa_corporal)) |&gt; \n  summarise(desvio_padrao_na_mao_massa = sqrt(var(massa_corporal)),\n    desvio_padrao_massa = sd(massa_corporal)\n    )\n\n# A tibble: 1 × 2\n  desvio_padrao_na_mao_massa desvio_padrao_massa\n                       &lt;dbl&gt;               &lt;dbl&gt;\n1                       802.                802.\n\n\n\n\nO desvio padrão se apresenta na mesma unidade de medida da variável."
+    "text": "Desvio padrão\nO desvio padrão (\\(s\\) ou \\(sd\\), ou \\(dp\\) em português) é simplesmente a raíz quadrada da variância:\n\\[s = \\sqrt{s^2}\\]\n\nVocê pode interpretar como a distância “típica” dos valores em relação à média.\n\n\n\npinguins |&gt; \n  filter(!is.na(massa_corporal)) |&gt; \n  summarise(desvio_padrao_na_mao_massa = sqrt(var(massa_corporal)),\n    desvio_padrao_massa = sd(massa_corporal)\n    )\n\n# A tibble: 1 × 2\n  desvio_padrao_na_mao_massa desvio_padrao_massa\n                       &lt;dbl&gt;               &lt;dbl&gt;\n1                       802.                802.\n\n\n\n\nO desvio padrão se apresenta na mesma unidade de medida da variável."
   },
   {
     "objectID": "slides/4_descritiva/slides_descritiva.html#amplitude",
@@ -1054,7 +1054,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#distribuição-normal",
     "title": "Análise descritiva",
     "section": "Distribuição normal",
-    "text": "Distribuição normal\nA distribuição normal é uma das distribuições mais importantes em estatística.\n\nTambém conhecida como distribuição de Gauss, é frequentemente usada para modelar fenômenos naturais\nMuitos testes estatísticos assumem que os dados seguem uma distribuição normal\n68% dos dados estão dentro de um desvio padrão da média (roxo), 95% estão dentro de dois desvios padrão (verde) e 99,7% estão dentro de três desvios padrão (laranja)"
+    "text": "Distribuição normal\nA distribuição normal é uma das distribuições mais importantes em estatística.\n\nTambém conhecida como distribuição de Gauss, é frequentemente usada para modelar fenômenos naturais\nMuitos testes estatísticos assumem que os dados seguem uma distribuição normal\n68% dos dados estão dentro de um desvio padrão da média, 95% estão dentro de dois desvios padrão e 99,7% estão dentro de três desvios padrão"
   },
   {
     "objectID": "slides/4_descritiva/slides_descritiva.html#testes-de-normalidade",

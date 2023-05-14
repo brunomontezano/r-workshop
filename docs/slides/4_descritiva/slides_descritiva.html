@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.340">
+  <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Bruno Montezano">
   <title>Introdução ao R - Análise descritiva</title>
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -404,7 +404,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">13 de abril de 2023</p>
+  <p class="date">14 de maio de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -570,21 +570,29 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 <div class="fragment">
 <p>Vocês podem usar <code>table()</code> para ver a frequência de valores:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">table</span>(pinguins<span class="sc">$</span>especie) <span class="co"># Criar tabela de frequência com a variável `especie`</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">count</span>(especie)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-  Pinguim-de-adélia Pinguim-de-barbicha      Pinguim-gentoo 
-                152                  68                 124 </code></pre>
+<pre><code># A tibble: 3 × 2
+  especie                 n
+  &lt;fct&gt;               &lt;int&gt;
+1 Pinguim-de-adélia     152
+2 Pinguim-de-barbicha    68
+3 Pinguim-gentoo        124</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<p>E vocês podem achar a moda diretamente:</p>
+<p>E vocês podem achar a moda diretamente com um <code>filter()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">table</span>(pinguins<span class="sc">$</span>especie)[<span class="fu">table</span>(pinguins<span class="sc">$</span>especie) <span class="sc">==</span> <span class="fu">max</span>(<span class="fu">table</span>(pinguins<span class="sc">$</span>especie))]</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">count</span>(especie) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="fu">max</span>(n))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Pinguim-de-adélia 
-              152 </code></pre>
+<pre><code># A tibble: 1 × 2
+  especie               n
+  &lt;fct&gt;             &lt;int&gt;
+1 Pinguim-de-adélia   152</code></pre>
 </div>
 </div>
 <p>O código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”</p>
@@ -648,7 +656,7 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 <section id="desvio-padrão" class="slide level2">
 <h2>Desvio padrão</h2>
 <p>O desvio padrão (<span class="math inline">\(s\)</span> ou <span class="math inline">\(sd\)</span>, ou <span class="math inline">\(dp\)</span> em português) é simplesmente a raíz quadrada da variância:</p>
-<p><span class="math display">\[s = sd = dp = \sqrt{s^2}\]</span></p>
+<p><span class="math display">\[s = \sqrt{s^2}\]</span></p>
 <div class="fragment">
 <p>Você pode interpretar como a distância “típica” dos valores em relação à média.</p>
 </div>
@@ -718,89 +726,13 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 </div>
 </div>
 </section>
-<section id="assimetria" class="slide level2">
-<h2>Assimetria</h2>
-<p>A assimetria mede o quão assimétrica é uma distribuição. Pode assumir valores positivos ou negativos. A média, mediana e moda em geral <em>não</em> são iguais em distribuições assimétricas</p>
-<ul>
-<li class="fragment">Uma assimetria negativa indica que a cauda está no lado esquerdo da distribuição</li>
-<li class="fragment">Uma assimetria positiva indica que a cauda está no lado direito da distribuição</li>
-<li class="fragment">Um valor de zero indica que não há assimetria na distribuição</li>
-</ul>
-</section>
-<section id="exemplo-de-distribuição-assimétrica" class="slide level2">
-<h2>Exemplo de distribuição assimétrica</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rchisq</span>(<span class="dv">1000</span>, <span class="dv">10</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">aes</span>(<span class="at">x =</span> x) <span class="sc">+</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Valores"</span>, <span class="at">y =</span> <span class="st">"Frequência"</span>) <span class="sc">+</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_clean</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="slides_descritiva_files/figure-revealjs/histograma-distribuicao-assimetrica-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
-<section id="curtose" class="slide level2">
-<h2>Curtose</h2>
-<p>Curtose é a medida da forma da distribuição em relação à sua média.</p>
-<ul>
-<li class="fragment">A curtose de uma distribuição normal é 3</li>
-<li class="fragment">Se uma dada distribuição tem uma curtose menor que 3, ela é chamada de platicúrtica</li>
-<li class="fragment">Se uma dada distribuição tem uma curtose maior que 3, diz-se que é leptocúrtica</li>
-</ul>
-<div class="fragment">
-<p><em>Quanto maior a curtose, maior a propensão a outliers.</em></p>
-</div>
-</section>
-<section id="visualizando-a-curtose" class="slide level2">
-<h2>Visualizando a curtose</h2>
-
-<img data-src="slides_descritiva_files/figure-revealjs/exemplo-curtose-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
-<section id="medidas-de-assimetria-e-curtose" class="slide level2">
-<h2>Medidas de assimetria e curtose</h2>
-<p>Tanto a assimetria quanto a curtose podem ser calculados com funções do pacote <code>moments</code>.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">library</span>(moments)</span>
-<span id="cb26-2"><a href="#cb26-2"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">skewness</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.468264</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">kurtosis</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.273757</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_descritiva_files/figure-revealjs/histograma-massa-corporal-1.png" style="width:75.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
 <section id="distribuição-normal" class="slide level2">
 <h2>Distribuição normal</h2>
 <p>A distribuição normal é uma das distribuições mais importantes em estatística.</p>
 <ul>
 <li class="fragment">Também conhecida como distribuição de Gauss, é frequentemente usada para modelar fenômenos naturais</li>
 <li class="fragment">Muitos testes estatísticos assumem que os dados seguem uma distribuição normal</li>
-<li class="fragment">68% dos dados estão dentro de um desvio padrão da média (roxo), 95% estão dentro de dois desvios padrão (verde) e 99,7% estão dentro de três desvios padrão (laranja)</li>
+<li class="fragment">68% dos dados estão dentro de um desvio padrão da média, 95% estão dentro de dois desvios padrão e 99,7% estão dentro de três desvios padrão</li>
 </ul>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
@@ -826,7 +758,7 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">shapiro.test</span>(amostra) <span class="co"># Normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">shapiro.test</span>(amostra) <span class="co"># Normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -837,9 +769,9 @@ W = 0.99838, p-value = 0.4765</code></pre>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span> </span>
-<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">shapiro.test</span>() <span class="co"># Não-normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span> </span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">shapiro.test</span>() <span class="co"># Não-normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -847,6 +779,82 @@ W = 0.99838, p-value = 0.4765</code></pre>
 data:  pull(pinguins, massa_corporal)
 W = 0.95921, p-value = 0.00000003679</code></pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="assimetria" class="slide level2">
+<h2>Assimetria</h2>
+<p>A assimetria mede o quão assimétrica é uma distribuição. Pode assumir valores positivos ou negativos. A média, mediana e moda em geral <em>não</em> são iguais em distribuições assimétricas</p>
+<ul>
+<li class="fragment">Uma assimetria negativa indica que a cauda está no lado esquerdo da distribuição</li>
+<li class="fragment">Uma assimetria positiva indica que a cauda está no lado direito da distribuição</li>
+<li class="fragment">Um valor de zero indica que não há assimetria na distribuição</li>
+</ul>
+</section>
+<section id="exemplo-de-distribuição-assimétrica" class="slide level2">
+<h2>Exemplo de distribuição assimétrica</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rchisq</span>(<span class="dv">1000</span>, <span class="dv">10</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a>  <span class="fu">aes</span>(<span class="at">x =</span> x) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Valores"</span>, <span class="at">y =</span> <span class="st">"Frequência"</span>) <span class="sc">+</span></span>
+<span id="cb29-8"><a href="#cb29-8"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_clean</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_descritiva_files/figure-revealjs/histograma-distribuicao-assimetrica-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
+<section id="curtose" class="slide level2">
+<h2>Curtose</h2>
+<p>Curtose é a medida da forma da distribuição em relação à sua média.</p>
+<ul>
+<li class="fragment">A curtose de uma distribuição normal é 3</li>
+<li class="fragment">Se uma dada distribuição tem uma curtose menor que 3, ela é chamada de platicúrtica</li>
+<li class="fragment">Se uma dada distribuição tem uma curtose maior que 3, diz-se que é leptocúrtica</li>
+</ul>
+<div class="fragment">
+<p><em>Quanto maior a curtose, maior a propensão a outliers.</em></p>
+</div>
+</section>
+<section id="visualizando-a-curtose" class="slide level2">
+<h2>Visualizando a curtose</h2>
+
+<img data-src="slides_descritiva_files/figure-revealjs/exemplo-curtose-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="medidas-de-assimetria-e-curtose" class="slide level2">
+<h2>Medidas de assimetria e curtose</h2>
+<p>Tanto a assimetria quanto a curtose podem ser calculados com funções do pacote <code>moments</code>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">library</span>(moments)</span>
+<span id="cb30-2"><a href="#cb30-2"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a>  <span class="fu">skewness</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.468264</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">kurtosis</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.273757</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_descritiva_files/figure-revealjs/histograma-massa-corporal-1.png" style="width:75.0%"></p>
+</figure>
 </div>
 </div>
 </div>
