@@ -970,7 +970,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#moda",
     "title": "Análise descritiva",
     "section": "Moda",
-    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\nE vocês podem achar a moda diretamente com um filter():\n\npinguins |&gt; \n  count(especie) |&gt; \n  filter(n == max(n))\n\n# A tibble: 1 × 2\n  especie               n\n  &lt;fct&gt;             &lt;int&gt;\n1 Pinguim-de-adélia   152\n\n\nO código acima se traduz como: “Crie um subconjunto da tabela para quando a contagem for igual ao maior valor.”"
+    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\nE vocês podem achar a moda diretamente com um filter():\n\npinguins |&gt; \n  count(especie) |&gt; \n  filter(n == max(n))\n\n# A tibble: 1 × 2\n  especie               n\n  &lt;fct&gt;             &lt;int&gt;\n1 Pinguim-de-adélia   152"
   },
   {
     "objectID": "slides/4_descritiva/slides_descritiva.html#valores-extremos",

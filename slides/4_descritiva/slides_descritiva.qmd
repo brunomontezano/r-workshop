@@ -58,7 +58,6 @@ glimpse(pinguins)
 
 ## Variáveis
 
-
 **Variáveis** são símbolos que representam conjuntos de um ou mais **elementos**
 que podem assumir qualquer quantidade de valores.
 
@@ -185,8 +184,6 @@ pinguins |>
   count(especie) |> 
   filter(n == max(n))
 ```
-
-O código acima se traduz como: "Crie um subconjunto da tabela para quando a contagem for igual ao maior valor."
 
 ## Valores extremos
 
