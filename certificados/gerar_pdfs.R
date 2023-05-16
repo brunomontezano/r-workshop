@@ -37,7 +37,7 @@ for (i in seq_len(nrow(alunos))) {
   with(
     alunos,
     gerar_certificado(
-      modelo = "certificados/modelo_certificado.Rmd",
+      modelo = "certificados/_modelo_certificado.Rmd",
       nome_aluno = nome[i],
       saida_pdf = arquivo_pdf[i],
       caminho_pdf = caminho_pdf[i],
