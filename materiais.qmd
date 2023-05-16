@@ -48,6 +48,11 @@ por apenas uma referência em visualização, recomendo este livro.
 * [R Graphics Cookbook (segunda edição)](https://r-graphics.org/): escrito por Winston Chang,
 é um guia prático com mais de 150 receitas para gerar gráficos em R rapidamente.
 * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/): livro escrito por Hadley Wickham, trata-se da terceira edição da obra que explica a gramática dos gráficos por trás do `ggplot2`. Material para entender os detalhes que constituem o pacote.
+* [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/):
+escrito por Claus O. Wilke, trata-se de um livro que aborda aspectos
+mais gerais de como criar visualizações que refletem os dados, como
+contar uma história e montar visualizações profissionais. Os plots do
+livro foram todos criados usando `ggplot2`.
 * [PDF com cores do R](https://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf):
 este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem
 ser utilizadas para personalizar seus gráficos.
@@ -78,6 +83,11 @@ exemplos de como usar ferramentas do `tidyverse` e do *framework*
 a visualização, manipulação, modelagem, inferência e apresentação dos dados. Não
 assume nenhum conhecimento matemático ou de programação
 prévio.
+* [Regression and Other Stories](https://users.aalto.fi/~ave/ROS.pdf):
+escrito por Andrew Gelman, Jennifer Hill e Aki Vehtari, é um livro sobre
+como usar modelos de regressão para resolver problemas reais de
+comparação, estimação, predição e inferência causal. O livro apresenta
+vários exemplos e códigos em R para todos os capítulos.
 
 ## Reprodutibilidade e Comunicação
 
