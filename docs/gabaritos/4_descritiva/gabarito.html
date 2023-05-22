@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -215,8 +215,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="escolha-uma-variável-contínua-da-base-de-dados-e-verifique-se-ela-segue-uma-distribuição-normal-através-de-um-histograma-e-um-teste-de-normalidade-de-shapiro-wilk." class="level2">
-<h2 class="anchored" data-anchor-id="escolha-uma-variável-contínua-da-base-de-dados-e-verifique-se-ela-segue-uma-distribuição-normal-através-de-um-histograma-e-um-teste-de-normalidade-de-shapiro-wilk.">2. Escolha uma variável contínua da base de dados e verifique se ela segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.</h2>
+<section id="verifique-se-a-variável-comprimento_bico-da-base-de-dados-segue-uma-distribuição-normal-através-de-um-histograma-e-um-teste-de-normalidade-de-shapiro-wilk." class="level2">
+<h2 class="anchored" data-anchor-id="verifique-se-a-variável-comprimento_bico-da-base-de-dados-segue-uma-distribuição-normal-através-de-um-histograma-e-um-teste-de-normalidade-de-shapiro-wilk.">2. Verifique se a variável <code>comprimento_bico</code> da base de dados segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.</h2>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercício 2 da aula 4</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -251,28 +251,113 @@ W = 0.9573, p-value = 0.0008205</code></pre>
 </div>
 <p>Se nos recordamos da aula, vamos lembrar que a hipótese nula (<span class="math inline">\(H_0\)</span>) do teste de Shapiro-Wilk é de que os dados seguem uma distribuição normal, ou seja, esperamos um <em>p</em>-valor maior que 0,05 para não rejeitar a hipótese nula. No resultado acima, observamos que o <em>p</em>-valor foi de 0,0008. Logo, assumimos que provavelmente o vetor do <code>comprimento_bico</code> não segue uma distribuição normal, como consideramos a partir do histograma.</p>
 </section>
-<section id="independentemente-da-distribuição-crie-uma-variável-transformada-a-partir-da-que-você-escolheu-através-do-método-da-raíz-quadrada-função-sqrt-da-raíz-cúbica-lembre-se-do-operador-ou-do-log-função-log10.-você-também-pode-criar-um-histograma-da-variável-transformada-lembre-se-da-função-mutate-para-criar-ou-modificar-colunas." class="level2">
-<h2 class="anchored" data-anchor-id="independentemente-da-distribuição-crie-uma-variável-transformada-a-partir-da-que-você-escolheu-através-do-método-da-raíz-quadrada-função-sqrt-da-raíz-cúbica-lembre-se-do-operador-ou-do-log-função-log10.-você-também-pode-criar-um-histograma-da-variável-transformada-lembre-se-da-função-mutate-para-criar-ou-modificar-colunas.">3. Independentemente da distribuição, crie uma variável transformada (a partir da que você escolheu) através do método da raíz quadrada (função <code>sqrt()</code>), da raíz cúbica (lembre-se do operador <code>^</code>) ou do log (função <code>log10()</code>). Você também pode criar um histograma da variável transformada (lembre-se da função <code>mutate()</code> para criar ou modificar colunas).</h2>
+<section id="com-a-função-count-verifique-a-frequência-da-variável-sexo-na-base-de-dados." class="level2">
+<h2 class="anchored" data-anchor-id="com-a-função-count-verifique-a-frequência-da-variável-sexo-na-base-de-dados.">3. Com a função <code>count()</code>, verifique a frequência da variável <code>sexo</code> na base de dados.</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercício 3 da aula 4</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="ot">&lt;-</span> pinguins_2009 <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">comprimento_bico_raiz_quad =</span> <span class="fu">sqrt</span>(comprimento_bico),</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">comprimento_bico_log =</span> <span class="fu">log10</span>(comprimento_bico),</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">comprimento_bico_raiz_cub =</span> comprimento_bico <span class="sc">^</span> (<span class="dv">1</span> <span class="sc">/</span> <span class="dv">3</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar um histograma com a variável transformada com log10()</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="sc">|&gt;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> comprimento_bico_log)) <span class="sc">+</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"limegreen"</span>) <span class="sc">+</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="dv">16</span>, <span class="st">"Arial"</span>) <span class="sc">+</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"log10(Comprimento do bico)"</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"# de pinguins"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Contar frequência do sexo dos pinguins</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="sc">|&gt;</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sexo)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  sexo      n
+  &lt;fct&gt; &lt;int&gt;
+1 fêmea    58
+2 macho    59
+3 &lt;NA&gt;      3</code></pre>
+</div>
+</div>
+<p>Podemos observar que a variável <code>sexo</code> na base dos <code>pinguins_2009</code> possui três valores ausentes. Caso queiramos remover os pinguins sem valor na variável <code>sexo</code> da base de dados, podemos criar um subconjunto apenas com as observações sem <code>NA</code> nessa coluna:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pinguins_2009_sem_na_sexo <span class="ot">&lt;-</span> pinguins_2009 <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexo))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Notem que agora a base de dados tem apenas 117 linhas (3 pinguins foram removidos)</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>pinguins_2009_sem_na_sexo</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 117 × 8
+   especie        ilha  comprimento_bico profundidade_bico comprimento_nadadeira
+   &lt;fct&gt;          &lt;fct&gt;            &lt;dbl&gt;             &lt;dbl&gt;                 &lt;int&gt;
+ 1 Pinguim-de-ad… Bisc…             35                17.9                   192
+ 2 Pinguim-de-ad… Bisc…             41                20                     203
+ 3 Pinguim-de-ad… Bisc…             37.7              16                     183
+ 4 Pinguim-de-ad… Bisc…             37.8              20                     190
+ 5 Pinguim-de-ad… Bisc…             37.9              18.6                   193
+ 6 Pinguim-de-ad… Bisc…             39.7              18.9                   184
+ 7 Pinguim-de-ad… Bisc…             38.6              17.2                   199
+ 8 Pinguim-de-ad… Bisc…             38.2              20                     190
+ 9 Pinguim-de-ad… Bisc…             38.1              17                     181
+10 Pinguim-de-ad… Bisc…             43.2              19                     197
+# ℹ 107 more rows
+# ℹ 3 more variables: massa_corporal &lt;int&gt;, sexo &lt;fct&gt;, ano &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>Lembram que podemos transformar a contagem da frequência em um gráfico de barras?</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos checar a nova contagem nesse subconjunto</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>pinguins_2009_sem_na_sexo <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sexo)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  sexo      n
+  &lt;fct&gt; &lt;int&gt;
+1 fêmea    58
+2 macho    59</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Com o código abaixo, criamos um gráfico de barras do sexo</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>pinguins_2009_sem_na_sexo <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sexo) <span class="sc">|&gt;</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sexo, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="gabarito_files/figure-html/transformar-comprimento-bico-1.png" class="img-fluid" width="672"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gabarito_files/figure-html/grafico-barras-sexo-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+<p>Creio que podemos deixar esse gráfico um pouco mais elegante:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos deixar ele um pouco mais bonito...</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>pinguins_2009_sem_na_sexo <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sexo) <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sexo =</span> stringr<span class="sc">::</span><span class="fu">str_to_title</span>(sexo)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sexo, <span class="at">y =</span> n, <span class="at">label =</span> n)) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue1"</span>) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">nudge_y =</span> <span class="dv">4</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="dv">20</span>, <span class="st">"IBM Plex Sans"</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Sexo do pinguim"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"# de pinguins"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Qual a moda do sexo dos pinguins?"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gabarito_files/figure-html/grafico-barras-sexo-bonito-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="com-a-função-summarise-calcule-a-média-mediana-e-desvio-padrão-da-variável-comprimento_nadadeira." class="level2">
+<h2 class="anchored" data-anchor-id="com-a-função-summarise-calcule-a-média-mediana-e-desvio-padrão-da-variável-comprimento_nadadeira.">4. Com a função <code>summarise()</code>, calcule a média, mediana e desvio padrão da variável <code>comprimento_nadadeira</code>.</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercício 4 da aula 4</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_nadadeira =</span> <span class="fu">mean</span>(comprimento_nadadeira, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mediana_nadadeira =</span> <span class="fu">median</span>(comprimento_nadadeira, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">dp_nadadeira =</span> <span class="fu">sd</span>(comprimento_nadadeira, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  media_nadadeira mediana_nadadeira dp_nadadeira
+            &lt;dbl&gt;             &lt;int&gt;        &lt;dbl&gt;
+1            203.               199         13.7</code></pre>
+</div>
+</div>
+<p>Notem que usamos o argumento <code>na.rm = TRUE</code> para sinalizar ao R que, em caso de presença de valores ausentes na variável, queremos que as medidas sejam calculadas ignorando os <code>NA</code> e considerando apenas os valores válidos.</p>
 
 
 </section>

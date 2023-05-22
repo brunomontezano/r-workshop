@@ -27,7 +27,7 @@ pinguins_2009 # <3>
 Atribuir o subconjunto no objeto `pinguins_2009`.
 3. Por fim, mostrar o objeto criado.
 
-## 2. Escolha uma variável contínua da base de dados e verifique se ela segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.
+## 2. Verifique se a variável `comprimento_bico` da base de dados segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.
 
 ```{r histograma-massa}
 #| fig-align: "center"
@@ -65,25 +65,83 @@ observamos que o *p*-valor foi de 0,0008. Logo, assumimos que
 provavelmente o vetor do `comprimento_bico` não segue uma
 distribuição normal, como consideramos a partir do histograma.
 
-## 3. Independentemente da distribuição, crie uma variável transformada (a partir da que você escolheu) através do método da raíz quadrada (função `sqrt()`), da raíz cúbica (lembre-se do operador `^`) ou do log (função `log10()`). Você também pode criar um histograma da variável transformada (lembre-se da função `mutate()` para criar ou modificar colunas).
+## 3. Com a função `count()`, verifique a frequência da variável `sexo` na base de dados.
 
 ```{r transformar-comprimento-bico}
 #| message: false
 #| warning: false
 # Exercício 3 da aula 4
-pinguins_2009 <- pinguins_2009 |>
-  mutate(
-    comprimento_bico_raiz_quad = sqrt(comprimento_bico),
-    comprimento_bico_log = log10(comprimento_bico),
-    comprimento_bico_raiz_cub = comprimento_bico ^ (1 / 3)
-  )
 
-# Criar um histograma com a variável transformada com log10()
-pinguins_2009 |>
-  ggplot(aes(x = comprimento_bico_log)) +
-  geom_histogram(fill = "limegreen") +
-  theme_classic(16, "Arial") +
-  labs(x = "log10(Comprimento do bico)",
-       y = "# de pinguins")
+# Contar frequência do sexo dos pinguins
+pinguins_2009 |> 
+  count(sexo)
 ```
 
+Podemos observar que a variável `sexo` na base dos `pinguins_2009` possui três
+valores ausentes. Caso queiramos
+remover os pinguins sem valor na variável `sexo` da base de dados, podemos criar
+um subconjunto apenas com as observações sem `NA` nessa coluna:
+
+```{r subconjunto-sem-na-sexo}
+pinguins_2009_sem_na_sexo <- pinguins_2009 |> 
+  filter(!is.na(sexo))
+
+# Notem que agora a base de dados tem apenas 117 linhas (3 pinguins foram removidos)
+pinguins_2009_sem_na_sexo
+```
+
+Lembram que podemos transformar a contagem da frequência em um gráfico de barras?
+
+```{r grafico-barras-sexo}
+#| message: false
+#| warning: false
+#| fig-align: "center"
+
+# Vamos checar a nova contagem nesse subconjunto
+pinguins_2009_sem_na_sexo |> 
+  count(sexo)
+
+# Com o código abaixo, criamos um gráfico de barras do sexo
+pinguins_2009_sem_na_sexo |> 
+  count(sexo) |> 
+  ggplot(aes(x = sexo, y = n)) +
+  geom_col()
+```
+
+Creio que podemos deixar esse gráfico um pouco mais elegante:
+
+```{r grafico-barras-sexo-bonito}
+#| fig-align: "center"
+#| message: false
+#| warning: false
+
+# Vamos deixar ele um pouco mais bonito...
+pinguins_2009_sem_na_sexo |> 
+  count(sexo) |> 
+  mutate(sexo = stringr::str_to_title(sexo)) |> 
+  ggplot(aes(x = sexo, y = n, label = n)) +
+  geom_col(fill = "steelblue1") +
+  geom_text(nudge_y = 4,
+            size = 6) +
+  theme_light(20, "IBM Plex Sans") +
+  labs(x = "Sexo do pinguim",
+       y = "# de pinguins",
+       title = "Qual a moda do sexo dos pinguins?")
+```
+
+## 4. Com a função `summarise()`, calcule a média, mediana e desvio padrão da variável `comprimento_nadadeira`.
+
+```{r medidas-comprimento-nadadeira}
+#| message: false
+#| warning: false
+# Exercício 4 da aula 4
+
+pinguins_2009 |> 
+  summarise(media_nadadeira = mean(comprimento_nadadeira, na.rm = TRUE),
+            mediana_nadadeira = median(comprimento_nadadeira, na.rm = TRUE),
+            dp_nadadeira = sd(comprimento_nadadeira, na.rm = TRUE))
+```
+
+Notem que usamos o argumento `na.rm = TRUE` para sinalizar ao R que, em caso de
+presença de valores ausentes na variável, queremos que as medidas sejam calculadas
+ignorando os `NA` e considerando apenas os valores válidos.
