@@ -412,7 +412,7 @@ Bruno Montezano
 <li class="fragment">Medidas de tendência central</li>
 <li class="fragment">Medidas de dispersão</li>
 <li class="fragment">Medidas de assimetria e curtose</li>
-<li class="fragment">Testes de normalidade</li>
+<li class="fragment">Distribuição normal</li>
 <li class="fragment">Transformação de dados</li>
 <li class="fragment">Tabelas de frequência</li>
 </ul>
@@ -429,8 +429,8 @@ Bruno Montezano
 </div>
 </div>
 </section>
-<section id="olhadinha-nos-pinguins" class="slide level2">
-<h2>Olhadinha nos <code>pinguins</code></h2>
+<section id="pinguins" class="slide level2">
+<h2><code>pinguins</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(dados)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
@@ -447,6 +447,26 @@ $ comprimento_nadadeira &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 
 $ massa_corporal        &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 34…
 $ sexo                  &lt;fct&gt; macho, fêmea, fêmea, NA, fêmea, macho, fêmea, ma…
 $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, …</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>pinguins</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   especie        ilha  comprimento_bico profundidade_bico comprimento_nadadeira
+   &lt;fct&gt;          &lt;fct&gt;            &lt;dbl&gt;             &lt;dbl&gt;                 &lt;int&gt;
+ 1 Pinguim-de-ad… Torg…             39.1              18.7                   181
+ 2 Pinguim-de-ad… Torg…             39.5              17.4                   186
+ 3 Pinguim-de-ad… Torg…             40.3              18                     195
+ 4 Pinguim-de-ad… Torg…             NA                NA                      NA
+ 5 Pinguim-de-ad… Torg…             36.7              19.3                   193
+ 6 Pinguim-de-ad… Torg…             39.3              20.6                   190
+ 7 Pinguim-de-ad… Torg…             38.9              17.8                   181
+ 8 Pinguim-de-ad… Torg…             39.2              19.6                   195
+ 9 Pinguim-de-ad… Torg…             34.1              18.1                   193
+10 Pinguim-de-ad… Torg…             42                20.2                   190
+# ℹ 334 more rows
+# ℹ 3 more variables: massa_corporal &lt;int&gt;, sexo &lt;fct&gt;, ano &lt;int&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -501,8 +521,8 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">27</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">27</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">sum</span>(x)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 74</code></pre>
 </div>
@@ -524,9 +544,9 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">summarise</span>(<span class="at">media_massa =</span> <span class="fu">mean</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb5-3"><a href="#cb5-3"></a>            <span class="at">media_comprimento_bico =</span> <span class="fu">mean</span>(comprimento_bico, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">summarise</span>(<span class="at">media_massa =</span> <span class="fu">mean</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-3"><a href="#cb7-3"></a>            <span class="at">media_comprimento_bico =</span> <span class="fu">mean</span>(comprimento_bico, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   media_massa media_comprimento_bico
@@ -548,9 +568,9 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">summarise</span>(<span class="at">mediana_massa =</span> <span class="fu">median</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb7-3"><a href="#cb7-3"></a>            <span class="at">mediana_comprimento_bico =</span> <span class="fu">median</span>(comprimento_bico, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">summarise</span>(<span class="at">mediana_massa =</span> <span class="fu">median</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb9-3"><a href="#cb9-3"></a>            <span class="at">mediana_comprimento_bico =</span> <span class="fu">median</span>(comprimento_bico, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   mediana_massa mediana_comprimento_bico
@@ -570,8 +590,8 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 <div class="fragment">
 <p>Vocês podem usar <code>count()</code> para ver a frequência de valores:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">count</span>(especie)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">count</span>(especie)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   especie                 n
@@ -585,9 +605,9 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 <div class="fragment">
 <p>E vocês podem achar a moda diretamente com um <code>filter()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">count</span>(especie) <span class="sc">|&gt;</span> </span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="fu">max</span>(n))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">count</span>(especie) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="fu">max</span>(n))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   especie               n
@@ -601,8 +621,8 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 <h2>Valores extremos</h2>
 <p>A média é sensível a valores extremos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">105</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">mean</span>(z)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">105</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">mean</span>(z)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 24</code></pre>
 </div>
@@ -610,7 +630,7 @@ $ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20
 <div class="fragment">
 <p>A mediana não é:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">median</span>(z)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">median</span>(z)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -633,13 +653,13 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 \]</span></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span> </span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">summarise</span>(<span class="at">variancia_na_mao_massa =</span> <span class="fu">sum</span>(</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    (massa_corporal <span class="sc">-</span> <span class="fu">mean</span>(massa_corporal))<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>      (<span class="fu">length</span>(massa_corporal) <span class="sc">-</span> <span class="dv">1</span>)),</span>
-<span id="cb17-6"><a href="#cb17-6"></a>    <span class="at">variancia_massa =</span> <span class="fu">var</span>(massa_corporal)</span>
-<span id="cb17-7"><a href="#cb17-7"></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">summarise</span>(<span class="at">variancia_na_mao_massa =</span> <span class="fu">sum</span>(</span>
+<span id="cb19-4"><a href="#cb19-4"></a>    (massa_corporal <span class="sc">-</span> <span class="fu">mean</span>(massa_corporal))<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>      (<span class="fu">length</span>(massa_corporal) <span class="sc">-</span> <span class="dv">1</span>)),</span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="at">variancia_massa =</span> <span class="fu">var</span>(massa_corporal)</span>
+<span id="cb19-7"><a href="#cb19-7"></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   variancia_na_mao_massa variancia_massa
@@ -661,11 +681,11 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span> </span>
-<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">summarise</span>(<span class="at">desvio_padrao_na_mao_massa =</span> <span class="fu">sqrt</span>(<span class="fu">var</span>(massa_corporal)),</span>
-<span id="cb19-4"><a href="#cb19-4"></a>    <span class="at">desvio_padrao_massa =</span> <span class="fu">sd</span>(massa_corporal)</span>
-<span id="cb19-5"><a href="#cb19-5"></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">summarise</span>(<span class="at">desvio_padrao_na_mao_massa =</span> <span class="fu">sqrt</span>(<span class="fu">var</span>(massa_corporal)),</span>
+<span id="cb21-4"><a href="#cb21-4"></a>    <span class="at">desvio_padrao_massa =</span> <span class="fu">sd</span>(massa_corporal)</span>
+<span id="cb21-5"><a href="#cb21-5"></a>    )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   desvio_padrao_na_mao_massa desvio_padrao_massa
@@ -684,13 +704,13 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 <p><span class="math display">\[R = H - L\]</span></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb21-4"><a href="#cb21-4"></a>    <span class="at">massa_max =</span> <span class="fu">max</span>(massa_corporal),</span>
-<span id="cb21-5"><a href="#cb21-5"></a>    <span class="at">massa_min =</span> <span class="fu">min</span>(massa_corporal),</span>
-<span id="cb21-6"><a href="#cb21-6"></a>    <span class="at">massa_amplitude =</span> <span class="fu">max</span>(massa_corporal) <span class="sc">-</span> <span class="fu">min</span>(massa_corporal)</span>
-<span id="cb21-7"><a href="#cb21-7"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb23-4"><a href="#cb23-4"></a>    <span class="at">massa_max =</span> <span class="fu">max</span>(massa_corporal),</span>
+<span id="cb23-5"><a href="#cb23-5"></a>    <span class="at">massa_min =</span> <span class="fu">min</span>(massa_corporal),</span>
+<span id="cb23-6"><a href="#cb23-6"></a>    <span class="at">massa_amplitude =</span> <span class="fu">max</span>(massa_corporal) <span class="sc">-</span> <span class="fu">min</span>(massa_corporal)</span>
+<span id="cb23-7"><a href="#cb23-7"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   massa_max massa_min massa_amplitude
@@ -709,13 +729,13 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb23-4"><a href="#cb23-4"></a>    <span class="at">intervalo_interquartil_massa =</span> <span class="fu">IQR</span>(massa_corporal),</span>
-<span id="cb23-5"><a href="#cb23-5"></a>    <span class="at">primeiro_quartil =</span> <span class="fu">quantile</span>(massa_corporal)[<span class="st">"25%"</span>],</span>
-<span id="cb23-6"><a href="#cb23-6"></a>    <span class="at">terceiro_quartil =</span> <span class="fu">quantile</span>(massa_corporal)[<span class="st">"75%"</span>]</span>
-<span id="cb23-7"><a href="#cb23-7"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(massa_corporal)) <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    <span class="at">intervalo_interquartil_massa =</span> <span class="fu">IQR</span>(massa_corporal),</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    <span class="at">primeiro_quartil =</span> <span class="fu">quantile</span>(massa_corporal)[<span class="st">"25%"</span>],</span>
+<span id="cb25-6"><a href="#cb25-6"></a>    <span class="at">terceiro_quartil =</span> <span class="fu">quantile</span>(massa_corporal)[<span class="st">"75%"</span>]</span>
+<span id="cb25-7"><a href="#cb25-7"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 3
   intervalo_interquartil_massa primeiro_quartil terceiro_quartil
@@ -738,39 +758,48 @@ s^2 = \frac{\sum (x_i - \bar{x})^2}{n - 1}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_descritiva_versao_longa_files/figure-revealjs/plot-distribuicao-normal-1.png" style="width:60.0%"></p>
+<p><img data-src="slides_descritiva_files/figure-revealjs/plot-distribuicao-normal-1.png" style="width:60.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="testes-de-normalidade" class="slide level2">
-<h2>Testes de normalidade</h2>
+<section id="como-testar-normalidade" class="slide level2">
+<h2>Como testar normalidade?</h2>
 <p>Em muitos casos, é necessário verificar se uma amostra segue uma distribuição normal antes de aplicar determinados testes estatísticos.</p>
 <ul>
 <li class="fragment">O teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal</li>
-<li class="fragment">A hipótese nula (<span class="math inline">\(H_0\)</span>) do teste é que a amostra segue uma distribuição normal</li>
 <li class="fragment">Se o <span class="math inline">\(p\)</span>-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal</li>
 </ul>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">shapiro.test</span>(amostra) <span class="co"># Normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Exemplo de distribuição normal</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="co"># Amostra de 500 sujeitos</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="co"># com média de 175cm e 10cm de desvio padrão</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>alturas_adultos <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">500</span>,</span>
+<span id="cb27-6"><a href="#cb27-6"></a>                         <span class="at">mean =</span> <span class="dv">175</span>,</span>
+<span id="cb27-7"><a href="#cb27-7"></a>                         <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb27-8"><a href="#cb27-8"></a></span>
+<span id="cb27-9"><a href="#cb27-9"></a><span class="fu">shapiro.test</span>(alturas_adultos)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
 
-data:  amostra
-W = 0.99838, p-value = 0.4765</code></pre>
+data:  alturas_adultos
+W = 0.99673, p-value = 0.4093</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span> </span>
-<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">shapiro.test</span>() <span class="co"># Não-normal</span></span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Exemplo de variável que não segue uma</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="co"># distribuição normal</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span> </span>
+<span id="cb29-5"><a href="#cb29-5"></a>  <span class="fu">shapiro.test</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Shapiro-Wilk normality test
@@ -795,7 +824,7 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 <section id="exemplo-de-distribuição-assimétrica" class="slide level2">
 <h2>Exemplo de distribuição assimétrica</h2>
 
-<img data-src="slides_descritiva_versao_longa_files/figure-revealjs/histograma-distribuicao-assimetrica-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="slides_descritiva_files/figure-revealjs/histograma-distribuicao-assimetrica-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
 <section id="curtose" class="slide level2">
 <h2>Curtose</h2>
 <p>Curtose é a medida da forma da distribuição em relação à sua média.</p>
@@ -811,26 +840,26 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 <section id="visualizando-a-curtose" class="slide level2">
 <h2>Visualizando a curtose</h2>
 
-<img data-src="slides_descritiva_versao_longa_files/figure-revealjs/exemplo-curtose-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="slides_descritiva_files/figure-revealjs/exemplo-curtose-1.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="medidas-de-assimetria-e-curtose" class="slide level2">
 <h2>Medidas de assimetria e curtose</h2>
 <p>Tanto a assimetria quanto a curtose podem ser calculados com funções do pacote <code>moments</code>.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">library</span>(moments)</span>
-<span id="cb29-2"><a href="#cb29-2"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
-<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">skewness</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">library</span>(moments)</span>
+<span id="cb31-2"><a href="#cb31-2"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">skewness</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.468264</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">kurtosis</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">pull</span>(massa_corporal) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">kurtosis</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.273757</code></pre>
 </div>
@@ -842,7 +871,7 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_descritiva_versao_longa_files/figure-revealjs/histograma-massa-corporal-1.png" style="width:75.0%"></p>
+<p><img data-src="slides_descritiva_files/figure-revealjs/histograma-massa-corporal-1.png" style="width:75.0%"></p>
 </figure>
 </div>
 </div>
@@ -860,7 +889,7 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_descritiva_versao_longa_files/figure-revealjs/plot-transformacao-de-dados-1.png" style="width:70.0%"></p>
+<p><img data-src="slides_descritiva_files/figure-revealjs/plot-transformacao-de-dados-1.png" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
@@ -872,33 +901,33 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> massa_corporal)) <span class="sc">+</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"coral2"</span>) <span class="sc">+</span></span>
-<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Massa corporal (em gramas)"</span>,</span>
-<span id="cb33-5"><a href="#cb33-5"></a>       <span class="at">y =</span> <span class="st">"Frequência"</span>) <span class="sc">+</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>,</span>
-<span id="cb33-7"><a href="#cb33-7"></a>           <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> massa_corporal)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"coral2"</span>) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Massa corporal (em gramas)"</span>,</span>
+<span id="cb35-5"><a href="#cb35-5"></a>       <span class="at">y =</span> <span class="st">"Frequência"</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>,</span>
+<span id="cb35-7"><a href="#cb35-7"></a>           <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_descritiva_versao_longa_files/figure-revealjs/histograma-massa-corporal-dois-1.png" style="width:100.0%"></p>
+<p><img data-src="slides_descritiva_files/figure-revealjs/histograma-massa-corporal-dois-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">mutate</span>(<span class="at">massa_log =</span> <span class="fu">log10</span>(massa_corporal)) <span class="sc">|&gt;</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> massa_log)) <span class="sc">+</span></span>
-<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"deepskyblue4"</span>) <span class="sc">+</span></span>
-<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Log da massa corporal"</span>,</span>
-<span id="cb34-6"><a href="#cb34-6"></a>       <span class="at">y =</span> <span class="st">"Frequência"</span>) <span class="sc">+</span></span>
-<span id="cb34-7"><a href="#cb34-7"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>,</span>
-<span id="cb34-8"><a href="#cb34-8"></a>           <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">mutate</span>(<span class="at">massa_log =</span> <span class="fu">log10</span>(massa_corporal)) <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> massa_log)) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"deepskyblue4"</span>) <span class="sc">+</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Log da massa corporal"</span>,</span>
+<span id="cb36-6"><a href="#cb36-6"></a>       <span class="at">y =</span> <span class="st">"Frequência"</span>) <span class="sc">+</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">16</span>,</span>
+<span id="cb36-8"><a href="#cb36-8"></a>           <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="slides_descritiva_versao_longa_files/figure-revealjs/log-massa-corporal-1.png" width="960"></p>
+<p><img data-src="slides_descritiva_files/figure-revealjs/log-massa-corporal-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -906,13 +935,47 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </section>
 <section id="tabelas-de-frequência" class="slide level2">
 <h2>Tabelas de frequência</h2>
+<p>A função <code>count()</code> do pacote <code>dplyr</code> pode ser usada para contar valores (frequência) a partir de uma ou mais variáveis.</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">count</span>(especie)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  especie                 n
+  &lt;fct&gt;               &lt;int&gt;
+1 Pinguim-de-adélia     152
+2 Pinguim-de-barbicha    68
+3 Pinguim-gentoo        124</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">count</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  especie             ilha          n
+  &lt;fct&gt;               &lt;fct&gt;     &lt;int&gt;
+1 Pinguim-de-adélia   Biscoe       44
+2 Pinguim-de-adélia   Dream        56
+3 Pinguim-de-adélia   Torgersen    52
+4 Pinguim-de-barbicha Dream        68
+5 Pinguim-gentoo      Biscoe      124</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tabelas-de-frequência-com-janitor" class="slide level2">
+<h2>Tabelas de frequência com <code>janitor()</code></h2>
 <p>O pacote <code>janitor</code> oferece uma função <code>tabyl()</code> para produzir tabulações e tabulações cruzadas, que podem ser modificadas para exibir porcentagens, proporções, etc.</p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb35-2"><a href="#cb35-2"></a></span>
-<span id="cb35-3"><a href="#cb35-3"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">tabyl</span>(especie)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb41-2"><a href="#cb41-2"></a></span>
+<span id="cb41-3"><a href="#cb41-3"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">tabyl</span>(especie)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             especie   n   percent
    Pinguim-de-adélia 152 0.4418605
@@ -923,8 +986,8 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             especie Biscoe Dream Torgersen
    Pinguim-de-adélia     44    56        52
@@ -975,15 +1038,15 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </tbody>
 </table>
 </section>
-<section id="exemplos-de-tabela-cruzada" class="slide level2">
-<h2>Exemplos de tabela cruzada</h2>
+<section id="exemplo-de-tabela-cruzada" class="slide level2">
+<h2>Exemplo de tabela cruzada</h2>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Básica</a></li><li><a href="#tabset-1-2">Totais e porcentagens</a></li><li><a href="#tabset-1-3">Completa</a></li><li><a href="#tabset-1-4">Salvando em Word</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             especie Biscoe Dream Torgersen
    Pinguim-de-adélia     44    56        52
@@ -994,11 +1057,11 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">tabyl</span>(especie, ilha) <span class="sc">|&gt;</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"col"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">tabyl</span>(especie, ilha) <span class="sc">|&gt;</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"col"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>)   </span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             especie Biscoe  Dream Torgersen
    Pinguim-de-adélia  26.2%  45.2%    100.0%
@@ -1010,15 +1073,15 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </div>
 <div id="tabset-1-3">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">tabyl</span>(especie, ilha) <span class="sc">|&gt;</span> </span>
-<span id="cb43-3"><a href="#cb43-3"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"col"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">adorn_pct_formatting</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb43-6"><a href="#cb43-6"></a>  <span class="fu">adorn_ns</span>(<span class="at">position =</span> <span class="st">"front"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb43-7"><a href="#cb43-7"></a>  <span class="fu">adorn_title</span>(</span>
-<span id="cb43-8"><a href="#cb43-8"></a>    <span class="at">row_name =</span> <span class="st">"Espécie"</span>,</span>
-<span id="cb43-9"><a href="#cb43-9"></a>    <span class="at">col_name =</span> <span class="st">"Ilha"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">tabyl</span>(especie, ilha) <span class="sc">|&gt;</span> </span>
+<span id="cb49-3"><a href="#cb49-3"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-4"><a href="#cb49-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"col"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-5"><a href="#cb49-5"></a>  <span class="fu">adorn_pct_formatting</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb49-6"><a href="#cb49-6"></a>  <span class="fu">adorn_ns</span>(<span class="at">position =</span> <span class="st">"front"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-7"><a href="#cb49-7"></a>  <span class="fu">adorn_title</span>(</span>
+<span id="cb49-8"><a href="#cb49-8"></a>    <span class="at">row_name =</span> <span class="st">"Espécie"</span>,</span>
+<span id="cb49-9"><a href="#cb49-9"></a>    <span class="at">col_name =</span> <span class="st">"Ilha"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                             Ilha                         
              Espécie       Biscoe        Dream   Torgersen
@@ -1031,18 +1094,18 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </div>
 <div id="tabset-1-4">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">tabyl</span>(especie, ilha) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a href="#cb45-3"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"col"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">adorn_pct_formatting</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb45-6"><a href="#cb45-6"></a>  <span class="fu">adorn_ns</span>(<span class="at">position =</span> <span class="st">"front"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-7"><a href="#cb45-7"></a>  <span class="fu">adorn_title</span>(</span>
-<span id="cb45-8"><a href="#cb45-8"></a>    <span class="at">row_name =</span> <span class="st">"Espécie"</span>,</span>
-<span id="cb45-9"><a href="#cb45-9"></a>    <span class="at">col_name =</span> <span class="st">"Ilha"</span>,</span>
-<span id="cb45-10"><a href="#cb45-10"></a>    <span class="at">placement =</span> <span class="st">"combined"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-11"><a href="#cb45-11"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb45-12"><a href="#cb45-12"></a>  flextable<span class="sc">::</span><span class="fu">save_as_docx</span>(<span class="at">path =</span> <span class="st">"tabela_especie_ilha.docx"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">tabyl</span>(especie, ilha) <span class="sc">|&gt;</span> </span>
+<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">adorn_totals</span>(<span class="at">where =</span> <span class="st">"row"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb51-4"><a href="#cb51-4"></a>  <span class="fu">adorn_percentages</span>(<span class="at">denominator =</span> <span class="st">"col"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb51-5"><a href="#cb51-5"></a>  <span class="fu">adorn_pct_formatting</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb51-6"><a href="#cb51-6"></a>  <span class="fu">adorn_ns</span>(<span class="at">position =</span> <span class="st">"front"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb51-7"><a href="#cb51-7"></a>  <span class="fu">adorn_title</span>(</span>
+<span id="cb51-8"><a href="#cb51-8"></a>    <span class="at">row_name =</span> <span class="st">"Espécie"</span>,</span>
+<span id="cb51-9"><a href="#cb51-9"></a>    <span class="at">col_name =</span> <span class="st">"Ilha"</span>,</span>
+<span id="cb51-10"><a href="#cb51-10"></a>    <span class="at">placement =</span> <span class="st">"combined"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb51-11"><a href="#cb51-11"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb51-12"><a href="#cb51-12"></a>  flextable<span class="sc">::</span><span class="fu">save_as_docx</span>(<span class="at">path =</span> <span class="st">"tabela_especie_ilha.docx"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1060,11 +1123,12 @@ W = 0.95921, p-value = 0.00000003679</code></pre>
 </ul>
 <ol type="1">
 <li class="fragment">Filtre a base para manter apenas as observações do ano de 2009.</li>
-<li class="fragment">Escolha uma variável contínua da base de dados e verifique se ela segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.</li>
-<li class="fragment">Independentemente da distribuição, crie uma variável transformada (a partir da que você escolheu) através do método da raíz quadrada (função <code>sqrt()</code>), da raíz cúbica (lembre-se do operador <code>^</code>) ou do log (função <code>log10()</code>). Você também pode criar um histograma da variável transformada.</li>
+<li class="fragment">Verifique se a variável <code>comprimento_bico</code> da base de dados segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.</li>
+<li class="fragment">Com a função <code>count()</code>, verifique a frequência da variável <code>sexo</code> na base de dados.</li>
+<li class="fragment">Com a função <code>summarise()</code>, calcule a média, mediana e desvio padrão da variável <code>comprimento_nadadeira</code>.</li>
 </ol>
 <ul>
-<li class="fragment">Lembre-se da função <code>mutate()</code> para criar ou modificar colunas.</li>
+<li class="fragment">Dica de leitura: Capítulos 4 e 5 do livro <a href="https://openintro-ims.netlify.app/">Introduction to Modern Statistics</a>.</li>
 </ul>
 
 

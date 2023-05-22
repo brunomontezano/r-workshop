@@ -24,7 +24,7 @@ bibliography: references.bib
 - Testes de hipótese
   - Hipótese nula e alternativa
   - Interpretação de resultados
-- Teste $chi^2$
+- Teste $\chi^2$
 - Teste t
 - ANOVA de uma via e Tukey HSD (*Honest Significant Differences*)
 - Correlação
