@@ -382,7 +382,7 @@
     "href": "aulas_e_laboratorios.html#aula-4-análise-descritiva",
     "title": "Aulas e laboratórios",
     "section": "Aula 4: Análise descritiva",
-    "text": "Aula 4: Análise descritiva\n\nSlides\nCódigo dos slides\nScript em R"
+    "text": "Aula 4: Análise descritiva\n\nSlides (versão curta)\nSlides (versão longa)\nCódigo dos slides\nScript em R"
   },
   {
     "objectID": "aulas_e_laboratorios.html#aula-5-inferência-estatística",
@@ -970,7 +970,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#moda",
     "title": "Análise descritiva",
     "section": "Moda",
-    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar table() para ver a frequência de valores:\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\nE vocês podem achar a moda diretamente com um filter():\n\npinguins |&gt; \n  count(especie) |&gt; \n  filter(n == max(n))\n\n# A tibble: 1 × 2\n  especie               n\n  &lt;fct&gt;             &lt;int&gt;\n1 Pinguim-de-adélia   152"
+    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar count() para ver a frequência de valores:\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\nE vocês podem achar a moda diretamente com um filter():\n\npinguins |&gt; \n  count(especie) |&gt; \n  filter(n == max(n))\n\n# A tibble: 1 × 2\n  especie               n\n  &lt;fct&gt;             &lt;int&gt;\n1 Pinguim-de-adélia   152"
   },
   {
     "objectID": "slides/4_descritiva/slides_descritiva.html#valores-extremos",
@@ -1012,7 +1012,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#intervalo-interquartil",
     "title": "Análise descritiva",
     "section": "Intervalo interquartil",
-    "text": "Intervalo interquartil\nO intervalo interquartil representa a diferença entre o primeiro quartil (o 25º percentil) e o terceiro quartil (o 75º percentil) de um conjunto de dados.\n\\[IQR = Q_3 - Q_1\\]\n\nEm termos simples, o quão distantes estão os 50% valores do meio da variável.\n\n\n\npinguins |&gt;\n  filter(!is.na(massa_corporal)) |&gt;\n  summarise(\n    intervalo_interquartil_massa = IQR(massa_corporal),\n    primeiro_quartil = quantile(massa_corporal)[\"25%\"],\n    terceiro_quartil = quantile(massa_corporal)[\"75%\"]\n  )\n\n# A tibble: 1 × 3\n  intervalo_interquartil_massa primeiro_quartil terceiro_quartil\n                         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1                         1200             3550             4750"
+    "text": "Intervalo interquartil\nO intervalo interquartil representa a diferença entre o primeiro quartil (o 25º percentil) e o terceiro quartil (o 75º percentil) de um conjunto de dados.\n\\[IQR = Q_3 - Q_1\\]\n\nEm termos simples, o quão distantes estão os 50% valores do meio da variável.\n\n\n\npinguins |&gt;\n  filter(!is.na(massa_corporal)) |&gt;\n  summarise(\n    intervalo_interquartil_massa = IQR(massa_corporal),\n    primeiro_quartil = quantile(massa_corporal, 0.25)[\"25%\"],\n    terceiro_quartil = quantile(massa_corporal, 0.75)\n  )\n\n# A tibble: 1 × 3\n  intervalo_interquartil_massa primeiro_quartil terceiro_quartil\n                         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1                         1200             3550             4750"
   },
   {
     "objectID": "slides/4_descritiva/slides_descritiva.html#assimetria",
@@ -1103,7 +1103,7 @@
     "href": "slides/4_descritiva/slides_descritiva.html#tarefa-de-casa",
     "title": "Análise descritiva",
     "section": "Tarefa de casa",
-    "text": "Tarefa de casa\n\nPara a tarefa de casa, vamos seguir usando a base pinguins do pacote dados.\n\n\nFiltre a base para manter apenas as observações do ano de 2009.\nEscolha uma variável contínua da base de dados e verifique se ela segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.\nIndependentemente da distribuição, crie uma variável transformada (a partir da que você escolheu) através do método da raíz quadrada (função sqrt()), da raíz cúbica (lembre-se do operador ^) ou do log (função log10()). Você também pode criar um histograma da variável transformada.\n\n\nLembre-se da função mutate() para criar ou modificar colunas."
+    "text": "Tarefa de casa\n\nPara a tarefa de casa, vamos seguir usando a base pinguins do pacote dados.\n\n\nFiltre a base para manter apenas as observações do ano de 2009.\nVerifique se a variável comprimento_bico da base de dados segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.\nIndependentemente da distribuição, crie uma variável transformada do comprimento_bico através do método da raíz quadrada (função sqrt()), da raíz cúbica (lembre-se do operador ^) ou do log (função log10()). Você também pode criar um histograma da variável transformada.\n\n\nLembre-se da função mutate() para criar ou modificar colunas."
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
@@ -1636,5 +1636,369 @@
     "title": "Introdução ao R",
     "section": "",
     "text": "#"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#conteúdo-de-hoje",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#conteúdo-de-hoje",
+    "title": "Análise descritiva",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nMedidas de tendência central\nMedidas de dispersão\nDistribuição normal\nTransformação de dados\nTabelas de frequência"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#dados-dos-pinguins",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#dados-dos-pinguins",
+    "title": "Análise descritiva",
+    "section": "Dados dos pinguins",
+    "text": "Dados dos pinguins\n\n\nHoje nós usaremos os dados dos pinguins do pacote dados.\nEste conjunto de dados contém 14 variáveis de 344 observações de pinguins adultos perto da Estação Palmer na Antártida.\nOs dados incluem a espécies de pinguins e ilhas do Arquipélago Palmer, medidas de cada espécie, sexo do pinguim e ano de documentação."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#olhadinha-nos-pinguins",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#olhadinha-nos-pinguins",
+    "title": "Análise descritiva",
+    "section": "Olhadinha nos pinguins",
+    "text": "Olhadinha nos pinguins\n\nlibrary(dados)\nlibrary(tidyverse)\n\nglimpse(pinguins)\n\nRows: 344\nColumns: 8\n$ especie               &lt;fct&gt; Pinguim-de-adélia, Pinguim-de-adélia, Pinguim-de…\n$ ilha                  &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torg…\n$ comprimento_bico      &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34…\n$ profundidade_bico     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18…\n$ comprimento_nadadeira &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190,…\n$ massa_corporal        &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 34…\n$ sexo                  &lt;fct&gt; macho, fêmea, fêmea, NA, fêmea, macho, fêmea, ma…\n$ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, …"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#revisão-de-conceitos-matemáticos",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#revisão-de-conceitos-matemáticos",
+    "title": "Análise descritiva",
+    "section": "Revisão de conceitos matemáticos",
+    "text": "Revisão de conceitos matemáticos"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#variáveis",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#variáveis",
+    "title": "Análise descritiva",
+    "section": "Variáveis",
+    "text": "Variáveis\nVariáveis são símbolos que representam conjuntos de um ou mais elementos que podem assumir qualquer quantidade de valores.\n\n\nLetras como \\(x\\), \\(y\\) e \\(z\\) são comumente usadas para indicar variáveis\n\nPor exemplo: \\(x = 3\\)\n\n\n\n\n\n\nLetras maiúsculas (\\(X\\)) ou letras com um índice (\\(x_i\\)) referem-se a variáveis com múltiplos valores — ou seja, com dimensões\n\nPor exemplo: \\(X = x_i = (15, 16, 32)\\)\nVariáveis com uma dimensão (comprimento) são chamadas de vetor\n\n\n\n\n\n\n\nVariáveis como \\(x_i\\) são usadas para indexar elementos de vetores\n\n\\(i\\) é uma variável que indica a posição indexada\nPor exemplo: \\(x_1 = 15, x_2 = 16, x_3 = 32\\)"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#somatório",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#somatório",
+    "title": "Análise descritiva",
+    "section": "Somatório",
+    "text": "Somatório\n\\[\\sum_{i=1}^{n}x_i\\]\n\n“Soma de todos os valores de \\(x\\) do primeiro (\\(i = 1\\)) até o último (\\(n\\))”\n\n\n \nDado \\(x = [9, 12, 12, 14, 27]\\):\n\\[\\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74\\]\n\n\n\nx &lt;- c(9, 12, 12, 14, 27)\nsum(x)\n\n[1] 74\n\n\nÉ comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos, por exemplo: \\(\\sum{x_i} = \\sum_{i=1}^{n}x_i\\)"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#medidas-de-tendência-central",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#medidas-de-tendência-central",
+    "title": "Análise descritiva",
+    "section": "Medidas de tendência central",
+    "text": "Medidas de tendência central"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#média",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#média",
+    "title": "Análise descritiva",
+    "section": "Média",
+    "text": "Média\nA média (aritmética) é o valor esperado de uma variável.\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\n\n“Soma de todos os elementos dividido pelo número de elementos”\n\n\n\n\npinguins |&gt; \n  summarise(media_massa = mean(massa_corporal, na.rm = TRUE),\n            media_comprimento_bico = mean(comprimento_bico, na.rm = TRUE))\n\n# A tibble: 1 × 2\n  media_massa media_comprimento_bico\n        &lt;dbl&gt;                  &lt;dbl&gt;\n1       4202.                   43.9"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#mediana",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#mediana",
+    "title": "Análise descritiva",
+    "section": "Mediana",
+    "text": "Mediana\nO valor para o qual não mais da metade dos valores é superior ou inferior, ou seja, o valor do meio.\n\\[m(x_i) = \\begin{cases} x_{\\frac{n+1}{2}},& \\text{se } n \\text{ ímpar}\\\\ \\frac{1}{2}(x_{\\frac{n}{2}} + x_{\\frac{n}{2} + 1}), &\\text{se } n \\text{ par}\\end{cases}\\]\n\n“Se \\(x\\) tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se \\(x\\) tem um número par de elementos, a mediana é a média dos dois valores do meio”\n\n\n\n\npinguins |&gt; \n  summarise(mediana_massa = median(massa_corporal, na.rm = TRUE),\n            mediana_comprimento_bico = median(comprimento_bico, na.rm = TRUE))\n\n# A tibble: 1 × 2\n  mediana_massa mediana_comprimento_bico\n          &lt;dbl&gt;                    &lt;dbl&gt;\n1          4050                     44.4"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#moda",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#moda",
+    "title": "Análise descritiva",
+    "section": "Moda",
+    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar count() para ver a frequência de valores:\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\nE vocês podem achar a moda diretamente com um filter():\n\npinguins |&gt; \n  count(especie) |&gt; \n  filter(n == max(n))\n\n# A tibble: 1 × 2\n  especie               n\n  &lt;fct&gt;             &lt;int&gt;\n1 Pinguim-de-adélia   152"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#valores-extremos",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#valores-extremos",
+    "title": "Análise descritiva",
+    "section": "Valores extremos",
+    "text": "Valores extremos\nA média é sensível a valores extremos:\n\nalturas &lt;- c(150, 152, 154, 155, 151, 153, 215)\nmean(alturas)\n\n[1] 161.4286\n\n\n\nA mediana não é:\n\nmedian(alturas)\n\n[1] 153\n\n\n\n\nIsso significa que a mediana pode ser uma “média” mais útil quando os dados têm valores extremos.\nIsto é comum com variáveis como renda e números de episódios auto-relatados."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#medidas-de-dispersão",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#medidas-de-dispersão",
+    "title": "Análise descritiva",
+    "section": "Medidas de dispersão",
+    "text": "Medidas de dispersão"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#variância",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#variância",
+    "title": "Análise descritiva",
+    "section": "Variância",
+    "text": "Variância\nA variância mede como os dados estão dispersos em torno da média. Normalmente usamos a variância amostral:\n\\[\ns^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}\n\\]\n\n\npinguins |&gt; \n  filter(!is.na(massa_corporal)) |&gt; \n  summarise(variancia_massa = var(massa_corporal))\n\n# A tibble: 1 × 1\n  variancia_massa\n            &lt;dbl&gt;\n1         643131.\n\n\n\n\nSe todos os valores são iguais, a variância é zero."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#desvio-padrão",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#desvio-padrão",
+    "title": "Análise descritiva",
+    "section": "Desvio padrão",
+    "text": "Desvio padrão\nO desvio padrão (\\(s\\) ou \\(sd\\), ou \\(dp\\) em português) é simplesmente a raíz quadrada da variância:\n\\[s = \\sqrt{s^2}\\]\n\nVocê pode interpretar como a distância “típica” dos valores em relação à média.\n\n\n\npinguins |&gt; \n  filter(!is.na(massa_corporal)) |&gt; \n  summarise(desvio_padrao_massa = sd(massa_corporal))\n\n# A tibble: 1 × 1\n  desvio_padrao_massa\n                &lt;dbl&gt;\n1                802.\n\n\n\n\nO desvio padrão se apresenta na mesma unidade de medida da variável."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#amplitude",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#amplitude",
+    "title": "Análise descritiva",
+    "section": "Amplitude",
+    "text": "Amplitude\nA amplitude (\\(R\\)) é a medida de dispersão mais fácil de calcular. Nós subtraímos o menor valor (\\(L\\)) do maior valor (\\(H\\)) da variável.\n\\[R = H - L\\]\n\n\npinguins |&gt;\n  filter(!is.na(massa_corporal)) |&gt;\n  summarise(\n    massa_max = max(massa_corporal),\n    massa_min = min(massa_corporal),\n    massa_amplitude = max(massa_corporal) - min(massa_corporal)\n  )\n\n# A tibble: 1 × 3\n  massa_max massa_min massa_amplitude\n      &lt;int&gt;     &lt;int&gt;           &lt;int&gt;\n1      6300      2700            3600"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#intervalo-interquartil",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#intervalo-interquartil",
+    "title": "Análise descritiva",
+    "section": "Intervalo interquartil",
+    "text": "Intervalo interquartil\nO intervalo interquartil representa a diferença entre o primeiro quartil (o 25º percentil) e o terceiro quartil (o 75º percentil) de um conjunto de dados.\n\\[IQR = Q_3 - Q_1\\]\n\nEm termos simples, o quão distantes estão os 50% valores do meio da variável.\n\n\n\npinguins |&gt;\n  filter(!is.na(massa_corporal)) |&gt;\n  summarise(\n    intervalo_interquartil_massa = IQR(massa_corporal),\n    primeiro_quartil = quantile(massa_corporal, 0.25),\n    terceiro_quartil = quantile(massa_corporal, 0.75)\n  )\n\n# A tibble: 1 × 3\n  intervalo_interquartil_massa primeiro_quartil terceiro_quartil\n                         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1                         1200             3550             4750"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#distribuição-normal",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#distribuição-normal",
+    "title": "Análise descritiva",
+    "section": "Distribuição normal",
+    "text": "Distribuição normal\nA distribuição normal é uma das distribuições mais importantes em estatística.\n\nTambém conhecida como distribuição de Gauss, é frequentemente usada para modelar fenômenos naturais\nMuitos testes estatísticos assumem que os dados seguem uma distribuição normal\n68% dos dados estão dentro de um desvio padrão da média, 95% estão dentro de dois desvios padrão e 99,7% estão dentro de três desvios padrão"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#testes-de-normalidade",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#testes-de-normalidade",
+    "title": "Análise descritiva",
+    "section": "Testes de normalidade",
+    "text": "Testes de normalidade\nEm muitos casos, é necessário verificar se uma amostra segue uma distribuição normal antes de aplicar determinados testes estatísticos.\n\nO teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal\nA hipótese nula (\\(H_0\\)) do teste é que a amostra segue uma distribuição normal\nSe o \\(p\\)-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal\n\n\n\n\n\nshapiro.test(amostra) # Normal\n\n\n    Shapiro-Wilk normality test\n\ndata:  amostra\nW = 0.99838, p-value = 0.4765\n\n\n\n\npinguins |&gt; \n  pull(massa_corporal) |&gt; \n  shapiro.test() # Não-normal\n\n\n    Shapiro-Wilk normality test\n\ndata:  pull(pinguins, massa_corporal)\nW = 0.95921, p-value = 0.00000003679"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#transformação-de-dados",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#transformação-de-dados",
+    "title": "Análise descritiva",
+    "section": "Transformação de dados",
+    "text": "Transformação de dados\nEm alguns casos, os dados podem apresentar distribuições muito distorcidas, o que pode afetar a validade dos testes estatísticos aplicados.\n\nPara resolver esse problema, uma solução comum é aplicar uma transformação aos dados para deixá-los mais próximos de uma distribuição normal."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#tabelas-de-frequência",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#tabelas-de-frequência",
+    "title": "Análise descritiva",
+    "section": "Tabelas de frequência",
+    "text": "Tabelas de frequência\nA função count() do pacote dplyr pode ser usada para contar valores (frequência) a partir de uma ou mais variáveis.\n\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\n\npinguins |&gt; \n  count(especie, ilha)\n\n# A tibble: 5 × 3\n  especie             ilha          n\n  &lt;fct&gt;               &lt;fct&gt;     &lt;int&gt;\n1 Pinguim-de-adélia   Biscoe       44\n2 Pinguim-de-adélia   Dream        56\n3 Pinguim-de-adélia   Torgersen    52\n4 Pinguim-de-barbicha Dream        68\n5 Pinguim-gentoo      Biscoe      124"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#tarefa-de-casa",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#tarefa-de-casa",
+    "title": "Análise descritiva",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nPara a tarefa de casa, vamos seguir usando a base pinguins do pacote dados.\n\n\nFiltre a base para manter apenas as observações do ano de 2009.\nVerifique se a variável comprimento_bico da base de dados segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.\nCom a função count(), verifique a frequência da variável sexo na base de dados.\nCom a função summarise(), calcule a média, mediana e desvio padrão da variável comprimento_nadadeira.\n\n\nDica de leitura: Capítulos 4 e 5 do livro Introduction to Modern Statistics."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#pinguins",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#pinguins",
+    "title": "Análise descritiva",
+    "section": "pinguins",
+    "text": "pinguins\n\nlibrary(dados)\nlibrary(tidyverse)\n\nglimpse(pinguins)\n\nRows: 344\nColumns: 8\n$ especie               &lt;fct&gt; Pinguim-de-adélia, Pinguim-de-adélia, Pinguim-de…\n$ ilha                  &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torg…\n$ comprimento_bico      &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34…\n$ profundidade_bico     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18…\n$ comprimento_nadadeira &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190,…\n$ massa_corporal        &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 34…\n$ sexo                  &lt;fct&gt; macho, fêmea, fêmea, NA, fêmea, macho, fêmea, ma…\n$ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, …\n\n\n\npinguins\n\n# A tibble: 344 × 8\n   especie        ilha  comprimento_bico profundidade_bico comprimento_nadadeira\n   &lt;fct&gt;          &lt;fct&gt;            &lt;dbl&gt;             &lt;dbl&gt;                 &lt;int&gt;\n 1 Pinguim-de-ad… Torg…             39.1              18.7                   181\n 2 Pinguim-de-ad… Torg…             39.5              17.4                   186\n 3 Pinguim-de-ad… Torg…             40.3              18                     195\n 4 Pinguim-de-ad… Torg…             NA                NA                      NA\n 5 Pinguim-de-ad… Torg…             36.7              19.3                   193\n 6 Pinguim-de-ad… Torg…             39.3              20.6                   190\n 7 Pinguim-de-ad… Torg…             38.9              17.8                   181\n 8 Pinguim-de-ad… Torg…             39.2              19.6                   195\n 9 Pinguim-de-ad… Torg…             34.1              18.1                   193\n10 Pinguim-de-ad… Torg…             42                20.2                   190\n# ℹ 334 more rows\n# ℹ 3 more variables: massa_corporal &lt;int&gt;, sexo &lt;fct&gt;, ano &lt;int&gt;"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_curta.html#como-testar-normalidade",
+    "href": "slides/4_descritiva/slides_descritiva_versao_curta.html#como-testar-normalidade",
+    "title": "Análise descritiva",
+    "section": "Como testar normalidade?",
+    "text": "Como testar normalidade?\nEm muitos casos, é necessário verificar se uma amostra segue uma distribuição normal antes de aplicar determinados testes estatísticos.\n\nO teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal\nSe o \\(p\\)-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal\n\n\n\n\n\n# Exemplo de distribuição normal\n\n# Amostra de 500 sujeitos\n# com média de 175cm e 10cm de desvio padrão\nalturas_adultos &lt;- rnorm(n = 500,\n                         mean = 175,\n                         sd = 10)\n\nshapiro.test(alturas_adultos)\n\n\n    Shapiro-Wilk normality test\n\ndata:  alturas_adultos\nW = 0.99673, p-value = 0.4093\n\n\n\n\n# Exemplo de variável que não segue uma\n# distribuição normal\npinguins |&gt; \n  pull(massa_corporal) |&gt; \n  shapiro.test()\n\n\n    Shapiro-Wilk normality test\n\ndata:  pull(pinguins, massa_corporal)\nW = 0.95921, p-value = 0.00000003679"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#conteúdo-de-hoje",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#conteúdo-de-hoje",
+    "title": "Análise descritiva",
+    "section": "Conteúdo de hoje",
+    "text": "Conteúdo de hoje\n\nMedidas de tendência central\nMedidas de dispersão\nMedidas de assimetria e curtose\nTestes de normalidade\nTransformação de dados\nTabelas de frequência"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#dados-dos-pinguins",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#dados-dos-pinguins",
+    "title": "Análise descritiva",
+    "section": "Dados dos pinguins",
+    "text": "Dados dos pinguins\n\n\nHoje nós usaremos os dados dos pinguins do pacote dados.\nEste conjunto de dados contém 14 variáveis de 344 observações de pinguins adultos perto da Estação Palmer na Antártida.\nOs dados incluem a espécies de pinguins e ilhas do Arquipélago Palmer, medidas de cada espécie, sexo do pinguim e ano de documentação."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#olhadinha-nos-pinguins",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#olhadinha-nos-pinguins",
+    "title": "Análise descritiva",
+    "section": "Olhadinha nos pinguins",
+    "text": "Olhadinha nos pinguins\n\nlibrary(dados)\nlibrary(tidyverse)\n\nglimpse(pinguins)\n\nRows: 344\nColumns: 8\n$ especie               &lt;fct&gt; Pinguim-de-adélia, Pinguim-de-adélia, Pinguim-de…\n$ ilha                  &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torg…\n$ comprimento_bico      &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34…\n$ profundidade_bico     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18…\n$ comprimento_nadadeira &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190,…\n$ massa_corporal        &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 34…\n$ sexo                  &lt;fct&gt; macho, fêmea, fêmea, NA, fêmea, macho, fêmea, ma…\n$ ano                   &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, …"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#revisão-de-conceitos-matemáticos",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#revisão-de-conceitos-matemáticos",
+    "title": "Análise descritiva",
+    "section": "Revisão de conceitos matemáticos",
+    "text": "Revisão de conceitos matemáticos"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#variáveis",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#variáveis",
+    "title": "Análise descritiva",
+    "section": "Variáveis",
+    "text": "Variáveis\nVariáveis são símbolos que representam conjuntos de um ou mais elementos que podem assumir qualquer quantidade de valores.\n\n\nLetras como \\(x\\), \\(y\\) e \\(z\\) são comumente usadas para indicar variáveis\n\nPor exemplo: \\(x = 3\\)\n\n\n\n\n\n\nLetras maiúsculas (\\(X\\)) ou letras com um índice (\\(x_i\\)) referem-se a variáveis com múltiplos valores — ou seja, com dimensões\n\nPor exemplo: \\(X = x_i = (15, 16, 32)\\)\nVariáveis com uma dimensão (comprimento) são chamadas de vetor\n\n\n\n\n\n\n\nVariáveis como \\(x_i\\) são usadas para indexar elementos de vetores\n\n\\(i\\) é uma variável que indica a posição indexada\nPor exemplo: \\(x_1 = 15, x_2 = 16, x_3 = 32\\)"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#somatório",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#somatório",
+    "title": "Análise descritiva",
+    "section": "Somatório",
+    "text": "Somatório\n\\[\\sum_{i=1}^{n}x_i\\]\n\n“Soma de todos os valores de \\(x\\) do primeiro (\\(i = 1\\)) até o último (\\(n\\))”\n\n\n \nDado \\(x = [9, 12, 12, 14, 27]\\):\n\\[\\sum_{i=1}^{n}x_i = x_1 + x_2 + x_3 + x_4 + x_5 = 9 + 12 + 12 + 14 + 27 = 74\\]\n\n\n\nx &lt;- c(9, 12, 12, 14, 27)\nsum(x)\n\n[1] 74\n\n\nÉ comum ao somar todos os elementos de um vetor, omitirmos os sobrescritos e subscritos, por exemplo: \\(\\sum{x_i} = \\sum_{i=1}^{n}x_i\\)"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#medidas-de-tendência-central",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#medidas-de-tendência-central",
+    "title": "Análise descritiva",
+    "section": "Medidas de tendência central",
+    "text": "Medidas de tendência central"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#média",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#média",
+    "title": "Análise descritiva",
+    "section": "Média",
+    "text": "Média\nA média (aritmética) é o valor esperado de uma variável.\n\\[\\bar{x} = \\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\]\n\nSe você extrair elementos aleatoriamente dessa variável, a média seria o chute menos errado que você poderia fazer sobre esse valor1.\nDito de outra forma, as diferenças positivas e negativas entre todos os valores e a média equivalem entre si.\n\n\n\npinguins |&gt; \n  summarise(media_massa = mean(massa_corporal, na.rm = TRUE),\n            media_comprimento_bico = mean(comprimento_bico, na.rm = TRUE))\n\n# A tibble: 1 × 2\n  media_massa media_comprimento_bico\n        &lt;dbl&gt;                  &lt;dbl&gt;\n1       4202.                   43.9\n\n\n\nTecnicamente, a média minimiza o erro quadrático."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#mediana",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#mediana",
+    "title": "Análise descritiva",
+    "section": "Mediana",
+    "text": "Mediana\nO valor para o qual não mais da metade dos valores é superior ou inferior1.\n\nA mediana tem essa fórmula esquisita:\n\\[m(x_i) = \\begin{cases} x_{\\frac{n+1}{2}},& \\text{se } n \\text{ ímpar}\\\\ \\frac{1}{2}(x_{\\frac{n}{2}} + x_{\\frac{n}{2} + 1}), &\\text{se } n \\text{ par}\\end{cases}\\]\n\n“Se \\(x\\) tem um número ímpar de elementos, ao colocá-los em ordem, a mediana é o valor do meio. Se \\(x\\) tem um número par de elementos, a mediana é a média dos dois valores do meio”.\n\n\n\n\npinguins |&gt; \n  summarise(mediana_massa = median(massa_corporal, na.rm = TRUE),\n            mediana_comprimento_bico = median(comprimento_bico, na.rm = TRUE))\n\n# A tibble: 1 × 2\n  mediana_massa mediana_comprimento_bico\n          &lt;dbl&gt;                    &lt;dbl&gt;\n1          4050                     44.4\n\n\n \n\nTecnicamente, a mediana minimiza o erro absoluto"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#moda",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#moda",
+    "title": "Análise descritiva",
+    "section": "Moda",
+    "text": "Moda\nA moda é o valor mais frequente na variável.\n\nExistem fórmulas para a moda, mas elas não são nada intuitivas, apesar da moda ser a medida de tendência central mais intuitiva.\n\n\nVocês podem usar count() para ver a frequência de valores:\n\npinguins |&gt; \n  count(especie)\n\n# A tibble: 3 × 2\n  especie                 n\n  &lt;fct&gt;               &lt;int&gt;\n1 Pinguim-de-adélia     152\n2 Pinguim-de-barbicha    68\n3 Pinguim-gentoo        124\n\n\n\n\nE vocês podem achar a moda diretamente com um filter():\n\npinguins |&gt; \n  count(especie) |&gt; \n  filter(n == max(n))\n\n# A tibble: 1 × 2\n  especie               n\n  &lt;fct&gt;             &lt;int&gt;\n1 Pinguim-de-adélia   152"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#valores-extremos",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#valores-extremos",
+    "title": "Análise descritiva",
+    "section": "Valores extremos",
+    "text": "Valores extremos\nA média é sensível a valores extremos:\n\nz &lt;- c(2, 5, 3, 5, 105)\nmean(z)\n\n[1] 24\n\n\n\nA mediana não é:\n\nmedian(z)\n\n[1] 5\n\n\n\n\nIsso significa que a mediana pode ser uma “média” mais útil quando os dados têm valores extremos.\nIsto é comum com variáveis como renda e números de episódios auto-relatados."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#medidas-de-dispersão",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#medidas-de-dispersão",
+    "title": "Análise descritiva",
+    "section": "Medidas de dispersão",
+    "text": "Medidas de dispersão"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#variância",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#variância",
+    "title": "Análise descritiva",
+    "section": "Variância",
+    "text": "Variância\nA variância mede como os dados estão dispersos em torno da média. Normalmente usamos a variância amostral:\n\\[\ns^2 = \\frac{\\sum (x_i - \\bar{x})^2}{n - 1}\n\\]\n\n\npinguins |&gt; \n  filter(!is.na(massa_corporal)) |&gt; \n  summarise(variancia_na_mao_massa = sum(\n    (massa_corporal - mean(massa_corporal))^2 /\n      (length(massa_corporal) - 1)),\n    variancia_massa = var(massa_corporal)\n    )\n\n# A tibble: 1 × 2\n  variancia_na_mao_massa variancia_massa\n                   &lt;dbl&gt;           &lt;dbl&gt;\n1                643131.         643131.\n\n\n\n\nSe todos os valores são iguais, a variância é zero."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#desvio-padrão",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#desvio-padrão",
+    "title": "Análise descritiva",
+    "section": "Desvio padrão",
+    "text": "Desvio padrão\nO desvio padrão (\\(s\\) ou \\(sd\\), ou \\(dp\\) em português) é simplesmente a raíz quadrada da variância:\n\\[s = \\sqrt{s^2}\\]\n\nVocê pode interpretar como a distância “típica” dos valores em relação à média.\n\n\n\npinguins |&gt; \n  filter(!is.na(massa_corporal)) |&gt; \n  summarise(desvio_padrao_na_mao_massa = sqrt(var(massa_corporal)),\n    desvio_padrao_massa = sd(massa_corporal)\n    )\n\n# A tibble: 1 × 2\n  desvio_padrao_na_mao_massa desvio_padrao_massa\n                       &lt;dbl&gt;               &lt;dbl&gt;\n1                       802.                802.\n\n\n\n\nO desvio padrão se apresenta na mesma unidade de medida da variável."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#amplitude",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#amplitude",
+    "title": "Análise descritiva",
+    "section": "Amplitude",
+    "text": "Amplitude\nA amplitude (\\(R\\)) é a medida de dispersão mais fácil de calcular. Nós subtraímos o menor valor (\\(L\\)) do maior valor (\\(H\\)) da variável.\n\\[R = H - L\\]\n\n\npinguins |&gt;\n  filter(!is.na(massa_corporal)) |&gt;\n  summarise(\n    massa_max = max(massa_corporal),\n    massa_min = min(massa_corporal),\n    massa_amplitude = max(massa_corporal) - min(massa_corporal)\n  )\n\n# A tibble: 1 × 3\n  massa_max massa_min massa_amplitude\n      &lt;int&gt;     &lt;int&gt;           &lt;int&gt;\n1      6300      2700            3600"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#intervalo-interquartil",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#intervalo-interquartil",
+    "title": "Análise descritiva",
+    "section": "Intervalo interquartil",
+    "text": "Intervalo interquartil\nO intervalo interquartil representa a diferença entre o primeiro quartil (o 25º percentil) e o terceiro quartil (o 75º percentil) de um conjunto de dados.\n\\[IQR = Q_3 - Q_1\\]\n\nEm termos simples, o quão distantes estão os 50% valores do meio da variável.\n\n\n\npinguins |&gt;\n  filter(!is.na(massa_corporal)) |&gt;\n  summarise(\n    intervalo_interquartil_massa = IQR(massa_corporal),\n    primeiro_quartil = quantile(massa_corporal)[\"25%\"],\n    terceiro_quartil = quantile(massa_corporal)[\"75%\"]\n  )\n\n# A tibble: 1 × 3\n  intervalo_interquartil_massa primeiro_quartil terceiro_quartil\n                         &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;\n1                         1200             3550             4750"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#distribuição-normal",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#distribuição-normal",
+    "title": "Análise descritiva",
+    "section": "Distribuição normal",
+    "text": "Distribuição normal\nA distribuição normal é uma das distribuições mais importantes em estatística.\n\nTambém conhecida como distribuição de Gauss, é frequentemente usada para modelar fenômenos naturais\nMuitos testes estatísticos assumem que os dados seguem uma distribuição normal\n68% dos dados estão dentro de um desvio padrão da média, 95% estão dentro de dois desvios padrão e 99,7% estão dentro de três desvios padrão"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#testes-de-normalidade",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#testes-de-normalidade",
+    "title": "Análise descritiva",
+    "section": "Testes de normalidade",
+    "text": "Testes de normalidade\nEm muitos casos, é necessário verificar se uma amostra segue uma distribuição normal antes de aplicar determinados testes estatísticos.\n\nO teste de Shapiro-Wilk é um teste de normalidade que verifica se uma amostra segue uma distribuição normal\nA hipótese nula (\\(H_0\\)) do teste é que a amostra segue uma distribuição normal\nSe o \\(p\\)-valor do teste for menor do que o nível de significância (geralmente 0,05), rejeita-se a hipótese nula e conclui-se que a amostra não segue uma distribuição normal\n\n\n\n\n\nshapiro.test(amostra) # Normal\n\n\n    Shapiro-Wilk normality test\n\ndata:  amostra\nW = 0.99838, p-value = 0.4765\n\n\n\n\npinguins |&gt; \n  pull(massa_corporal) |&gt; \n  shapiro.test() # Não-normal\n\n\n    Shapiro-Wilk normality test\n\ndata:  pull(pinguins, massa_corporal)\nW = 0.95921, p-value = 0.00000003679"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#assimetria",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#assimetria",
+    "title": "Análise descritiva",
+    "section": "Assimetria",
+    "text": "Assimetria\nA assimetria mede o quão assimétrica é uma distribuição. Pode assumir valores positivos ou negativos. A média, mediana e moda em geral não são iguais em distribuições assimétricas\n\nUma assimetria negativa indica que a cauda está no lado esquerdo da distribuição\nUma assimetria positiva indica que a cauda está no lado direito da distribuição\nUm valor de zero indica que não há assimetria na distribuição"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#exemplo-de-distribuição-assimétrica",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#exemplo-de-distribuição-assimétrica",
+    "title": "Análise descritiva",
+    "section": "Exemplo de distribuição assimétrica",
+    "text": "Exemplo de distribuição assimétrica"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#curtose",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#curtose",
+    "title": "Análise descritiva",
+    "section": "Curtose",
+    "text": "Curtose\nCurtose é a medida da forma da distribuição em relação à sua média.\n\nA curtose de uma distribuição normal é 3\nSe uma dada distribuição tem uma curtose menor que 3, ela é chamada de platicúrtica\nSe uma dada distribuição tem uma curtose maior que 3, diz-se que é leptocúrtica\n\n\nQuanto maior a curtose, maior a propensão a outliers."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#visualizando-a-curtose",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#visualizando-a-curtose",
+    "title": "Análise descritiva",
+    "section": "Visualizando a curtose",
+    "text": "Visualizando a curtose"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#medidas-de-assimetria-e-curtose",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#medidas-de-assimetria-e-curtose",
+    "title": "Análise descritiva",
+    "section": "Medidas de assimetria e curtose",
+    "text": "Medidas de assimetria e curtose\nTanto a assimetria quanto a curtose podem ser calculados com funções do pacote moments.\n\n\n\nlibrary(moments)\npinguins |&gt;\n  pull(massa_corporal) |&gt;\n  skewness(na.rm = TRUE)\n\n[1] 0.468264\n\n\n\n\npinguins |&gt;\n  pull(massa_corporal) |&gt;\n  kurtosis(na.rm = TRUE)\n\n[1] 2.273757"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#transformação-de-dados",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#transformação-de-dados",
+    "title": "Análise descritiva",
+    "section": "Transformação de dados",
+    "text": "Transformação de dados\nEm alguns casos, os dados podem apresentar distribuições muito distorcidas, o que pode afetar a validade dos testes estatísticos aplicados.\n\nPara resolver esse problema, uma solução comum é aplicar uma transformação aos dados para deixá-los mais próximos de uma distribuição normal."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#transformando-a-massa_corporal",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#transformando-a-massa_corporal",
+    "title": "Análise descritiva",
+    "section": "Transformando a massa_corporal",
+    "text": "Transformando a massa_corporal\n\n\n\npinguins |&gt;\n  ggplot(aes(x = massa_corporal)) +\n  geom_histogram(fill = \"coral2\") +\n  labs(x = \"Massa corporal (em gramas)\",\n       y = \"Frequência\") +\n  theme_bw(base_size = 16,\n           base_family = \"Charter\")\n\n\n\n\n\n\n\n\n\n\npinguins |&gt;\n  mutate(massa_log = log10(massa_corporal)) |&gt;\n  ggplot(aes(x = massa_log)) +\n  geom_histogram(fill = \"deepskyblue4\") +\n  labs(x = \"Log da massa corporal\",\n       y = \"Frequência\") +\n  theme_bw(base_size = 16,\n           base_family = \"Charter\")"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#tabelas-de-frequência",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#tabelas-de-frequência",
+    "title": "Análise descritiva",
+    "section": "Tabelas de frequência",
+    "text": "Tabelas de frequência\nO pacote janitor oferece uma função tabyl() para produzir tabulações e tabulações cruzadas, que podem ser modificadas para exibir porcentagens, proporções, etc.\n\n\nlibrary(janitor)\n\npinguins |&gt; \n  tabyl(especie)\n\n             especie   n   percent\n   Pinguim-de-adélia 152 0.4418605\n Pinguim-de-barbicha  68 0.1976744\n      Pinguim-gentoo 124 0.3604651\n\n\n\n\n\npinguins |&gt; \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#funções-de-enfeite-do-janitor",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#funções-de-enfeite-do-janitor",
+    "title": "Análise descritiva",
+    "section": "Funções de enfeite do janitor",
+    "text": "Funções de enfeite do janitor\n\n\n\n\n\n\n\nFunção\nDesfecho\n\n\n\n\nadorn_totals()\nAdicionar totais.\n\n\nadorn_percentages()\nConverter contagens para proporções.\n\n\nadorn_pct_formatting()\nConverte proporções para porcentagens.\n\n\nadorn_rounding()\nArredondar proporções com digits =.\n\n\nadorn_ns()\nAdicionar contagens a uma tabela de proporções ou porcentagens.\n\n\nadorn_title()\nAdicionar título da linha e coluna."
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#exemplos-de-tabela-cruzada",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#exemplos-de-tabela-cruzada",
+    "title": "Análise descritiva",
+    "section": "Exemplos de tabela cruzada",
+    "text": "Exemplos de tabela cruzada\n\nBásicaTotais e porcentagensCompletaSalvando em Word\n\n\n\npinguins |&gt; \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0\n\n\n\n\n\npinguins |&gt;\n  tabyl(especie, ilha) |&gt;\n  adorn_totals(where = \"row\") |&gt;\n  adorn_percentages(denominator = \"col\") |&gt;\n  adorn_pct_formatting(digits = 1)   \n\n             especie Biscoe  Dream Torgersen\n   Pinguim-de-adélia  26.2%  45.2%    100.0%\n Pinguim-de-barbicha   0.0%  54.8%      0.0%\n      Pinguim-gentoo  73.8%   0.0%      0.0%\n               Total 100.0% 100.0%    100.0%\n\n\n\n\n\npinguins |&gt; \n  tabyl(especie, ilha) |&gt; \n  adorn_totals(where = \"row\") |&gt; \n  adorn_percentages(denominator = \"col\") |&gt; \n  adorn_pct_formatting() |&gt; \n  adorn_ns(position = \"front\") |&gt; \n  adorn_title(\n    row_name = \"Espécie\",\n    col_name = \"Ilha\")\n\n                             Ilha                         \n             Espécie       Biscoe        Dream   Torgersen\n   Pinguim-de-adélia  44  (26.2%)  56  (45.2%) 52 (100.0%)\n Pinguim-de-barbicha   0   (0.0%)  68  (54.8%)  0   (0.0%)\n      Pinguim-gentoo 124  (73.8%)   0   (0.0%)  0   (0.0%)\n               Total 168 (100.0%) 124 (100.0%) 52 (100.0%)\n\n\n\n\n\npinguins |&gt; \n  tabyl(especie, ilha) |&gt; \n  adorn_totals(where = \"row\") |&gt; \n  adorn_percentages(denominator = \"col\") |&gt; \n  adorn_pct_formatting() |&gt; \n  adorn_ns(position = \"front\") |&gt; \n  adorn_title(\n    row_name = \"Espécie\",\n    col_name = \"Ilha\",\n    placement = \"combined\") |&gt; \n  flextable::flextable() |&gt; \n  flextable::save_as_docx(path = \"tabela_especie_ilha.docx\")"
+  },
+  {
+    "objectID": "slides/4_descritiva/slides_descritiva_versao_longa.html#tarefa-de-casa",
+    "href": "slides/4_descritiva/slides_descritiva_versao_longa.html#tarefa-de-casa",
+    "title": "Análise descritiva",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\nPara a tarefa de casa, vamos seguir usando a base pinguins do pacote dados.\n\n\nFiltre a base para manter apenas as observações do ano de 2009.\nEscolha uma variável contínua da base de dados e verifique se ela segue uma distribuição normal através de um histograma e um teste de normalidade de Shapiro-Wilk.\nIndependentemente da distribuição, crie uma variável transformada (a partir da que você escolheu) através do método da raíz quadrada (função sqrt()), da raíz cúbica (lembre-se do operador ^) ou do log (função log10()). Você também pode criar um histograma da variável transformada.\n\n\nLembre-se da função mutate() para criar ou modificar colunas."
   }
 ]
