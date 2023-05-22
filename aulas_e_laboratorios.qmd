@@ -33,7 +33,8 @@ pelo autor Bruno Montezano.
   
 ## Aula 4: Análise descritiva
   
-* [Slides](slides/4_descritiva/slides_descritiva.html)
+* [Slides (versão curta)](slides/4_descritiva/slides_descritiva_versao_curta.html)
+* [Slides (versão longa)](slides/4_descritiva/slides_descritiva_versao_longa.html)
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/slides_descritiva.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/script_descritiva.R)
   
