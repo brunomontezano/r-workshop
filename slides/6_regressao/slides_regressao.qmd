@@ -257,9 +257,7 @@ descobrir (ou mesmo não é possível descobrí-lo).
 * Queremos que $\hat{Y}=f(X)$ seja uma
 boa estimativa (preveja bem o futuro).
 
-. . .
-
-Exemplo: Com quantos gramas irá nascer um bebê na maternidade do HCPA?
+* Exemplo: Com quantos gramas irá nascer um bebê na maternidade do HCPA?
 :::
 
 ::: {.column width="50%"}
@@ -271,9 +269,7 @@ Exemplo: Com quantos gramas irá nascer um bebê na maternidade do HCPA?
   - Qual o efeito da idade na função cognitiva dos pacientes bipolares?
   - Os níveis de estresse podem explicar a severidade de sintomas depressivos?
   
-. . .
-  
-Nessa aula, nosso foco é **inferência**.
+* Nessa aula, nosso foco é **inferência**.
 :::
 :::
 

@@ -1299,7 +1299,7 @@
     "href": "slides/6_regressao/slides_regressao.html#por-que-ajustar-uma-f",
     "title": "Modelos de regressão",
     "section": "Por que ajustar uma \\(f\\)?",
-    "text": "Por que ajustar uma \\(f\\)?\n\n\nPredição\n\nEm muitas situações, \\(X\\) está disponível facilmente mas \\(Y\\) não é fácil de descobrir (ou mesmo não é possível descobrí-lo).\nQueremos que \\(\\hat{Y}=f(X)\\) seja uma boa estimativa (preveja bem o futuro).\n\n. . .\nExemplo: Com quantos gramas irá nascer um bebê na maternidade do HCPA?\n\nInferência\n\nEm inferência estamos mais interessados em entender a relação entre as variáveis explicativas \\(X\\) e a variável resposta \\(Y\\).\nExemplos:\n\nQual o efeito da idade na função cognitiva dos pacientes bipolares?\nOs níveis de estresse podem explicar a severidade de sintomas depressivos?\n\n\n. . .\nNessa aula, nosso foco é inferência."
+    "text": "Por que ajustar uma \\(f\\)?\n\n\nPredição\n\nEm muitas situações, \\(X\\) está disponível facilmente mas \\(Y\\) não é fácil de descobrir (ou mesmo não é possível descobrí-lo).\nQueremos que \\(\\hat{Y}=f(X)\\) seja uma boa estimativa (preveja bem o futuro).\nExemplo: Com quantos gramas irá nascer um bebê na maternidade do HCPA?\n\n\nInferência\n\nEm inferência estamos mais interessados em entender a relação entre as variáveis explicativas \\(X\\) e a variável resposta \\(Y\\).\nExemplos:\n\nQual o efeito da idade na função cognitiva dos pacientes bipolares?\nOs níveis de estresse podem explicar a severidade de sintomas depressivos?\n\nNessa aula, nosso foco é inferência."
   },
   {
     "objectID": "slides/6_regressao/slides_regressao.html#vamos-trabalhar-com-gambás",
