@@ -36,6 +36,8 @@ pelo autor Bruno Montezano.
 * [Slides](slides/4_descritiva/slides_descritiva.html)
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/slides_descritiva.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/script_descritiva.R)
+* [Gravação da aula](https://youtu.be/a9-yo5IwC84)
+
   
 ## Aula 5: Inferência estatística
   
