@@ -23,6 +23,7 @@ pelo autor Bruno Montezano.
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/2_manipulacao/slides_manipulacao.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/2_manipulacao/script_manipulacao.R)
 * [Gravação da aula](https://youtu.be/EpWgpzLWxJ8)
+* [Arquivo `gambas.csv`](https://drive.google.com/uc?export=download&id=1BQgajup9B7MKJxSSrW0_x_GCrDuCkrjj)
   
 ## Aula 3: Visualização de dados
   
