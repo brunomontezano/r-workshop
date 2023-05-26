@@ -3,11 +3,14 @@ title: "Aulas e laboratórios"
 lang: pt-br
 ---
 
-Abaixo, estão listados os links de acesso aos slides, códigos dos
-slides, scripts em R e gravações das aulas e laboratórios
-relacionados a cada tópico do curso.
-Os materiais descritos nesta página são mantidos
-pelo autor Bruno Montezano.
+Abaixo, estão listados os links de acesso aos slides, códigos dos slides,
+scripts em R e gravações das aulas e laboratórios relacionados a cada tópico do
+curso.
+Algumas aulas também possuem links de download para dados que podem ser
+usados para fins didáticos.
+Fique à vontade para explorá-los!
+Eles podem ser uma ótima ferramenta de apoio durante o aprendizado.
+Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano.
 
 ## Aula 1: R e RStudio
 
