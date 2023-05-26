@@ -32,6 +32,8 @@ pelo autor Bruno Montezano.
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/slides_visualizacao.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/3_visualizacao/script_visualizacao.R)
 * [Gravação da aula](https://youtu.be/wMcOUMCv5NM)
+* [Arquivo `dados_psiquiatria.sav`](https://drive.google.com/uc?export=download&id=1CbXFwWPbSChEbYlj2b6k6LEEf6xsT4VG)
+* [Arquivo `dados_antropometricos.xlsx`](https://drive.google.com/uc?export=download&id=1MyePYTxHybfbQ75LIXyJgKDbRAtvQdT2)
   
 ## Aula 4: Análise descritiva
   
