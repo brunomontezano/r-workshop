@@ -145,3 +145,20 @@ pinguins_2009 |>
 Notem que usamos o argumento `na.rm = TRUE` para sinalizar ao R que, em caso de
 presença de valores ausentes na variável, queremos que as medidas sejam calculadas
 ignorando os `NA` e considerando apenas os valores válidos.
+
+Caso nós achassemos interessante observar os resumos gerados acima agrupados
+por alguma outra variável da base de dados, poderíamos usar a função `group_by()`
+para fazer este ajuste. Segue exemplo abaixo agrupando as medidas calculadas de
+forma estratificada pela `ilha` dos pinguins:
+
+```{r medidas-comprimento-nadadeira-por-ilha}
+#| message: false
+#| warning: false
+pinguins_2009 |> 
+  group_by(ilha) |> 
+  summarise(media_nadadeira = mean(comprimento_nadadeira, na.rm = TRUE),
+            mediana_nadadeira = median(comprimento_nadadeira, na.rm = TRUE),
+            dp_nadadeira = sd(comprimento_nadadeira, na.rm = TRUE))
+
+```
+

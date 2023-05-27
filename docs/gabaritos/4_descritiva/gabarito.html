@@ -184,15 +184,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-hidden code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-lines="2,3" data-code-cell="annotated-cell-1" data-code-annotation="1">Carregar pacotes necessários.</span>
+<span data-code-cell="annotated-cell-1" data-code-annotation="1" data-code-lines="2,3">Carregar pacotes necessários.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-lines="5,6" data-code-cell="annotated-cell-1" data-code-annotation="2">Filtrar a base apenas com as documentações do ano de 2009. Atribuir o subconjunto no objeto <code>pinguins_2009</code>.</span>
+<span data-code-cell="annotated-cell-1" data-code-annotation="2" data-code-lines="5,6">Filtrar a base apenas com as documentações do ano de 2009. Atribuir o subconjunto no objeto <code>pinguins_2009</code>.</span>
 </dd>
 <dt data-target-cell="annotated-cell-1" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-lines="8" data-code-cell="annotated-cell-1" data-code-annotation="3">Por fim, mostrar o objeto criado.</span>
+<span data-code-cell="annotated-cell-1" data-code-annotation="3" data-code-lines="8">Por fim, mostrar o objeto criado.</span>
 </dd>
 </dl>
 </div>
@@ -358,6 +358,22 @@ W = 0.9573, p-value = 0.0008205</code></pre>
 </div>
 </div>
 <p>Notem que usamos o argumento <code>na.rm = TRUE</code> para sinalizar ao R que, em caso de presença de valores ausentes na variável, queremos que as medidas sejam calculadas ignorando os <code>NA</code> e considerando apenas os valores válidos.</p>
+<p>Caso nós achassemos interessante observar os resumos gerados acima agrupados por alguma outra variável da base de dados, poderíamos usar a função <code>group_by()</code> para fazer este ajuste. Segue exemplo abaixo agrupando as medidas calculadas de forma estratificada pela <code>ilha</code> dos pinguins:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pinguins_2009 <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ilha) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">media_nadadeira =</span> <span class="fu">mean</span>(comprimento_nadadeira, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">mediana_nadadeira =</span> <span class="fu">median</span>(comprimento_nadadeira, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">dp_nadadeira =</span> <span class="fu">sd</span>(comprimento_nadadeira, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  ilha      media_nadadeira mediana_nadadeira dp_nadadeira
+  &lt;fct&gt;               &lt;dbl&gt;             &lt;dbl&gt;        &lt;dbl&gt;
+1 Biscoe               211.               214        13.4 
+2 Dream                195.               193         6.96
+3 Torgersen            193.               191         7.89</code></pre>
+</div>
+</div>
 
 
 </section>
