@@ -7,7 +7,8 @@ Abaixo, estão listados os links de acesso aos slides, códigos dos slides,
 scripts em R e gravações das aulas e laboratórios relacionados a cada tópico do
 curso.
 Algumas aulas também possuem links de download para dados que podem ser
-usados para fins didáticos.
+usados para fins didáticos^[Caso ocorra uma interrupção no acesso aos links
+fornecidos, é possível obter os dados [diretamente por meio do repositório no GitHub](https://github.com/brunomontezano/r-workshop/tree/main/slides/dados).].
 Fique à vontade para explorá-los!
 Eles podem ser uma ótima ferramenta de apoio durante o aprendizado.
 Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano.

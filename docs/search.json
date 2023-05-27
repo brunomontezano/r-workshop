@@ -354,7 +354,7 @@
     "href": "aulas_e_laboratorios.html",
     "title": "Aulas e laboratórios",
     "section": "",
-    "text": "Abaixo, estão listados os links de acesso aos slides, códigos dos slides, scripts em R e gravações das aulas e laboratórios relacionados a cada tópico do curso. Algumas aulas também possuem links de download para dados que podem ser usados para fins didáticos. Fique à vontade para explorá-los! Eles podem ser uma ótima ferramenta de apoio durante o aprendizado. Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano."
+    "text": "Abaixo, estão listados os links de acesso aos slides, códigos dos slides, scripts em R e gravações das aulas e laboratórios relacionados a cada tópico do curso. Algumas aulas também possuem links de download para dados que podem ser usados para fins didáticos1. Fique à vontade para explorá-los! Eles podem ser uma ótima ferramenta de apoio durante o aprendizado. Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano."
   },
   {
     "objectID": "aulas_e_laboratorios.html#aula-1-r-e-rstudio",
@@ -2084,5 +2084,12 @@
     "title": "Gabarito da Aula 4: Análise descritiva",
     "section": "4. Com a função summarise(), calcule a média, mediana e desvio padrão da variável comprimento_nadadeira.",
     "text": "4. Com a função summarise(), calcule a média, mediana e desvio padrão da variável comprimento_nadadeira.\n\n# Exercício 4 da aula 4\n\npinguins_2009 |&gt; \n  summarise(media_nadadeira = mean(comprimento_nadadeira, na.rm = TRUE),\n            mediana_nadadeira = median(comprimento_nadadeira, na.rm = TRUE),\n            dp_nadadeira = sd(comprimento_nadadeira, na.rm = TRUE))\n\n# A tibble: 1 × 3\n  media_nadadeira mediana_nadadeira dp_nadadeira\n            &lt;dbl&gt;             &lt;int&gt;        &lt;dbl&gt;\n1            203.               199         13.7\n\n\nNotem que usamos o argumento na.rm = TRUE para sinalizar ao R que, em caso de presença de valores ausentes na variável, queremos que as medidas sejam calculadas ignorando os NA e considerando apenas os valores válidos."
+  },
+  {
+    "objectID": "aulas_e_laboratorios.html#footnotes",
+    "href": "aulas_e_laboratorios.html#footnotes",
+    "title": "Aulas e laboratórios",
+    "section": "Notas de rodapé",
+    "text": "Notas de rodapé\n\n\nCaso ocorra uma interrupção no acesso aos links fornecidos, é possível obter os dados diretamente por meio do repositório no GitHub.↩︎"
   }
 ]
