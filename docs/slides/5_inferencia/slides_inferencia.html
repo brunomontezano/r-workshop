@@ -8,7 +8,7 @@
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.3.361">
 
   <meta name="author" content="Bruno Montezano">
   <title>Introdução ao R - Inferência estatística</title>
@@ -423,7 +423,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">22 de maio de 2023</p>
+  <p class="date">29 de maio de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -437,7 +437,7 @@ Bruno Montezano
 </ul></li>
 <li class="fragment">Teste <span class="math inline">\(\chi^2\)</span></li>
 <li class="fragment">Teste t</li>
-<li class="fragment">ANOVA de uma via e Tukey HSD (<em>Honest Significant Differences</em>)</li>
+<li class="fragment">ANOVA de uma via e teste de Tukey</li>
 <li class="fragment">Correlação</li>
 </ul>
 </section>
@@ -465,7 +465,9 @@ Bruno Montezano
 <font size="6"><br>
 <em>“All models are wrong, but some are useful”</em> <span class="citation" data-cites="box_1976">(<a href="#/referências" role="doc-biblioref" onclick="">Box 1976</a>)</span>. </font>
 </center>
-</section>
+<p><br></p>
+
+<img data-src="../assets/george_box_photo.jpg" style="width:50.0%" class="r-stretch quarto-figure-center"></section>
 <section id="hipóteses-estatísticas" class="slide level2">
 <h2>Hipóteses estatísticas</h2>
 <ul>
@@ -501,22 +503,24 @@ Bruno Montezano
 </section>
 <section id="exemplo-de-teste-chi2-no-r" class="slide level2">
 <h2>Exemplo de teste <span class="math inline">\(\chi^2\)</span> no R</h2>
-<div class="columns">
+
+<img data-src="slides_inferencia_files/figure-revealjs/grafico-ilha-especie-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(dados)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(janitor)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Criar uma tabulação cruzada</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># entre espécie e ilha</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>pinguins <span class="sc">|&gt;</span> </span>
-<span id="cb1-7"><a href="#cb1-7"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Criar tabela 2x2 com espécie e ilha</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             especie Biscoe Dream Torgersen
    Pinguim-de-adélia     44    56        52
  Pinguim-de-barbicha      0    68         0
       Pinguim-gentoo    124     0         0</code></pre>
 </div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Rodar um teste qui-quadrado de independência</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">chisq.test</span>(pinguins<span class="sc">$</span>especie, pinguins<span class="sc">$</span>ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -525,24 +529,6 @@ Bruno Montezano
 
 data:  pinguins$especie and pinguins$ilha
 X-squared = 299.55, df = 4, p-value &lt; 2.2e-16</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">ggplot</span>(pinguins,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>       <span class="fu">aes</span>(<span class="at">x =</span> especie, <span class="at">fill =</span> ilha)) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Espécie"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7"></a>       <span class="at">y =</span> <span class="st">"Proporção"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8"></a>       <span class="at">fill =</span> <span class="st">"Ilha"</span>) <span class="sc">+</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>  ghibli<span class="sc">::</span><span class="fu">scale_fill_ghibli_d</span>(<span class="st">"PonyoMedium"</span>) <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">21</span>,</span>
-<span id="cb5-12"><a href="#cb5-12"></a>                <span class="at">base_family =</span> <span class="st">"Charter"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="slides_inferencia_files/figure-revealjs/grafico-ilha-especie-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -600,10 +586,10 @@ X-squared = 299.55, df = 4, p-value &lt; 2.2e-16</code></pre>
 </table>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>effectsize<span class="sc">::</span><span class="fu">cramers_v</span>(pinguins<span class="sc">$</span>especie,</span>
-<span id="cb6-2"><a href="#cb6-2"></a>                      pinguins<span class="sc">$</span>ilha,</span>
-<span id="cb6-3"><a href="#cb6-3"></a>                      <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
-<span id="cb6-4"><a href="#cb6-4"></a>                      <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>effectsize<span class="sc">::</span><span class="fu">cramers_v</span>(pinguins<span class="sc">$</span>especie,</span>
+<span id="cb5-2"><a href="#cb5-2"></a>                      pinguins<span class="sc">$</span>ilha,</span>
+<span id="cb5-3"><a href="#cb5-3"></a>                      <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>                      <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cramer's V (adj.) |       95% CI
 --------------------------------
@@ -649,13 +635,13 @@ H_a: \mu_{machos} - \mu_{fêmeas} \ne 0
 <section id="teste-t-no-r" class="slide level2">
 <h2>Teste t no R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexo)) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">group_by</span>(sexo) <span class="sc">|&gt;</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb8-5"><a href="#cb8-5"></a>    <span class="at">media_massa =</span> <span class="fu">mean</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb8-6"><a href="#cb8-6"></a>    <span class="at">dp_massa =</span> <span class="fu">sd</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-7"><a href="#cb8-7"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>pinguins <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexo)) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">group_by</span>(sexo) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="at">media_massa =</span> <span class="fu">mean</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="at">dp_massa =</span> <span class="fu">sd</span>(massa_corporal, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>  )</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
   sexo  media_massa dp_massa
@@ -663,10 +649,10 @@ H_a: \mu_{machos} - \mu_{fêmeas} \ne 0
 1 fêmea       3862.     666.
 2 macho       4546.     788.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> massa_corporal <span class="sc">~</span> sexo,</span>
-<span id="cb10-2"><a href="#cb10-2"></a>       <span class="at">data =</span> pinguins,</span>
-<span id="cb10-3"><a href="#cb10-3"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-4"><a href="#cb10-4"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">t.test</span>(<span class="at">formula =</span> massa_corporal <span class="sc">~</span> sexo,</span>
+<span id="cb9-2"><a href="#cb9-2"></a>       <span class="at">data =</span> pinguins,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-4"><a href="#cb9-4"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -719,11 +705,11 @@ mean in group fêmea mean in group macho
 </table>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(massa_corporal <span class="sc">~</span> sexo,</span>
-<span id="cb12-2"><a href="#cb12-2"></a>                     <span class="at">data =</span> pinguins,</span>
-<span id="cb12-3"><a href="#cb12-3"></a>                     <span class="at">pooled_sd =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb12-4"><a href="#cb12-4"></a>                     <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb12-5"><a href="#cb12-5"></a>                     <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(massa_corporal <span class="sc">~</span> sexo,</span>
+<span id="cb11-2"><a href="#cb11-2"></a>                     <span class="at">data =</span> pinguins,</span>
+<span id="cb11-3"><a href="#cb11-3"></a>                     <span class="at">pooled_sd =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>                     <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>                     <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d |         95% CI
 --------------------------
@@ -761,18 +747,6 @@ mean in group fêmea mean in group macho
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>pinguins <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ilha,</span>
-<span id="cb14-3"><a href="#cb14-3"></a>             <span class="at">y =</span> massa_corporal,</span>
-<span id="cb14-4"><a href="#cb14-4"></a>             <span class="at">fill =</span> ilha)) <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Massa corporal"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>       <span class="at">x =</span> <span class="st">"Ilha"</span>) <span class="sc">+</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a>  ghibli<span class="sc">::</span><span class="fu">scale_fill_ghibli_d</span>(<span class="at">name =</span> <span class="st">"MononokeLight"</span>) <span class="sc">+</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> \(x) <span class="fu">paste0</span>(<span class="fu">as.character</span>(x), <span class="st">"g"</span>)) <span class="sc">+</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>,</span>
-<span id="cb14-11"><a href="#cb14-11"></a>                <span class="at">base_family =</span> <span class="st">"Charter"</span>) <span class="sc">+</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -781,12 +755,13 @@ mean in group fêmea mean in group macho
 </div>
 </div>
 </div>
+<p>Visualmente, parece que os pinguins da <code>ilha</code> Biscoe apresentam uma média maior de <code>massa_corporal</code> em relação às outras ilhas.</p>
 </div><div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>anova_massa_ilha <span class="ot">&lt;-</span> <span class="fu">aov</span>(massa_corporal <span class="sc">~</span> ilha,</span>
-<span id="cb15-2"><a href="#cb15-2"></a>                        <span class="at">data =</span> pinguins)</span>
-<span id="cb15-3"><a href="#cb15-3"></a></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="fu">summary</span>(anova_massa_ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>anova_massa_ilha <span class="ot">&lt;-</span> <span class="fu">aov</span>(massa_corporal <span class="sc">~</span> ilha,</span>
+<span id="cb13-2"><a href="#cb13-2"></a>                        <span class="at">data =</span> pinguins)</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">summary</span>(anova_massa_ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df    Sum Sq  Mean Sq F value Pr(&gt;F)    
 ilha          2  86314512 43157256     110 &lt;2e-16 ***
@@ -795,7 +770,7 @@ Residuals   339 132993186   392310
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 2 observations deleted due to missingness</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">TukeyHSD</span>(anova_massa_ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">TukeyHSD</span>(anova_massa_ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
@@ -905,10 +880,10 @@ Torgersen-Dream     -6.530677  -251.8063  238.7450 0.9978364</code></pre>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">cor.test</span>(pinguins<span class="sc">$</span>massa_corporal,</span>
-<span id="cb19-2"><a href="#cb19-2"></a>         pinguins<span class="sc">$</span>comprimento_bico,</span>
-<span id="cb19-3"><a href="#cb19-3"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>,</span>
-<span id="cb19-4"><a href="#cb19-4"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">cor.test</span>(pinguins<span class="sc">$</span>massa_corporal,</span>
+<span id="cb17-2"><a href="#cb17-2"></a>         pinguins<span class="sc">$</span>comprimento_bico,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Pearson's product-moment correlation
@@ -940,20 +915,28 @@ sample estimates:
 </ul>
 <div class="fragment">
 <table>
+<colgroup>
+<col style="width: 37%">
+<col style="width: 36%">
+<col style="width: 26%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Teste paramétrico</th>
 <th>Teste não-paramétrico</th>
+<th>Função no R</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Teste t de duas amostras</td>
 <td>Teste U de Mann-Whitney</td>
+<td><code>wilcox.test()</code></td>
 </tr>
 <tr class="even">
 <td>ANOVA de uma via</td>
 <td>Teste de Kruskal-Wallis</td>
+<td><code>kruskal.test()</code></td>
 </tr>
 </tbody>
 </table>

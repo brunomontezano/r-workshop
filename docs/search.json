@@ -1110,7 +1110,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#conteúdo-de-hoje",
     "title": "Inferência estatística",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nIntrodução\nPopulação e amostra\nTestes de hipótese\n\nHipótese nula e alternativa\nInterpretação de resultados\n\nTeste \\(\\chi^2\\)\nTeste t\nANOVA de uma via e Tukey HSD (Honest Significant Differences)\nCorrelação"
+    "text": "Conteúdo de hoje\n\nIntrodução\nPopulação e amostra\nTestes de hipótese\n\nHipótese nula e alternativa\nInterpretação de resultados\n\nTeste \\(\\chi^2\\)\nTeste t\nANOVA de uma via e teste de Tukey\nCorrelação"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#o-que-é-estatística-inferencial",
@@ -1152,7 +1152,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#exemplo-de-teste-chi2-no-r",
     "title": "Inferência estatística",
     "section": "Exemplo de teste \\(\\chi^2\\) no R",
-    "text": "Exemplo de teste \\(\\chi^2\\) no R\n\n\n\nlibrary(dados)\nlibrary(janitor)\n\n# Criar uma tabulação cruzada\n# entre espécie e ilha\npinguins |&gt; \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0\n\n# Rodar um teste qui-quadrado de independência\nchisq.test(pinguins$especie, pinguins$ilha)\n\n\n    Pearson's Chi-squared test\n\ndata:  pinguins$especie and pinguins$ilha\nX-squared = 299.55, df = 4, p-value &lt; 2.2e-16\n\n\n\n\nlibrary(ggplot2)\n\nggplot(pinguins,\n       aes(x = especie, fill = ilha)) +\n  geom_bar(position = \"fill\") +\n  labs(x = \"Espécie\",\n       y = \"Proporção\",\n       fill = \"Ilha\") +\n  ghibli::scale_fill_ghibli_d(\"PonyoMedium\") +\n  scale_y_continuous(labels = scales::percent) +\n  theme_minimal(base_size = 21,\n                base_family = \"Charter\")"
+    "text": "Exemplo de teste \\(\\chi^2\\) no R\n\n\n\n\nlibrary(janitor)\n\n# Criar tabela 2x2 com espécie e ilha\npinguins |&gt; \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0\n\n\n\n\n# Rodar um teste qui-quadrado de independência\nchisq.test(pinguins$especie, pinguins$ilha)\n\n\n    Pearson's Chi-squared test\n\ndata:  pinguins$especie and pinguins$ilha\nX-squared = 299.55, df = 4, p-value &lt; 2.2e-16"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#v-de-cramer",
@@ -1201,7 +1201,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#exemplo-de-anova-no-r",
     "title": "Inferência estatística",
     "section": "Exemplo de ANOVA no R",
-    "text": "Exemplo de ANOVA no R\nVamos novamente verificar a diferença na massa corporal, porém agora entre as ilhas do Arquipélago Palmer.\n\n\n\npinguins |&gt;\n  ggplot(aes(x = ilha,\n             y = massa_corporal,\n             fill = ilha)) +\n  geom_boxplot() +\n  labs(y = \"Massa corporal\",\n       x = \"Ilha\") +\n  ghibli::scale_fill_ghibli_d(name = \"MononokeLight\") +\n  scale_y_continuous(labels = \\(x) paste0(as.character(x), \"g\")) +\n  theme_minimal(base_size = 18,\n                base_family = \"Charter\") +\n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\nanova_massa_ilha &lt;- aov(massa_corporal ~ ilha,\n                        data = pinguins)\n\nsummary(anova_massa_ilha)\n\n             Df    Sum Sq  Mean Sq F value Pr(&gt;F)    \nilha          2  86314512 43157256     110 &lt;2e-16 ***\nResiduals   339 132993186   392310                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n2 observations deleted due to missingness\n\nTukeyHSD(anova_massa_ilha)\n\n  Tukey multiple comparisons of means\n    95% family-wise confidence level\n\nFit: aov(formula = massa_corporal ~ ilha, data = pinguins)\n\n$ilha\n                         diff        lwr       upr     p adj\nDream-Biscoe     -1003.114738 -1177.9016 -828.3279 0.0000000\nTorgersen-Biscoe -1009.645415 -1245.5391 -773.7518 0.0000000\nTorgersen-Dream     -6.530677  -251.8063  238.7450 0.9978364"
+    "text": "Exemplo de ANOVA no R\nVamos novamente verificar a diferença na massa corporal, porém agora entre as ilhas do Arquipélago Palmer.\n\n\n\n\n\n\n\n\n\n\n\nVisualmente, parece que os pinguins da ilha Biscoe apresentam uma média maior de massa_corporal em relação às outras ilhas.\n\n\nanova_massa_ilha &lt;- aov(massa_corporal ~ ilha,\n                        data = pinguins)\n\nsummary(anova_massa_ilha)\n\n             Df    Sum Sq  Mean Sq F value Pr(&gt;F)    \nilha          2  86314512 43157256     110 &lt;2e-16 ***\nResiduals   339 132993186   392310                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n2 observations deleted due to missingness\n\nTukeyHSD(anova_massa_ilha)\n\n  Tukey multiple comparisons of means\n    95% family-wise confidence level\n\nFit: aov(formula = massa_corporal ~ ilha, data = pinguins)\n\n$ilha\n                         diff        lwr       upr     p adj\nDream-Biscoe     -1003.114738 -1177.9016 -828.3279 0.0000000\nTorgersen-Biscoe -1009.645415 -1245.5391 -773.7518 0.0000000\nTorgersen-Dream     -6.530677  -251.8063  238.7450 0.9978364"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#correlação",
@@ -1229,7 +1229,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#alternativas-não-paramétricas",
     "title": "Inferência estatística",
     "section": "Alternativas não-paramétricas",
-    "text": "Alternativas não-paramétricas\n\nEventualmente, quando os pressupostos do modelo são violados, a literatura tradicional indica o uso de testes não-paramétricos com propostas semelhantes\nOutros autores sugerem que sempre testes não-paramétricos sejam usados em resultados obtidos por processo de avaliação psicológica, com argumento de que os dados têm nível de medida ordinal\n\n\n\n\n\nTeste paramétrico\nTeste não-paramétrico\n\n\n\n\nTeste t de duas amostras\nTeste U de Mann-Whitney\n\n\nANOVA de uma via\nTeste de Kruskal-Wallis"
+    "text": "Alternativas não-paramétricas\n\nEventualmente, quando os pressupostos do modelo são violados, a literatura tradicional indica o uso de testes não-paramétricos com propostas semelhantes\nOutros autores sugerem que sempre testes não-paramétricos sejam usados em resultados obtidos por processo de avaliação psicológica, com argumento de que os dados têm nível de medida ordinal\n\n\n\n\n\n\n\n\n\n\nTeste paramétrico\nTeste não-paramétrico\nFunção no R\n\n\n\n\nTeste t de duas amostras\nTeste U de Mann-Whitney\nwilcox.test()\n\n\nANOVA de uma via\nTeste de Kruskal-Wallis\nkruskal.test()"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#referências",

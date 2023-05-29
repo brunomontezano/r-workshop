@@ -26,7 +26,7 @@ bibliography: references.bib
   - Interpretação de resultados
 - Teste $\chi^2$
 - Teste t
-- ANOVA de uma via e Tukey HSD (*Honest Significant Differences*)
+- ANOVA de uma via e teste de Tukey
 - Correlação
 
 ## O que é estatística inferencial?
@@ -51,6 +51,10 @@ os dados
 *"All models are wrong, but some are useful"* [@box_1976].
 </font>
 </center>
+
+<br>
+
+![](../assets/george_box_photo.jpg){fig-align="center" width=50%}
 
 ## Hipóteses estatísticas
 
@@ -88,24 +92,11 @@ $$\underbrace{H_a: \mu_{tomou} < \mu_{não \,tomou}}_\text{Hipóteses estatísti
   
 ## Exemplo de teste $\chi^2$ no R
 
-::: columns
-::: {.column width="50%"}
-```{r qui-quadrado-especie-ilha}
-library(dados)
-library(janitor)
-
-# Criar uma tabulação cruzada
-# entre espécie e ilha
-pinguins |> 
-  tabyl(especie, ilha)
-
-# Rodar um teste qui-quadrado de independência
-chisq.test(pinguins$especie, pinguins$ilha)
-```
-:::
-
-::: {.column width="50%"}
 ```{r grafico-ilha-especie}
+#| echo: false
+#| out-width: "90%"
+#| fig-align: "center"
+library(dados)
 library(ggplot2)
 
 ggplot(pinguins,
@@ -120,6 +111,22 @@ ggplot(pinguins,
                 base_family = "Charter")
 ```
 
+::: columns
+::: {.column width="50%"}
+```{r qui-quadrado-especie-ilha}
+library(janitor)
+
+# Criar tabela 2x2 com espécie e ilha
+pinguins |> 
+  tabyl(especie, ilha)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+# Rodar um teste qui-quadrado de independência
+chisq.test(pinguins$especie, pinguins$ilha)
+```
 :::
 :::
 
@@ -290,11 +297,13 @@ diferenças médias entre vários grupos
 Vamos novamente verificar a diferença na massa corporal, porém agora
 entre as ilhas do Arquipélago Palmer.
 
+
 ::: columns
 ::: {.column width="40%"}
 ```{r bar-plot-ilha-massa}
 #| out-width: 100%
 #| fig-align: "center"
+#| echo: false
 pinguins |>
   ggplot(aes(x = ilha,
              y = massa_corporal,
@@ -304,10 +313,13 @@ pinguins |>
        x = "Ilha") +
   ghibli::scale_fill_ghibli_d(name = "MononokeLight") +
   scale_y_continuous(labels = \(x) paste0(as.character(x), "g")) +
-  theme_minimal(base_size = 18,
+  theme_minimal(base_size = 24,
                 base_family = "Charter") +
   theme(legend.position = "none")
 ```
+
+Visualmente, parece que os pinguins da `ilha` Biscoe apresentam uma média maior
+de `massa_corporal` em relação às outras ilhas.
 :::
 
 ::: {.column width="60%"}
@@ -371,10 +383,12 @@ TukeyHSD(anova_massa_ilha)
 pinguins |> 
   ggplot(aes(x = massa_corporal,
              y = comprimento_bico)) +
-  geom_point(color = "#00468b99", alpha = 0.8) +
+  geom_point(color = "#00468b99",
+             alpha = 0.7,
+             size = 2) +
   labs(x = "Massa corporal (em gramas)",
        y = "Comprimento do bico (em mm)") +
-  theme_minimal(base_size = 16,
+  theme_minimal(base_size = 21,
                 base_family = "Charter")
 ```
 
@@ -412,10 +426,10 @@ nível de medida ordinal
 
 . . .
 
-| Teste paramétrico        | Teste não-paramétrico   |
-|--------------------------|-------------------------|
-| Teste t de duas amostras | Teste U de Mann-Whitney |
-| ANOVA de uma via         | Teste de Kruskal-Wallis |
+| Teste paramétrico        | Teste não-paramétrico   |   Função no R    |
+|--------------------------|-------------------------|------------------|
+| Teste t de duas amostras | Teste U de Mann-Whitney | `wilcox.test()`  |
+| ANOVA de uma via         | Teste de Kruskal-Wallis | `kruskal.test()` |
 
 ## Referências
 
