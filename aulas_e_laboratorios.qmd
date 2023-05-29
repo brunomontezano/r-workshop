@@ -45,6 +45,7 @@ Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano.
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/slides_descritiva.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/4_descritiva/script_descritiva.R)
 * [Gravação da aula](https://youtu.be/a9-yo5IwC84)
+* [Gravação do laboratório](https://youtu.be/4IcjKk--s5A)
 
 ## Aula 5: Inferência estatística
   
