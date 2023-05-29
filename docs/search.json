@@ -1152,14 +1152,14 @@
     "href": "slides/5_inferencia/slides_inferencia.html#exemplo-de-teste-chi2-no-r",
     "title": "Inferência estatística",
     "section": "Exemplo de teste \\(\\chi^2\\) no R",
-    "text": "Exemplo de teste \\(\\chi^2\\) no R\n\n\n\n\nlibrary(janitor)\n\n# Criar tabela 2x2 com espécie e ilha\npinguins |&gt; \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0\n\n\n\n\n# Rodar um teste qui-quadrado de independência\nchisq.test(pinguins$especie, pinguins$ilha)\n\n\n    Pearson's Chi-squared test\n\ndata:  pinguins$especie and pinguins$ilha\nX-squared = 299.55, df = 4, p-value &lt; 2.2e-16"
+    "text": "Exemplo de teste \\(\\chi^2\\) no R\n\n\n\n\nlibrary(janitor)\n\n# Criar tabela 3x3 com espécie e ilha\npinguins |&gt; \n  tabyl(especie, ilha)\n\n             especie Biscoe Dream Torgersen\n   Pinguim-de-adélia     44    56        52\n Pinguim-de-barbicha      0    68         0\n      Pinguim-gentoo    124     0         0\n\n\n\n\n# Rodar um teste qui-quadrado de independência\nchisq.test(pinguins$especie, pinguins$ilha)\n\n\n    Pearson's Chi-squared test\n\ndata:  pinguins$especie and pinguins$ilha\nX-squared = 299.55, df = 4, p-value &lt; 2.2e-16"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#v-de-cramer",
     "href": "slides/5_inferencia/slides_inferencia.html#v-de-cramer",
     "title": "Inferência estatística",
     "section": "\\(V\\) de Cramer",
-    "text": "\\(V\\) de Cramer\n\nOs \\(p\\)-valores quase nunca são informativos sobre a relevância dos resultados\nO tamanho do efeito é uma medida objetiva e padronizada sobre um efeito observado\nO tamanho do efeito mais utilizado no teste \\(\\chi^2\\) é o \\(V\\) de Cramer\n\nEsta estatística gera valores entre 0 e 1\nA interpretação se baseia nos graus de liberdade\n\n\n\n\n\n\n\n\nGraus de liberdade\nPequeno\nMédio\nGrande\n\n\n\n\n1\n0,1\n0,3\n0,5\n\n\n2\n0,07\n0,21\n0,35\n\n\n3\n0,06\n0,17\n0,29\n\n\n4\n0,05\n0,15\n0,25\n\n\n\n\n\neffectsize::cramers_v(pinguins$especie,\n                      pinguins$ilha,\n                      alternative = \"two.sided\",\n                      ci = 0.95)\n\nCramer's V (adj.) |       95% CI\n--------------------------------\n0.66              | [0.58, 0.73]"
+    "text": "\\(V\\) de Cramer\n\nOs \\(p\\)-valores quase nunca são informativos sobre a relevância dos resultados\nO tamanho do efeito é uma medida objetiva e padronizada sobre um efeito observado\nO tamanho do efeito mais utilizado no teste \\(\\chi^2\\) é o \\(V\\) de Cramer\n\nEsta estatística gera valores entre 0 e 1\nA interpretação se baseia nos graus de liberdade\n\n\n\n\n\n\n\n\nGraus de liberdade\nPequeno\nMédio\nGrande\n\n\n\n\n1\n0,1\n0,3\n0,5\n\n\n2\n0,07\n0,21\n0,35\n\n\n3\n0,06\n0,17\n0,29\n\n\n4\n0,05\n0,15\n0,25\n\n\n\n\n\nlibrary(effectsize)\n\ncramers_v(pinguins$especie,\n          pinguins$ilha,\n          alternative = \"two.sided\",\n          ci = 0.95)\n\nCramer's V (adj.) |       95% CI\n--------------------------------\n0.66              | [0.58, 0.73]"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#teste-t",
@@ -1187,7 +1187,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#d-de-cohen",
     "title": "Inferência estatística",
     "section": "\\(d\\) de Cohen",
-    "text": "\\(d\\) de Cohen\n\nO tamanho do efeito pode ser considerado um indicador da relevância clínica dos grupos\nO \\(d\\) de Cohen é usado para calcular a distância entre as médias das distribuições sobrepostas\n\n\n\n\n\n\n\n\\(d\\) de Cohen\nInterpretação\n\n\n\n\n\\(d &lt; 0,2\\)\nIrrelevante\n\n\n\\(d \\ge 0,2\\)\nPequeno\n\n\n\\(d \\ge 0,5\\)\nModerado\n\n\n\\(d \\ge 0,8\\)\nGrande\n\n\n\n\n\neffectsize::cohens_d(massa_corporal ~ sexo,\n                     data = pinguins,\n                     pooled_sd = FALSE,\n                     paired = FALSE,\n                     ci = 0.95)\n\nCohen's d |         95% CI\n--------------------------\n-0.94     | [-1.16, -0.71]\n\n- Estimated using un-pooled SD."
+    "text": "\\(d\\) de Cohen\n\nO tamanho do efeito pode ser considerado um indicador da relevância clínica dos grupos\nO \\(d\\) de Cohen é usado para calcular a distância entre as médias das distribuições sobrepostas\n\n\n\n\n\n\n\n\\(d\\) de Cohen\nInterpretação\n\n\n\n\n\\(d &lt; 0,2\\)\nIrrelevante\n\n\n\\(d \\ge 0,2\\)\nPequeno\n\n\n\\(d \\ge 0,5\\)\nModerado\n\n\n\\(d \\ge 0,8\\)\nGrande\n\n\n\n\n\ncohens_d(\n  massa_corporal ~ sexo,\n  data = pinguins,\n  pooled_sd = FALSE,\n  paired = FALSE,\n  ci = 0.95\n)\n\nCohen's d |         95% CI\n--------------------------\n-0.94     | [-1.16, -0.71]\n\n- Estimated using un-pooled SD."
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#anova-de-uma-via",
@@ -1208,7 +1208,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#correlação",
     "title": "Inferência estatística",
     "section": "Correlação",
-    "text": "Correlação\n\nProcedimento usado para verificar relação entre duas variáveis\nQual coeficiente escolher? Dica de leitura: Khamis (2008)\n\n\n\n\n\n\n\n\n\nNível de medida\nCorrelação\n\n\n\n\nAmbas variáveis são intervalares\nProduto momento de Pearson\n\n\nAmbas variáveis são ordinais\n\\(\\rho\\) de Spearman ou \\(\\tau\\) de Kendall\n\n\n\n\nNa psicometria, correlações tetracóricas ou policóricas são muito comuns\nComo interpretar?\n\nVaria de -1 a 1\n\n\n\n\n\n\n\nValor\nSinal positivo (+)\nSinal negativo (-)\n\n\n\n\n0,1\nFraca positiva\nFraca negativa\n\n\n0,3\nModerada positiva\nModerada negativa\n\n\n0,5\nForte positiva\nForte negativa"
+    "text": "Correlação\n\nProcedimento usado para verificar relação entre duas variáveis\nQual coeficiente escolher? Dica de leitura: Khamis (2008)\n\n\n\n\n\n\n\n\n\nNível de medida\nCorrelação\n\n\n\n\nVariáveis são normais\nProduto momento de Pearson\n\n\nVariáveis não são normais\n\\(\\rho\\) de Spearman ou \\(\\tau\\) de Kendall\n\n\n\n\nNa psicometria, correlações tetracóricas ou policóricas são muito comuns\nComo interpretar?\n\nVaria de -1 a 1\n\n\n\n\n\n\n\nValor\nSinal positivo (+)\nSinal negativo (-)\n\n\n\n\n0,1\nFraca positiva\nFraca negativa\n\n\n0,3\nModerada positiva\nModerada negativa\n\n\n0,5\nForte positiva\nForte negativa"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#propriedades-da-correlação-de-pearson",
@@ -2091,5 +2091,12 @@
     "title": "Aulas e laboratórios",
     "section": "Notas de rodapé",
     "text": "Notas de rodapé\n\n\nCaso ocorra uma interrupção no acesso aos links fornecidos, é possível obter os dados diretamente por meio do repositório no GitHub.↩︎"
+  },
+  {
+    "objectID": "slides/5_inferencia/slides_inferencia.html#p-valor",
+    "href": "slides/5_inferencia/slides_inferencia.html#p-valor",
+    "title": "Inferência estatística",
+    "section": "\\(p\\)-valor",
+    "text": "\\(p\\)-valor\n\nO \\(p\\)-valor representa a probabilidade de obter um resultado tão extremo ou mais extremo do que o observado, assumindo que a hipótese nula (\\(H_0\\)) é verdadeira\nSe o \\(p\\)-valor for pequeno (geralmente &lt;0,05), há evidências estatísticas para rejeitar a hipótese nula (\\(H_0\\)) em favor da hipótese alternativa (\\(H_a\\))\nO \\(p\\)-valor não mede a magnitude da diferença ou efeito observado, apenas indica sua significância estatística\nDentro da psiquiatria e da psicologia, adotamos por convenção o nível de significância de 0,05"
   }
 ]

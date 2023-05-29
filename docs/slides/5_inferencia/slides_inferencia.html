@@ -480,6 +480,15 @@ Bruno Montezano
 <p><span class="math display">\[H_0: \mu_{tomou} = \mu_{não \,tomou}\]</span> <span class="math display">\[\underbrace{H_a: \mu_{tomou} &lt; \mu_{não \,tomou}}_\text{Hipóteses estatísticas}\]</span></p>
 </div>
 </section>
+<section id="p-valor" class="slide level2">
+<h2><span class="math inline">\(p\)</span>-valor</h2>
+<ul>
+<li class="fragment"><p>O <span class="math inline">\(p\)</span>-valor representa a probabilidade de obter um resultado tão extremo ou mais extremo do que o observado, assumindo que a hipótese nula (<span class="math inline">\(H_0\)</span>) é verdadeira</p></li>
+<li class="fragment"><p>Se o <span class="math inline">\(p\)</span>-valor for pequeno (geralmente &lt;0,05), há evidências estatísticas para rejeitar a hipótese nula (<span class="math inline">\(H_0\)</span>) em favor da hipótese alternativa (<span class="math inline">\(H_a\)</span>)</p></li>
+<li class="fragment"><p>O <strong><span class="math inline">\(p\)</span>-valor não mede a magnitude da diferença ou efeito observado</strong>, apenas indica sua significância estatística</p></li>
+<li class="fragment"><p>Dentro da psiquiatria e da psicologia, <strong>adotamos por convenção o nível de significância de 0,05</strong></p></li>
+</ul>
+</section>
 <section id="vamos-ver-alguns-testes-estatísticos" class="slide level2">
 <h2>Vamos ver alguns testes estatísticos!</h2>
 
@@ -509,7 +518,7 @@ Bruno Montezano
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(janitor)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Criar tabela 2x2 com espécie e ilha</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Criar tabela 3x3 com espécie e ilha</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a>pinguins <span class="sc">|&gt;</span> </span>
 <span id="cb1-5"><a href="#cb1-5"></a>  <span class="fu">tabyl</span>(especie, ilha)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -586,10 +595,12 @@ X-squared = 299.55, df = 4, p-value &lt; 2.2e-16</code></pre>
 </table>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>effectsize<span class="sc">::</span><span class="fu">cramers_v</span>(pinguins<span class="sc">$</span>especie,</span>
-<span id="cb5-2"><a href="#cb5-2"></a>                      pinguins<span class="sc">$</span>ilha,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>                      <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4"></a>                      <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">cramers_v</span>(pinguins<span class="sc">$</span>especie,</span>
+<span id="cb5-4"><a href="#cb5-4"></a>          pinguins<span class="sc">$</span>ilha,</span>
+<span id="cb5-5"><a href="#cb5-5"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6"></a>          <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cramer's V (adj.) |       95% CI
 --------------------------------
@@ -705,11 +716,13 @@ mean in group fêmea mean in group macho
 </table>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(massa_corporal <span class="sc">~</span> sexo,</span>
-<span id="cb11-2"><a href="#cb11-2"></a>                     <span class="at">data =</span> pinguins,</span>
-<span id="cb11-3"><a href="#cb11-3"></a>                     <span class="at">pooled_sd =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb11-4"><a href="#cb11-4"></a>                     <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb11-5"><a href="#cb11-5"></a>                     <span class="at">ci =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">cohens_d</span>(</span>
+<span id="cb11-2"><a href="#cb11-2"></a>  massa_corporal <span class="sc">~</span> sexo,</span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="at">data =</span> pinguins,</span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="at">pooled_sd =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="at">ci =</span> <span class="fl">0.95</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cohen's d |         95% CI
 --------------------------
@@ -805,11 +818,11 @@ Torgersen-Dream     -6.530677  -251.8063  238.7450 0.9978364</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ambas variáveis são intervalares</td>
+<td>Variáveis são normais</td>
 <td>Produto momento de Pearson</td>
 </tr>
 <tr class="even">
-<td>Ambas variáveis são ordinais</td>
+<td>Variáveis não são normais</td>
 <td><span class="math inline">\(\rho\)</span> de Spearman ou <span class="math inline">\(\tau\)</span> de Kendall</td>
 </tr>
 </tbody>

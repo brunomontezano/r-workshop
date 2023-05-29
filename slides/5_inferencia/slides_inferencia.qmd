@@ -73,6 +73,21 @@ $$\underbrace{O \,grupo \,que \,tomou \,antidepressivo \,apresenta \,menos \,sin
 $$H_0: \mu_{tomou} = \mu_{não \,tomou}$$
 $$\underbrace{H_a: \mu_{tomou} < \mu_{não \,tomou}}_\text{Hipóteses estatísticas}$$
 
+## $p$-valor
+
+* O $p$-valor representa a probabilidade de obter um resultado tão extremo
+ou mais extremo do que o observado, assumindo que a hipótese nula ($H_0$)
+é verdadeira
+
+* Se o $p$-valor for pequeno (geralmente <0,05), há evidências estatísticas
+para rejeitar a hipótese nula ($H_0$) em favor da hipótese alternativa ($H_a$)
+
+* O **$p$-valor não mede a magnitude da diferença ou efeito observado**,
+apenas indica sua significância estatística 
+
+* Dentro da psiquiatria e da psicologia, **adotamos por convenção o nível
+de significância de 0,05**
+
 ## Vamos ver alguns testes estatísticos!
 
 ![](../assets/meme_hipotese.jpg){fig-align="center" width=75%}
@@ -116,7 +131,7 @@ ggplot(pinguins,
 ```{r qui-quadrado-especie-ilha}
 library(janitor)
 
-# Criar tabela 2x2 com espécie e ilha
+# Criar tabela 3x3 com espécie e ilha
 pinguins |> 
   tabyl(especie, ilha)
 ```
@@ -156,10 +171,12 @@ o $V$ de Cramer
 
 ::: {.column width="50%"}
 ```{r v-de-cramer-pinguins}
-effectsize::cramers_v(pinguins$especie,
-                      pinguins$ilha,
-                      alternative = "two.sided",
-                      ci = 0.95)
+library(effectsize)
+
+cramers_v(pinguins$especie,
+          pinguins$ilha,
+          alternative = "two.sided",
+          ci = 0.95)
 ```
 :::
 
@@ -267,11 +284,13 @@ distribuições sobrepostas
 
 ::: {.column width="50%"}
 ```{r d-cohen-pinguins}
-effectsize::cohens_d(massa_corporal ~ sexo,
-                     data = pinguins,
-                     pooled_sd = FALSE,
-                     paired = FALSE,
-                     ci = 0.95)
+cohens_d(
+  massa_corporal ~ sexo,
+  data = pinguins,
+  pooled_sd = FALSE,
+  paired = FALSE,
+  ci = 0.95
+)
 ```
 :::
 
@@ -347,8 +366,8 @@ TukeyHSD(anova_massa_ilha)
 
 | Nível de medida | Correlação |
 |--------------|-------------|
-| Ambas variáveis são intervalares  |   Produto momento de Pearson   |
-| Ambas variáveis são ordinais  |   $\rho$ de Spearman ou $\tau$ de Kendall  |
+| Variáveis são normais |   Produto momento de Pearson   |
+| Variáveis não são normais  |   $\rho$ de Spearman ou $\tau$ de Kendall  |
 
 * Na psicometria, correlações tetracóricas ou policóricas são muito comuns
 
