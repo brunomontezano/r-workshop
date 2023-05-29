@@ -285,12 +285,13 @@ diferenças médias entre vários grupos
   - Também pode ser entendido como um caso especial de um modelo de regressão
   - Uma das análises mais usadas em Psicologia [@chartier_2008]
   
-* Pressupostos:
-  - Dados aleatórios e representativos da população
-  - Variável dependente é contínua
-  - Resíduos normalmente distribuídos
-  - Resíduos independentes
-  - Variância dos resíduos é constante
+* Possíveis perguntas de pesquisa:
+  - Qual é a diferença de três medicamentos diferentes na redução dos sintomas
+  de depressão em pacientes diagnosticados com transtorno depressivo maior?
+  - Há diferenças significativas nas medidas de ansiedade entre grupos de
+  diferentes faixas etárias?
+  - Existe uma diferença nos níveis de estresse percebido entre pessoas
+  que vivem em diferentes países?
   
 ## Exemplo de ANOVA no R
 

@@ -1194,7 +1194,7 @@
     "href": "slides/5_inferencia/slides_inferencia.html#anova-de-uma-via",
     "title": "Inferência estatística",
     "section": "ANOVA de uma via",
-    "text": "ANOVA de uma via\n\nA ANOVA (análise da variância) representa um conjunto de procedimentos para verificar diferenças médias entre vários grupos\n\nBasicamente um super teste t\nTambém pode ser entendido como um caso especial de um modelo de regressão\nUma das análises mais usadas em Psicologia (Chartier e Faulkner 2008)\n\nPressupostos:\n\nDados aleatórios e representativos da população\nVariável dependente é contínua\nResíduos normalmente distribuídos\nResíduos independentes\nVariância dos resíduos é constante"
+    "text": "ANOVA de uma via\n\nA ANOVA (análise da variância) representa um conjunto de procedimentos para verificar diferenças médias entre vários grupos\n\nBasicamente um super teste t\nTambém pode ser entendido como um caso especial de um modelo de regressão\nUma das análises mais usadas em Psicologia (Chartier e Faulkner 2008)\n\nPossíveis perguntas de pesquisa:\n\nQual é a diferença de três medicamentos diferentes na redução dos sintomas de depressão em pacientes diagnosticados com transtorno depressivo maior?\nHá diferenças significativas nas medidas de ansiedade entre grupos de diferentes faixas etárias?\nExiste uma diferença nos níveis de estresse percebido entre pessoas que vivem em diferentes países?"
   },
   {
     "objectID": "slides/5_inferencia/slides_inferencia.html#exemplo-de-anova-no-r",
