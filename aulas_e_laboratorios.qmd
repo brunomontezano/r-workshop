@@ -52,6 +52,7 @@ Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano.
 * [Slides](slides/5_inferencia/slides_inferencia.html)
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/5_inferencia/slides_inferencia.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/5_inferencia/script_inferencia.R)
+* [Gravação da aula](https://youtu.be/HaW_jG0o1gE)
   
 ## Aula 6: Modelos de regressão
   
