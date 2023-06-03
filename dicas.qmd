@@ -6,7 +6,9 @@ lang: pt-br
 Nesta página, você encontra uma série de vídeos de curta duração
 com explicações breves e exemplos de diversas rotinas de manipulação
 e análise de dados em R para que você possa revisar ou aprender novos
-conceitos para ciência de dados em saúde.
+conceitos para ciência de dados em saúde. A maioria dos tutoriais
+requer conhecimento dos conceitos apresentados na
+[Aula 2 de Manipulação de dados](aulas_e_laboratorios.html#aula-2-manipulação-de-dados).
 
 * [Transformar valores em NA](https://youtu.be/G--CVO23sR8)
   - O vídeo demonstra como transformar valores comumente usados
@@ -15,4 +17,22 @@ conceitos para ciência de dados em saúde.
 
 * [Descobrir número de valores ausentes](https://youtu.be/D2GGtS5R03Q)
   - O vídeo apresenta duas formas de descobrir a quantidade de
-  valores ausentes em uma coluna (variável) do conjunto de dados.
+  valores ausentes nas colunas (variáveis) do conjunto de dados.
+  
+* [Customizar aparência do RStudio](https://youtu.be/4Tptf1E3yAI)
+  - O vídeo ensina como customizar a aparência da interface do RStudio a partir
+  da mudança nas cores, família e tamanho da fonte.
+  
+* [Imputar variável numérica pela média](https://youtu.be/Xfj38ovdPuc)
+  - O vídeo apresenta como imputar uma variável numérica a partir da média
+  aritmética dos demais valores da coluna de dados. O tutorial aborda tanto
+  a mudança em uma variável quanto em várias variáveis ao mesmo tempo.
+  
+* [Separar uma variável em várias variáveis](https://youtu.be/5-zbwgoc-ps)
+  - O vídeo mostra como separar valores presentes em uma única coluna para
+  múltiplas colunas de dados. Este problema pode ser bastante comum dentro de
+  pesquisa em saúde.
+  
+* [Explorar dados com o pacote `skimr`](https://youtu.be/JE0N7aVQfws)
+  - O vídeo apresenta uma forma de explorar os dados e visualizar um panorama
+  geral de um conjunto de dados dentro do R com uso do pacote skimr. 
