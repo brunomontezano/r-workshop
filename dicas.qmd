@@ -36,3 +36,7 @@ requer conhecimento dos conceitos apresentados na
 * [Explorar dados com o pacote `skimr`](https://youtu.be/JE0N7aVQfws)
   - O vídeo apresenta uma forma de explorar os dados e visualizar um panorama
   geral de um conjunto de dados dentro do R com uso do pacote skimr. 
+  
+* [Calcular escore de um instrumento ou escala](https://youtu.be/nQKMtrx4ZZ0)
+  - O vídeo apresenta como calcular o escore total de um instrumento
+  psicométrico ou escala a partir da soma de itens com uso do pacote `dplyr`.
