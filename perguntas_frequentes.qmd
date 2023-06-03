@@ -62,10 +62,10 @@ Segue abaixo o cronograma de aulas do curso:
 1. R e RStudio (17/04/2023)
 2. Manipulação de dados (24/04/2023)
 3. Visualização de dados (08/05/2023)
-4. Análise descritiva (15/05/2023)
-5. Inferência estatística (22/05/2023)
-6. Modelos de regressão (29/05/2023)
-7. Tópicos avançados (05/06/2023)
+4. Análise descritiva (22/05/2023)
+5. Inferência estatística (29/05/2023)
+6. Modelos de regressão (05/06/2023)
+7. Tópicos avançados (12/06/2023)
 
 Em relação aos laboratórios, eles acontecerão no sábado da semana
 da aula correspondente. Assim como as aulas, os laboratórios serão
