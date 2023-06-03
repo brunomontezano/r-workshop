@@ -15,6 +15,8 @@ website:
         text: Aulas e laboratórios
       - href: tarefas_de_casa.qmd
         text: Tarefas de casa
+      - href: dicas.qmd
+        text: Dicas
       - href: perguntas_frequentes.qmd
         text: Perguntas frequentes
   page-footer: 

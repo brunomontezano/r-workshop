@@ -1,0 +1,18 @@
+---
+title: "Dicas"
+lang: pt-br
+---
+
+Nesta página, você encontra uma série de vídeos de curta duração
+com explicações breves e exemplos de diversas rotinas de manipulação
+e análise de dados em R para que você possa revisar ou aprender novos
+conceitos para ciência de dados em saúde.
+
+* [Transformar valores em NA](https://youtu.be/G--CVO23sR8)
+  - O vídeo demonstra como transformar valores comumente usados
+  para representar valores ausentes em pesquisa em saúde (como
+  `99`, `88`, `999`) em `NA` (valor ausente) dentro do R.
+
+* [Descobrir número de valores ausentes](https://youtu.be/D2GGtS5R03Q)
+  - O vídeo apresenta duas formas de descobrir a quantidade de
+  valores ausentes em uma coluna (variável) do conjunto de dados.
