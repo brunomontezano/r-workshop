@@ -40,3 +40,9 @@ requer conhecimento dos conceitos apresentados na
 * [Calcular escore de um instrumento ou escala](https://youtu.be/nQKMtrx4ZZ0)
   - O vídeo apresenta como calcular o escore total de um instrumento
   psicométrico ou escala a partir da soma de itens com uso do pacote `dplyr`.
+  
+* [Unir dois conjuntos de dados a partir de um identificador](https://youtu.be/AfaUWmkuF-w)
+  - O vídeo apresenta como unir dois conjuntos de dados a partir de uma variável
+  de identificação (chave) em R com o pacote `dplyr`.
+  O exemplo usa a função `left_join()` para unir as duas bases de
+  dados fictícios.
