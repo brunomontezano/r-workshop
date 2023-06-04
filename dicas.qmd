@@ -46,3 +46,8 @@ requer conhecimento dos conceitos apresentados na
   de identificação (chave) em R com o pacote `dplyr`.
   O exemplo usa a função `left_join()` para unir as duas bases de
   dados fictícios.
+  
+* [Calcular $z$-score de uma variável](https://youtu.be/YUrYJK5iFrQ)
+  - O vídeo apresenta como calcular o $z$-score de uma variável no R através do
+  pacote `dplyr`. É muito comum dentro da pesquisa em saúde que queiramos
+  saber quantos desvios padrão cada valor se afasta da média do vetor.
