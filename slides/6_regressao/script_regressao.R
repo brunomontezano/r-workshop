@@ -449,7 +449,7 @@ dados::pinguins |>
   ggplot(aes(y = comprimento_nadadeira, x = especie, fill = especie)) +
   geom_boxplot(show.legend = FALSE) +
   labs(y = "Comprimento da nadadeira (mm)",
-       x = "Sexo") +
+       x = "Espécie") +
   theme_minimal(20)
 
 # Ajustar modelo com preditor categórico de três categorias

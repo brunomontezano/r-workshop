@@ -677,7 +677,7 @@ dados::pinguins |>
   geom_boxplot(show.legend = FALSE) +
   ghibli::scale_fill_ghibli_d("MononokeMedium", direction = -1) +
   labs(y = "Comprimento da nadadeira (mm)",
-       x = "Sexo") +
+       x = "Espécie") +
   theme_minimal(20, "Charter")
 ```
 
