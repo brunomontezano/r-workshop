@@ -64,9 +64,9 @@ Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano.
 * [Gravação da aula](https://youtu.be/iVMEO4DyuPo)
 * [Arquivo `gambas.csv`](https://drive.google.com/uc?export=download&id=1BQgajup9B7MKJxSSrW0_x_GCrDuCkrjj)
   
-## Aula 7: Tópicos avançados
+## Aula 7: Introdução ao aprendizado de máquina
   
-* [Slides](slides/7_topicos_avancados/slides_topicos_avancados.html)
-* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/slides_topicos_avancados.qmd)
-* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_topicos_avancados/script_topicos_avancados.R)
+* [Slides](slides/7_intro_ml/slides_intro_ml.html)
+* [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_intro_ml/slides_intro_ml.qmd)
+* [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_intro_ml/script_intro_ml.R)
 

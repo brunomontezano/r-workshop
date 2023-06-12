@@ -104,3 +104,8 @@ final_pinguins |>
   extract_workflow() |> 
   tidy(exponentiate = TRUE) |> 
   arrange(desc(estimate))
+
+# Olhar importância de variáveis
+final_pinguins |> 
+  extract_fit_engine() |> 
+  vip::vip(geom = "point")

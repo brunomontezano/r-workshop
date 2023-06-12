@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/aulas_e_laboratorios.html</loc>
-    <lastmod>2023-06-06T00:43:01.094Z</lastmod>
+    <lastmod>2023-06-12T23:43:22.746Z</lastmod>
   </url>
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/materiais.html</loc>
@@ -83,5 +83,9 @@
   <url>
     <loc>https://brunomontezano.github.io/r-workshop/slides/1_r_e_rstudio/slides_r_e_rstudio.html</loc>
     <lastmod>2023-06-03T04:48:48.580Z</lastmod>
+  </url>
+  <url>
+    <loc>https://brunomontezano.github.io/r-workshop/slides/7_intro_ml/slides_intro_ml.html</loc>
+    <lastmod>2023-06-12T23:43:34.243Z</lastmod>
   </url>
 </urlset>
