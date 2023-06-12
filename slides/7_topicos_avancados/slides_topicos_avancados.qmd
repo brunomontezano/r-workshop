@@ -1,5 +1,5 @@
 ---
-title: "Tópicos avançados"
+title: "Introdução ao aprendizado de máquina"
 subtitle: "Aula 7"
 author: "Bruno Montezano"
 institute: "Grupo Alliance<br>Programa de Pós-Graduação em Psiquiatria e Ciências do Comportamento<br>Universidade Federal do Rio Grande do Sul"
@@ -34,7 +34,7 @@ format:
 
 . . .
 
-```{r}
+```{r exemplo-decision-tree}
 #| echo: false
 #| out.width: "90%"
 #| fig-align: "center"
@@ -71,6 +71,368 @@ rpart.plot(titanic_ajuste,
            fallen.leaves = TRUE,
            yes.text = "Sim",
            no.text = "Não",
-           main = "Sobrevivência no desastre do Titanic")
+           main = "Sobrevivência no desastre do Titanic: um exemplo de árvore de decisão")
 ```
+
+## Tipos de aprendizado
+
+```{r plot-tipos-aprendizado}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "90%"
+
+library(ggplot2)
+
+set.seed(123)
+dados_aprendizado <- data.frame(
+  X = c(rnorm(50, mean = 0), rnorm(50, mean = 3)),
+  Y = c(rnorm(50, mean = 0), rnorm(50, mean = 3)),
+  Tipo = rep(c("Grupo A", "Grupo B"), each = 50)
+)
+
+p_supervisionado <- ggplot(dados_aprendizado, aes(x = X, y = Y, color = Tipo)) +
+  geom_point(alpha = 0.8,
+             size = 2.2) +
+  labs(title = "Aprendizado Supervisionado") +
+  theme_light(16, "Charter") +
+  ggsci::scale_color_jama() +
+  theme(legend.position = "none") +
+  labs(x = latex2exp::TeX("$x_1$"),
+       y = latex2exp::TeX("$x_2$"))
+
+p_nao_supervisionado <- ggplot(dados_aprendizado, aes(x = X, y = Y)) +
+  geom_point() +
+  labs(title = "Aprendizado Não Supervisionado") +
+  theme_light(16, "Charter") +
+  ggforce::geom_mark_circle(aes(fill = Tipo)) +
+  ggsci::scale_fill_jama() +
+  labs(x = latex2exp::TeX("$x_1$"),
+       y = latex2exp::TeX("$x_2$")) +
+  theme(legend.position = "none")
+
+library(patchwork)
+p_supervisionado + p_nao_supervisionado
+```
+
+<br>
+
+. . .
+
+Vamos trabalhar com um exemplo em **aprendizado supervisionado**!
+
+## Aprendizado supervisionado
+
+```{r classificacao-regressao}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "90%"
+
+set.seed(123)
+dados_regressao <- data.frame(
+  X = seq(1, 10, by = 0.5),
+  Y = seq(2, 20, by = 1)
+)
+
+set.seed(123)
+dados_classificacao <- data.frame(
+  X = c(rnorm(300, mean = 2, sd = 1.5), rnorm(300, mean = 8, sd = 3)),
+  Y = c(rep(0, 300), rep(1, 300))
+)
+
+set.seed(123)
+p_regressao <- ggplot(dados_regressao, aes(x = X, y = Y)) +
+  geom_jitter(alpha = 0.8,
+              size = 2.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Problema de Regressão") +
+  theme_light(18, "Charter") +
+  labs(x = latex2exp::TeX("$x_1"),
+       y = latex2exp::TeX("$Y$"))
+
+set.seed(123)
+p_classificacao <- ggplot(dados_classificacao, aes(x = X, y = Y)) +
+  geom_jitter(aes(color = as.factor(Y)), size = 2.5,
+             alpha = 0.4,
+             height = 0.002,
+             width = 0) +
+  geom_smooth(method = "glm", method.args = list(family = "binomial"),
+              se = FALSE) +
+  ggsci::scale_color_npg() +
+  labs(title = "Problema de Classificação") +
+  theme_light(18, "Charter") +
+  theme(legend.position = "none") +
+  labs(x = latex2exp::TeX("$x_1"),
+       y = latex2exp::TeX("$Y$")) +
+  scale_y_continuous(breaks = 0:1)
+
+p_regressao + p_classificacao
+```
+
+. . .
+
+Hoje vamos trabalhar com **classificação**.
+
+## Problema de classificação
+
+Pergunta de pesquisa: **Podemos prever o sexo de um pinguim baseado em sua espécie, comprimento do
+bico e da nadadeira, profundidade do bico e massa corporal?**
+
+```{r exploratoria-pinguins}
+#| echo: false
+#| fig-align: "center"
+#| out.width: "90%"
+
+library(dados)
+library(dplyr)
+
+pinguins |> 
+  filter(!is.na(sexo)) |> 
+  ggplot(aes(x = profundidade_bico,
+             y = comprimento_bico,
+             color = sexo,
+             size = massa_corporal)) +
+  geom_point(alpha = 0.55) +
+  facet_wrap(~ especie) +
+  ggsci::scale_color_nejm(labels = c("Fêmea", "Macho")) +
+  theme_classic(12, "Charter") +
+  labs(x = "Profundidade do bico (mm)",
+       y = "Comprimento do bico (mm)",
+       color = "Sexo",
+       size = "Massa corporal (g)")
+```
+
+## Regressão logística
+
+* Uma "extensão" da regressão linear para problemas de classificação
+
+* Usa a função logística para transformar saída da regressão linear em uma probabilidade^[No R, a função logística pode ser usada com `LaplacesDemon::invlogit()`.]
+
+* Coeficientes: efeito logarítmico do $X$ sobre a razão de chances (*odds ratio*). Ou seja, não devemos
+interpretar os coeficientes diretamente
+
+* Em geral, usamos um limiar para decidir em qual classe o dado pertence (geralmente 0,5)
+
+* Para calcular o *odds ratio* no R, podemos exponenciar o coeficiente da regressão
+com a função `exp()`
+
+## `tidymodels`
+
+![](../assets/logo_tidymodels.png){fig-align="center" width=45%}
+
+## Pacote `tidymodels`
+
+```{r carregar-tidymodels}
+#| message: true
+library(tidymodels)
+```
+
+## Passo a passo
+
+1. Limpar os dados
+
+2. Dividir os dados em treino e teste
+
+3. Criar reamostragens com *bootstrapping*
+
+4. Especificar o algoritmo a ser usado
+
+5. Especificar o fluxo de modelagem com a pergunta de pesquisa
+
+6. Ajustar modelos nas reamostragens
+
+7. Verificar como o modelo performou
+
+8. Ajustar o modelo final no conjunto de treino e testar no conjunto de teste
+
+9. Checar os coeficientes
+
+## 1. Limpar os dados
+
+* Nesta etapa, vamos remover pinguins com valor ausente no desfecho
+
+* E também remover as variáveis de ano e ilha que não usaremos
+
+. . .
+
+```{r limpar-dados-pinguins}
+dados_pinguins <- pinguins |> 
+  filter(!is.na(sexo)) |> 
+  select(-ano, -ilha)
+
+dados_pinguins
+```
+
+## 2. Dividir os dados
+
+* Quando falamos em aprendizado supervisionado, buscamos simular a predição de dados nunca
+visto antes
+
+. . .
+
+```{r dividir-dados-pinguins}
+set.seed(1)
+
+divisao_pinguins <- initial_split(dados_pinguins, strata = "sexo", prop = 0.75)
+treino_pinguins <- training(divisao_pinguins)
+teste_pinguins <- testing(divisao_pinguins)
+
+divisao_pinguins
+```
+
+## 3. Criar reamostragens
+
+* *Bootstrapping*: técnica que nos permite estimar a variabilidade do desempenho do modelo de
+classificação a partir de uma única amostra de treinamento
+
+* Como funciona: criamos várias amostras de treinamento adicionais, sorteando aleatoriamente observações
+do conjunto de treino original
+
+. . .
+
+```{r criar-reamostragens}
+set.seed(1)
+
+boot_pinguins <- bootstraps(treino_pinguins, times = 25)
+
+boot_pinguins
+```
+
+## 4. Especificar o algoritmo
+
+* Especificamos que queremos usar uma *regressão logística binomial*
+
+* Dizemos para o R que o motor (*engine*) usado é a função `glm()`
+
+. . .
+
+```{r especificar-algoritmo}
+mod_log <- logistic_reg() |> 
+  set_mode("classification")
+  set_engine("glm")
+
+mod_log
+```
+
+## 5. Especificar o fluxo
+
+* Vamos dizer para o R que queremos prever o `sexo` do pinguim a partir de todas as outras
+variáveis do conjunto de dados
+
+. . .
+
+```{r especificar-workflow}
+wf_pinguins <- workflow() |> 
+  add_formula(sexo ~ .)
+
+wf_pinguins
+```
+
+## 6. Ajustar modelos nas reamostragens
+
+* Para cada reamostragem (de treino e teste), vamos ajustar o modelo em cada base de treino
+e avaliar como o modelo desempenhou a partir das bases de teste
+
+. . .
+
+```{r ajustar-reamostragens}
+rs_pinguins <- wf_pinguins |> 
+  add_model(mod_log) |> 
+  fit_resamples(
+    resamples = boot_pinguins,
+    control = control_resamples(
+      save_pred = TRUE,
+      verbose = TRUE
+    )
+  )
+
+rs_pinguins
+```
+
+## 7. Verificar a performance
+
+* A curva ROC nos permite visualizar o desempenho do modelo em diferentes pontos de corte
+
+* Quanto mais próximo a curva estiver do canto superior esquerdo, melhor será o desempenho do modelo
+
+* Acurácia é a proporção de predições corretas em relação ao total de predições
+
+. . .
+
+```{r pegar-metricas}
+collect_metrics(rs_pinguins)
+```
+
+. . .
+
+```{r matriz-confusao-reamostragens}
+rs_pinguins |> 
+  conf_mat_resampled()
+```
+
+## 7. Verificar a performance
+
+```{r curva-roc-reamostragem}
+#| echo: false
+#| out.width: "65%"
+#| fig-align: "center"
+rs_pinguins |> 
+  collect_predictions() |> 
+  group_by(id) |> 
+  roc_curve(sexo, .pred_fêmea) |> 
+  ggplot(aes(1 - specificity, sensitivity, color = id)) +
+  geom_abline(lty = 2, color = "gray80", size = 1.2) +
+  geom_path(show.legend = FALSE, alpha = 0.6, size = 1.2) +
+  coord_equal() +
+  theme_light(12, "Charter") +
+  labs(x = "1 - Especificidade", y = "Sensibilidade")
+```
+
+## 8. Ajustar o modelo final
+
+* Agora o conjunto de testes entra em ação para verificar como nosso modelo vai performar nestes
+dados nunca visto antes
+
+. . .
+
+```{r ajustar-modelo-final}
+final_pinguins <- wf_pinguins |> 
+  add_model(mod_log) |> 
+  last_fit(divisao_pinguins)
+
+collect_metrics(final_pinguins)
+
+collect_predictions(final_pinguins) |> 
+  conf_mat(sexo, .pred_class)
+```
+
+## 9. Olhar os coeficientes
+
+* *Odds ratio*:
+  - OR = 1 (sem efeito); OR > 1 (risco); OR < 1 (proteção)
+  - Variáveis numéricas: incremento percentual na chance para cada unidade de aumento
+  - Variáveis categóricas: grupo 1 tem maior chance do evento ocorrer em comparação ao grupo 2
+  
+. . .
+
+```{r coeficientes}
+final_pinguins |> 
+  extract_workflow() |> 
+  tidy(exponentiate = TRUE) |> 
+  arrange(desc(estimate))
+```
+
+## Tarefa de casa
+
+::: columns
+::: {.column width="55%"}
+* Dica de leitura: [An Introduction to Statistical Learning](https://www.statlearning.com/)
+
+* Rodar os códigos dos slides para tentar reproduzir o exemplo
+  - Lembre-se de instalar o pacote `tidymodels` caso não o tenha
+:::
+
+::: {.column width="45%"}
+![](../assets/capa_islr.jpg){width=65%}
+:::
+:::
 

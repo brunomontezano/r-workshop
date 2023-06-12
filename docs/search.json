@@ -478,14 +478,14 @@
   {
     "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#conteúdo-de-hoje",
     "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#conteúdo-de-hoje",
-    "title": "Tópicos avançados",
+    "title": "Introdução ao aprendizado de máquina",
     "section": "Conteúdo de hoje",
     "text": "Conteúdo de hoje\n\nO que é machine learning?\nAprendizado supervisionado e não-supervisionado\nMétricas de avaliação de modelos\nRegressão logística\nÁrvores de decisão\nRandom forests\nModelos não-supervisionados\nLimitações\nExemplo"
   },
   {
     "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#machine-learning",
     "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#machine-learning",
-    "title": "Tópicos avançados",
+    "title": "Introdução ao aprendizado de máquina",
     "section": "Machine learning",
     "text": "Machine learning\n\nConjunto de técnicas que ensina um computador a reconhecer padrões e fazer previsões"
   },
@@ -1664,5 +1664,138 @@
     "title": "R e RStudio",
     "section": "Dica: ChatGPT",
     "text": "Dica: ChatGPT\n\nO ChatGPT é um chatbot que pode ajudar na aprendizagem de programação\nEle pode responder perguntas sobre sintaxe, funcionalidades e solução de problemas no R\n\n\nVocê pode utilizar o pacote gptstudio para auxiliar nos códigos, gramática dos documentos, ou para comentar seu código no RStudio.\n\n\nAinda, o pacote askgpt foi criado para auxiliar na interação direta com o ChatGPT dentro do R."
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#tipos-de-aprendizado",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#tipos-de-aprendizado",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "Tipos de aprendizado",
+    "text": "Tipos de aprendizado\n\n\n\nVamos trabalhar com um exemplo em aprendizado supervisionado!"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#problemas-de-aprendizado-supervisionado",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#problemas-de-aprendizado-supervisionado",
+    "title": "Tópicos avançados",
+    "section": "Problemas de aprendizado supervisionado",
+    "text": "Problemas de aprendizado supervisionado\n\n\n\n\n\n\n\n\n\n\nHoje vamos trabalhar com classificação."
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#aprendizado-supervisionado",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#aprendizado-supervisionado",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "Aprendizado supervisionado",
+    "text": "Aprendizado supervisionado\n\n\nHoje vamos trabalhar com classificação."
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#problema-de-classificação",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#problema-de-classificação",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "Problema de classificação",
+    "text": "Problema de classificação\nPergunta de pesquisa: Podemos prever o sexo de um pinguim baseado em sua espécie, comprimento do bico e da nadadeira, profundidade do bico e massa corporal?"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#regressão-logística",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#regressão-logística",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "Regressão logística",
+    "text": "Regressão logística\n\nUma “extensão” da regressão linear para problemas de classificação\nUsa a função logística para transformar saída da regressão linear em uma probabilidade1\nCoeficientes: efeito logarítmico do \\(X\\) sobre a razão de chances (odds ratio). Ou seja, não devemos interpretar os coeficientes diretamente\nEm geral, usamos um limiar para decidir em qual classe o dado pertence (geralmente 0,5)\nPara calcular o odds ratio no R, podemos exponenciar o coeficiente da regressão com a função exp()\n\nNo R, a função logística pode ser usada com LaplacesDemon::invlogit()."
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#tidymodels",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#tidymodels",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "tidymodels",
+    "text": "tidymodels"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#pacote-tidymodels",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#pacote-tidymodels",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "Pacote tidymodels",
+    "text": "Pacote tidymodels\n\nlibrary(tidymodels)\n\n── Attaching packages ────────────────────────────────────── tidymodels 1.1.0 ──\n\n\n✔ broom        1.0.5     ✔ rsample      1.1.1\n✔ dials        1.2.0     ✔ tibble       3.2.1\n✔ infer        1.0.4     ✔ tidyr        1.3.0\n✔ modeldata    1.1.0     ✔ tune         1.1.1\n✔ parsnip      1.1.0     ✔ workflows    1.1.3\n✔ purrr        1.0.1     ✔ workflowsets 1.0.1\n✔ recipes      1.0.6     ✔ yardstick    1.2.0\n\n\n── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──\n✖ purrr::discard() masks scales::discard()\n✖ dplyr::filter()  masks stats::filter()\n✖ dplyr::lag()     masks stats::lag()\n✖ dials::prune()   masks rpart::prune()\n✖ recipes::step()  masks stats::step()\n• Use tidymodels_prefer() to resolve common conflicts."
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#passo-a-passo",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#passo-a-passo",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "Passo a passo",
+    "text": "Passo a passo\n\nLimpar os dados\nDividir os dados em treino e teste\nCriar reamostragens com bootstrapping\nEspecificar o algoritmo a ser usado\nEspecificar o fluxo de modelagem com a pergunta de pesquisa\nAjustar modelos nas reamostragens\nVerificar como o modelo performou\nAjustar o modelo final no conjunto de treino e testar no conjunto de teste\nChecar os coeficientes"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#limpar-os-dados",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#limpar-os-dados",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "1. Limpar os dados",
+    "text": "1. Limpar os dados\n\nNesta etapa, vamos remover pinguins com valor ausente no desfecho\nE também remover as variáveis de ano e ilha que não usaremos\n\n\n\ndados_pinguins &lt;- pinguins |&gt; \n  filter(!is.na(sexo)) |&gt; \n  select(-ano, -ilha)\n\ndados_pinguins\n\n# A tibble: 333 × 6\n   especie           comprimento_bico profundidade_bico comprimento_nadadeira\n   &lt;fct&gt;                        &lt;dbl&gt;             &lt;dbl&gt;                 &lt;int&gt;\n 1 Pinguim-de-adélia             39.1              18.7                   181\n 2 Pinguim-de-adélia             39.5              17.4                   186\n 3 Pinguim-de-adélia             40.3              18                     195\n 4 Pinguim-de-adélia             36.7              19.3                   193\n 5 Pinguim-de-adélia             39.3              20.6                   190\n 6 Pinguim-de-adélia             38.9              17.8                   181\n 7 Pinguim-de-adélia             39.2              19.6                   195\n 8 Pinguim-de-adélia             41.1              17.6                   182\n 9 Pinguim-de-adélia             38.6              21.2                   191\n10 Pinguim-de-adélia             34.6              21.1                   198\n# ℹ 323 more rows\n# ℹ 2 more variables: massa_corporal &lt;int&gt;, sexo &lt;fct&gt;"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#dividir-os-dados",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#dividir-os-dados",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "2. Dividir os dados",
+    "text": "2. Dividir os dados\n\nQuando falamos em aprendizado supervisionado, buscamos simular a predição de dados nunca visto antes\n\n\n\nset.seed(1)\n\ndivisao_pinguins &lt;- initial_split(dados_pinguins, strata = \"sexo\", prop = 0.75)\ntreino_pinguins &lt;- training(divisao_pinguins)\nteste_pinguins &lt;- testing(divisao_pinguins)\n\ndivisao_pinguins\n\n&lt;Training/Testing/Total&gt;\n&lt;249/84/333&gt;"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#criar-reamostragens",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#criar-reamostragens",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "3. Criar reamostragens",
+    "text": "3. Criar reamostragens\n\nBootstrapping: técnica que nos permite estimar a variabilidade do desempenho do modelo de classificação a partir de uma única amostra de treinamento\nComo funciona: criamos várias amostras de treinamento adicionais, sorteando aleatoriamente observações do conjunto de treino original\n\n\n\nset.seed(1)\n\nboot_pinguins &lt;- bootstraps(treino_pinguins, times = 25)\n\nboot_pinguins\n\n# Bootstrap sampling \n# A tibble: 25 × 2\n   splits            id         \n   &lt;list&gt;            &lt;chr&gt;      \n 1 &lt;split [249/93]&gt;  Bootstrap01\n 2 &lt;split [249/93]&gt;  Bootstrap02\n 3 &lt;split [249/97]&gt;  Bootstrap03\n 4 &lt;split [249/95]&gt;  Bootstrap04\n 5 &lt;split [249/103]&gt; Bootstrap05\n 6 &lt;split [249/86]&gt;  Bootstrap06\n 7 &lt;split [249/92]&gt;  Bootstrap07\n 8 &lt;split [249/83]&gt;  Bootstrap08\n 9 &lt;split [249/89]&gt;  Bootstrap09\n10 &lt;split [249/95]&gt;  Bootstrap10\n# ℹ 15 more rows"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#especificar-o-algoritmo",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#especificar-o-algoritmo",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "4. Especificar o algoritmo",
+    "text": "4. Especificar o algoritmo\n\nEspecificamos que queremos usar uma regressão logística binomial\nDizemos para o R que o motor (engine) usado é a função glm()\n\n\n\nmod_log &lt;- logistic_reg() |&gt; \n  set_engine(\"glm\")\n\nmod_log\n\nLogistic Regression Model Specification (classification)\n\nComputational engine: glm"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#especificar-o-fluxo",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#especificar-o-fluxo",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "5. Especificar o fluxo",
+    "text": "5. Especificar o fluxo\n\nVamos dizer para o R que queremos prever o sexo do pinguim a partir de todas as outras variáveis do conjunto de dados\n\n\n\nwf_pinguins &lt;- workflow() |&gt; \n  add_formula(sexo ~ .)\n\nwf_pinguins\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Formula\nModel: None\n\n── Preprocessor ────────────────────────────────────────────────────────────────\nsexo ~ ."
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#ajustar-modelos-nas-reamostragens",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#ajustar-modelos-nas-reamostragens",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "6. Ajustar modelos nas reamostragens",
+    "text": "6. Ajustar modelos nas reamostragens\n\nPara cada reamostragem (de treino e teste), vamos ajustar o modelo em cada base de treino e avaliar como o modelo desempenhou a partir das bases de teste\n\n\n\nrs_pinguins &lt;- wf_pinguins |&gt; \n  add_model(mod_log) |&gt; \n  fit_resamples(\n    resamples = boot_pinguins,\n    control = control_resamples(\n      save_pred = TRUE,\n      verbose = TRUE\n    )\n  )\n\nrs_pinguins\n\n# Resampling results\n# Bootstrap sampling \n# A tibble: 25 × 5\n   splits            id          .metrics         .notes           .predictions\n   &lt;list&gt;            &lt;chr&gt;       &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      \n 1 &lt;split [249/93]&gt;  Bootstrap01 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 2 &lt;split [249/93]&gt;  Bootstrap02 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 3 &lt;split [249/97]&gt;  Bootstrap03 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 4 &lt;split [249/95]&gt;  Bootstrap04 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 5 &lt;split [249/103]&gt; Bootstrap05 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 6 &lt;split [249/86]&gt;  Bootstrap06 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 7 &lt;split [249/92]&gt;  Bootstrap07 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 8 &lt;split [249/83]&gt;  Bootstrap08 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n 9 &lt;split [249/89]&gt;  Bootstrap09 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n10 &lt;split [249/95]&gt;  Bootstrap10 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    \n# ℹ 15 more rows"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#verificar-a-performance",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#verificar-a-performance",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "7. Verificar a performance",
+    "text": "7. Verificar a performance\n\nA curva ROC nos permite visualizar o desempenho do modelo em diferentes pontos de corte\nQuanto mais próximo a curva estiver do canto superior esquerdo, melhor será o desempenho do modelo\nAcurácia é a proporção de predições corretas em relação ao total de predições\n\n\n\ncollect_metrics(rs_pinguins)\n\n# A tibble: 2 × 6\n  .metric  .estimator  mean     n std_err .config             \n  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n1 accuracy binary     0.915    25 0.00510 Preprocessor1_Model1\n2 roc_auc  binary     0.977    25 0.00240 Preprocessor1_Model1\n\n\n\n\n\nrs_pinguins |&gt; \n  conf_mat_resampled()\n\n# A tibble: 4 × 3\n  Prediction Truth  Freq\n  &lt;fct&gt;      &lt;fct&gt; &lt;dbl&gt;\n1 fêmea      fêmea 41.1 \n2 fêmea      macho  3.84\n3 macho      fêmea  4.04\n4 macho      macho 43.5"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#ajustar-o-modelo-final",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#ajustar-o-modelo-final",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "8. Ajustar o modelo final",
+    "text": "8. Ajustar o modelo final\n\nAgora o conjunto de testes entra em ação para verificar como nosso modelo vai performar nestes dados nunca visto antes\n\n\nfinal_pinguins &lt;- wf_pinguins |&gt; \n  add_model(mod_log) |&gt; \n  last_fit(divisao_pinguins)\n\ncollect_metrics(final_pinguins)\n\n# A tibble: 2 × 4\n  .metric  .estimator .estimate .config             \n  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               \n1 accuracy binary         0.905 Preprocessor1_Model1\n2 roc_auc  binary         0.966 Preprocessor1_Model1\n\ncollect_predictions(final_pinguins) |&gt; \n  conf_mat(sexo, .pred_class)\n\n          Truth\nPrediction fêmea macho\n     fêmea    39     5\n     macho     3    37"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#olhar-os-coeficientes",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#olhar-os-coeficientes",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "9. Olhar os coeficientes",
+    "text": "9. Olhar os coeficientes\n\nOdds ratio:\n\nOR = 1 (sem efeito); OR &gt; 1 (risco); OR &lt; 1 (proteção)\nVariáveis numéricas: incremento percentual na chance para cada unidade de aumento\nVariáveis categóricas: grupo 1 tem maior chance do evento ocorrer em comparação ao grupo 2\n\n\n\n\nfinal_pinguins |&gt; \n  extract_workflow() |&gt; \n  tidy(exponentiate = TRUE) |&gt; \n  arrange(desc(estimate))\n\n# A tibble: 7 × 5\n  term                         estimate std.error statistic     p.value\n  &lt;chr&gt;                           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 profundidade_bico            7.50e+ 0   0.455       4.43  0.00000940 \n2 comprimento_bico             1.88e+ 0   0.159       4.00  0.0000639  \n3 comprimento_nadadeira        1.06e+ 0   0.0653      0.863 0.388      \n4 massa_corporal               1.01e+ 0   0.00138     4.63  0.00000374 \n5 `especiePinguim-de-barbicha` 9.76e- 4   1.91       -3.62  0.000295   \n6 `especiePinguim-gentoo`      1.96e- 4   3.25       -2.63  0.00866    \n7 (Intercept)                  2.35e-42  18.1        -5.30  0.000000115"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#verificar-a-performance-1",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#verificar-a-performance-1",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "7. Verificar a performance",
+    "text": "7. Verificar a performance"
+  },
+  {
+    "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#tarefa-de-casa",
+    "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#tarefa-de-casa",
+    "title": "Introdução ao aprendizado de máquina",
+    "section": "Tarefa de casa",
+    "text": "Tarefa de casa\n\n\n\nDica de leitura: An Introduction to Statistical Learning\nRodar os códigos dos slides para tentar reproduzir o exemplo\n\nLembre-se de instalar o pacote tidymodels caso não o tenha"
   }
 ]

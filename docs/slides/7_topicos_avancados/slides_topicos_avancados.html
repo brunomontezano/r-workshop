@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.361">
 
   <meta name="author" content="Bruno Montezano">
-  <title>Introdução ao R - Tópicos avançados</title>
+  <title>Introdução ao R - Introdução ao aprendizado de máquina</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -325,7 +390,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Tópicos avançados</h1>
+  <h1 class="title">Introdução ao aprendizado de máquina</h1>
   <p class="subtitle">Aula 7</p>
 
 <div class="quarto-title-authors">
@@ -339,7 +404,7 @@ Bruno Montezano
     </div>
 </div>
 
-  <p class="date">17 de abril de 2023</p>
+  <p class="date">12 de junho de 2023</p>
 </section>
 <section id="conteúdo-de-hoje" class="slide level2">
 <h2>Conteúdo de hoje</h2>
@@ -365,9 +430,367 @@ Bruno Montezano
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_topicos_avancados_files/figure-revealjs/unnamed-chunk-1-1.png" style="width:90.0%"></p>
+<p><img data-src="slides_topicos_avancados_files/figure-revealjs/exemplo-decision-tree-1.png" style="width:90.0%"></p>
 </figure>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="tipos-de-aprendizado" class="slide level2">
+<h2>Tipos de aprendizado</h2>
+
+<img data-src="slides_topicos_avancados_files/figure-revealjs/plot-tipos-aprendizado-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p><br></p>
+<div class="fragment">
+<p>Vamos trabalhar com um exemplo em <strong>aprendizado supervisionado</strong>!</p>
+</div>
+</section>
+<section id="aprendizado-supervisionado" class="slide level2">
+<h2>Aprendizado supervisionado</h2>
+
+<img data-src="slides_topicos_avancados_files/figure-revealjs/classificacao-regressao-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><div class="fragment">
+<p>Hoje vamos trabalhar com <strong>classificação</strong>.</p>
+</div>
+</section>
+<section id="problema-de-classificação" class="slide level2">
+<h2>Problema de classificação</h2>
+<p>Pergunta de pesquisa: <strong>Podemos prever o sexo de um pinguim baseado em sua espécie, comprimento do bico e da nadadeira, profundidade do bico e massa corporal?</strong></p>
+
+<img data-src="slides_topicos_avancados_files/figure-revealjs/exploratoria-pinguins-1.png" style="width:90.0%" class="r-stretch quarto-figure-center"></section>
+<section id="regressão-logística" class="slide level2">
+<h2>Regressão logística</h2>
+<ul>
+<li class="fragment"><p>Uma “extensão” da regressão linear para problemas de classificação</p></li>
+<li class="fragment"><p>Usa a função logística para transformar saída da regressão linear em uma probabilidade<sup>1</sup></p></li>
+<li class="fragment"><p>Coeficientes: efeito logarítmico do <span class="math inline">\(X\)</span> sobre a razão de chances (<em>odds ratio</em>). Ou seja, não devemos interpretar os coeficientes diretamente</p></li>
+<li class="fragment"><p>Em geral, usamos um limiar para decidir em qual classe o dado pertence (geralmente 0,5)</p></li>
+<li class="fragment"><p>Para calcular o <em>odds ratio</em> no R, podemos exponenciar o coeficiente da regressão com a função <code>exp()</code></p></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>No R, a função logística pode ser usada com <code>LaplacesDemon::invlogit()</code>.</p></li></ol></aside></section>
+<section id="tidymodels" class="slide level2">
+<h2><code>tidymodels</code></h2>
+
+<img data-src="../assets/logo_tidymodels.png" style="width:45.0%" class="r-stretch quarto-figure-center"></section>
+<section id="pacote-tidymodels" class="slide level2">
+<h2>Pacote <code>tidymodels</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ────────────────────────────────────── tidymodels 1.1.0 ──</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ broom        1.0.5     ✔ rsample      1.1.1
+✔ dials        1.2.0     ✔ tibble       3.2.1
+✔ infer        1.0.4     ✔ tidyr        1.3.0
+✔ modeldata    1.1.0     ✔ tune         1.1.1
+✔ parsnip      1.1.0     ✔ workflows    1.1.3
+✔ purrr        1.0.1     ✔ workflowsets 1.0.1
+✔ recipes      1.0.6     ✔ yardstick    1.2.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
+✖ purrr::discard() masks scales::discard()
+✖ dplyr::filter()  masks stats::filter()
+✖ dplyr::lag()     masks stats::lag()
+✖ dials::prune()   masks rpart::prune()
+✖ recipes::step()  masks stats::step()
+• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+</div>
+</div>
+</section>
+<section id="passo-a-passo" class="slide level2">
+<h2>Passo a passo</h2>
+<ol type="1">
+<li class="fragment"><p>Limpar os dados</p></li>
+<li class="fragment"><p>Dividir os dados em treino e teste</p></li>
+<li class="fragment"><p>Criar reamostragens com <em>bootstrapping</em></p></li>
+<li class="fragment"><p>Especificar o algoritmo a ser usado</p></li>
+<li class="fragment"><p>Especificar o fluxo de modelagem com a pergunta de pesquisa</p></li>
+<li class="fragment"><p>Ajustar modelos nas reamostragens</p></li>
+<li class="fragment"><p>Verificar como o modelo performou</p></li>
+<li class="fragment"><p>Ajustar o modelo final no conjunto de treino e testar no conjunto de teste</p></li>
+<li class="fragment"><p>Checar os coeficientes</p></li>
+</ol>
+</section>
+<section id="limpar-os-dados" class="slide level2">
+<h2>1. Limpar os dados</h2>
+<ul>
+<li class="fragment"><p>Nesta etapa, vamos remover pinguins com valor ausente no desfecho</p></li>
+<li class="fragment"><p>E também remover as variáveis de ano e ilha que não usaremos</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>dados_pinguins <span class="ot">&lt;-</span> pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(sexo)) <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">select</span>(<span class="sc">-</span>ano, <span class="sc">-</span>ilha)</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a>dados_pinguins</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 333 × 6
+   especie           comprimento_bico profundidade_bico comprimento_nadadeira
+   &lt;fct&gt;                        &lt;dbl&gt;             &lt;dbl&gt;                 &lt;int&gt;
+ 1 Pinguim-de-adélia             39.1              18.7                   181
+ 2 Pinguim-de-adélia             39.5              17.4                   186
+ 3 Pinguim-de-adélia             40.3              18                     195
+ 4 Pinguim-de-adélia             36.7              19.3                   193
+ 5 Pinguim-de-adélia             39.3              20.6                   190
+ 6 Pinguim-de-adélia             38.9              17.8                   181
+ 7 Pinguim-de-adélia             39.2              19.6                   195
+ 8 Pinguim-de-adélia             41.1              17.6                   182
+ 9 Pinguim-de-adélia             38.6              21.2                   191
+10 Pinguim-de-adélia             34.6              21.1                   198
+# ℹ 323 more rows
+# ℹ 2 more variables: massa_corporal &lt;int&gt;, sexo &lt;fct&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="dividir-os-dados" class="slide level2">
+<h2>2. Dividir os dados</h2>
+<ul>
+<li class="fragment">Quando falamos em aprendizado supervisionado, buscamos simular a predição de dados nunca visto antes</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>divisao_pinguins <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(dados_pinguins, <span class="at">strata =</span> <span class="st">"sexo"</span>, <span class="at">prop =</span> <span class="fl">0.75</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>treino_pinguins <span class="ot">&lt;-</span> <span class="fu">training</span>(divisao_pinguins)</span>
+<span id="cb7-5"><a href="#cb7-5"></a>teste_pinguins <span class="ot">&lt;-</span> <span class="fu">testing</span>(divisao_pinguins)</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a>divisao_pinguins</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;Training/Testing/Total&gt;
+&lt;249/84/333&gt;</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="criar-reamostragens" class="slide level2">
+<h2>3. Criar reamostragens</h2>
+<ul>
+<li class="fragment"><p><em>Bootstrapping</em>: técnica que nos permite estimar a variabilidade do desempenho do modelo de classificação a partir de uma única amostra de treinamento</p></li>
+<li class="fragment"><p>Como funciona: criamos várias amostras de treinamento adicionais, sorteando aleatoriamente observações do conjunto de treino original</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a></span>
+<span id="cb9-3"><a href="#cb9-3"></a>boot_pinguins <span class="ot">&lt;-</span> <span class="fu">bootstraps</span>(treino_pinguins, <span class="at">times =</span> <span class="dv">25</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a>boot_pinguins</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Bootstrap sampling 
+# A tibble: 25 × 2
+   splits            id         
+   &lt;list&gt;            &lt;chr&gt;      
+ 1 &lt;split [249/93]&gt;  Bootstrap01
+ 2 &lt;split [249/93]&gt;  Bootstrap02
+ 3 &lt;split [249/97]&gt;  Bootstrap03
+ 4 &lt;split [249/95]&gt;  Bootstrap04
+ 5 &lt;split [249/103]&gt; Bootstrap05
+ 6 &lt;split [249/86]&gt;  Bootstrap06
+ 7 &lt;split [249/92]&gt;  Bootstrap07
+ 8 &lt;split [249/83]&gt;  Bootstrap08
+ 9 &lt;split [249/89]&gt;  Bootstrap09
+10 &lt;split [249/95]&gt;  Bootstrap10
+# ℹ 15 more rows</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="especificar-o-algoritmo" class="slide level2">
+<h2>4. Especificar o algoritmo</h2>
+<ul>
+<li class="fragment"><p>Especificamos que queremos usar uma <em>regressão logística binomial</em></p></li>
+<li class="fragment"><p>Dizemos para o R que o motor (<em>engine</em>) usado é a função <code>glm()</code></p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mod_log <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a>mod_log</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Logistic Regression Model Specification (classification)
+
+Computational engine: glm </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="especificar-o-fluxo" class="slide level2">
+<h2>5. Especificar o fluxo</h2>
+<ul>
+<li class="fragment">Vamos dizer para o R que queremos prever o <code>sexo</code> do pinguim a partir de todas as outras variáveis do conjunto de dados</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>wf_pinguins <span class="ot">&lt;-</span> <span class="fu">workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">add_formula</span>(sexo <span class="sc">~</span> .)</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a>wf_pinguins</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
+Preprocessor: Formula
+Model: None
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+sexo ~ .</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="ajustar-modelos-nas-reamostragens" class="slide level2">
+<h2>6. Ajustar modelos nas reamostragens</h2>
+<ul>
+<li class="fragment">Para cada reamostragem (de treino e teste), vamos ajustar o modelo em cada base de treino e avaliar como o modelo desempenhou a partir das bases de teste</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>rs_pinguins <span class="ot">&lt;-</span> wf_pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">add_model</span>(mod_log) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">fit_resamples</span>(</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="at">resamples =</span> boot_pinguins,</span>
+<span id="cb15-5"><a href="#cb15-5"></a>    <span class="at">control =</span> <span class="fu">control_resamples</span>(</span>
+<span id="cb15-6"><a href="#cb15-6"></a>      <span class="at">save_pred =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb15-7"><a href="#cb15-7"></a>      <span class="at">verbose =</span> <span class="cn">TRUE</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a>    )</span>
+<span id="cb15-9"><a href="#cb15-9"></a>  )</span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a>rs_pinguins</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Resampling results
+# Bootstrap sampling 
+# A tibble: 25 × 5
+   splits            id          .metrics         .notes           .predictions
+   &lt;list&gt;            &lt;chr&gt;       &lt;list&gt;           &lt;list&gt;           &lt;list&gt;      
+ 1 &lt;split [249/93]&gt;  Bootstrap01 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 2 &lt;split [249/93]&gt;  Bootstrap02 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 3 &lt;split [249/97]&gt;  Bootstrap03 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 4 &lt;split [249/95]&gt;  Bootstrap04 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 5 &lt;split [249/103]&gt; Bootstrap05 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 6 &lt;split [249/86]&gt;  Bootstrap06 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 7 &lt;split [249/92]&gt;  Bootstrap07 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 8 &lt;split [249/83]&gt;  Bootstrap08 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+ 9 &lt;split [249/89]&gt;  Bootstrap09 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+10 &lt;split [249/95]&gt;  Bootstrap10 &lt;tibble [2 × 4]&gt; &lt;tibble [0 × 3]&gt; &lt;tibble&gt;    
+# ℹ 15 more rows</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="verificar-a-performance" class="slide level2">
+<h2>7. Verificar a performance</h2>
+<ul>
+<li class="fragment"><p>A curva ROC nos permite visualizar o desempenho do modelo em diferentes pontos de corte</p></li>
+<li class="fragment"><p>Quanto mais próximo a curva estiver do canto superior esquerdo, melhor será o desempenho do modelo</p></li>
+<li class="fragment"><p>Acurácia é a proporção de predições corretas em relação ao total de predições</p></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">collect_metrics</span>(rs_pinguins)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  .metric  .estimator  mean     n std_err .config             
+  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
+1 accuracy binary     0.915    25 0.00510 Preprocessor1_Model1
+2 roc_auc  binary     0.977    25 0.00240 Preprocessor1_Model1</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>rs_pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">conf_mat_resampled</span>()</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+  Prediction Truth  Freq
+  &lt;fct&gt;      &lt;fct&gt; &lt;dbl&gt;
+1 fêmea      fêmea 41.1 
+2 fêmea      macho  3.84
+3 macho      fêmea  4.04
+4 macho      macho 43.5 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="verificar-a-performance-1" class="slide level2">
+<h2>7. Verificar a performance</h2>
+
+<img data-src="slides_topicos_avancados_files/figure-revealjs/curva-roc-reamostragem-1.png" style="width:65.0%" class="r-stretch quarto-figure-center"></section>
+<section id="ajustar-o-modelo-final" class="slide level2">
+<h2>8. Ajustar o modelo final</h2>
+<ul>
+<li class="fragment">Agora o conjunto de testes entra em ação para verificar como nosso modelo vai performar nestes dados nunca visto antes</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>final_pinguins <span class="ot">&lt;-</span> wf_pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">add_model</span>(mod_log) <span class="sc">|&gt;</span> </span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">last_fit</span>(divisao_pinguins)</span>
+<span id="cb21-4"><a href="#cb21-4"></a></span>
+<span id="cb21-5"><a href="#cb21-5"></a><span class="fu">collect_metrics</span>(final_pinguins)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  .metric  .estimator .estimate .config             
+  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
+1 accuracy binary         0.905 Preprocessor1_Model1
+2 roc_auc  binary         0.966 Preprocessor1_Model1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">collect_predictions</span>(final_pinguins) <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">conf_mat</span>(sexo, .pred_class)</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Truth
+Prediction fêmea macho
+     fêmea    39     5
+     macho     3    37</code></pre>
+</div>
+</div>
+</section>
+<section id="olhar-os-coeficientes" class="slide level2">
+<h2>9. Olhar os coeficientes</h2>
+<ul>
+<li class="fragment"><em>Odds ratio</em>:
+<ul>
+<li class="fragment">OR = 1 (sem efeito); OR &gt; 1 (risco); OR &lt; 1 (proteção)</li>
+<li class="fragment">Variáveis numéricas: incremento percentual na chance para cada unidade de aumento</li>
+<li class="fragment">Variáveis categóricas: grupo 1 tem maior chance do evento ocorrer em comparação ao grupo 2</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>final_pinguins <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">extract_workflow</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">tidy</span>(<span class="at">exponentiate =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(estimate))</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 5
+  term                         estimate std.error statistic     p.value
+  &lt;chr&gt;                           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+1 profundidade_bico            7.50e+ 0   0.455       4.43  0.00000940 
+2 comprimento_bico             1.88e+ 0   0.159       4.00  0.0000639  
+3 comprimento_nadadeira        1.06e+ 0   0.0653      0.863 0.388      
+4 massa_corporal               1.01e+ 0   0.00138     4.63  0.00000374 
+5 `especiePinguim-de-barbicha` 9.76e- 4   1.91       -3.62  0.000295   
+6 `especiePinguim-gentoo`      1.96e- 4   3.25       -2.63  0.00866    
+7 (Intercept)                  2.35e-42  18.1        -5.30  0.000000115</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="tarefa-de-casa" class="slide level2">
+<h2>Tarefa de casa</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li class="fragment"><p>Dica de leitura: <a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a></p></li>
+<li class="fragment"><p>Rodar os códigos dos slides para tentar reproduzir o exemplo</p>
+<ul>
+<li class="fragment">Lembre-se de instalar o pacote <code>tidymodels</code> caso não o tenha</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="../assets/capa_islr.jpg" style="width:65.0%"></p>
 </div>
 </div>
 
@@ -375,8 +798,8 @@ Bruno Montezano
 <div class="footer footer-default">
 
 </div>
-</div>
 </section>
+
     </div>
   </div>
 
