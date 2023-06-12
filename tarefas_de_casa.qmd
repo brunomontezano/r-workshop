@@ -125,11 +125,11 @@ para acompanhar sua análise de regressão linear simples.
   
 [Acessar o gabarito.](gabaritos/6_regressao/gabarito.html)
   
-## Aula 7: Introdução ao *machine learning*
+## Aula 7: Introdução ao aprendizado de máquina
 
 * Dica de leitura: [An Introduction to Statistical Learning](https://www.statlearning.com/)
 
 1. Rodar os códigos dos slides para tentar reproduzir o exemplo
-  - Lembre-se de instalar o pacote `tidymodels` caso não o tenha
+    - Lembre-se de instalar o pacote `tidymodels` caso não o tenha
   
 [Acessar o gabarito.](gabaritos/7_intro_ml/gabarito.html)

@@ -1978,7 +1978,7 @@
     "href": "gabaritos/7_intro_ml/gabarito.html#rodar-os-códigos-dos-slides-para-tentar-reproduzir-o-exemplo",
     "title": "Gabarito da Aula 7: Introdução ao aprendizado de máquina",
     "section": "Rodar os códigos dos slides para tentar reproduzir o exemplo",
-    "text": "Rodar os códigos dos slides para tentar reproduzir o exemplo\nO código pode ser acessado através deste link. Você deve ter o pacote tidymodels instalado no seu R para ser capaz de rodar o exemplo dado em aula. Aproveite para mudar os argumentos das funções e observar quais mudanças acontecem, é um bom exercício!"
+    "text": "Rodar os códigos dos slides para tentar reproduzir o exemplo\nO código pode ser acessado através deste link. Você deve ter o pacote tidymodels instalado no seu R para ser capaz de rodar o exemplo dado em aula. Você pode instalar o pacote da seguinte forma:\n\ninstall.packages(\"tidymodels\")\n\nAproveite para mudar os argumentos das funções e observar quais mudanças acontecem, é um bom exercício!"
   },
   {
     "objectID": "tarefas_de_casa.html#aula-7-introdução-ao-machine-learning",
@@ -1986,5 +1986,12 @@
     "title": "Tarefas de casa",
     "section": "Aula 7: Introdução ao machine learning",
     "text": "Aula 7: Introdução ao machine learning\n\nDica de leitura: An Introduction to Statistical Learning\n\n\nRodar os códigos dos slides para tentar reproduzir o exemplo\n\n\nLembre-se de instalar o pacote tidymodels caso não o tenha\n\nAcessar o gabarito."
+  },
+  {
+    "objectID": "tarefas_de_casa.html#aula-7-introdução-ao-aprendizado-de-máquina",
+    "href": "tarefas_de_casa.html#aula-7-introdução-ao-aprendizado-de-máquina",
+    "title": "Tarefas de casa",
+    "section": "Aula 7: Introdução ao aprendizado de máquina",
+    "text": "Aula 7: Introdução ao aprendizado de máquina\n\nDica de leitura: An Introduction to Statistical Learning\n\n\nRodar os códigos dos slides para tentar reproduzir o exemplo\n\nLembre-se de instalar o pacote tidymodels caso não o tenha\n\n\nAcessar o gabarito."
   }
 ]

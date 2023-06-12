@@ -16,6 +16,12 @@ utilizando o *framework* do `tidymodels` ([você pode acessar aqui o site](https
 
 O código pode ser acessado [através deste link](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_intro_ml/slides_intro_ml.qmd).
 Você deve ter o pacote `tidymodels` instalado no seu R para ser capaz de
-rodar o exemplo dado em aula.
+rodar o exemplo dado em aula. Você pode instalar o pacote da seguinte forma:
+
+```{r instalar-tidymodels}
+#| eval: false
+install.packages("tidymodels")
+```
+
 Aproveite para mudar os argumentos das funções e observar quais mudanças acontecem,
 é um bom exercício!
