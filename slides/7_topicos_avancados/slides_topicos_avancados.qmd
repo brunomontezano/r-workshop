@@ -20,13 +20,8 @@ format:
 
 - O que é machine learning?
 - Aprendizado supervisionado e não-supervisionado
-- Métricas de avaliação de modelos
-- Regressão logística
-- Árvores de decisão
-- Random forests
-- Modelos não-supervisionados
-- Limitações
-- Exemplo
+- Regressão e classificação
+- Exemplo de regressão logística
 
 ## Machine learning
 
@@ -307,7 +302,7 @@ boot_pinguins
 
 ```{r especificar-algoritmo}
 mod_log <- logistic_reg() |> 
-  set_mode("classification")
+  set_mode("classification") |> 
   set_engine("glm")
 
 mod_log

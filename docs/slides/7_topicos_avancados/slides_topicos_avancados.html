@@ -411,13 +411,8 @@ Bruno Montezano
 <ul>
 <li class="fragment">O que é machine learning?</li>
 <li class="fragment">Aprendizado supervisionado e não-supervisionado</li>
-<li class="fragment">Métricas de avaliação de modelos</li>
-<li class="fragment">Regressão logística</li>
-<li class="fragment">Árvores de decisão</li>
-<li class="fragment">Random forests</li>
-<li class="fragment">Modelos não-supervisionados</li>
-<li class="fragment">Limitações</li>
-<li class="fragment">Exemplo</li>
+<li class="fragment">Regressão e classificação</li>
+<li class="fragment">Exemplo de regressão logística</li>
 </ul>
 </section>
 <section id="machine-learning" class="slide level2">
@@ -608,9 +603,10 @@ Bruno Montezano
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mod_log <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a>mod_log</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a>mod_log</span></code><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Logistic Regression Model Specification (classification)
 
@@ -724,6 +720,7 @@ sexo ~ .</code></pre>
 <ul>
 <li class="fragment">Agora o conjunto de testes entra em ação para verificar como nosso modelo vai performar nestes dados nunca visto antes</li>
 </ul>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>final_pinguins <span class="ot">&lt;-</span> wf_pinguins <span class="sc">|&gt;</span> </span>
 <span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">add_model</span>(mod_log) <span class="sc">|&gt;</span> </span>
@@ -744,6 +741,7 @@ sexo ~ .</code></pre>
 Prediction fêmea macho
      fêmea    39     5
      macho     3    37</code></pre>
+</div>
 </div>
 </div>
 </section>

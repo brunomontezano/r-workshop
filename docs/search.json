@@ -480,7 +480,7 @@
     "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#conteúdo-de-hoje",
     "title": "Introdução ao aprendizado de máquina",
     "section": "Conteúdo de hoje",
-    "text": "Conteúdo de hoje\n\nO que é machine learning?\nAprendizado supervisionado e não-supervisionado\nMétricas de avaliação de modelos\nRegressão logística\nÁrvores de decisão\nRandom forests\nModelos não-supervisionados\nLimitações\nExemplo"
+    "text": "Conteúdo de hoje\n\nO que é machine learning?\nAprendizado supervisionado e não-supervisionado\nRegressão e classificação\nExemplo de regressão logística"
   },
   {
     "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#machine-learning",
@@ -1747,7 +1747,7 @@
     "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#especificar-o-algoritmo",
     "title": "Introdução ao aprendizado de máquina",
     "section": "4. Especificar o algoritmo",
-    "text": "4. Especificar o algoritmo\n\nEspecificamos que queremos usar uma regressão logística binomial\nDizemos para o R que o motor (engine) usado é a função glm()\n\n\n\nmod_log &lt;- logistic_reg() |&gt; \n  set_engine(\"glm\")\n\nmod_log\n\nLogistic Regression Model Specification (classification)\n\nComputational engine: glm"
+    "text": "4. Especificar o algoritmo\n\nEspecificamos que queremos usar uma regressão logística binomial\nDizemos para o R que o motor (engine) usado é a função glm()\n\n\n\nmod_log &lt;- logistic_reg() |&gt; \n  set_mode(\"classification\") |&gt; \n  set_engine(\"glm\")\n\nmod_log\n\nLogistic Regression Model Specification (classification)\n\nComputational engine: glm"
   },
   {
     "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#especificar-o-fluxo",
@@ -1775,7 +1775,7 @@
     "href": "slides/7_topicos_avancados/slides_topicos_avancados.html#ajustar-o-modelo-final",
     "title": "Introdução ao aprendizado de máquina",
     "section": "8. Ajustar o modelo final",
-    "text": "8. Ajustar o modelo final\n\nAgora o conjunto de testes entra em ação para verificar como nosso modelo vai performar nestes dados nunca visto antes\n\n\nfinal_pinguins &lt;- wf_pinguins |&gt; \n  add_model(mod_log) |&gt; \n  last_fit(divisao_pinguins)\n\ncollect_metrics(final_pinguins)\n\n# A tibble: 2 × 4\n  .metric  .estimator .estimate .config             \n  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               \n1 accuracy binary         0.905 Preprocessor1_Model1\n2 roc_auc  binary         0.966 Preprocessor1_Model1\n\ncollect_predictions(final_pinguins) |&gt; \n  conf_mat(sexo, .pred_class)\n\n          Truth\nPrediction fêmea macho\n     fêmea    39     5\n     macho     3    37"
+    "text": "8. Ajustar o modelo final\n\nAgora o conjunto de testes entra em ação para verificar como nosso modelo vai performar nestes dados nunca visto antes\n\n\n\nfinal_pinguins &lt;- wf_pinguins |&gt; \n  add_model(mod_log) |&gt; \n  last_fit(divisao_pinguins)\n\ncollect_metrics(final_pinguins)\n\n# A tibble: 2 × 4\n  .metric  .estimator .estimate .config             \n  &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               \n1 accuracy binary         0.905 Preprocessor1_Model1\n2 roc_auc  binary         0.966 Preprocessor1_Model1\n\ncollect_predictions(final_pinguins) |&gt; \n  conf_mat(sexo, .pred_class)\n\n          Truth\nPrediction fêmea macho\n     fêmea    39     5\n     macho     3    37"
   },
   {
     "objectID": "slides/7_topicos_avancados/slides_topicos_avancados.html#olhar-os-coeficientes",
