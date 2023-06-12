@@ -263,7 +263,7 @@
     "href": "tarefas_de_casa.html#aula-7-tópicos-avançados",
     "title": "Tarefas de casa",
     "section": "Aula 7: Tópicos avançados",
-    "text": "Aula 7: Tópicos avançados\nEm construção."
+    "text": "Aula 7: Tópicos avançados\n\nDica de leitura: An Introduction to Statistical Learning\n\n\nRodar os códigos dos slides para tentar reproduzir o exemplo\n\n\nLembre-se de instalar o pacote tidymodels caso não o tenha\n\nAcessar o gabarito."
   },
   {
     "objectID": "perguntas_frequentes.html",
@@ -1958,5 +1958,26 @@
     "title": "Introdução ao aprendizado de máquina",
     "section": "Notas de rodapé",
     "text": "Notas de rodapé\n\n\nNo R, a função logística pode ser usada com LaplacesDemon::invlogit().↩︎"
+  },
+  {
+    "objectID": "gabaritos/7_intro_ml/gabarito.html",
+    "href": "gabaritos/7_intro_ml/gabarito.html",
+    "title": "Gabarito da Aula 7: Introdução ao aprendizado de máquina",
+    "section": "",
+    "text": "Este livro é um dos melhores materiais para aprender aprendizado de máquina. O livro traz diversos exemplos em R além de explicar algumas bases estatísticas de forma didática com aplicações práticas. Recomendo que você leia! O engenheiro de software Emil Hvitfeldt solucionou os laboratórios do livro utilizando o framework do tidymodels (você pode acessar aqui o site)."
+  },
+  {
+    "objectID": "gabaritos/7_intro_ml/gabarito.html#dica-de-leitura-an-introduction-to-statistical-learning",
+    "href": "gabaritos/7_intro_ml/gabarito.html#dica-de-leitura-an-introduction-to-statistical-learning",
+    "title": "Gabarito da Aula 7: Introdução ao aprendizado de máquina",
+    "section": "",
+    "text": "Este livro é um dos melhores materiais para aprender aprendizado de máquina. O livro traz diversos exemplos em R além de explicar algumas bases estatísticas de forma didática com aplicações práticas. Recomendo que você leia! O engenheiro de software Emil Hvitfeldt solucionou os laboratórios do livro utilizando o framework do tidymodels (você pode acessar aqui o site)."
+  },
+  {
+    "objectID": "gabaritos/7_intro_ml/gabarito.html#rodar-os-códigos-dos-slides-para-tentar-reproduzir-o-exemplo",
+    "href": "gabaritos/7_intro_ml/gabarito.html#rodar-os-códigos-dos-slides-para-tentar-reproduzir-o-exemplo",
+    "title": "Gabarito da Aula 7: Introdução ao aprendizado de máquina",
+    "section": "Rodar os códigos dos slides para tentar reproduzir o exemplo",
+    "text": "Rodar os códigos dos slides para tentar reproduzir o exemplo\nO código pode ser acessado através deste link. Você deve ter o pacote tidymodels instalado no seu R para ser capaz de rodar o exemplo dado em aula. Aproveite para mudar os argumentos das funções e observar quais mudanças acontecem, é um bom exercício!"
   }
 ]

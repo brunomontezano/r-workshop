@@ -126,5 +126,10 @@ para acompanhar sua análise de regressão linear simples.
 [Acessar o gabarito.](gabaritos/6_regressao/gabarito.html)
   
 ## Aula 7: Tópicos avançados
+
+* Dica de leitura: [An Introduction to Statistical Learning](https://www.statlearning.com/)
+
+1. Rodar os códigos dos slides para tentar reproduzir o exemplo
+  - Lembre-se de instalar o pacote `tidymodels` caso não o tenha
   
-Em construção.
+[Acessar o gabarito.](gabaritos/7_intro_ml/gabarito.html)
