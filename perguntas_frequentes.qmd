@@ -30,7 +30,7 @@ O plano de aulas seguirá as seguintes aulas:
 4. Análise descritiva
 5. Análise inferencial
 6. Modelos de regressão
-7. Tópicos avançados
+7. Introdução ao aprendizado de máquina
 
 Ou seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora.
 
@@ -65,7 +65,7 @@ Segue abaixo o cronograma de aulas do curso:
 4. Análise descritiva (22/05/2023)
 5. Inferência estatística (29/05/2023)
 6. Modelos de regressão (05/06/2023)
-7. Tópicos avançados (12/06/2023)
+7. Introdução ao aprendizado de máquina (12/06/2023)
 
 Em relação aos laboratórios, eles acontecerão no sábado da semana
 da aula correspondente. Assim como as aulas, os laboratórios serão

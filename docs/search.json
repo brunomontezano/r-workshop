@@ -291,7 +291,7 @@
     "href": "perguntas_frequentes.html#quantas-aulas-serão-realizadas",
     "title": "Perguntas frequentes",
     "section": "Quantas aulas serão realizadas?",
-    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nManipulação de dados\nVisualização de dados\nAnálise descritiva\nAnálise inferencial\nModelos de regressão\nTópicos avançados\n\nOu seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora."
+    "text": "Quantas aulas serão realizadas?\nO plano de aulas seguirá as seguintes aulas:\n\nR e RStudio\nManipulação de dados\nVisualização de dados\nAnálise descritiva\nAnálise inferencial\nModelos de regressão\nIntrodução ao aprendizado de máquina\n\nOu seja, realizaremos sete aulas com duração entre 45 minutos e 1 hora."
   },
   {
     "objectID": "perguntas_frequentes.html#o-código-fonte-do-site-do-curso-é-disponibilizado",
@@ -312,7 +312,7 @@
     "href": "perguntas_frequentes.html#qual-o-cronograma-de-aulas-o-curso-terá-laboratórios",
     "title": "Perguntas frequentes",
     "section": "Qual o cronograma de aulas? O curso terá laboratórios?",
-    "text": "Qual o cronograma de aulas? O curso terá laboratórios?\nSegue abaixo o cronograma de aulas do curso:\n\nR e RStudio (17/04/2023)\nManipulação de dados (24/04/2023)\nVisualização de dados (08/05/2023)\nAnálise descritiva (22/05/2023)\nInferência estatística (29/05/2023)\nModelos de regressão (05/06/2023)\nTópicos avançados (12/06/2023)\n\nEm relação aos laboratórios, eles acontecerão no sábado da semana da aula correspondente. Assim como as aulas, os laboratórios serão gravados e disponibilizados no site do curso."
+    "text": "Qual o cronograma de aulas? O curso terá laboratórios?\nSegue abaixo o cronograma de aulas do curso:\n\nR e RStudio (17/04/2023)\nManipulação de dados (24/04/2023)\nVisualização de dados (08/05/2023)\nAnálise descritiva (22/05/2023)\nInferência estatística (29/05/2023)\nModelos de regressão (05/06/2023)\nIntrodução ao aprendizado de máquina (12/06/2023)\n\nEm relação aos laboratórios, eles acontecerão no sábado da semana da aula correspondente. Assim como as aulas, os laboratórios serão gravados e disponibilizados no site do curso."
   },
   {
     "objectID": "perguntas_frequentes.html#o-curso-possui-algum-pré-requisito",
