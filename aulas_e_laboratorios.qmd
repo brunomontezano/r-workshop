@@ -69,4 +69,5 @@ Os materiais descritos nesta página são mantidos pelo autor Bruno Montezano.
 * [Slides](slides/7_intro_ml/slides_intro_ml.html)
 * [Código dos slides](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_intro_ml/slides_intro_ml.qmd)
 * [Script em R](https://raw.githubusercontent.com/brunomontezano/r-workshop/main/slides/7_intro_ml/script_intro_ml.R)
+* [Gravação da aula](https://youtu.be/3cNKK-tqAv0)
 
