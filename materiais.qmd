@@ -6,7 +6,7 @@ lang: pt-br
 Nesta página, você encontra diversos materiais complementares
 que podem te auxiliar no processo de aprendizagem de R. Os temas
 estão divididos nas seguintes seções:
-gerais, visualização de dados, estatística básica,
+gerais, visualização de dados, estatística,
 reprodutibilidade e comunicação, aprendizado de máquina e metanálise.
 Todos os materiais são de acesso aberto sem custo algum.
 A lista abaixo é mantida pelo autor Bruno Montezano.
@@ -57,7 +57,7 @@ livro foram todos criados usando `ggplot2`.
 este documento criado pelo Dr. Ying Wei, lista a maioria das cores nomeadas do R que podem
 ser utilizadas para personalizar seus gráficos.
 
-## Estatística básica
+## Estatística
 
 * [OpenIntro Statistics](https://www.openintro.org/book/os/): escrito por Diez et al.,
 um livro livre e de código aberto para introdução à estatística.
@@ -88,6 +88,18 @@ escrito por Andrew Gelman, Jennifer Hill e Aki Vehtari, é um livro sobre
 como usar modelos de regressão para resolver problemas reais de
 comparação, estimação, predição e inferência causal. O livro apresenta
 vários exemplos e códigos em R para todos os capítulos.
+* [Introduction to Data Science: Data Analysis and Prediction Algorithms with R](https://rafalab.dfci.harvard.edu/dsbook/): livro escrito pelo estatístico
+Rafael Irizarry, aborda conceitos básicos de R e pacote `tidyverse`,
+visualização de dados, probabilidade, inferência e regressão, além de comentar
+sobre *machine learning* e algumas ferramentas de produtividade.
+* [Beyond Multiple Linear Regression: Applied Generalized Linear Models and Multilevel Models in R](https://bookdown.org/roback/bookdown-BeyondMLR/):
+livro escrito por Paul Roback e Julie Legler, é uma introdução a modelos
+lineares generalizados e modelos multinível em R. Assume conhecimento prévio
+em regressão linear e logística.
+* [Bayes Rules! An Introduction to Applied Bayesian Modeling](https://www.bayesrulesbook.com/): livro de Alicia Johnson, Miles Ott e
+Mine Dogucu sobre o poder da estatística bayesiana como uma alternativa para
+métodos frequentistas de análise de dados. Assume conhecimentos introdutórios
+de estatística.
 
 ## Reprodutibilidade e Comunicação
 
@@ -120,6 +132,14 @@ escrito por Greg Wilson et al., o paper publicado em 2017 apresenta boas
 práticas de computação para pesquisadores, independentemente do nível de
 habilidade em computação, a fim de melhorar a efetividade em
 trabalhar com dados, software e projetos.
+* [R Packages (segunda edição)](https://r-pkgs.org/): livro escrito por
+Hadley Wickham e Jennifer Bryan sobre como criar pacotes em R para compartilhar
+e reutilizar seu código de forma reprodutível e encapsulada.
+* [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/):
+livro escrito por Colin Fay, Sébastien Rochette, Vincent Guyader e
+Cervan Girard, discute o processo de construir uma aplicação web em Shiny que
+possa ser enviada para produção (*deploy*). Assume conhecimentos prévios com
+o framework `shiny`.
 
 ## Machine Learning
 
