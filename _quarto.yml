@@ -33,7 +33,8 @@ website:
 
 format:
   html:
-    theme: simplex
+    theme: litera
+    highlight-style: nord
     css: styles.css
     toc: false
 

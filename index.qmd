@@ -1,7 +1,10 @@
 ---
 title: "Introdução ao R"
 subtitle: "Aplicações em ciências da saúde"
-author: "Bruno Montezano"
+author:
+  name: "Bruno Montezano"
+  orcid: 0000-0002-4627-1776
+  url: https://brunomontezano.github.io/
 institute: "Grupo AlliaNCE<br>Universidade Federal do Rio Grande do Sul"
 description: "Curso voltado para desenvolvimento de habilidades de manipulação e análise de dados em R para pesquisadores da área da saúde"
 date: last-modified
